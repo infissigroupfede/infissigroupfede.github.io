@@ -288,7 +288,6 @@
   --dur-fast: 150ms;
   --dur-ui: 200ms;
   --dur-slow: 250ms;
-  --dur-anta: 700ms;
 
   /* Header e barra mobile */
   --header-h: 72px;       /* altezza iniziale, riservata in cima alla pagina */
@@ -1473,16 +1472,11 @@ label.cookie__cat { cursor: pointer; }
 
 /* =====================================================================
    12. MOVIMENTO E REDUCED MOTION
-   Un solo momento orchestrato: l'immagine dell'hero si apre come un'anta.
+   Nessuna animazione all'apertura della pagina: la foto dell'hero compare subito.
    ===================================================================== */
 @view-transition { navigation: auto; }
 ::view-transition-old(root),
 ::view-transition-new(root) { animation-duration: 200ms; animation-timing-function: var(--ease); }
-@keyframes anta-apertura {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-.js .hero__slides { animation: anta-apertura var(--dur-anta) var(--ease) 120ms both; }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
@@ -1493,7 +1487,6 @@ label.cookie__cat { cursor: pointer; }
     animation-delay: 0s !important;
     transition-duration: 1ms !important;
   }
-  .js .hero__slides { animation: none; }
   .area:hover .area__media > *, .work:hover .work__media > *, .news__item:hover .news__media > * { transform: none; }
 }
 /* =====================================================================
