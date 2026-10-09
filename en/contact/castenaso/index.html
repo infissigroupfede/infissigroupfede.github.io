@@ -818,6 +818,8 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .nav__link[aria-expanded="true"]::after,
   .nav__link[aria-current="page"]::after { transform: scaleX(1); }
   .nav__chev, .nav__level-head { display: none; }
+  /* Le voci che aprono un pannello sono pulsanti, non link: cursore normale, la manina resta solo sui link */
+  button.nav__link { cursor: default; }
   .nav__panel {
     position: absolute;
     top: 100%; left: 0;
