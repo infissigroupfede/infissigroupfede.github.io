@@ -2717,30 +2717,26 @@ const FORM_ENDPOINT = "/api/preventivo.php";
   }
 
   /* -------------------------------------------------------------------
-     5. Carosello dell'hero: dissolvenza ogni 6 secondi, senza indicatori.
-        Si ferma con il mouse sopra la foto, con scheda nascosta e con movimento ridotto.
+     5. Carosello dell'hero: cambia foto ogni 6 secondi, in dissolvenza, senza indicatori.
+        Si ferma solo con la scheda del browser nascosta. La foto successiva viene
+        caricata in anticipo, così compare già pronta.
      ------------------------------------------------------------------- */
   const slides = $$(".hero__slide");
   if (slides.length > 1) {
-    const frame = $(".hero__frame");
     const DELAY = 6000;
     let cur = 0, timer = 0;
-    const paused = matchMedia("(prefers-reduced-motion: reduce)").matches; // movimento ridotto: niente scorrimento automatico
-    let held = false; // sospensione temporanea: mouse sul carosello
     const go = (n) => {
       cur = (n + slides.length) % slides.length;
       slides.forEach((img, i) => {
         img.classList.toggle("is-active", i === cur);
         img.setAttribute("aria-hidden", String(i !== cur));
-        if (i === cur) img.loading = "eager";
       });
+      slides[(cur + 1) % slides.length].loading = "eager"; // precarica la prossima
     };
     const schedule = () => {
       clearTimeout(timer);
-      if (!paused && !held && !document.hidden) timer = setTimeout(() => { go(cur + 1); schedule(); }, DELAY);
+      if (!document.hidden) timer = setTimeout(() => { go(cur + 1); schedule(); }, DELAY);
     };
-    frame.addEventListener("pointerenter", () => { held = true; schedule(); });
-    frame.addEventListener("pointerleave", () => { held = false; schedule(); });
     document.addEventListener("visibilitychange", schedule);
     go(0);
     schedule();
