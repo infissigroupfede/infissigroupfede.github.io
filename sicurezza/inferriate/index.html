@@ -208,7 +208,6 @@
   --header-h: 72px;       /* altezza iniziale, riservata in cima alla pagina */
   --bar-h: 72px;          /* riga principale dell'header */
   --bar-h-compact: 64px;  /* riga principale dopo lo scroll */
-  --utility-h: 0px;       /* riga di servizio, solo da 1200px */
   --mbar-h: 60px;
 }
 @media (min-width: 768px) {
@@ -216,10 +215,6 @@
 }
 @media (min-width: 1024px) {
   :root { --cols: 12; }
-}
-@media (min-width: 1200px) {
-  /* 24px di riga di servizio + 64px di riga principale = 88px, poi 64px durante lo scroll */
-  :root { --header-h: 88px; --bar-h: 64px; --utility-h: 24px; }
 }
 
 /* =====================================================================
@@ -538,7 +533,8 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
 }
 .header.is-compact::after { opacity: 1; }
 .header.is-hidden { transform: translateY(-100%); }
-.header__utility { display: none; }
+.header__tools { display: none; }
+.header__cta-short { display: none; }
 .header__bar {
   display: flex;
   align-items: center;
@@ -694,30 +690,25 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .nav__extra .lang a { min-height: 44px; padding-inline: 6px; }
 }
 
-/* Desktop, da 1200px: riga di servizio, voci al centro, pannelli a tendina e mega menu */
+/* Desktop, da 1200px: voci al centro, lingua e telefono a destra, pannelli a tendina e mega menu */
 @media (min-width: 1200px) {
-  .header__utility {
-    display: block;
-    height: var(--utility-h);
-    overflow: hidden;
-    transition: height var(--dur-ui) var(--ease), visibility 0s;
-  }
-  .js .header.is-compact .header__utility {
-    height: 0;
-    visibility: hidden;
-    transition: height var(--dur-ui) var(--ease), visibility 0s linear var(--dur-ui);
-  }
-  .header__utility-inner {
-    display: flex;
+  /* Lingua e telefono prima del pulsante del preventivo, separati da un filetto */
+  .header__tools { display: flex; align-items: center; gap: var(--space-4); }
+  .header__lang a { min-height: 44px; padding-inline: 6px; }
+  .header__lang::after { content: ""; width: 1px; height: 20px; margin-left: var(--space-8); background: var(--color-line); }
+  .header__tel {
+    display: inline-flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: var(--space-24);
-    height: var(--utility-h);
-    color: var(--color-ardesia);
-    font-size: var(--fs-small);
+    justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: var(--radius);
+    color: var(--color-ink);
+    transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .header__utility-inner > a { display: inline-flex; align-items: center; min-height: 24px; text-decoration: none; }
-  .header__utility-inner > a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 4px; }
+  .header__tel:hover { background: var(--color-calce); color: var(--color-brand-dark); }
+  .header__tel .icon { width: 22px; height: 22px; }
+  .logo, .header__tools, .header__cta { flex: none; }
+  .header__cta { white-space: nowrap; }
   .header__bar { gap: var(--space-24); }
   .logo { margin-right: 0; }
   .menu-toggle { display: none; }
@@ -798,6 +789,14 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .mega__foot { grid-column: 1 / -1; padding-block: var(--space-8) var(--space-12); border-top: 1px solid var(--color-line); }
 }
 
+/* Desktop stretti, da 1200 a 1359px: voci più piccole e pulsante breve, così l'header resta su una riga */
+@media (min-width: 1200px) and (max-width: 1359.98px) {
+  .header__bar { gap: var(--space-16); }
+  .nav__link { font-size: 0.875rem; }
+  .header__cta { padding-inline: 18px; }
+  .header__cta-long { display: none; }
+  .header__cta-short { display: inline; }
+}
 /* Header trasparente sopra l'hero (classe header--overlay, solo nelle home).
    In cima alla pagina: fondo trasparente, logo e voci bianchi su una sfumatura scura
    che tiene il contrasto sopra 4.5:1 su qualsiasi foto. Resta trasparente finché copre
@@ -810,7 +809,7 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .js .header--overlay { transition: transform var(--dur-slow) var(--ease), background-color var(--dur-ui) var(--ease); }
   .header--overlay .logo,
   .header--overlay .menu-toggle,
-  .header--overlay .header__utility-inner { transition: color var(--dur-ui) var(--ease); }
+  .header--overlay .header__lang a { transition: color var(--dur-ui) var(--ease); }
   .header--overlay::before {
     content: "";
     position: absolute;
@@ -827,11 +826,13 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open))::after { opacity: 0; } /* niente filetto di separazione sopra la foto */
   html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .logo,
   html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .menu-toggle { color: #FFFFFF; }
-  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__utility-inner,
-  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__utility-inner .lang a,
-  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__utility-inner .lang > span { color: rgba(255, 255, 255, 0.88); }
-  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__utility-inner a:hover,
-  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__utility-inner .lang a[aria-current] { color: #FFFFFF; }
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__lang a,
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__lang > span { color: rgba(255, 255, 255, 0.88); }
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__lang a:hover,
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__lang a[aria-current],
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__tel { color: #FFFFFF; }
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__lang::after { background: rgba(255, 255, 255, 0.35); }
+  html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__tel:hover { background: rgba(255, 255, 255, 0.14); }
   html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__cta { background: #FFFFFF; color: var(--color-ink); }
   html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) .header__cta:hover { background: var(--color-acqua-velata); }
   html.js:not(.menu-open) .header--overlay:not(.is-solid):not(:has(.is-open)) :focus-visible { outline-color: #FFFFFF; }
@@ -1544,12 +1545,6 @@ label.cookie__cat { cursor: pointer; }
      Da 1200px resta fisso dopo l'hero; sotto i 1200px si nasconde scorrendo verso il basso.
      =================================================================== -->
 <header class="header" id="header">
-  <div class="header__utility">
-    <div class="container header__utility-inner">
-      <a href="tel:+39051781570">Tel. 051&nbsp;781570</a>
-      <p class="lang"><a href="/sicurezza/inferriate/" hreflang="it" lang="it" aria-current="true">IT<span class="sr-only"> Italiano</span></a><span aria-hidden="true">/</span><a href="/en/security/grilles/" hreflang="en" lang="en">EN<span class="sr-only"> English</span></a></p>
-    </div>
-  </div>
   <div class="container header__bar">
     <!-- Logo: SVG dello sprite, colore brand dalla classe logo, bianco nel footer con la variante bianca -->
     <a class="logo" href="/" aria-label="Infissi Group, home"><svg class="logo__svg" width="114" height="40" aria-hidden="true"><use href="#logo"/></svg></a>
@@ -1693,7 +1688,11 @@ label.cookie__cat { cursor: pointer; }
       </div>
     </nav>
 
-    <a class="btn btn--primary header__cta" href="/preventivo/" data-quote>Richiedi preventivo</a>
+    <div class="header__tools">
+      <p class="lang header__lang"><a href="/sicurezza/inferriate/" hreflang="it" lang="it" aria-current="true">IT<span class="sr-only"> Italiano</span></a><span aria-hidden="true">/</span><a href="/en/security/grilles/" hreflang="en" lang="en">EN<span class="sr-only"> English</span></a></p>
+      <a class="header__tel" href="tel:+39051781570" aria-label="Chiama 051 781570" title="Chiama 051 781570"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
+    </div>
+    <a class="btn btn--primary header__cta" href="/preventivo/" data-quote aria-label="Richiedi preventivo"><span class="header__cta-long">Richiedi preventivo</span><span class="header__cta-short">Preventivo</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
   </div>
 </header>
@@ -2265,7 +2264,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
   nav.insertAdjacentHTML("afterbegin",
     `<div class="nav__top"><span class="logo" aria-hidden="true"><svg class="logo__svg" width="114" height="40"><use href="#logo"/></svg></span><button type="button" class="nav__close">${icon("x")}<span>Chiudi</span></button></div>`);
   const closeBtn = $(".nav__close", nav);
-  const outside = () => [$(".skip-link"), $(".header__utility"), $(".header__bar > .logo"), $(".header__cta"), toggle, $("#main"), $(".footer"), $(".mbar")];
+  const outside = () => [$(".skip-link"), $(".header__tools"), $(".header__bar > .logo"), $(".header__cta"), toggle, $("#main"), $(".footer"), $(".mbar")];
 
   function openMenu() {
     root.classList.add("menu-open");
