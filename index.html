@@ -63,7 +63,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/home/hero-4-1536.jpg" imagesrcset="assets/img/home/hero-4-768.jpg 768w, assets/img/home/hero-4-1024.jpg 1024w, assets/img/home/hero-4-1536.jpg 1536w, assets/img/home/hero-4-2048.jpg 2048w" imagesizes="(min-width: 768px) 100vw, 186vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/home/hero-4-1536.jpg" imagesrcset="assets/img/home/hero-4-768.jpg 768w, assets/img/home/hero-4-1024.jpg 1024w, assets/img/home/hero-4-1536.jpg 1536w, assets/img/home/hero-4-2048.jpg 2048w" imagesizes="(min-width: 768px) 100vw, 130vw" fetchpriority="high">
 <!-- Progressive enhancement: la classe "js" arriva prima del primo disegno, così menu, pannelli
      e animazione dell'hero non lampeggiano. Senza JavaScript la classe manca e tutto resta visibile. -->
 <script>document.documentElement.classList.add("js");</script>
@@ -323,6 +323,8 @@ img, svg, picture { display: block; max-width: 100%; }
 picture > img { width: 100%; height: 100%; object-fit: cover; }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
+/* Riscontro al tocco su telefono: velatura nel colore del logo al posto del grigio di sistema */
+a, button, label, summary { -webkit-tap-highlight-color: rgba(58, 118, 118, 0.14); }
 fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
 legend { padding: 0; }
 :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
@@ -1016,8 +1018,13 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 }
 /* L'intera tessera è cliccabile, il nome del link resta breve */
 .area__link::after, .work__link::after, .news__link::after { content: ""; position: absolute; inset: 0; }
-.area:hover .area__link, .work:hover .work__link, .news__item:hover .news__link { color: var(--color-brand-dark); text-decoration-line: underline; }
-.area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.02); }
+/* Effetti al passaggio del mouse solo dove il mouse c'è: sui telefoni non restano attivi dopo il tocco */
+@media (hover: hover) {
+  .area:hover .area__link, .work:hover .work__link, .news__item:hover .news__link { color: var(--color-brand-dark); text-decoration-line: underline; }
+}
+@media (hover: hover) {
+  .area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.02); }
+}
 @supports selector(:has(a)) {
   .area__link:focus-visible, .work__link:focus-visible, .news__link:focus-visible { outline: none; }
   .area:has(:focus-visible), .work:has(:focus-visible), .news__item:has(:focus-visible) {
@@ -1134,7 +1141,9 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .news__title { font-size: 1.25rem; line-height: 1.3; }
 .news__media { overflow: hidden; margin-bottom: var(--space-4); }
 .news__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-slow) var(--ease); }
-.news__item:hover .news__media > * { transform: scale(1.02); }
+@media (hover: hover) {
+  .news__item:hover .news__media > * { transform: scale(1.02); }
+}
 
 /* 7.10 Fascia finale su inchiostro, composizione speculare all'hero */
 .cta-band { padding-block: var(--section-space); background: var(--color-brand-dark); color: #FFFFFF; }
@@ -1242,6 +1251,11 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .footer__sede address, .footer__sede p { color: var(--color-on-ink-muted); }
 .footer__sede a { display: inline-flex; align-items: center; min-height: 24px; color: #FFFFFF; }
 .footer__sedi > p > a { display: inline-flex; align-items: center; min-height: 24px; }
+/* Schermi touch: area di tocco di almeno 44px per i link brevi, senza cambiare l'impaginazione */
+@media (pointer: coarse) {
+  .footer__sede a, .footer__sedi > p > a { padding-block: 10px; margin-block: -10px; }
+  .rows h3 a, .sede__info dd a { padding-block: 11px; }
+}
 .footer__links a { display: inline-flex; align-items: center; min-height: 44px; }
 .footer__social ul { display: flex; gap: var(--space-8); margin-left: -10px; }
 .footer__social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
@@ -1892,11 +1906,11 @@ label.cookie__cat { cursor: pointer; }
       <!-- Carosello: 5 foto in dissolvenza ogni 6 secondi, non cliccabili. Senza JavaScript resta la prima.
            Si ferma al passaggio del mouse, con scheda nascosta e con movimento ridotto. -->
       <div class="hero__slides" id="hero-slides" role="group" aria-roledescription="carosello" aria-label="Realizzazioni Infissi Group">
-        <img class="media media--up hero__slide is-active" src="assets/img/home/hero-4-1536.jpg" srcset="assets/img/home/hero-4-768.jpg 768w, assets/img/home/hero-4-1024.jpg 1024w, assets/img/home/hero-4-1536.jpg 1536w, assets/img/home/hero-4-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 186vw" width="1536" height="1024" alt="Area lounge con pergola e vetrate nella Home Design Gallery di Castenaso" loading="eager" fetchpriority="high" decoding="async">
-        <img class="media hero__slide" src="assets/img/home/hero-finstral-vista-1536.jpg" srcset="assets/img/home/hero-finstral-vista-768.jpg 768w, assets/img/home/hero-finstral-vista-1024.jpg 1024w, assets/img/home/hero-finstral-vista-1536.jpg 1536w, assets/img/home/hero-finstral-vista-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 220vw" width="2048" height="1152" alt="Soggiorno con vetrate Finstral FIN-Vista a tutta altezza affacciate su una valle di montagna" loading="lazy" decoding="async">
-        <img class="media hero__slide" src="assets/img/home/hero-linvisibile-atrio-1536.jpg" srcset="assets/img/home/hero-linvisibile-atrio-768.jpg 768w, assets/img/home/hero-linvisibile-atrio-1024.jpg 1024w, assets/img/home/hero-linvisibile-atrio-1536.jpg 1536w, assets/img/home/hero-linvisibile-atrio-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 186vw" width="2048" height="1366" alt="Atrio luminoso con porte a filo muro L'Invisibile in legno scuro, vetrate a tutta altezza e palme" loading="lazy" decoding="async">
-        <img class="media media--left hero__slide" src="assets/img/home/hero-oikos-bilico-1536.jpg" srcset="assets/img/home/hero-oikos-bilico-768.jpg 768w, assets/img/home/hero-oikos-bilico-1024.jpg 1024w, assets/img/home/hero-oikos-bilico-1536.jpg 1536w, assets/img/home/hero-oikos-bilico-2000.jpg 2000w" sizes="(min-width: 768px) 100vw, 247vw" width="2000" height="1000" alt="Porta d'ingresso Oikos a bilico in finitura bronzo aperta su un atrio con parete a doghe in legno" loading="lazy" decoding="async">
-        <img class="media media--left hero__slide" src="assets/img/home/hero-finstral-villa-1536.jpg" srcset="assets/img/home/hero-finstral-villa-768.jpg 768w, assets/img/home/hero-finstral-villa-1024.jpg 1024w, assets/img/home/hero-finstral-villa-1536.jpg 1536w, assets/img/home/hero-finstral-villa-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 220vw" width="2048" height="1152" alt="Villa contemporanea al tramonto con grandi finestre e scorrevoli Finstral illuminati, sullo sfondo le montagne" loading="lazy" decoding="async">
+        <img class="media media--up hero__slide is-active" src="assets/img/home/hero-4-1536.jpg" srcset="assets/img/home/hero-4-768.jpg 768w, assets/img/home/hero-4-1024.jpg 1024w, assets/img/home/hero-4-1536.jpg 1536w, assets/img/home/hero-4-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 130vw" width="1536" height="1024" alt="Area lounge con pergola e vetrate nella Home Design Gallery di Castenaso" loading="eager" fetchpriority="high" decoding="async">
+        <img class="media hero__slide" src="assets/img/home/hero-finstral-vista-1536.jpg" srcset="assets/img/home/hero-finstral-vista-768.jpg 768w, assets/img/home/hero-finstral-vista-1024.jpg 1024w, assets/img/home/hero-finstral-vista-1536.jpg 1536w, assets/img/home/hero-finstral-vista-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 130vw" width="2048" height="1152" alt="Soggiorno con vetrate Finstral FIN-Vista a tutta altezza affacciate su una valle di montagna" loading="lazy" decoding="async">
+        <img class="media hero__slide" src="assets/img/home/hero-linvisibile-atrio-1536.jpg" srcset="assets/img/home/hero-linvisibile-atrio-768.jpg 768w, assets/img/home/hero-linvisibile-atrio-1024.jpg 1024w, assets/img/home/hero-linvisibile-atrio-1536.jpg 1536w, assets/img/home/hero-linvisibile-atrio-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 130vw" width="2048" height="1366" alt="Atrio luminoso con porte a filo muro L'Invisibile in legno scuro, vetrate a tutta altezza e palme" loading="lazy" decoding="async">
+        <img class="media media--left hero__slide" src="assets/img/home/hero-oikos-bilico-1536.jpg" srcset="assets/img/home/hero-oikos-bilico-768.jpg 768w, assets/img/home/hero-oikos-bilico-1024.jpg 1024w, assets/img/home/hero-oikos-bilico-1536.jpg 1536w, assets/img/home/hero-oikos-bilico-2000.jpg 2000w" sizes="(min-width: 768px) 100vw, 130vw" width="2000" height="1000" alt="Porta d'ingresso Oikos a bilico in finitura bronzo aperta su un atrio con parete a doghe in legno" loading="lazy" decoding="async">
+        <img class="media media--left hero__slide" src="assets/img/home/hero-finstral-villa-1536.jpg" srcset="assets/img/home/hero-finstral-villa-768.jpg 768w, assets/img/home/hero-finstral-villa-1024.jpg 1024w, assets/img/home/hero-finstral-villa-1536.jpg 1536w, assets/img/home/hero-finstral-villa-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 130vw" width="2048" height="1152" alt="Villa contemporanea al tramonto con grandi finestre e scorrevoli Finstral illuminati, sullo sfondo le montagne" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="container grid hero__grid">

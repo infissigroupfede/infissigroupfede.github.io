@@ -253,6 +253,8 @@ img, svg, picture { display: block; max-width: 100%; }
 picture > img { width: 100%; height: 100%; object-fit: cover; }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
+/* Riscontro al tocco su telefono: velatura nel colore del logo al posto del grigio di sistema */
+a, button, label, summary { -webkit-tap-highlight-color: rgba(58, 118, 118, 0.14); }
 fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
 legend { padding: 0; }
 :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
@@ -944,8 +946,13 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 }
 /* L'intera tessera è cliccabile, il nome del link resta breve */
 .area__link::after, .work__link::after, .news__link::after { content: ""; position: absolute; inset: 0; }
-.area:hover .area__link, .work:hover .work__link, .news__item:hover .news__link { color: var(--color-brand-dark); text-decoration-line: underline; }
-.area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.02); }
+/* Effetti al passaggio del mouse solo dove il mouse c'è: sui telefoni non restano attivi dopo il tocco */
+@media (hover: hover) {
+  .area:hover .area__link, .work:hover .work__link, .news__item:hover .news__link { color: var(--color-brand-dark); text-decoration-line: underline; }
+}
+@media (hover: hover) {
+  .area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.02); }
+}
 @supports selector(:has(a)) {
   .area__link:focus-visible, .work__link:focus-visible, .news__link:focus-visible { outline: none; }
   .area:has(:focus-visible), .work:has(:focus-visible), .news__item:has(:focus-visible) {
@@ -1062,7 +1069,9 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .news__title { font-size: 1.25rem; line-height: 1.3; }
 .news__media { overflow: hidden; margin-bottom: var(--space-4); }
 .news__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-slow) var(--ease); }
-.news__item:hover .news__media > * { transform: scale(1.02); }
+@media (hover: hover) {
+  .news__item:hover .news__media > * { transform: scale(1.02); }
+}
 
 /* 7.10 Fascia finale su inchiostro, composizione speculare all'hero */
 .cta-band { padding-block: var(--section-space); background: var(--color-brand-dark); color: #FFFFFF; }
@@ -1100,6 +1109,11 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .footer__sede address, .footer__sede p { color: var(--color-on-ink-muted); }
 .footer__sede a { display: inline-flex; align-items: center; min-height: 24px; color: #FFFFFF; }
 .footer__sedi > p > a { display: inline-flex; align-items: center; min-height: 24px; }
+/* Schermi touch: area di tocco di almeno 44px per i link brevi, senza cambiare l'impaginazione */
+@media (pointer: coarse) {
+  .footer__sede a, .footer__sedi > p > a { padding-block: 10px; margin-block: -10px; }
+  .rows h3 a, .sede__info dd a { padding-block: 11px; }
+}
 .footer__links a { display: inline-flex; align-items: center; min-height: 44px; }
 .footer__social ul { display: flex; gap: var(--space-8); margin-left: -10px; }
 .footer__social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
@@ -1761,22 +1775,22 @@ label.cookie__cat { cursor: pointer; }
       </div>
       <ul class="areas areas--wide areas--two">
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/outdoor/gaviota-climatika-plus-768.jpg" srcset="/assets/img/outdoor/gaviota-climatika-plus-768.jpg 768w, /assets/img/outdoor/gaviota-climatika-plus-1024.jpg 1024w, /assets/img/outdoor/gaviota-climatika-plus-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="384" alt="Pergola bioclimatica Gaviota Climatika Plus bianca con lamelle orientabili, accanto a una piscina" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/outdoor/gaviota-climatika-plus-768.jpg" srcset="/assets/img/outdoor/gaviota-climatika-plus-300.jpg 300w, /assets/img/outdoor/gaviota-climatika-plus-768.jpg 768w, /assets/img/outdoor/gaviota-climatika-plus-1024.jpg 1024w, /assets/img/outdoor/gaviota-climatika-plus-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="384" alt="Pergola bioclimatica Gaviota Climatika Plus bianca con lamelle orientabili, accanto a una piscina" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/outdoor/pergole-vetrate/">Pergole e vetrate</a></h3>
           <p class="area__desc">Pergole bioclimatiche e con telo, vetrate panoramiche. Gaviota.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/outdoor/gaviota-tenda-kyma-768.jpg" srcset="/assets/img/outdoor/gaviota-tenda-kyma-768.jpg 768w, /assets/img/outdoor/gaviota-tenda-kyma-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Tenda da sole Gaviota Kyma aperta su una terrazza affacciata sul mare, di sera" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/outdoor/gaviota-tenda-kyma-768.jpg" srcset="/assets/img/outdoor/gaviota-tenda-kyma-300.jpg 300w, /assets/img/outdoor/gaviota-tenda-kyma-768.jpg 768w, /assets/img/outdoor/gaviota-tenda-kyma-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Tenda da sole Gaviota Kyma aperta su una terrazza affacciata sul mare, di sera" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/outdoor/tende-da-sole/">Tende da sole</a></h3>
           <p class="area__desc">Tende a bracci e verticali dalle forme compatte. Gaviota.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/outdoor/gradhermetic-frangisole-768.jpg" srcset="/assets/img/outdoor/gradhermetic-frangisole-768.jpg 768w, /assets/img/outdoor/gradhermetic-frangisole-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Villa con frangisole Gradhermetic a lamelle in legno sulla facciata, tra gli alberi" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/outdoor/gradhermetic-frangisole-768.jpg" srcset="/assets/img/outdoor/gradhermetic-frangisole-300.jpg 300w, /assets/img/outdoor/gradhermetic-frangisole-768.jpg 768w, /assets/img/outdoor/gradhermetic-frangisole-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Villa con frangisole Gradhermetic a lamelle in legno sulla facciata, tra gli alberi" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/outdoor/oscuramento/frangisole/">Frangisole</a></h3>
           <p class="area__desc">Lamelle orientabili per regolare luce e privacy. Gradhermetic.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/outdoor/gradhermetic-gradstor-villa-768.jpg" srcset="/assets/img/outdoor/gradhermetic-gradstor-villa-768.jpg 768w, /assets/img/outdoor/gradhermetic-gradstor-villa-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Villa moderna con schermature solari Gradhermetic Gradstor 90 sulle vetrate" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/outdoor/gradhermetic-gradstor-villa-768.jpg" srcset="/assets/img/outdoor/gradhermetic-gradstor-villa-300.jpg 300w, /assets/img/outdoor/gradhermetic-gradstor-villa-768.jpg 768w, /assets/img/outdoor/gradhermetic-gradstor-villa-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Villa moderna con schermature solari Gradhermetic Gradstor 90 sulle vetrate" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/outdoor/oscuramento/schermature/">Schermature solari</a></h3>
           <p class="area__desc">Sistemi esterni che filtrano il sole sulle vetrate. Gradhermetic.</p>
         </li>
