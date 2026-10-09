@@ -674,9 +674,6 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .js .mega__cat { display: flex; align-items: center; min-height: 48px; font: 600 1.125rem/1.3 var(--font-display); text-decoration: none; }
   .js .mega__cats .mega__cat { border-bottom: 1px solid var(--color-line); }
   .js .mega__links .mega__links a { padding-left: var(--space-16); }
-  .js .mega__feature { padding-block: var(--space-24); }
-  .js .mega__feature-media { display: none; }
-  .js .mega__feature-title { font-weight: 600; }
   .js .nav__extra { display: grid; justify-items: start; gap: var(--space-16); margin-top: var(--space-32); }
   .js .nav__extra .btn { width: 100%; }
   .nav__tel { display: inline-flex; align-items: center; gap: var(--space-8); min-height: 44px; font-weight: 500; text-decoration: none; }
@@ -770,7 +767,7 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.25fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -782,9 +779,6 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  .mega__feature-media { max-width: 240px; }
-  .mega__feature-media > * { aspect-ratio: 4 / 5; }
-  .mega__feature-title { margin-top: var(--space-16); font: 600 1.0625rem/1.3 var(--font-display); }
   .mega__foot { grid-column: 1 / -1; padding-block: var(--space-8) var(--space-12); border-top: 1px solid var(--color-line); }
 }
 
@@ -918,18 +912,6 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area:not(:nth-child(3n+1)) { border-left: 1px solid var(--color-brand); }
   .area__media { grid-row: auto; margin-bottom: var(--space-16); }
   .area__name { font-size: var(--fs-h3); }
-}
-
-/* 7.4 Modulo stagionale */
-.season { display: grid; background: var(--color-acqua-velata); }
-.season__media > * { width: 100%; aspect-ratio: 4 / 3; }
-@media (min-width: 768px) { .season__media > * { aspect-ratio: 3 / 2; } }
-.season__body { display: grid; align-content: center; gap: var(--space-24); padding: var(--space-32) var(--space-24) var(--space-48); }
-.season .link { color: var(--color-brand-dark); }
-@media (min-width: 1024px) {
-  .season { grid-template-columns: 7fr 5fr; }
-  .season__media > * { aspect-ratio: 3 / 2; }
-  .season__body { padding: var(--space-64) var(--space-48); }
 }
 
 /* 7.5 Come lavoriamo: sei fasi numerate in una griglia a partizioni */
@@ -1625,14 +1607,6 @@ label.cookie__cat { cursor: pointer; }
                     <li><a class="mega__cat" href="/tapparelle-veneziane/">Tapparelle e veneziane</a></li>
                     <li><a class="mega__cat" href="/zanzariere/">Zanzariere</a></li>
                   </ul>
-                </div>
-                <!-- SPAZIO IN EVIDENZA STAGIONALE: aggiornarlo insieme al modulo stagionale della home -->
-                <div class="mega__col mega__feature">
-                  <div class="mega__feature-media">
-                    <img class="media" src="/assets/img/home/stagione-768.jpg" width="768" height="512" alt="Camino tra due finestre in un soggiorno con travi in legno" loading="lazy" decoding="async">
-                  </div>
-                  <p class="mega__feature-title">Prima del freddo, controlla le finestre</p>
-                  <a class="link" href="/finestre/">Scopri le finestre</a>
                 </div>
                 <p class="mega__foot"><a class="link" href="/prodotti/">Tutti i prodotti</a></p>
               </div>
