@@ -1,0 +1,4 @@
+# Anteprima su GitHub Pages: blocca l'indicizzazione dei motori di ricerca.
+# Da sostituire con il robots.txt definitivo quando il sito va online sul dominio vero.
+User-agent: *
+Disallow: /
