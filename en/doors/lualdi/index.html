@@ -1390,6 +1390,10 @@ label.cookie__cat { cursor: pointer; }
 @media (hover: hover) {
   .partner:hover img { filter: none; opacity: 1; }
 }
+/* Su telefoni e tablet, dove il passaggio del mouse non esiste, i loghi sono sempre a colori */
+@media (hover: none), (max-width: 767.98px) {
+  .partner img { filter: none; opacity: 1; }
+}
 .section--calce .partners, .section--calce .partner { border-color: var(--color-line-calce); }
 @media (min-width: 480px) { .partners { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .partners { grid-template-columns: repeat(6, minmax(0, 1fr)); } .partner { min-height: 120px; } }
