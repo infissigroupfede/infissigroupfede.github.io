@@ -579,6 +579,28 @@ fieldset[aria-invalid="true"] .tile__body { border-color: var(--color-error); }
   font: 500 1rem/1 var(--font-text);
 }
 .nav__extra, .nav__top { display: none; }
+/* Icona del menu a tre linee, disegnata in CSS per poterla animare:
+   si trasforma in una X quando il menu si apre e torna a tre linee quando si chiude */
+.burger { position: relative; display: inline-block; flex: none; width: 24px; height: 24px; }
+.burger > span {
+  position: absolute;
+  left: 3px; right: 3px; top: 11.25px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: currentColor;
+  transition: transform 320ms var(--ease), opacity 180ms var(--ease);
+}
+.burger > span:nth-child(1) { transform: translateY(-5.25px); }
+.burger > span:nth-child(3) { transform: translateY(5.25px); }
+/* Stato X: pulsante Chiudi a menu aperto, e il pulsante Menu mentre il pannello lo copre */
+.nav.is-open .nav__close .burger > span,
+html.menu-open .menu-toggle .burger > span { transition-delay: 80ms; }
+.nav.is-open .nav__close .burger > span:nth-child(1),
+html.menu-open .menu-toggle .burger > span:nth-child(1) { transform: rotate(45deg); }
+.nav.is-open .nav__close .burger > span:nth-child(2),
+html.menu-open .menu-toggle .burger > span:nth-child(2) { opacity: 0; transform: scaleX(0.2); }
+.nav.is-open .nav__close .burger > span:nth-child(3),
+html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45deg); }
 
 /* Senza JavaScript, sotto 1200px: voci di primo livello come link in riga */
 @media (max-width: 1199.98px) {
@@ -1724,7 +1746,7 @@ label.cookie__cat { cursor: pointer; }
       <a class="header__tel" href="tel:+39051781570" aria-label="Chiama 051 781570" title="Chiama 051 781570"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
     </div>
     <a class="btn btn--primary header__cta" href="/preventivo/" data-quote aria-label="Richiedi preventivo"><span class="header__cta-long">Richiedi preventivo</span><span class="header__cta-short">Preventivo</span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span><span>Menu</span></button>
   </div>
 </header>
 
@@ -2300,7 +2322,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
 
   // 2.2 Pannello mobile: testata con "Chiudi", focus trap, blocco dello scroll
   nav.insertAdjacentHTML("afterbegin",
-    `<div class="nav__top"><span class="logo" aria-hidden="true"><svg class="logo__svg" width="112" height="40"><use href="#logo"/></svg></span><button type="button" class="nav__close">${icon("x")}<span>Chiudi</span></button></div>`);
+    `<div class="nav__top"><span class="logo" aria-hidden="true"><svg class="logo__svg" width="112" height="40"><use href="#logo"/></svg></span><button type="button" class="nav__close"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span><span>Chiudi</span></button></div>`);
   const closeBtn = $(".nav__close", nav);
   const outside = () => [$(".skip-link"), $(".header__tools"), $(".header__bar > .logo"), $(".header__cta"), toggle, $("#main"), $(".footer"), $(".mbar")];
 
