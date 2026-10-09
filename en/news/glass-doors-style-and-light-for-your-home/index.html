@@ -2193,10 +2193,10 @@ const FORM_ENDPOINT = "/api/preventivo.php";
 
   /* -------------------------------------------------------------------
      1. Header: compatto dopo lo scroll, sempre visibile al focus da tastiera.
-        Da 1200px: si nasconde scorrendo verso il basso solo dentro l'hero
-        (o la testata delle pagine interne) e ricompare, fisso, appena la si supera.
-        Sotto i 1200px: si nasconde scorrendo verso il basso e torna scorrendo
-        verso l'alto, per lasciare spazio al contenuto (le azioni restano nella barra in basso).
+        Pagine interne: resta sempre visibile e bianco.
+        Home: da 1200px si nasconde scorrendo verso il basso solo dentro l'hero
+        e ricompare, fisso, appena lo si supera; sotto i 1200px si nasconde scorrendo
+        verso il basso e torna scorrendo verso l'alto (le azioni restano nella barra in basso).
         Nelle home (header--overlay) resta trasparente finché copre la foto dell'hero,
         poi diventa bianco pieno (is-solid).
      ------------------------------------------------------------------- */
@@ -2218,7 +2218,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
     if (overlayFrame) header.classList.toggle("is-solid", overlayFrame.getBoundingClientRect().bottom <= header.offsetHeight);
     if (Math.abs(y - lastY) > 6) {
       const locked = root.classList.contains("menu-open") || $(".nav__item.is-open");
-      const down = y > lastY && y > 320 && !locked;
+      const down = !!overlayFrame && y > lastY && y > 320 && !locked; // solo in home
       header.classList.toggle("is-hidden", desktopMq.matches ? down && y < heroEnd : down);
       lastY = y;
     }
