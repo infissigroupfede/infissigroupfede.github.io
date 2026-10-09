@@ -1203,6 +1203,8 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .review blockquote p { font-size: 0.9375rem; line-height: 1.55; }
 }
 .reviews-nav[hidden] { display: none; }
+/* Su telefono e tablet le recensioni si scorrono con il dito: niente frecce */
+@media (hover: none), (max-width: 767.98px) { .reviews-nav { display: none; } }
 .reviews-nav__btn { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--color-ink); border-radius: var(--radius); background: transparent; color: var(--color-ink); transition: background-color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease); }
 .reviews-nav__btn:hover:not(:disabled) { background: var(--color-bg); }
 .reviews-nav__btn:disabled { opacity: 0.35; cursor: default; }
