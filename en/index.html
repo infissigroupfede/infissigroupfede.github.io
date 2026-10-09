@@ -1530,7 +1530,8 @@ label.cookie__cat { cursor: pointer; }
 .person .media { aspect-ratio: 4 / 5; margin-bottom: var(--space-8); }
 .person__name { font-size: var(--fs-h4); line-height: 1.3; }
 .person__role { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
-/* Loghi dei partner: griglia a partizioni, loghi in scala di grigi a pari area ottica.
+/* Loghi dei partner: griglia a partizioni, loghi in scala di grigi a pari peso visivo
+   (larghezza e altezza di ogni logo nel markup, calcolate su forma e densità del disegno).
    18 celle (17 marchi e il link ai prodotti): righe complete a 2, 3 e 6 colonne. */
 .partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
 .partner { display: grid; place-items: center; min-height: 88px; padding: var(--space-16); border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-align: center; }
@@ -1925,23 +1926,23 @@ label.cookie__cat { cursor: pointer; }
         </div>
         <h3 id="partner-title">Partner companies</h3>
         <ul class="partners" aria-labelledby="partner-title">
-          <li class="partner"><a class="partner__link" href="/en/windows/finstral/"><img src="/assets/img/partner/finstral.svg" width="137" height="22" alt="Finstral" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/windows/aluminium/"><img src="/assets/img/partner/cosmet.svg" width="129" height="23" alt="Cosmet Group" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/doors/bertolotto/"><img src="/assets/img/partner/bertolotto.png" width="105" height="29" alt="Bertolotto Porte" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/doors/linvisibile/"><img src="/assets/img/partner/linvisibile.png" width="145" height="21" alt="Linvisibile" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/doors/lualdi/"><img src="/assets/img/partner/lualdi.png" width="91" height="33" alt="Lualdi" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/outdoor/awnings/"><img src="/assets/img/partner/gaviota.svg" width="118" height="26" alt="Gaviota" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/outdoor/shading/"><img src="/assets/img/partner/gradhermetic.svg" width="117" height="26" alt="Gradhermetic" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/blinds/"><img src="/assets/img/partner/mottura.svg" width="120" height="25" alt="Mottura" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/insect-screens/"><img src="/assets/img/partner/tekline.png" width="101" height="30" alt="Tekline" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/security/security-doors/"><img src="/assets/img/partner/oikos.png" width="124" height="24" alt="Oikos" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><img src="/assets/img/partner/hormann.svg" width="83" height="36" alt="Hörmann" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/ballan.png" width="96" height="31" alt="Ballan" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/mobirolo.png" width="124" height="24" alt="Mobirolo" loading="lazy" decoding="async"></li>
-          <li class="partner"><a class="partner__link" href="/en/roller-shutters-venetian-blinds/"><img src="/assets/img/partner/donelli.png" width="106" height="28" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/insect-screens/"><img src="/assets/img/partner/zanzar-sistem.png" width="85" height="35" alt="Zanzar Sistem" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="110" height="27" alt="Cromatica Marcegaglia" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/tecnografica.png" width="114" height="26" alt="Tecnografica" loading="lazy" decoding="async"></li>
+          <li class="partner"><a class="partner__link" href="/en/windows/finstral/"><img src="/assets/img/partner/finstral.svg" width="136" height="22" alt="Finstral" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/windows/aluminium/"><img src="/assets/img/partner/cosmet.svg" width="133" height="24" alt="Cosmet Group" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/doors/bertolotto/"><img src="/assets/img/partner/bertolotto.png" width="130" height="35" alt="Bertolotto Porte" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/doors/linvisibile/"><img src="/assets/img/partner/linvisibile.png" width="150" height="22" alt="Linvisibile" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/doors/lualdi/"><img src="/assets/img/partner/lualdi.png" width="104" height="38" alt="Lualdi" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/outdoor/awnings/"><img src="/assets/img/partner/gaviota.svg" width="140" height="31" alt="Gaviota" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/outdoor/shading/"><img src="/assets/img/partner/gradhermetic.svg" width="135" height="30" alt="Gradhermetic" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/blinds/"><img src="/assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/insect-screens/"><img src="/assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/security/security-doors/"><img src="/assets/img/partner/oikos.png" width="129" height="25" alt="Oikos" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><img src="/assets/img/partner/hormann.svg" width="106" height="46" alt="Hörmann" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/ballan.png" width="112" height="36" alt="Ballan" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/mobirolo.png" width="136" height="26" alt="Mobirolo" loading="lazy" decoding="async"></li>
+          <li class="partner"><a class="partner__link" href="/en/roller-shutters-venetian-blinds/"><img src="/assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/insect-screens/"><img src="/assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="136" height="33" alt="Cromatica Marcegaglia" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/tecnografica.png" width="137" height="31" alt="Tecnografica" loading="lazy" decoding="async"></li>
           <li class="partner partner--more"><a class="link" href="/en/products/">All products</a></li>
         </ul>
     </div>
