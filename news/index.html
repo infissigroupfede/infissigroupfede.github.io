@@ -19,7 +19,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>News: novità, guide e bonus per la casa</title>
-<meta name="description" content="Le news di Infissi Group: novità dall&#x27;azienda, guide su finestre, porte e tapparelle, detrazioni fiscali, sport e progetti sociali a Bologna.">
+<meta name="description" content="Le news di Infissi Group: novità dall&#x27;azienda, guide su finestre, porte e outdoor, detrazioni fiscali, sport e progetti sociali a Bologna.">
 <link rel="canonical" href="https://infissigroup.com/news/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/news/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/news/">
@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="News: novità, guide e bonus per la casa">
-<meta property="og:description" content="Le news di Infissi Group: novità dall&#x27;azienda, guide su finestre, porte e tapparelle, detrazioni fiscali, sport e progetti sociali a Bologna.">
+<meta property="og:description" content="Le news di Infissi Group: novità dall&#x27;azienda, guide su finestre, porte e outdoor, detrazioni fiscali, sport e progetti sociali a Bologna.">
 <meta property="og:url" content="https://infissigroup.com/news/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/chi-siamo/showroom-castenaso-1536.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -968,6 +968,23 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area__media { grid-row: auto; margin-bottom: var(--space-16); }
   .area__name { font-size: var(--fs-h3); }
 }
+/* Home: 7 aree prodotto + una casella di contatto, su 2 colonne (tablet) e 4 (desktop): righe sempre complete */
+@media (min-width: 768px) {
+  .areas.areas--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .areas.areas--4 .area { border-top: 1px solid var(--color-brand); border-left: 0; }
+  .areas.areas--4 .area:nth-child(-n+2) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 1px solid var(--color-brand); }
+}
+@media (min-width: 1024px) {
+  .areas.areas--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .areas.areas--4 .area:nth-child(-n+4) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 0; }
+  .areas.areas--4 .area:not(:nth-child(4n+1)) { border-left: 1px solid var(--color-brand); }
+}
+.area--cta { grid-template-columns: 1fr; align-content: center; justify-items: start; gap: var(--space-12); background: var(--color-calce); }
+.area--cta .area__name { font-size: var(--fs-h4); }
+.area--cta p { color: var(--color-ardesia); font-size: var(--fs-small); }
+@media (min-width: 768px) { .area--cta { padding: var(--space-32) var(--space-24); } .area--cta .area__name { font-size: var(--fs-h3); } }
 
 /* 7.5 Come lavoriamo: sei fasi numerate in una griglia a partizioni */
 .steps { display: grid; counter-reset: fase; }
@@ -1398,6 +1415,18 @@ label.cookie__cat { cursor: pointer; }
 .fact__num { color: var(--color-brand); font: 500 clamp(1.5rem, 1rem + 2.4vw, 3rem)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .fact__label { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
 @media (min-width: 768px) { .fact { padding: var(--space-32) var(--space-24) var(--space-32) 0; } .fact:not(:nth-child(3n+1)) { padding-left: var(--space-24); } }
+/* Otto dati: 2 colonne sul telefono, 4 da 768px, sempre righe complete */
+.facts.facts--8 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.facts.facts--8 .fact { padding-left: 0; border-top: 0; border-left: 0; }
+.facts.facts--8 .fact:nth-child(n+3) { border-top: 1px solid var(--color-brand); }
+.facts.facts--8 .fact:nth-child(even) { padding-left: var(--space-12); border-left: 1px solid var(--color-brand); }
+@media (min-width: 768px) {
+  .facts.facts--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts.facts--8 .fact:nth-child(n+3) { border-top: 0; }
+  .facts.facts--8 .fact:nth-child(n+5) { border-top: 1px solid var(--color-brand); }
+  .facts.facts--8 .fact:nth-child(even) { padding-left: 0; border-left: 0; }
+  .facts.facts--8 .fact:not(:nth-child(4n+1)) { padding-left: var(--space-24); border-left: 1px solid var(--color-brand); }
+}
 /* Elenco a righe: titolo e descrizione affiancati da 768px */
 .rows > li { display: grid; gap: var(--space-8); padding-block: var(--space-24); border-top: 1px solid var(--color-line); }
 .rows > li:last-child { border-bottom: 1px solid var(--color-line); }
@@ -1670,8 +1699,6 @@ label.cookie__cat { cursor: pointer; }
                       </ul>
                     </li>
                     <li><a class="mega__cat" href="/persiane/">Persiane</a></li>
-                    <li><a class="mega__cat" href="/tapparelle-veneziane/">Tapparelle e veneziane</a></li>
-                    <li><a class="mega__cat" href="/zanzariere/">Zanzariere</a></li>
                   </ul>
                 </div>
                 <p class="mega__foot"><a class="link" href="/prodotti/">Tutti i prodotti</a></p>
@@ -1844,11 +1871,6 @@ label.cookie__cat { cursor: pointer; }
           <h3 class="news__title"><a class="news__link" href="/news/porte-a-scomparsa-vantaggi-stili-e-come-integrarle-nella-tua-casa/">Porte a scomparsa: vantaggi, stili e come integrarle nella tua casa</a></h3>
         </article>
         <article class="news__item" data-cat="blog">
-          <div class="news__media"><img class="media" src="/assets/img/home/area-tapparelle-veneziane-300.jpg" srcset="/assets/img/home/area-tapparelle-veneziane-300.jpg 300w, /assets/img/home/area-tapparelle-veneziane-768.jpg 768w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="768" alt="Stecche di tapparelle in alluminio viste da vicino, con i profili in sezione" loading="lazy" decoding="async"></div>
-          <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-05-05">5 maggio 2025</time></p>
-          <h3 class="news__title"><a class="news__link" href="/news/guida-completa-alla-scelta-delle-tapparelle-materiali-design-e-prezzi/">Guida alla scelta delle tapparelle: materiali, design e prezzi</a></h3>
-        </article>
-        <article class="news__item" data-cat="blog">
           <div class="news__media"><img class="media" src="/assets/img/home/area-sicurezza-768.jpg" srcset="/assets/img/home/area-sicurezza-768.jpg 768w, /assets/img/home/area-sicurezza-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="Porta d&#x27;ingresso aperta su un corridoio con parquet" loading="lazy" decoding="async"></div>
           <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-04-29">29 aprile 2025</time></p>
           <h3 class="news__title"><a class="news__link" href="/news/porte-tagliafuoco-e-rei-tutto-quello-che-devi-sapere-per-la-sicurezza-della-tua-casa/">Porte tagliafuoco e REI: cosa sapere per la sicurezza della tua casa</a></h3>
@@ -1857,11 +1879,6 @@ label.cookie__cat { cursor: pointer; }
           <div class="news__media"><img class="media" src="/assets/img/news/veranda-2-768.jpg" srcset="/assets/img/news/veranda-2-768.jpg 768w, /assets/img/news/veranda-2-1024.jpg 1024w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="Portafinestra aperta su un balcone con piante, accanto a un muro in mattoni" loading="lazy" decoding="async"></div>
           <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-04-17">17 aprile 2025</time></p>
           <h3 class="news__title"><a class="news__link" href="/news/infissi-porte-e-finestre-a-bologna-i-migliori-consigli-degli-esperti/">Infissi, porte e finestre a Bologna: i consigli dei nostri esperti</a></h3>
-        </article>
-        <article class="news__item" data-cat="blog">
-          <div class="news__media"><img class="media" src="/assets/img/home/area-persiane-768.jpg" srcset="/assets/img/home/area-persiane-768.jpg 768w, /assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="Facciata in mattoni con persiane in legno e portefinestre bianche" loading="lazy" decoding="async"></div>
-          <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-04-11">11 aprile 2025</time></p>
-          <h3 class="news__title"><a class="news__link" href="/news/tapparelle-i-migliori-consigli-per-comfort-sicurezza-ed-efficienza-energetica/">Tapparelle: consigli per comfort, sicurezza ed efficienza energetica</a></h3>
         </article>
         <article class="news__item" data-cat="blog">
           <div class="news__media"><img class="media" src="/assets/img/realizzazioni/inliving-26-768.jpg" srcset="/assets/img/realizzazioni/inliving-26-768.jpg 768w, /assets/img/realizzazioni/inliving-26-1024.jpg 1024w, /assets/img/realizzazioni/inliving-26-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="Finestra bianca aperta a ribalta in un soggiorno con travi a vista" loading="lazy" decoding="async"></div>
@@ -2041,8 +2058,6 @@ label.cookie__cat { cursor: pointer; }
           <li><a href="/outdoor/">Outdoor</a></li>
           <li><a href="/tende/">Tende</a></li>
           <li><a href="/persiane/">Persiane</a></li>
-          <li><a href="/tapparelle-veneziane/">Tapparelle e veneziane</a></li>
-          <li><a href="/zanzariere/">Zanzariere</a></li>
           <li><a href="/sicurezza/">Sicurezza</a></li>
         </ul>
       </nav>
@@ -2130,8 +2145,6 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Tende</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tapparelle-veneziane"><span class="tile__body"><span class="tile__title">Tapparelle e veneziane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="zanzariere"><span class="tile__body"><span class="tile__title">Zanzariere</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="sicurezza"><span class="tile__body"><span class="tile__title">Sicurezza</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>

@@ -27,8 +27,7 @@
   Da fare: versioni AVIF e WebP e markup <picture>, per esempio:
     <picture><source type="image/avif" srcset="...avif 768w, ...avif 1536w" sizes="(uguale all'img)">
     <source type="image/webp" srcset="...webp 768w, ...webp 1536w" sizes="(uguale)"><img ...></picture>
-  Tapparelle: foto di prodotto dal sito attuale. Zanzariere: foto di prodotto Tekline (Klip laterale)
-  da tekline.it. Pergola bioclimatica (tessera Outdoor e news) e pergotenda (news): foto Gaviota da
+  Pergola bioclimatica (tessera Outdoor e news) e pergotenda (news): foto Gaviota da
   gaviotagroup.it. Foto di produttori: verificare i diritti d'uso. Il componente .ph resta nel CSS per le pagine future.
 -->
 <html lang="it">
@@ -1042,6 +1041,23 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area__media { grid-row: auto; margin-bottom: var(--space-16); }
   .area__name { font-size: var(--fs-h3); }
 }
+/* Home: 7 aree prodotto + una casella di contatto, su 2 colonne (tablet) e 4 (desktop): righe sempre complete */
+@media (min-width: 768px) {
+  .areas.areas--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .areas.areas--4 .area { border-top: 1px solid var(--color-brand); border-left: 0; }
+  .areas.areas--4 .area:nth-child(-n+2) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 1px solid var(--color-brand); }
+}
+@media (min-width: 1024px) {
+  .areas.areas--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .areas.areas--4 .area:nth-child(-n+4) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 0; }
+  .areas.areas--4 .area:not(:nth-child(4n+1)) { border-left: 1px solid var(--color-brand); }
+}
+.area--cta { grid-template-columns: 1fr; align-content: center; justify-items: start; gap: var(--space-12); background: var(--color-calce); }
+.area--cta .area__name { font-size: var(--fs-h4); }
+.area--cta p { color: var(--color-ardesia); font-size: var(--fs-small); }
+@media (min-width: 768px) { .area--cta { padding: var(--space-32) var(--space-24); } .area--cta .area__name { font-size: var(--fs-h3); } }
 
 /* 7.5 Come lavoriamo: sei fasi numerate in una griglia a partizioni */
 .steps { display: grid; counter-reset: fase; }
@@ -1542,6 +1558,18 @@ label.cookie__cat { cursor: pointer; }
 .fact__num { color: var(--color-brand); font: 500 clamp(1.5rem, 1rem + 2.4vw, 3rem)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .fact__label { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
 @media (min-width: 768px) { .fact { padding: var(--space-32) var(--space-24) var(--space-32) 0; } .fact:not(:nth-child(3n+1)) { padding-left: var(--space-24); } }
+/* Otto dati: 2 colonne sul telefono, 4 da 768px, sempre righe complete */
+.facts.facts--8 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.facts.facts--8 .fact { padding-left: 0; border-top: 0; border-left: 0; }
+.facts.facts--8 .fact:nth-child(n+3) { border-top: 1px solid var(--color-brand); }
+.facts.facts--8 .fact:nth-child(even) { padding-left: var(--space-12); border-left: 1px solid var(--color-brand); }
+@media (min-width: 768px) {
+  .facts.facts--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts.facts--8 .fact:nth-child(n+3) { border-top: 0; }
+  .facts.facts--8 .fact:nth-child(n+5) { border-top: 1px solid var(--color-brand); }
+  .facts.facts--8 .fact:nth-child(even) { padding-left: 0; border-left: 0; }
+  .facts.facts--8 .fact:not(:nth-child(4n+1)) { padding-left: var(--space-24); border-left: 1px solid var(--color-brand); }
+}
 /* Elenco a righe: titolo e descrizione affiancati da 768px */
 .rows > li { display: grid; gap: var(--space-8); padding-block: var(--space-24); border-top: 1px solid var(--color-line); }
 .rows > li:last-child { border-bottom: 1px solid var(--color-line); }
@@ -1820,8 +1848,6 @@ label.cookie__cat { cursor: pointer; }
                       </ul>
                     </li>
                     <li><a class="mega__cat" href="/persiane/">Persiane</a></li>
-                    <li><a class="mega__cat" href="/tapparelle-veneziane/">Tapparelle e veneziane</a></li>
-                    <li><a class="mega__cat" href="/zanzariere/">Zanzariere</a></li>
                   </ul>
                 </div>
                 <p class="mega__foot"><a class="link" href="/prodotti/">Tutti i prodotti</a></p>
@@ -1930,7 +1956,7 @@ label.cookie__cat { cursor: pointer; }
       <div class="split__a stack">
         <h2 class="attach" id="selezione-title">Più produttori, un solo referente</h2>
         <p class="lead">Non produciamo serramenti: li scegliamo. Lavoriamo con marchi italiani, tedeschi e spagnoli selezionati per qualità costruttiva, design e prestazioni, così il prodotto si adatta alla casa, al clima e al budget, e non il contrario.</p>
-        <p>Siamo Studio Partner Finstral per le finestre in PVC e alluminio e partner ufficiali Bertolotto per le porte, che affianchiamo a Linvisibile e Lualdi. Per tende da sole, pergole e oscuramento lavoriamo con gli spagnoli Gaviota e Gradhermetic, per le tende tecniche e le tende morbide con Mottura, per le zanzariere con Tekline.</p>
+        <p>Siamo Studio Partner Finstral per le finestre in PVC e alluminio e partner ufficiali Bertolotto per le porte, che affianchiamo a Linvisibile e Lualdi. Per tende da sole, pergole e oscuramento lavoriamo con gli spagnoli Gaviota e Gradhermetic, per le tende tecniche e le tende morbide con Mottura.</p>
       </div>
       <ul class="split__b pillars">
         <li class="pillar">
@@ -1968,13 +1994,13 @@ label.cookie__cat { cursor: pointer; }
           <li class="partner"><a class="partner__link" href="/outdoor/tende-da-sole/"><img src="assets/img/partner/gaviota.svg" width="140" height="31" alt="Gaviota" loading="lazy" decoding="async"></a></li>
           <li class="partner"><a class="partner__link" href="/outdoor/oscuramento/"><img src="assets/img/partner/gradhermetic.svg" width="135" height="30" alt="Gradhermetic" loading="lazy" decoding="async"></a></li>
           <li class="partner"><a class="partner__link" href="/tende/"><img src="assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/zanzariere/"><img src="assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><img src="assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></li>
           <li class="partner"><a class="partner__link" href="/sicurezza/blindati/"><img src="assets/img/partner/oikos.png" width="129" height="25" alt="Oikos" loading="lazy" decoding="async"></a></li>
           <li class="partner"><img src="assets/img/partner/hormann.svg" width="106" height="46" alt="Hörmann" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="assets/img/partner/ballan.png" width="112" height="36" alt="Ballan" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="assets/img/partner/mobirolo.png" width="136" height="26" alt="Mobirolo" loading="lazy" decoding="async"></li>
-          <li class="partner"><a class="partner__link" href="/tapparelle-veneziane/"><img src="assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/zanzariere/"><img src="assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><img src="assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="assets/img/partner/cromatica-marcegaglia.png" width="136" height="33" alt="Cromatica Marcegaglia" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="assets/img/partner/tecnografica.png" width="137" height="31" alt="Tecnografica" loading="lazy" decoding="async"></li>
           <li class="partner partner--more"><a class="link" href="/prodotti/">Tutti i prodotti</a></li>
@@ -1989,24 +2015,24 @@ label.cookie__cat { cursor: pointer; }
         <h2 class="attach" id="prodotti-title">Tra dentro e fuori, tutto ciò che serve</h2>
         <a class="link" href="/prodotti/">Tutti i prodotti</a>
       </div>
-      <ul class="areas">
+      <ul class="areas areas--4">
         <li class="area">
           <div class="area__media">
-            <img class="media" src="assets/img/home/area-finestre-768.jpg" srcset="assets/img/home/area-finestre-300.jpg 300w, assets/img/home/area-finestre-768.jpg 768w, assets/img/home/area-finestre-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="512" alt="Finestra bianca aperta a ribalta in un soggiorno con travi a vista" loading="lazy" decoding="async">
+            <img class="media" src="assets/img/home/area-finestre-768.jpg" srcset="assets/img/home/area-finestre-300.jpg 300w, assets/img/home/area-finestre-768.jpg 768w, assets/img/home/area-finestre-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Finestra bianca aperta a ribalta in un soggiorno con travi a vista" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/finestre/">Finestre</a></h3>
           <p class="area__desc">PVC, alluminio, legno e legno-alluminio</p>
         </li>
         <li class="area">
           <div class="area__media">
-            <img class="media media--right" src="assets/img/home/area-porte-768.jpg" srcset="assets/img/home/area-porte-300.jpg 300w, assets/img/home/area-porte-768.jpg 768w, assets/img/home/area-porte-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="512" alt="Camera con porta in vetro e telaio nero, nella Home Design Gallery di Castenaso" loading="lazy" decoding="async">
+            <img class="media media--right" src="assets/img/home/area-porte-768.jpg" srcset="assets/img/home/area-porte-300.jpg 300w, assets/img/home/area-porte-768.jpg 768w, assets/img/home/area-porte-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Camera con porta in vetro e telaio nero, nella Home Design Gallery di Castenaso" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/porte/">Porte</a></h3>
           <p class="area__desc">Bertolotto, Linvisibile e Lualdi</p>
         </li>
         <li class="area">
           <div class="area__media">
-            <img class="media" src="assets/img/home/area-cabine-armadio-768.jpg" srcset="assets/img/home/area-cabine-armadio-300.jpg 300w, assets/img/home/area-cabine-armadio-768.jpg 768w, assets/img/home/area-cabine-armadio-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="512" alt="Cabina armadio con pareti in vetro dietro il letto, nella Home Design Gallery di Castenaso" loading="lazy" decoding="async">
+            <img class="media" src="assets/img/home/area-cabine-armadio-768.jpg" srcset="assets/img/home/area-cabine-armadio-300.jpg 300w, assets/img/home/area-cabine-armadio-768.jpg 768w, assets/img/home/area-cabine-armadio-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Cabina armadio con pareti in vetro dietro il letto, nella Home Design Gallery di Castenaso" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/cabine-armadio/">Cabine armadio</a></h3>
           <p class="area__desc">Progettate sulle misure della stanza</p>
@@ -2014,47 +2040,36 @@ label.cookie__cat { cursor: pointer; }
         <li class="area">
           <div class="area__media">
             <!-- Foto Gaviota (gaviotagroup.it, pergola bioclimatica Climatika): verificare i diritti d'uso -->
-            <img class="media" src="assets/img/home/area-outdoor-gaviota-768.jpg" srcset="assets/img/home/area-outdoor-gaviota-300.jpg 300w, assets/img/home/area-outdoor-gaviota-768.jpg 768w, assets/img/home/area-outdoor-gaviota-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="537" alt="Pergola bioclimatica Gaviota con lamelle orientabili e vetrate su una terrazza con piante" loading="lazy" decoding="async">
+            <img class="media" src="assets/img/home/area-outdoor-gaviota-768.jpg" srcset="assets/img/home/area-outdoor-gaviota-300.jpg 300w, assets/img/home/area-outdoor-gaviota-768.jpg 768w, assets/img/home/area-outdoor-gaviota-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="537" alt="Pergola bioclimatica Gaviota con lamelle orientabili e vetrate su una terrazza con piante" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/outdoor/">Outdoor</a></h3>
           <p class="area__desc">Pergole, vetrate, tende da sole e oscuramento</p>
         </li>
         <li class="area">
           <div class="area__media">
-            <img class="media" src="assets/img/home/area-tende-768.jpg" srcset="assets/img/home/area-tende-300.jpg 300w, assets/img/home/area-tende-768.jpg 768w, assets/img/home/area-tende-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="512" alt="Portafinestra scorrevole su un terrazzo, con tende in tessuto ai lati" loading="lazy" decoding="async">
+            <img class="media" src="assets/img/home/area-tende-768.jpg" srcset="assets/img/home/area-tende-300.jpg 300w, assets/img/home/area-tende-768.jpg 768w, assets/img/home/area-tende-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Portafinestra scorrevole su un terrazzo, con tende in tessuto ai lati" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/tende/">Tende</a></h3>
           <p class="area__desc">Tessuti e sistemi per gli interni</p>
         </li>
         <li class="area">
           <div class="area__media">
-            <img class="media" src="assets/img/home/area-persiane-768.jpg" srcset="assets/img/home/area-persiane-300.jpg 300w, assets/img/home/area-persiane-768.jpg 768w, assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="512" alt="Facciata in mattoni con persiane in legno e portefinestre bianche" loading="lazy" decoding="async">
+            <img class="media" src="assets/img/home/area-persiane-768.jpg" srcset="assets/img/home/area-persiane-300.jpg 300w, assets/img/home/area-persiane-768.jpg 768w, assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Facciata in mattoni con persiane in legno e portefinestre bianche" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/persiane/">Persiane</a></h3>
           <p class="area__desc">Ombra e aria anche con le finestre aperte</p>
         </li>
         <li class="area">
           <div class="area__media">
-            <!-- Foto di prodotto dal sito attuale (pagina Tapparelle e veneziane) -->
-            <img class="media" src="assets/img/home/area-tapparelle-veneziane-768.jpg" srcset="assets/img/home/area-tapparelle-veneziane-300.jpg 300w, assets/img/home/area-tapparelle-veneziane-768.jpg 768w" sizes="(min-width: 1440px) 36vw, (min-width: 768px) 38vw, 90px" width="768" height="768" alt="Stecche di tapparelle in alluminio viste da vicino, con i profili in sezione" loading="lazy" decoding="async">
-          </div>
-          <h3 class="area__name"><a class="area__link" href="/tapparelle-veneziane/">Tapparelle e veneziane</a></h3>
-          <p class="area__desc">Per regolare luce e privacy</p>
-        </li>
-        <li class="area">
-          <div class="area__media">
-            <!-- Foto di prodotto Tekline (tekline.it, linea Insettika): verificare i diritti d'uso con il produttore -->
-            <img class="media media--product" src="assets/img/home/area-zanzariere-768.webp" srcset="assets/img/home/area-zanzariere-300.webp 300w, assets/img/home/area-zanzariere-768.webp 768w, assets/img/home/area-zanzariere-1667.webp 1667w" sizes="(min-width: 1440px) 36vw, (min-width: 768px) 38vw, 90px" width="768" height="768" alt="Zanzariera laterale Tekline Klip con telaio bianco e rete plissettata" loading="lazy" decoding="async">
-          </div>
-          <h3 class="area__name"><a class="area__link" href="/zanzariere/">Zanzariere</a></h3>
-          <p class="area__desc">Tekline, per finestre e portefinestre</p>
-        </li>
-        <li class="area">
-          <div class="area__media">
-            <img class="media" src="assets/img/home/area-sicurezza-768.jpg" srcset="assets/img/home/area-sicurezza-300.jpg 300w, assets/img/home/area-sicurezza-768.jpg 768w, assets/img/home/area-sicurezza-1536.jpg 1536w" sizes="(min-width: 1440px) 54vw, (min-width: 768px) 56vw, 135px" width="768" height="512" alt="Porta d'ingresso aperta su un corridoio con parquet" loading="lazy" decoding="async">
+            <img class="media" src="assets/img/home/area-sicurezza-768.jpg" srcset="assets/img/home/area-sicurezza-300.jpg 300w, assets/img/home/area-sicurezza-768.jpg 768w, assets/img/home/area-sicurezza-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Porta d'ingresso aperta su un corridoio con parquet" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/sicurezza/">Sicurezza</a></h3>
           <p class="area__desc">Porte blindate e inferriate</p>
+        </li>
+        <li class="area area--cta">
+          <h3 class="area__name">Non trovi quello che cerchi?</h3>
+          <p>Raccontaci il tuo progetto: ti consigliamo la soluzione giusta, anche su misura.</p>
+          <a class="btn btn--primary" href="/preventivo/" data-quote>Richiedi preventivo</a>
         </li>
       </ul>
     </div>
@@ -2357,8 +2372,6 @@ label.cookie__cat { cursor: pointer; }
           <li><a href="/outdoor/">Outdoor</a></li>
           <li><a href="/tende/">Tende</a></li>
           <li><a href="/persiane/">Persiane</a></li>
-          <li><a href="/tapparelle-veneziane/">Tapparelle e veneziane</a></li>
-          <li><a href="/zanzariere/">Zanzariere</a></li>
           <li><a href="/sicurezza/">Sicurezza</a></li>
         </ul>
       </nav>
@@ -2446,8 +2459,6 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Tende</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tapparelle-veneziane"><span class="tile__body"><span class="tile__title">Tapparelle e veneziane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="zanzariere"><span class="tile__body"><span class="tile__title">Zanzariere</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="sicurezza"><span class="tile__body"><span class="tile__title">Sicurezza</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>

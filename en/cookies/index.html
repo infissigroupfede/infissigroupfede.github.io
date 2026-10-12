@@ -964,6 +964,23 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area__media { grid-row: auto; margin-bottom: var(--space-16); }
   .area__name { font-size: var(--fs-h3); }
 }
+/* Home: 7 aree prodotto + una casella di contatto, su 2 colonne (tablet) e 4 (desktop): righe sempre complete */
+@media (min-width: 768px) {
+  .areas.areas--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .areas.areas--4 .area { border-top: 1px solid var(--color-brand); border-left: 0; }
+  .areas.areas--4 .area:nth-child(-n+2) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 1px solid var(--color-brand); }
+}
+@media (min-width: 1024px) {
+  .areas.areas--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .areas.areas--4 .area:nth-child(-n+4) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 0; }
+  .areas.areas--4 .area:not(:nth-child(4n+1)) { border-left: 1px solid var(--color-brand); }
+}
+.area--cta { grid-template-columns: 1fr; align-content: center; justify-items: start; gap: var(--space-12); background: var(--color-calce); }
+.area--cta .area__name { font-size: var(--fs-h4); }
+.area--cta p { color: var(--color-ardesia); font-size: var(--fs-small); }
+@media (min-width: 768px) { .area--cta { padding: var(--space-32) var(--space-24); } .area--cta .area__name { font-size: var(--fs-h3); } }
 
 /* 7.5 Come lavoriamo: sei fasi numerate in una griglia a partizioni */
 .steps { display: grid; counter-reset: fase; }
@@ -1394,6 +1411,18 @@ label.cookie__cat { cursor: pointer; }
 .fact__num { color: var(--color-brand); font: 500 clamp(1.5rem, 1rem + 2.4vw, 3rem)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .fact__label { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
 @media (min-width: 768px) { .fact { padding: var(--space-32) var(--space-24) var(--space-32) 0; } .fact:not(:nth-child(3n+1)) { padding-left: var(--space-24); } }
+/* Otto dati: 2 colonne sul telefono, 4 da 768px, sempre righe complete */
+.facts.facts--8 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.facts.facts--8 .fact { padding-left: 0; border-top: 0; border-left: 0; }
+.facts.facts--8 .fact:nth-child(n+3) { border-top: 1px solid var(--color-brand); }
+.facts.facts--8 .fact:nth-child(even) { padding-left: var(--space-12); border-left: 1px solid var(--color-brand); }
+@media (min-width: 768px) {
+  .facts.facts--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts.facts--8 .fact:nth-child(n+3) { border-top: 0; }
+  .facts.facts--8 .fact:nth-child(n+5) { border-top: 1px solid var(--color-brand); }
+  .facts.facts--8 .fact:nth-child(even) { padding-left: 0; border-left: 0; }
+  .facts.facts--8 .fact:not(:nth-child(4n+1)) { padding-left: var(--space-24); border-left: 1px solid var(--color-brand); }
+}
 /* Elenco a righe: titolo e descrizione affiancati da 768px */
 .rows > li { display: grid; gap: var(--space-8); padding-block: var(--space-24); border-top: 1px solid var(--color-line); }
 .rows > li:last-child { border-bottom: 1px solid var(--color-line); }
@@ -1668,8 +1697,6 @@ label.cookie__cat { cursor: pointer; }
                       </ul>
                     </li>
                     <li><a class="mega__cat" href="/en/shutters/">Shutters</a></li>
-                    <li><a class="mega__cat" href="/en/roller-shutters-venetian-blinds/">Roller shutters and Venetian blinds</a></li>
-                    <li><a class="mega__cat" href="/en/insect-screens/">Insect screens</a></li>
                   </ul>
                 </div>
                 <p class="mega__foot"><a class="link" href="/en/products/">All products</a></p>
@@ -1830,8 +1857,6 @@ label.cookie__cat { cursor: pointer; }
           <li><a href="/en/outdoor/">Outdoor</a></li>
           <li><a href="/en/blinds/">Blinds and curtains</a></li>
           <li><a href="/en/shutters/">Shutters</a></li>
-          <li><a href="/en/roller-shutters-venetian-blinds/">Roller shutters and Venetian blinds</a></li>
-          <li><a href="/en/insect-screens/">Insect screens</a></li>
           <li><a href="/en/security/">Security</a></li>
         </ul>
       </nav>
@@ -1919,8 +1944,6 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tapparelle-veneziane"><span class="tile__body"><span class="tile__title">Roller shutters and Venetian blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="zanzariere"><span class="tile__body"><span class="tile__title">Insect screens</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="sicurezza"><span class="tile__body"><span class="tile__title">Security</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>

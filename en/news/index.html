@@ -20,7 +20,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>News: updates, guides and home incentives</title>
-<meta name="description" content="Infissi Group news: company updates, guides to windows, doors and roller shutters, tax deductions, sport and community projects in Bologna.">
+<meta name="description" content="Infissi Group news: company updates, guides to windows, doors and outdoor living, tax deductions, sport and community projects in Bologna.">
 <link rel="canonical" href="https://infissigroup.com/en/news/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/news/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/news/">
@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="News: updates, guides and home incentives">
-<meta property="og:description" content="Infissi Group news: company updates, guides to windows, doors and roller shutters, tax deductions, sport and community projects in Bologna.">
+<meta property="og:description" content="Infissi Group news: company updates, guides to windows, doors and outdoor living, tax deductions, sport and community projects in Bologna.">
 <meta property="og:url" content="https://infissigroup.com/en/news/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/chi-siamo/showroom-castenaso-1536.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -969,6 +969,23 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area__media { grid-row: auto; margin-bottom: var(--space-16); }
   .area__name { font-size: var(--fs-h3); }
 }
+/* Home: 7 aree prodotto + una casella di contatto, su 2 colonne (tablet) e 4 (desktop): righe sempre complete */
+@media (min-width: 768px) {
+  .areas.areas--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .areas.areas--4 .area { border-top: 1px solid var(--color-brand); border-left: 0; }
+  .areas.areas--4 .area:nth-child(-n+2) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 1px solid var(--color-brand); }
+}
+@media (min-width: 1024px) {
+  .areas.areas--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .areas.areas--4 .area:nth-child(-n+4) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 0; }
+  .areas.areas--4 .area:not(:nth-child(4n+1)) { border-left: 1px solid var(--color-brand); }
+}
+.area--cta { grid-template-columns: 1fr; align-content: center; justify-items: start; gap: var(--space-12); background: var(--color-calce); }
+.area--cta .area__name { font-size: var(--fs-h4); }
+.area--cta p { color: var(--color-ardesia); font-size: var(--fs-small); }
+@media (min-width: 768px) { .area--cta { padding: var(--space-32) var(--space-24); } .area--cta .area__name { font-size: var(--fs-h3); } }
 
 /* 7.5 Come lavoriamo: sei fasi numerate in una griglia a partizioni */
 .steps { display: grid; counter-reset: fase; }
@@ -1399,6 +1416,18 @@ label.cookie__cat { cursor: pointer; }
 .fact__num { color: var(--color-brand); font: 500 clamp(1.5rem, 1rem + 2.4vw, 3rem)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .fact__label { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
 @media (min-width: 768px) { .fact { padding: var(--space-32) var(--space-24) var(--space-32) 0; } .fact:not(:nth-child(3n+1)) { padding-left: var(--space-24); } }
+/* Otto dati: 2 colonne sul telefono, 4 da 768px, sempre righe complete */
+.facts.facts--8 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.facts.facts--8 .fact { padding-left: 0; border-top: 0; border-left: 0; }
+.facts.facts--8 .fact:nth-child(n+3) { border-top: 1px solid var(--color-brand); }
+.facts.facts--8 .fact:nth-child(even) { padding-left: var(--space-12); border-left: 1px solid var(--color-brand); }
+@media (min-width: 768px) {
+  .facts.facts--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts.facts--8 .fact:nth-child(n+3) { border-top: 0; }
+  .facts.facts--8 .fact:nth-child(n+5) { border-top: 1px solid var(--color-brand); }
+  .facts.facts--8 .fact:nth-child(even) { padding-left: 0; border-left: 0; }
+  .facts.facts--8 .fact:not(:nth-child(4n+1)) { padding-left: var(--space-24); border-left: 1px solid var(--color-brand); }
+}
 /* Elenco a righe: titolo e descrizione affiancati da 768px */
 .rows > li { display: grid; gap: var(--space-8); padding-block: var(--space-24); border-top: 1px solid var(--color-line); }
 .rows > li:last-child { border-bottom: 1px solid var(--color-line); }
@@ -1673,8 +1702,6 @@ label.cookie__cat { cursor: pointer; }
                       </ul>
                     </li>
                     <li><a class="mega__cat" href="/en/shutters/">Shutters</a></li>
-                    <li><a class="mega__cat" href="/en/roller-shutters-venetian-blinds/">Roller shutters and Venetian blinds</a></li>
-                    <li><a class="mega__cat" href="/en/insect-screens/">Insect screens</a></li>
                   </ul>
                 </div>
                 <p class="mega__foot"><a class="link" href="/en/products/">All products</a></p>
@@ -1847,11 +1874,6 @@ label.cookie__cat { cursor: pointer; }
           <h3 class="news__title"><a class="news__link" href="/en/news/pocket-doors-benefits-styles-and-how-to-integrate-them-into-your-home/">Pocket doors: benefits, styles and how to integrate them into your home</a></h3>
         </article>
         <article class="news__item" data-cat="blog">
-          <div class="news__media"><img class="media" src="/assets/img/home/area-tapparelle-veneziane-300.jpg" srcset="/assets/img/home/area-tapparelle-veneziane-300.jpg 300w, /assets/img/home/area-tapparelle-veneziane-768.jpg 768w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="768" alt="Close-up of aluminium roller shutter slats, with the profiles in cross-section" loading="lazy" decoding="async"></div>
-          <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-05-05">5 May 2025</time></p>
-          <h3 class="news__title"><a class="news__link" href="/en/news/a-guide-to-choosing-roller-shutters-materials-design-and-prices/">A guide to choosing roller shutters: materials, design and prices</a></h3>
-        </article>
-        <article class="news__item" data-cat="blog">
           <div class="news__media"><img class="media" src="/assets/img/home/area-sicurezza-768.jpg" srcset="/assets/img/home/area-sicurezza-768.jpg 768w, /assets/img/home/area-sicurezza-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="Front door open onto a hallway with parquet flooring" loading="lazy" decoding="async"></div>
           <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-04-29">29 April 2025</time></p>
           <h3 class="news__title"><a class="news__link" href="/en/news/fire-doors-and-rei-ratings-what-to-know-for-the-safety-of-your-home/">Fire doors and REI ratings: what to know for the safety of your home</a></h3>
@@ -1860,11 +1882,6 @@ label.cookie__cat { cursor: pointer; }
           <div class="news__media"><img class="media" src="/assets/img/news/veranda-2-768.jpg" srcset="/assets/img/news/veranda-2-768.jpg 768w, /assets/img/news/veranda-2-1024.jpg 1024w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="French window open onto a balcony with plants, next to a brick wall" loading="lazy" decoding="async"></div>
           <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-04-17">17 April 2025</time></p>
           <h3 class="news__title"><a class="news__link" href="/en/news/windows-and-doors-in-bologna-advice-from-our-experts/">Windows and doors in Bologna: advice from our experts</a></h3>
-        </article>
-        <article class="news__item" data-cat="blog">
-          <div class="news__media"><img class="media" src="/assets/img/home/area-persiane-768.jpg" srcset="/assets/img/home/area-persiane-768.jpg 768w, /assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="Brick facade with louvred timber shutters and white French windows" loading="lazy" decoding="async"></div>
-          <p class="news__meta"><span class="tag">Blog</span><time datetime="2025-04-11">11 April 2025</time></p>
-          <h3 class="news__title"><a class="news__link" href="/en/news/roller-shutters-tips-for-comfort-security-and-energy-efficiency/">Roller shutters: tips for comfort, security and energy efficiency</a></h3>
         </article>
         <article class="news__item" data-cat="blog">
           <div class="news__media"><img class="media" src="/assets/img/realizzazioni/inliving-26-768.jpg" srcset="/assets/img/realizzazioni/inliving-26-768.jpg 768w, /assets/img/realizzazioni/inliving-26-1024.jpg 1024w, /assets/img/realizzazioni/inliving-26-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 92vw" width="768" height="512" alt="White window tilted open in a living room with exposed beams" loading="lazy" decoding="async"></div>
@@ -2044,8 +2061,6 @@ label.cookie__cat { cursor: pointer; }
           <li><a href="/en/outdoor/">Outdoor</a></li>
           <li><a href="/en/blinds/">Blinds and curtains</a></li>
           <li><a href="/en/shutters/">Shutters</a></li>
-          <li><a href="/en/roller-shutters-venetian-blinds/">Roller shutters and Venetian blinds</a></li>
-          <li><a href="/en/insect-screens/">Insect screens</a></li>
           <li><a href="/en/security/">Security</a></li>
         </ul>
       </nav>
@@ -2133,8 +2148,6 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tapparelle-veneziane"><span class="tile__body"><span class="tile__title">Roller shutters and Venetian blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="zanzariere"><span class="tile__body"><span class="tile__title">Insect screens</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="sicurezza"><span class="tile__body"><span class="tile__title">Security</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>

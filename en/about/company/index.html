@@ -982,6 +982,23 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area__media { grid-row: auto; margin-bottom: var(--space-16); }
   .area__name { font-size: var(--fs-h3); }
 }
+/* Home: 7 aree prodotto + una casella di contatto, su 2 colonne (tablet) e 4 (desktop): righe sempre complete */
+@media (min-width: 768px) {
+  .areas.areas--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .areas.areas--4 .area { border-top: 1px solid var(--color-brand); border-left: 0; }
+  .areas.areas--4 .area:nth-child(-n+2) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 1px solid var(--color-brand); }
+}
+@media (min-width: 1024px) {
+  .areas.areas--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .areas.areas--4 .area:nth-child(-n+4) { border-top: 0; }
+  .areas.areas--4 .area:nth-child(even) { border-left: 0; }
+  .areas.areas--4 .area:not(:nth-child(4n+1)) { border-left: 1px solid var(--color-brand); }
+}
+.area--cta { grid-template-columns: 1fr; align-content: center; justify-items: start; gap: var(--space-12); background: var(--color-calce); }
+.area--cta .area__name { font-size: var(--fs-h4); }
+.area--cta p { color: var(--color-ardesia); font-size: var(--fs-small); }
+@media (min-width: 768px) { .area--cta { padding: var(--space-32) var(--space-24); } .area--cta .area__name { font-size: var(--fs-h3); } }
 
 /* 7.5 Come lavoriamo: sei fasi numerate in una griglia a partizioni */
 .steps { display: grid; counter-reset: fase; }
@@ -1412,6 +1429,18 @@ label.cookie__cat { cursor: pointer; }
 .fact__num { color: var(--color-brand); font: 500 clamp(1.5rem, 1rem + 2.4vw, 3rem)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
 .fact__label { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
 @media (min-width: 768px) { .fact { padding: var(--space-32) var(--space-24) var(--space-32) 0; } .fact:not(:nth-child(3n+1)) { padding-left: var(--space-24); } }
+/* Otto dati: 2 colonne sul telefono, 4 da 768px, sempre righe complete */
+.facts.facts--8 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.facts.facts--8 .fact { padding-left: 0; border-top: 0; border-left: 0; }
+.facts.facts--8 .fact:nth-child(n+3) { border-top: 1px solid var(--color-brand); }
+.facts.facts--8 .fact:nth-child(even) { padding-left: var(--space-12); border-left: 1px solid var(--color-brand); }
+@media (min-width: 768px) {
+  .facts.facts--8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .facts.facts--8 .fact:nth-child(n+3) { border-top: 0; }
+  .facts.facts--8 .fact:nth-child(n+5) { border-top: 1px solid var(--color-brand); }
+  .facts.facts--8 .fact:nth-child(even) { padding-left: 0; border-left: 0; }
+  .facts.facts--8 .fact:not(:nth-child(4n+1)) { padding-left: var(--space-24); border-left: 1px solid var(--color-brand); }
+}
 /* Elenco a righe: titolo e descrizione affiancati da 768px */
 .rows > li { display: grid; gap: var(--space-8); padding-block: var(--space-24); border-top: 1px solid var(--color-line); }
 .rows > li:last-child { border-bottom: 1px solid var(--color-line); }
@@ -1690,8 +1719,6 @@ label.cookie__cat { cursor: pointer; }
                       </ul>
                     </li>
                     <li><a class="mega__cat" href="/en/shutters/">Shutters</a></li>
-                    <li><a class="mega__cat" href="/en/roller-shutters-venetian-blinds/">Roller shutters and Venetian blinds</a></li>
-                    <li><a class="mega__cat" href="/en/insect-screens/">Insect screens</a></li>
                   </ul>
                 </div>
                 <p class="mega__foot"><a class="link" href="/en/products/">All products</a></p>
@@ -1803,13 +1830,12 @@ label.cookie__cat { cursor: pointer; }
         <p class="lead">Work completed during the year, from surveys to installations.</p>
       </div>
       <!-- Dati 2024 pubblicati sul sito attuale: aggiornarli ogni anno -->
-      <ul class="facts">
+      <ul class="facts facts--8">
         <li class="fact"><span class="fact__num">623</span><span class="fact__label">Customers served</span></li>
         <li class="fact"><span class="fact__num">3,822</span><span class="fact__label">Windows and doors installed</span></li>
         <li class="fact"><span class="fact__num">612</span><span class="fact__label">Interior doors</span></li>
         <li class="fact"><span class="fact__num">3,112</span><span class="fact__label">Roller shutter boxes</span></li>
         <li class="fact"><span class="fact__num">784</span><span class="fact__label">Showroom customers</span></li>
-        <li class="fact"><span class="fact__num">1,412</span><span class="fact__label">Insect screens</span></li>
         <li class="fact"><span class="fact__num">689</span><span class="fact__label">Surveys</span></li>
         <li class="fact"><span class="fact__num">283</span><span class="fact__label">Security doors</span></li>
         <li class="fact"><span class="fact__num">2,869</span><span class="fact__label">Shading products</span></li>
@@ -1853,13 +1879,13 @@ label.cookie__cat { cursor: pointer; }
           <li class="partner"><a class="partner__link" href="/en/outdoor/awnings/"><img src="/assets/img/partner/gaviota.svg" width="140" height="31" alt="Gaviota" loading="lazy" decoding="async"></a></li>
           <li class="partner"><a class="partner__link" href="/en/outdoor/shading/"><img src="/assets/img/partner/gradhermetic.svg" width="135" height="30" alt="Gradhermetic" loading="lazy" decoding="async"></a></li>
           <li class="partner"><a class="partner__link" href="/en/blinds/"><img src="/assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/insect-screens/"><img src="/assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><img src="/assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></li>
           <li class="partner"><a class="partner__link" href="/en/security/security-doors/"><img src="/assets/img/partner/oikos.png" width="129" height="25" alt="Oikos" loading="lazy" decoding="async"></a></li>
           <li class="partner"><img src="/assets/img/partner/hormann.svg" width="106" height="46" alt="Hörmann" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/ballan.png" width="112" height="36" alt="Ballan" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/mobirolo.png" width="136" height="26" alt="Mobirolo" loading="lazy" decoding="async"></li>
-          <li class="partner"><a class="partner__link" href="/en/roller-shutters-venetian-blinds/"><img src="/assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/insect-screens/"><img src="/assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><img src="/assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="136" height="33" alt="Cromatica Marcegaglia" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/tecnografica.png" width="137" height="31" alt="Tecnografica" loading="lazy" decoding="async"></li>
           <li class="partner partner--more"><a class="link" href="/en/products/">All products</a></li>
@@ -1924,8 +1950,6 @@ label.cookie__cat { cursor: pointer; }
           <li><a href="/en/outdoor/">Outdoor</a></li>
           <li><a href="/en/blinds/">Blinds and curtains</a></li>
           <li><a href="/en/shutters/">Shutters</a></li>
-          <li><a href="/en/roller-shutters-venetian-blinds/">Roller shutters and Venetian blinds</a></li>
-          <li><a href="/en/insect-screens/">Insect screens</a></li>
           <li><a href="/en/security/">Security</a></li>
         </ul>
       </nav>
@@ -2013,8 +2037,6 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tapparelle-veneziane"><span class="tile__body"><span class="tile__title">Roller shutters and Venetian blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="zanzariere"><span class="tile__body"><span class="tile__title">Insect screens</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="sicurezza"><span class="tile__body"><span class="tile__title">Security</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
