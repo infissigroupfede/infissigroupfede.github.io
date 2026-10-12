@@ -20,8 +20,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Outdoor in Bologna: pergolas, glass enclosures, awnings, shading</title>
-<meta name="description" content="Gaviota bioclimatic pergolas and glass enclosures, awnings, Gradhermetic brise soleil and solar screens in Bologna. Showrooms in Castenaso and Casalecchio.">
+<title>Outdoor in Bologna: pergolas, glass enclosures and awnings</title>
+<meta name="description" content="Gaviota bioclimatic pergolas, glass enclosures and awnings in Bologna. Showrooms in Castenaso and Casalecchio di Reno.">
 <link rel="canonical" href="https://infissigroup.com/en/outdoor/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/outdoor/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/outdoor/">
@@ -29,8 +29,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Outdoor in Bologna: pergolas, glass enclosures, awnings, shading">
-<meta property="og:description" content="Gaviota bioclimatic pergolas and glass enclosures, awnings, Gradhermetic brise soleil and solar screens in Bologna. Showrooms in Castenaso and Casalecchio.">
+<meta property="og:title" content="Outdoor in Bologna: pergolas, glass enclosures and awnings">
+<meta property="og:description" content="Gaviota bioclimatic pergolas, glass enclosures and awnings in Bologna. Showrooms in Castenaso and Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/en/outdoor/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/realizzazioni/outdoor-14-1536.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -808,7 +808,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -817,7 +817,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1474,6 +1474,10 @@ label.cookie__cat { cursor: pointer; }
 .sponsor { display: grid; justify-items: center; gap: var(--space-16); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
 .sponsor h3, .partners-block .sponsor h3 { margin-bottom: 0; font-size: var(--fs-h4); line-height: 1.3; }
 .sponsor img { display: block; max-width: 100%; height: auto; }
+/* Logo Bologna FC cliccabile, porta alla pagina dello sport: al passaggio del mouse si ingrandisce appena */
+.sponsor__link { display: block; transition: transform 300ms var(--ease); }
+.sponsor__link:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 6px; }
+@media (hover: hover) { .sponsor__link:hover { transform: scale(1.05); } }
 .partners-block h3 { margin-bottom: var(--space-24); font-size: var(--fs-h4); line-height: 1.3; }
 /* Marchi nella testata di pagina: loghi a colori, accanto all'etichetta */
 .brandline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
@@ -1662,30 +1666,30 @@ label.cookie__cat { cursor: pointer; }
                   </ul>
                 </div>
                 <div class="mega__col">
-                  <div class="mega__group">
-                    <a class="mega__cat" href="/en/doors/">Doors</a>
-                    <ul class="mega__links">
-                      <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
-                      <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
-                      <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
-                      <li><a href="/en/doors/security-doors/">Security doors</a></li>
-                    </ul>
-                  </div>
+                  <a class="mega__cat" href="/en/doors/">Interior - security doors</a>
+                  <ul class="mega__links">
+                    <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
+                    <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
+                    <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
+                    <li><a href="/en/doors/oikos-security-doors/">Oikos security doors</a></li>
+                    <li><a href="/en/doors/dierre-security-doors/">Dierre security doors</a></li>
+                  </ul>
                 </div>
                 <div class="mega__col">
                   <a class="mega__cat" href="/en/outdoor/" aria-current="page">Outdoor</a>
                   <ul class="mega__links">
                     <li><a href="/en/outdoor/pergolas-glass-enclosures/">Pergolas and glass enclosures</a></li>
                     <li><a href="/en/outdoor/awnings/">Awnings</a></li>
-                    <li>
-                      <a href="/en/outdoor/shading/">Shading and protection systems</a>
-                      <ul class="mega__links">
-                        <li><a href="/en/outdoor/shading/brise-soleil/">Brise soleil</a></li>
-                        <li><a href="/en/outdoor/shading/solar-screens/">Solar screens</a></li>
-                        <li><a href="/en/outdoor/shading/shutters/">Shutters</a></li>
-                        <li><a href="/en/outdoor/shading/technical-blinds/">Technical blinds</a></li>
-                      </ul>
-                    </li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__cat" href="/en/shading/">Shading and protection systems</a>
+                  <ul class="mega__links">
+                    <li><a href="/en/shading/brise-soleil/">Brise soleil</a></li>
+                    <li><a href="/en/shading/solar-screens/">Solar screens</a></li>
+                    <li><a href="/en/shading/shutters/">Louvred and solid shutters</a></li>
+                    <li><a href="/en/shading/technical-blinds/">Technical blinds</a></li>
+                    <li><a href="/en/shading/security-roller-shutters/">Security roller shutters</a></li>
                   </ul>
                 </div>
                 <div class="mega__col">
@@ -1694,6 +1698,7 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/en/interior-design/walk-in-wardrobes/">Walk-in wardrobes</a></li>
                     <li><a href="/en/interior-design/surfaces/">Surfaces</a></li>
                     <li><a href="/en/interior-design/fabrics-curtains/">Fabrics and curtains</a></li>
+                    <li><a href="/en/interior-design/staircases/">Designer staircases</a></li>
                   </ul>
                 </div>
               </div>
@@ -1776,8 +1781,8 @@ label.cookie__cat { cursor: pointer; }
     <div class="container grid page-head__grid">
       <h1 id="page-title">Outdoor</h1>
       <div class="page-head__lead stack">
-        <p class="lead">Pergolas, glass enclosures, awnings and shading systems, so you can enjoy your terrace or garden all year round. We are official Gaviota, Gradhermetic and Mottura dealers.</p>
-        <p class="brandline"><span class="brandline__label">Brands</span><img src="/assets/img/partner/gaviota.svg" width="110" height="24" alt="Gaviota" decoding="async"><img src="/assets/img/partner/gradhermetic.svg" width="109" height="24" alt="Gradhermetic" decoding="async"><img src="/assets/img/partner/mottura.svg" width="112" height="23" alt="Mottura" decoding="async"></p>
+        <p class="lead">Pergolas, glass enclosures and awnings, so you can enjoy your terrace or garden all year round. We are official Gaviota dealers.</p>
+        <p class="brandline"><span class="brandline__label">Brands</span><img src="/assets/img/partner/gaviota.svg" width="110" height="24" alt="Gaviota" decoding="async"></p>
       </div>
     </div>
     <div class="container page-head__media">
@@ -1790,6 +1795,7 @@ label.cookie__cat { cursor: pointer; }
       <div class="section-head">
         <h2 class="attach" id="prodotti-title">Choose your solution</h2>
         <p class="lead">To cover, enclose and shade your outdoor spaces.</p>
+        <a class="link" href="/en/shading/">Shading and protection systems</a>
       </div>
       <ul class="areas areas--wide areas--two">
         <li class="area">
@@ -1801,26 +1807,6 @@ label.cookie__cat { cursor: pointer; }
           <div class="area__media"><img class="media" src="/assets/img/outdoor/gaviota-tenda-kyma-768.jpg" srcset="/assets/img/outdoor/gaviota-tenda-kyma-300.jpg 300w, /assets/img/outdoor/gaviota-tenda-kyma-768.jpg 768w, /assets/img/outdoor/gaviota-tenda-kyma-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Gaviota Kyma awning extended over a terrace overlooking the sea, in the evening" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/en/outdoor/awnings/">Awnings</a></h3>
           <p class="area__desc">Folding-arm and vertical awnings with a compact design. Gaviota.</p>
-        </li>
-        <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/outdoor/gradhermetic-frangisole-768.jpg" srcset="/assets/img/outdoor/gradhermetic-frangisole-300.jpg 300w, /assets/img/outdoor/gradhermetic-frangisole-768.jpg 768w, /assets/img/outdoor/gradhermetic-frangisole-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Villa among the trees with Gradhermetic timber-louvred brise soleil on the façade" loading="lazy" decoding="async"></div>
-          <h3 class="area__name"><a class="area__link" href="/en/outdoor/shading/brise-soleil/">Brise soleil</a></h3>
-          <p class="area__desc">Adjustable louvres to control light and privacy. Gradhermetic.</p>
-        </li>
-        <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/outdoor/gradhermetic-gradstor-villa-768.jpg" srcset="/assets/img/outdoor/gradhermetic-gradstor-villa-300.jpg 300w, /assets/img/outdoor/gradhermetic-gradstor-villa-768.jpg 768w, /assets/img/outdoor/gradhermetic-gradstor-villa-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Modern villa with Gradhermetic Gradstor 90 solar screens over the glazing" loading="lazy" decoding="async"></div>
-          <h3 class="area__name"><a class="area__link" href="/en/outdoor/shading/solar-screens/">Solar screens</a></h3>
-          <p class="area__desc">External systems that filter the sun on glazed walls and windows. Gradhermetic.</p>
-        </li>
-        <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/home/area-persiane-768.jpg" srcset="/assets/img/home/area-persiane-300.jpg 300w, /assets/img/home/area-persiane-768.jpg 768w, /assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Brick facade with louvred timber shutters and white French windows" loading="lazy" decoding="async"></div>
-          <h3 class="area__name"><a class="area__link" href="/en/outdoor/shading/shutters/">Shutters</a></h3>
-          <p class="area__desc">Shade and fresh air, even with the windows open, made to measure.</p>
-        </li>
-        <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/tende/mottura-rullo-768.jpg" srcset="/assets/img/tende/mottura-rullo-300.jpg 300w, /assets/img/tende/mottura-rullo-768.jpg 768w, /assets/img/tende/mottura-rullo-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Living room with grey Mottura roller blinds lowered to different heights over the windows" loading="lazy" decoding="async"></div>
-          <h3 class="area__name"><a class="area__link" href="/en/outdoor/shading/technical-blinds/">Technical blinds</a></h3>
-          <p class="area__desc">Roller, pleated, Venetian and skylight blinds. Mottura.</p>
         </li>
       </ul>
     </div>
@@ -1845,7 +1831,7 @@ label.cookie__cat { cursor: pointer; }
     <div class="container grid bonus">
       <div class="bonus__head stack">
         <h2 id="sedi-title">See them in our showrooms</h2>
-        <p>Pergolas, awnings and solar screens on display, fabric and colour samples, and a consultant to help you choose.</p>
+        <p>Pergolas and awnings on display, fabric and colour samples, and a consultant to help you choose.</p>
       </div>
       <ul class="rows bonus__list">
         <li><h3><a class="text-link" href="/en/contact/castenaso/">Home Design Gallery, Castenaso</a></h3><p>Via Bruno Tosarelli, 342G, in Villanova di Castenaso. Over 800&nbsp;m², including a show apartment.</p></li>
@@ -1893,8 +1879,9 @@ label.cookie__cat { cursor: pointer; }
         <h2>Products</h2>
         <ul>
           <li><a href="/en/windows/">Windows</a></li>
-          <li><a href="/en/doors/">Doors</a></li>
+          <li><a href="/en/doors/">Interior - security doors</a></li>
           <li><a href="/en/outdoor/">Outdoor</a></li>
+          <li><a href="/en/shading/">Shading and protection systems</a></li>
           <li><a href="/en/interior-design/">Interiors and design</a></li>
         </ul>
       </nav>
@@ -1983,6 +1970,8 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="avvolgibili"><span class="tile__body"><span class="tile__title">Security roller shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="scale"><span class="tile__body"><span class="tile__title">Designer staircases</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
       </section>
@@ -1999,7 +1988,7 @@ label.cookie__cat { cursor: pointer; }
           </div>
         </fieldset>
 
-        <fieldset class="qd__set" data-if-cat="finestre porte persiane" hidden>
+        <fieldset class="qd__set" data-if-cat="finestre porte persiane avvolgibili" hidden>
           <legend class="form-legend">Windows and doors</legend>
           <div class="fields fields--2">
             <div class="field">

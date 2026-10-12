@@ -902,7 +902,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -911,7 +911,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1642,6 +1642,10 @@ label.cookie__cat { cursor: pointer; }
 .sponsor { display: grid; justify-items: center; gap: var(--space-16); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
 .sponsor h3, .partners-block .sponsor h3 { margin-bottom: 0; font-size: var(--fs-h4); line-height: 1.3; }
 .sponsor img { display: block; max-width: 100%; height: auto; }
+/* Logo Bologna FC cliccabile, porta alla pagina dello sport: al passaggio del mouse si ingrandisce appena */
+.sponsor__link { display: block; transition: transform 300ms var(--ease); }
+.sponsor__link:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 6px; }
+@media (hover: hover) { .sponsor__link:hover { transform: scale(1.05); } }
 .partners-block h3 { margin-bottom: var(--space-24); font-size: var(--fs-h4); line-height: 1.3; }
 /* Marchi nella testata di pagina: loghi a colori, accanto all'etichetta */
 .brandline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
@@ -1832,30 +1836,30 @@ label.cookie__cat { cursor: pointer; }
                   </ul>
                 </div>
                 <div class="mega__col">
-                  <div class="mega__group">
-                    <a class="mega__cat" href="/en/doors/">Doors</a>
-                    <ul class="mega__links">
-                      <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
-                      <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
-                      <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
-                      <li><a href="/en/doors/security-doors/">Security doors</a></li>
-                    </ul>
-                  </div>
+                  <a class="mega__cat" href="/en/doors/">Interior - security doors</a>
+                  <ul class="mega__links">
+                    <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
+                    <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
+                    <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
+                    <li><a href="/en/doors/oikos-security-doors/">Oikos security doors</a></li>
+                    <li><a href="/en/doors/dierre-security-doors/">Dierre security doors</a></li>
+                  </ul>
                 </div>
                 <div class="mega__col">
                   <a class="mega__cat" href="/en/outdoor/">Outdoor</a>
                   <ul class="mega__links">
                     <li><a href="/en/outdoor/pergolas-glass-enclosures/">Pergolas and glass enclosures</a></li>
                     <li><a href="/en/outdoor/awnings/">Awnings</a></li>
-                    <li>
-                      <a href="/en/outdoor/shading/">Shading and protection systems</a>
-                      <ul class="mega__links">
-                        <li><a href="/en/outdoor/shading/brise-soleil/">Brise soleil</a></li>
-                        <li><a href="/en/outdoor/shading/solar-screens/">Solar screens</a></li>
-                        <li><a href="/en/outdoor/shading/shutters/">Shutters</a></li>
-                        <li><a href="/en/outdoor/shading/technical-blinds/">Technical blinds</a></li>
-                      </ul>
-                    </li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__cat" href="/en/shading/">Shading and protection systems</a>
+                  <ul class="mega__links">
+                    <li><a href="/en/shading/brise-soleil/">Brise soleil</a></li>
+                    <li><a href="/en/shading/solar-screens/">Solar screens</a></li>
+                    <li><a href="/en/shading/shutters/">Louvred and solid shutters</a></li>
+                    <li><a href="/en/shading/technical-blinds/">Technical blinds</a></li>
+                    <li><a href="/en/shading/security-roller-shutters/">Security roller shutters</a></li>
                   </ul>
                 </div>
                 <div class="mega__col">
@@ -1864,6 +1868,7 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/en/interior-design/walk-in-wardrobes/">Walk-in wardrobes</a></li>
                     <li><a href="/en/interior-design/surfaces/">Surfaces</a></li>
                     <li><a href="/en/interior-design/fabrics-curtains/">Fabrics and curtains</a></li>
+                    <li><a href="/en/interior-design/staircases/">Designer staircases</a></li>
                   </ul>
                 </div>
               </div>
@@ -1997,7 +2002,7 @@ label.cookie__cat { cursor: pointer; }
     <div class="container partners-block">
         <div class="sponsor">
           <h3 id="sponsor-title">Sponsors &amp; partners</h3>
-          <img src="/assets/img/partner/bologna-fc-premium-partner-320.png" srcset="/assets/img/partner/bologna-fc-premium-partner-320.png 1x, /assets/img/partner/bologna-fc-premium-partner-640.png 2x" width="320" height="75" alt="Bologna FC 1909, Premium Partner" loading="lazy" decoding="async">
+          <a class="sponsor__link" href="/en/community/sport/"><img src="/assets/img/partner/bologna-fc-premium-partner-320.png" srcset="/assets/img/partner/bologna-fc-premium-partner-320.png 1x, /assets/img/partner/bologna-fc-premium-partner-640.png 2x" width="320" height="75" alt="Bologna FC 1909, Premium Partner: Infissi Group and sport" loading="lazy" decoding="async"></a>
         </div>
         <h3 id="partner-title">Partner companies</h3>
         <ul class="partners" aria-labelledby="partner-title">
@@ -2018,7 +2023,7 @@ label.cookie__cat { cursor: pointer; }
           <li class="partner"><img src="/assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="136" height="33" alt="Cromatica Marcegaglia" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/tecnografica.png" width="137" height="31" alt="Tecnografica" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/dierre.svg" width="108" height="42" alt="Dierre" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/dierre.svg" width="102" height="46" alt="Dierre" loading="lazy" decoding="async"></li>
         </ul>
     </div>
   </section>
@@ -2041,8 +2046,8 @@ label.cookie__cat { cursor: pointer; }
           <div class="area__media">
             <img class="media media--right" src="/assets/img/home/area-porte-768.jpg" srcset="/assets/img/home/area-porte-300.jpg 300w, /assets/img/home/area-porte-768.jpg 768w, /assets/img/home/area-porte-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Bedroom with a black-framed glass door, in the Home Design Gallery in Castenaso" loading="lazy" decoding="async">
           </div>
-          <h3 class="area__name"><a class="area__link" href="/en/doors/">Doors</a></h3>
-          <p class="area__desc">Bertolotto, Linvisibile and Lualdi</p>
+          <h3 class="area__name"><a class="area__link" href="/en/doors/">Interior - security doors</a></h3>
+          <p class="area__desc">Bertolotto, Linvisibile, Lualdi, Oikos and Dierre</p>
         </li>
         <li class="area">
           <div class="area__media">
@@ -2057,7 +2062,7 @@ label.cookie__cat { cursor: pointer; }
             <img class="media" src="/assets/img/home/area-outdoor-gaviota-768.jpg" srcset="/assets/img/home/area-outdoor-gaviota-300.jpg 300w, /assets/img/home/area-outdoor-gaviota-768.jpg 768w, /assets/img/home/area-outdoor-gaviota-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="537" alt="Gaviota bioclimatic pergola with adjustable louvres and glass walls on a terrace with plants" loading="lazy" decoding="async">
           </div>
           <h3 class="area__name"><a class="area__link" href="/en/outdoor/">Outdoor</a></h3>
-          <p class="area__desc">Pergolas, glass enclosures, awnings and shading</p>
+          <p class="area__desc">Pergolas, glass enclosures and awnings</p>
         </li>
         <li class="area">
           <div class="area__media">
@@ -2070,15 +2075,15 @@ label.cookie__cat { cursor: pointer; }
           <div class="area__media">
             <img class="media" src="/assets/img/home/area-persiane-768.jpg" srcset="/assets/img/home/area-persiane-300.jpg 300w, /assets/img/home/area-persiane-768.jpg 768w, /assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Brick facade with louvred timber shutters and white French windows" loading="lazy" decoding="async">
           </div>
-          <h3 class="area__name"><a class="area__link" href="/en/outdoor/shading/shutters/">Shutters</a></h3>
-          <p class="area__desc">Shade and fresh air, even with the windows open</p>
+          <h3 class="area__name"><a class="area__link" href="/en/shading/">Shading and protection</a></h3>
+          <p class="area__desc">Brise soleil, shutters, technical blinds and roller shutters</p>
         </li>
         <li class="area">
           <div class="area__media">
             <img class="media" src="/assets/img/home/area-sicurezza-768.jpg" srcset="/assets/img/home/area-sicurezza-300.jpg 300w, /assets/img/home/area-sicurezza-768.jpg 768w, /assets/img/home/area-sicurezza-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Front door open onto a hallway with parquet flooring" loading="lazy" decoding="async">
           </div>
-          <h3 class="area__name"><a class="area__link" href="/en/doors/security-doors/">Security doors</a></h3>
-          <p class="area__desc">Protection and design for your entrance</p>
+          <h3 class="area__name"><a class="area__link" href="/en/doors/#security-doors">Security doors</a></h3>
+          <p class="area__desc">Oikos and Dierre, for your entrance</p>
         </li>
         <li class="area">
           <div class="area__media">
@@ -2383,8 +2388,9 @@ label.cookie__cat { cursor: pointer; }
         <h2>Products</h2>
         <ul>
           <li><a href="/en/windows/">Windows</a></li>
-          <li><a href="/en/doors/">Doors</a></li>
+          <li><a href="/en/doors/">Interior - security doors</a></li>
           <li><a href="/en/outdoor/">Outdoor</a></li>
+          <li><a href="/en/shading/">Shading and protection systems</a></li>
           <li><a href="/en/interior-design/">Interiors and design</a></li>
         </ul>
       </nav>
@@ -2473,6 +2479,8 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="avvolgibili"><span class="tile__body"><span class="tile__title">Security roller shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="scale"><span class="tile__body"><span class="tile__title">Designer staircases</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
       </section>
@@ -2489,7 +2497,7 @@ label.cookie__cat { cursor: pointer; }
           </div>
         </fieldset>
 
-        <fieldset class="qd__set" data-if-cat="finestre porte persiane" hidden>
+        <fieldset class="qd__set" data-if-cat="finestre porte persiane avvolgibili" hidden>
           <legend class="form-legend">Windows and doors</legend>
           <div class="fields fields--2">
             <div class="field">

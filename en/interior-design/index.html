@@ -19,8 +19,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Interiors and design in Bologna: wardrobes, surfaces and fabrics</title>
-<meta name="description" content="Made-to-measure Bertolotto walk-in wardrobes, Tecnografica and Cromatica wallpaper and surfaces, Mottura fabrics and curtains in Bologna. Showrooms in Castenaso and Casalecchio di Reno.">
+<title>Interiors and design in Bologna: wardrobes, surfaces, fabrics and staircases</title>
+<meta name="description" content="Made-to-measure Bertolotto walk-in wardrobes, Tecnografica and Cromatica wallpaper and surfaces, Mottura fabrics and curtains, and designer staircases in Bologna. Showrooms in Castenaso and Casalecchio di Reno.">
 <link rel="canonical" href="https://infissigroup.com/en/interior-design/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/arredo-design/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/interior-design/">
@@ -28,8 +28,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Interiors and design in Bologna: wardrobes, surfaces and fabrics">
-<meta property="og:description" content="Made-to-measure Bertolotto walk-in wardrobes, Tecnografica and Cromatica wallpaper and surfaces, Mottura fabrics and curtains in Bologna. Showrooms in Castenaso and Casalecchio di Reno.">
+<meta property="og:title" content="Interiors and design in Bologna: wardrobes, surfaces, fabrics and staircases">
+<meta property="og:description" content="Made-to-measure Bertolotto walk-in wardrobes, Tecnografica and Cromatica wallpaper and surfaces, Mottura fabrics and curtains, and designer staircases in Bologna. Showrooms in Castenaso and Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/en/interior-design/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/home/area-cabine-armadio-1536.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -63,8 +63,8 @@
       "@type": "WebPage",
       "@id": "https://infissigroup.com/en/interior-design/#pagina",
       "url": "https://infissigroup.com/en/interior-design/",
-      "name": "Interiors and design in Bologna: wardrobes, surfaces and fabrics",
-      "description": "Made-to-measure Bertolotto walk-in wardrobes, Tecnografica and Cromatica wallpaper and surfaces, Mottura fabrics and curtains in Bologna. Showrooms in Castenaso and Casalecchio di Reno.",
+      "name": "Interiors and design in Bologna: wardrobes, surfaces, fabrics and staircases",
+      "description": "Made-to-measure Bertolotto walk-in wardrobes, Tecnografica and Cromatica wallpaper and surfaces, Mottura fabrics and curtains, and designer staircases in Bologna. Showrooms in Castenaso and Casalecchio di Reno.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://infissigroup.com/#sito"
@@ -807,7 +807,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -816,7 +816,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1473,6 +1473,10 @@ label.cookie__cat { cursor: pointer; }
 .sponsor { display: grid; justify-items: center; gap: var(--space-16); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
 .sponsor h3, .partners-block .sponsor h3 { margin-bottom: 0; font-size: var(--fs-h4); line-height: 1.3; }
 .sponsor img { display: block; max-width: 100%; height: auto; }
+/* Logo Bologna FC cliccabile, porta alla pagina dello sport: al passaggio del mouse si ingrandisce appena */
+.sponsor__link { display: block; transition: transform 300ms var(--ease); }
+.sponsor__link:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 6px; }
+@media (hover: hover) { .sponsor__link:hover { transform: scale(1.05); } }
 .partners-block h3 { margin-bottom: var(--space-24); font-size: var(--fs-h4); line-height: 1.3; }
 /* Marchi nella testata di pagina: loghi a colori, accanto all'etichetta */
 .brandline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
@@ -1661,30 +1665,30 @@ label.cookie__cat { cursor: pointer; }
                   </ul>
                 </div>
                 <div class="mega__col">
-                  <div class="mega__group">
-                    <a class="mega__cat" href="/en/doors/">Doors</a>
-                    <ul class="mega__links">
-                      <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
-                      <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
-                      <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
-                      <li><a href="/en/doors/security-doors/">Security doors</a></li>
-                    </ul>
-                  </div>
+                  <a class="mega__cat" href="/en/doors/">Interior - security doors</a>
+                  <ul class="mega__links">
+                    <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
+                    <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
+                    <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
+                    <li><a href="/en/doors/oikos-security-doors/">Oikos security doors</a></li>
+                    <li><a href="/en/doors/dierre-security-doors/">Dierre security doors</a></li>
+                  </ul>
                 </div>
                 <div class="mega__col">
                   <a class="mega__cat" href="/en/outdoor/">Outdoor</a>
                   <ul class="mega__links">
                     <li><a href="/en/outdoor/pergolas-glass-enclosures/">Pergolas and glass enclosures</a></li>
                     <li><a href="/en/outdoor/awnings/">Awnings</a></li>
-                    <li>
-                      <a href="/en/outdoor/shading/">Shading and protection systems</a>
-                      <ul class="mega__links">
-                        <li><a href="/en/outdoor/shading/brise-soleil/">Brise soleil</a></li>
-                        <li><a href="/en/outdoor/shading/solar-screens/">Solar screens</a></li>
-                        <li><a href="/en/outdoor/shading/shutters/">Shutters</a></li>
-                        <li><a href="/en/outdoor/shading/technical-blinds/">Technical blinds</a></li>
-                      </ul>
-                    </li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__cat" href="/en/shading/">Shading and protection systems</a>
+                  <ul class="mega__links">
+                    <li><a href="/en/shading/brise-soleil/">Brise soleil</a></li>
+                    <li><a href="/en/shading/solar-screens/">Solar screens</a></li>
+                    <li><a href="/en/shading/shutters/">Louvred and solid shutters</a></li>
+                    <li><a href="/en/shading/technical-blinds/">Technical blinds</a></li>
+                    <li><a href="/en/shading/security-roller-shutters/">Security roller shutters</a></li>
                   </ul>
                 </div>
                 <div class="mega__col">
@@ -1693,6 +1697,7 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/en/interior-design/walk-in-wardrobes/">Walk-in wardrobes</a></li>
                     <li><a href="/en/interior-design/surfaces/">Surfaces</a></li>
                     <li><a href="/en/interior-design/fabrics-curtains/">Fabrics and curtains</a></li>
+                    <li><a href="/en/interior-design/staircases/">Designer staircases</a></li>
                   </ul>
                 </div>
               </div>
@@ -1775,7 +1780,7 @@ label.cookie__cat { cursor: pointer; }
     <div class="container grid page-head__grid">
       <h1 id="page-title">Interiors and design</h1>
       <div class="page-head__lead stack">
-        <p class="lead">Made-to-measure walk-in wardrobes, decorative surfaces and fabrics to complete your home: furnishing solutions we choose and design together with you.</p>
+        <p class="lead">Made-to-measure walk-in wardrobes, decorative surfaces, fabrics and designer staircases to complete your home: furnishing solutions we choose and design together with you.</p>
         <p class="brandline"><span class="brandline__label">Brands</span><img src="/assets/img/partner/bertolotto.png" width="98" height="27" alt="Bertolotto Porte" decoding="async"><img src="/assets/img/partner/tecnografica.png" width="104" height="24" alt="Tecnografica" decoding="async"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="97" height="24" alt="Cromatica Marcegaglia" decoding="async"><img src="/assets/img/partner/mottura.svg" width="112" height="23" alt="Mottura" decoding="async"></p>
       </div>
     </div>
@@ -1787,24 +1792,29 @@ label.cookie__cat { cursor: pointer; }
   <section class="section section--flush" aria-labelledby="proposte-title">
     <div class="container">
       <div class="section-head">
-        <h2 class="attach" id="proposte-title">Three solutions</h2>
+        <h2 class="attach" id="proposte-title">Four solutions</h2>
         <p class="lead">To furnish the spaces inside your home, with the same consultant who helps you with your windows and doors.</p>
       </div>
-      <ul class="areas areas--wide">
+      <ul class="areas areas--wide areas--two">
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/home/area-cabine-armadio-768.jpg" srcset="/assets/img/home/area-cabine-armadio-300.jpg 300w, /assets/img/home/area-cabine-armadio-768.jpg 768w, /assets/img/home/area-cabine-armadio-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="512" alt="Walk-in wardrobe with glass walls behind the bed, in the Home Design Gallery in Castenaso" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/home/area-cabine-armadio-768.jpg" srcset="/assets/img/home/area-cabine-armadio-300.jpg 300w, /assets/img/home/area-cabine-armadio-768.jpg 768w, /assets/img/home/area-cabine-armadio-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Walk-in wardrobe with glass walls behind the bed, in the Home Design Gallery in Castenaso" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/en/interior-design/walk-in-wardrobes/">Walk-in wardrobes</a></h3>
           <p class="area__desc">Made to measure with Bertolotto, for every space and style.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/superfici/tecnografica-carta-scala-768.jpg" srcset="/assets/img/superfici/tecnografica-carta-scala-300.jpg 300w, /assets/img/superfici/tecnografica-carta-scala-768.jpg 768w, /assets/img/superfici/tecnografica-carta-scala-1024.jpg 1024w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="576" alt="Black steel staircase against a wall with large-flower Tecnografica wallpaper" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/superfici/tecnografica-carta-scala-768.jpg" srcset="/assets/img/superfici/tecnografica-carta-scala-300.jpg 300w, /assets/img/superfici/tecnografica-carta-scala-768.jpg 768w, /assets/img/superfici/tecnografica-carta-scala-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Black steel staircase against a wall with large-flower Tecnografica wallpaper" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/en/interior-design/surfaces/">Surfaces</a></h3>
           <p class="area__desc">Tecnografica wallpaper and panels, Cromatica decorated steel.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/tende/mottura-morbide-768.jpg" srcset="/assets/img/tende/mottura-morbide-300.jpg 300w, /assets/img/tende/mottura-morbide-768.jpg 768w, /assets/img/tende/mottura-morbide-1024.jpg 1024w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="512" alt="Bright bedroom with blue Mottura gathered curtains beside the French windows" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/tende/mottura-morbide-768.jpg" srcset="/assets/img/tende/mottura-morbide-300.jpg 300w, /assets/img/tende/mottura-morbide-768.jpg 768w, /assets/img/tende/mottura-morbide-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Bright bedroom with blue Mottura gathered curtains beside the French windows" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/en/interior-design/fabrics-curtains/">Fabrics and curtains</a></h3>
           <p class="area__desc">Mottura gathered, Roman and panel curtains, with designer tracks.</p>
+        </li>
+        <li class="area">
+          <div class="area__media"><img class="media" src="/assets/img/realizzazioni/inliving-13-768.jpg" srcset="/assets/img/realizzazioni/inliving-13-768.jpg 768w, /assets/img/realizzazioni/inliving-13-1024.jpg 1024w, /assets/img/realizzazioni/inliving-13-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Entrance with a white door next to the staircase, an Infissi Group project" loading="lazy" decoding="async"></div>
+          <h3 class="area__name"><a class="area__link" href="/en/interior-design/staircases/">Designer staircases</a></h3>
+          <p class="area__desc">Made-to-measure staircases, coordinated with your doors and finishes.</p>
         </li>
       </ul>
     </div>
@@ -1816,7 +1826,7 @@ label.cookie__cat { cursor: pointer; }
         <h2 id="perche-title">Why design them with us</h2>
       </div>
       <ul class="split__b pillars">
-        <li class="pillar"><h3>Made to measure</h3><p>We survey your home and design wardrobes, wall coverings and curtains to the real measurements.</p></li>
+        <li class="pillar"><h3>Made to measure</h3><p>We survey your home and design wardrobes, wall coverings, curtains and staircases to the real measurements.</p></li>
         <li class="pillar"><h3>Everything coordinated</h3><p>Finishes and colours are chosen together with your doors and windows, for a harmonious result.</p></li>
         <li class="pillar"><h3>One point of contact</h3><p>From choosing in the showroom to installation, the same consultant looks after you.</p></li>
         <li class="pillar"><h3>See them in person</h3><p>In our showrooms you will find installed solutions, samples and catalogues to browse together.</p></li>
@@ -1876,8 +1886,9 @@ label.cookie__cat { cursor: pointer; }
         <h2>Products</h2>
         <ul>
           <li><a href="/en/windows/">Windows</a></li>
-          <li><a href="/en/doors/">Doors</a></li>
+          <li><a href="/en/doors/">Interior - security doors</a></li>
           <li><a href="/en/outdoor/">Outdoor</a></li>
+          <li><a href="/en/shading/">Shading and protection systems</a></li>
           <li><a href="/en/interior-design/">Interiors and design</a></li>
         </ul>
       </nav>
@@ -1966,6 +1977,8 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Blinds</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="avvolgibili"><span class="tile__body"><span class="tile__title">Security roller shutters</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="scale"><span class="tile__body"><span class="tile__title">Designer staircases</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
       </section>
@@ -1982,7 +1995,7 @@ label.cookie__cat { cursor: pointer; }
           </div>
         </fieldset>
 
-        <fieldset class="qd__set" data-if-cat="finestre porte persiane" hidden>
+        <fieldset class="qd__set" data-if-cat="finestre porte persiane avvolgibili" hidden>
           <legend class="form-legend">Windows and doors</legend>
           <div class="fields fields--2">
             <div class="field">

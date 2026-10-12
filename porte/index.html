@@ -19,8 +19,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Porte interne a Bologna: Bertolotto, Linvisibile e Lualdi</title>
-<meta name="description" content="Porte interne a Bologna: rivenditori ufficiali Bertolotto, porte a filo muro Linvisibile e collezioni Lualdi. Showroom a Castenaso e Casalecchio di Reno.">
+<title>Porte interne e blindate a Bologna</title>
+<meta name="description" content="Porte interne Bertolotto, Linvisibile e Lualdi e porte blindate Oikos e Dierre a Bologna. Showroom a Castenaso e Casalecchio di Reno.">
 <link rel="canonical" href="https://infissigroup.com/porte/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/porte/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/doors/">
@@ -28,8 +28,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Porte interne a Bologna: Bertolotto, Linvisibile e Lualdi">
-<meta property="og:description" content="Porte interne a Bologna: rivenditori ufficiali Bertolotto, porte a filo muro Linvisibile e collezioni Lualdi. Showroom a Castenaso e Casalecchio di Reno.">
+<meta property="og:title" content="Porte interne e blindate a Bologna">
+<meta property="og:description" content="Porte interne Bertolotto, Linvisibile e Lualdi e porte blindate Oikos e Dierre a Bologna. Showroom a Castenaso e Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/porte/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/porte/porte-corridoio-1536.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -54,7 +54,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Porte",
+          "name": "Porte interne - blindate",
           "item": "https://infissigroup.com/porte/"
         }
       ]
@@ -807,7 +807,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -816,7 +816,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1473,6 +1473,10 @@ label.cookie__cat { cursor: pointer; }
 .sponsor { display: grid; justify-items: center; gap: var(--space-16); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
 .sponsor h3, .partners-block .sponsor h3 { margin-bottom: 0; font-size: var(--fs-h4); line-height: 1.3; }
 .sponsor img { display: block; max-width: 100%; height: auto; }
+/* Logo Bologna FC cliccabile, porta alla pagina dello sport: al passaggio del mouse si ingrandisce appena */
+.sponsor__link { display: block; transition: transform 300ms var(--ease); }
+.sponsor__link:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 6px; }
+@media (hover: hover) { .sponsor__link:hover { transform: scale(1.05); } }
 .partners-block h3 { margin-bottom: var(--space-24); font-size: var(--fs-h4); line-height: 1.3; }
 /* Marchi nella testata di pagina: loghi a colori, accanto all'etichetta */
 .brandline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
@@ -1659,30 +1663,30 @@ label.cookie__cat { cursor: pointer; }
                   </ul>
                 </div>
                 <div class="mega__col">
-                  <div class="mega__group">
-                    <a class="mega__cat" href="/porte/" aria-current="page">Porte</a>
-                    <ul class="mega__links">
-                      <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
-                      <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
-                      <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
-                      <li><a href="/porte/blindati/">Porte blindate</a></li>
-                    </ul>
-                  </div>
+                  <a class="mega__cat" href="/porte/" aria-current="page">Porte interne - blindate</a>
+                  <ul class="mega__links">
+                    <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
+                    <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
+                    <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
+                    <li><a href="/porte/blindati-oikos/">Blindati Oikos</a></li>
+                    <li><a href="/porte/blindati-dierre/">Blindati Dierre</a></li>
+                  </ul>
                 </div>
                 <div class="mega__col">
                   <a class="mega__cat" href="/outdoor/">Outdoor</a>
                   <ul class="mega__links">
                     <li><a href="/outdoor/pergole-vetrate/">Pergole e vetrate</a></li>
                     <li><a href="/outdoor/tende-da-sole/">Tende da sole</a></li>
-                    <li>
-                      <a href="/outdoor/oscuramento/">Sistemi di oscuramento e protezione</a>
-                      <ul class="mega__links">
-                        <li><a href="/outdoor/oscuramento/frangisole/">Frangisole</a></li>
-                        <li><a href="/outdoor/oscuramento/schermature/">Schermature solari</a></li>
-                        <li><a href="/outdoor/oscuramento/persiane/">Persiane</a></li>
-                        <li><a href="/outdoor/oscuramento/tende-tecniche/">Tende tecniche</a></li>
-                      </ul>
-                    </li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__cat" href="/oscuramento/">Sistemi di oscuramento e protezione</a>
+                  <ul class="mega__links">
+                    <li><a href="/oscuramento/frangisole/">Frangisole</a></li>
+                    <li><a href="/oscuramento/schermature/">Schermature solari</a></li>
+                    <li><a href="/oscuramento/persiane-scuri/">Persiane e scuri</a></li>
+                    <li><a href="/oscuramento/tende-tecniche/">Tende tecniche</a></li>
+                    <li><a href="/oscuramento/avvolgibili-sicurezza/">Avvolgibili di sicurezza</a></li>
                   </ul>
                 </div>
                 <div class="mega__col">
@@ -1691,6 +1695,7 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/arredo-design/cabine-armadio/">Cabine armadio</a></li>
                     <li><a href="/arredo-design/superfici/">Superfici</a></li>
                     <li><a href="/arredo-design/tessuti-tendaggi/">Tessuti e tendaggi</a></li>
+                    <li><a href="/arredo-design/scale/">Scale d'arredo</a></li>
                   </ul>
                 </div>
               </div>
@@ -1767,14 +1772,14 @@ label.cookie__cat { cursor: pointer; }
 
 <main id="main" tabindex="-1">
   <nav class="container breadcrumb" aria-label="Percorso">
-    <ol><li><a href="/">Home</a></li><li><span aria-current="page">Porte</span></li></ol>
+    <ol><li><a href="/">Home</a></li><li><span aria-current="page">Porte interne - blindate</span></li></ol>
   </nav>
   <section class="page-head" aria-labelledby="page-title">
     <div class="container grid page-head__grid">
-      <h1 id="page-title">Porte</h1>
+      <h1 id="page-title">Porte interne - blindate</h1>
       <div class="page-head__lead stack">
-        <p class="lead">Porte interne di design a Bologna e provincia. Siamo rivenditori ufficiali Bertolotto e proponiamo le porte a filo muro Linvisibile e le collezioni Lualdi.</p>
-        <p class="brandline"><span class="brandline__label">Marchi</span><img src="/assets/img/partner/bertolotto.png" width="98" height="27" alt="Bertolotto Porte" decoding="async"><img src="/assets/img/partner/linvisibile.png" width="135" height="19" alt="Linvisibile" decoding="async"><img src="/assets/img/partner/lualdi.png" width="85" height="31" alt="Lualdi" decoding="async"></p>
+        <p class="lead">Porte interne di design e porte blindate a Bologna e provincia. Siamo rivenditori ufficiali Bertolotto e proponiamo le porte a filo muro Linvisibile, le collezioni Lualdi e le porte blindate Oikos e Dierre.</p>
+        <p class="brandline"><span class="brandline__label">Marchi</span><img src="/assets/img/partner/bertolotto.png" width="98" height="27" alt="Bertolotto Porte" decoding="async"><img src="/assets/img/partner/linvisibile.png" width="135" height="19" alt="Linvisibile" decoding="async"><img src="/assets/img/partner/lualdi.png" width="85" height="31" alt="Lualdi" decoding="async"><img src="/assets/img/partner/oikos.png" width="124" height="24" alt="Oikos" decoding="async"><img src="/assets/img/partner/dierre.svg" width="64" height="29" alt="Dierre" decoding="async"></p>
       </div>
     </div>
     <div class="container page-head__media page-head__media--16x9">
@@ -1785,7 +1790,7 @@ label.cookie__cat { cursor: pointer; }
   <section class="section section--flush" aria-labelledby="marchi-title">
     <div class="container">
       <div class="section-head">
-        <h2 class="attach" id="marchi-title">Scegli il marchio</h2>
+        <h2 class="attach" id="marchi-title">Porte interne</h2>
         <p class="lead">Tre produttori italiani, tre modi diversi di pensare la porta.</p>
       </div>
       <ul class="areas areas--wide">
@@ -1808,17 +1813,24 @@ label.cookie__cat { cursor: pointer; }
     </div>
   </section>
 
-  <section class="section" aria-labelledby="blindati-title">
-    <div class="container grid split">
-      <div class="split__a stack">
+  <section class="section" id="blindati" aria-labelledby="blindati-title">
+    <div class="container">
+      <div class="section-head">
         <h2 class="attach" id="blindati-title">Porte blindate</h2>
-        <div class="model__media"><img class="media" src="/assets/img/news/porte-blindate-thor-oit-116215-768.jpg" srcset="/assets/img/news/porte-blindate-thor-oit-116215-768.jpg 768w, /assets/img/news/porte-blindate-thor-oit-116215-1024.jpg 1024w" sizes="(min-width: 1440px) 34vw, (min-width: 1024px) 36vw, 92vw" width="768" height="432" alt="Porta blindata verde salvia con maniglione verticale e vetrate laterali, tra pareti in pietra scura" loading="lazy" decoding="async"></div>
-      </div>
-      <div class="split__b prose">
         <p class="lead">Per l'ingresso di casa: protezione dalle effrazioni e un design coordinato con le porte interne.</p>
-        <p>Pannelli, colori e maniglie si scelgono in armonia con l'ingresso. Ti aiutiamo a confrontare classe di sicurezza, serratura e cilindro, e la posa la eseguiamo con personale interno.</p>
-        <div class="actions"><a class="link" href="/porte/blindati/">Scopri le porte blindate</a></div>
       </div>
+      <ul class="areas areas--wide areas--two">
+        <li class="area">
+          <div class="area__media"><img class="media" src="/assets/img/porte/oikos-tekno-tabacco-768.jpg" srcset="/assets/img/porte/oikos-tekno-tabacco-768.jpg 768w, /assets/img/porte/oikos-tekno-tabacco-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Ingresso con porta blindata Oikos Tekno laccata color tabacco a filo muro, con maniglione in acciaio" loading="lazy" decoding="async"></div>
+          <h3 class="area__name"><a class="area__link" href="/porte/blindati-oikos/">Blindati Oikos</a></h3>
+          <p class="area__desc">Porte d'ingresso a bilico, scorrevoli e a filo muro, con finiture coordinate.</p>
+        </li>
+        <li class="area">
+          <div class="area__media"><img class="media" src="/assets/img/porte/dierre-porta-blindata-768.jpg" srcset="/assets/img/porte/dierre-porta-blindata-768.jpg 768w, /assets/img/porte/dierre-porta-blindata-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Porta blindata Dierre con pannello in legno in un ambiente con pareti in cemento" loading="lazy" decoding="async"></div>
+          <h3 class="area__name"><a class="area__link" href="/porte/blindati-dierre/">Blindati Dierre</a></h3>
+          <p class="area__desc">Linee di design e serrature smart, con ferramenta prodotta in proprio.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -1889,8 +1901,9 @@ label.cookie__cat { cursor: pointer; }
         <h2>Prodotti</h2>
         <ul>
           <li><a href="/finestre/">Finestre</a></li>
-          <li><a href="/porte/">Porte</a></li>
+          <li><a href="/porte/">Porte interne - blindate</a></li>
           <li><a href="/outdoor/">Outdoor</a></li>
+          <li><a href="/oscuramento/">Sistemi di oscuramento e protezione</a></li>
           <li><a href="/arredo-design/">Arredo e Design</a></li>
         </ul>
       </nav>
@@ -1978,7 +1991,9 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="superfici"><span class="tile__body"><span class="tile__title">Superfici</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Tende</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane e scuri</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="avvolgibili"><span class="tile__body"><span class="tile__title">Avvolgibili di sicurezza</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="scale"><span class="tile__body"><span class="tile__title">Scale d'arredo</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
       </section>
@@ -1995,7 +2010,7 @@ label.cookie__cat { cursor: pointer; }
           </div>
         </fieldset>
 
-        <fieldset class="qd__set" data-if-cat="finestre porte persiane" hidden>
+        <fieldset class="qd__set" data-if-cat="finestre porte persiane avvolgibili" hidden>
           <legend class="form-legend">Serramenti</legend>
           <div class="fields fields--2">
             <div class="field">

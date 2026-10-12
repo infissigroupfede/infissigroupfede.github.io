@@ -821,7 +821,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -830,7 +830,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1487,6 +1487,10 @@ label.cookie__cat { cursor: pointer; }
 .sponsor { display: grid; justify-items: center; gap: var(--space-16); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
 .sponsor h3, .partners-block .sponsor h3 { margin-bottom: 0; font-size: var(--fs-h4); line-height: 1.3; }
 .sponsor img { display: block; max-width: 100%; height: auto; }
+/* Logo Bologna FC cliccabile, porta alla pagina dello sport: al passaggio del mouse si ingrandisce appena */
+.sponsor__link { display: block; transition: transform 300ms var(--ease); }
+.sponsor__link:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 6px; }
+@media (hover: hover) { .sponsor__link:hover { transform: scale(1.05); } }
 .partners-block h3 { margin-bottom: var(--space-24); font-size: var(--fs-h4); line-height: 1.3; }
 /* Marchi nella testata di pagina: loghi a colori, accanto all'etichetta */
 .brandline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
@@ -1673,30 +1677,30 @@ label.cookie__cat { cursor: pointer; }
                   </ul>
                 </div>
                 <div class="mega__col">
-                  <div class="mega__group">
-                    <a class="mega__cat" href="/porte/">Porte</a>
-                    <ul class="mega__links">
-                      <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
-                      <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
-                      <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
-                      <li><a href="/porte/blindati/">Porte blindate</a></li>
-                    </ul>
-                  </div>
+                  <a class="mega__cat" href="/porte/">Porte interne - blindate</a>
+                  <ul class="mega__links">
+                    <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
+                    <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
+                    <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
+                    <li><a href="/porte/blindati-oikos/">Blindati Oikos</a></li>
+                    <li><a href="/porte/blindati-dierre/">Blindati Dierre</a></li>
+                  </ul>
                 </div>
                 <div class="mega__col">
                   <a class="mega__cat" href="/outdoor/">Outdoor</a>
                   <ul class="mega__links">
                     <li><a href="/outdoor/pergole-vetrate/">Pergole e vetrate</a></li>
                     <li><a href="/outdoor/tende-da-sole/">Tende da sole</a></li>
-                    <li>
-                      <a href="/outdoor/oscuramento/">Sistemi di oscuramento e protezione</a>
-                      <ul class="mega__links">
-                        <li><a href="/outdoor/oscuramento/frangisole/">Frangisole</a></li>
-                        <li><a href="/outdoor/oscuramento/schermature/">Schermature solari</a></li>
-                        <li><a href="/outdoor/oscuramento/persiane/">Persiane</a></li>
-                        <li><a href="/outdoor/oscuramento/tende-tecniche/">Tende tecniche</a></li>
-                      </ul>
-                    </li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__cat" href="/oscuramento/">Sistemi di oscuramento e protezione</a>
+                  <ul class="mega__links">
+                    <li><a href="/oscuramento/frangisole/">Frangisole</a></li>
+                    <li><a href="/oscuramento/schermature/">Schermature solari</a></li>
+                    <li><a href="/oscuramento/persiane-scuri/">Persiane e scuri</a></li>
+                    <li><a href="/oscuramento/tende-tecniche/">Tende tecniche</a></li>
+                    <li><a href="/oscuramento/avvolgibili-sicurezza/">Avvolgibili di sicurezza</a></li>
                   </ul>
                 </div>
                 <div class="mega__col">
@@ -1705,6 +1709,7 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/arredo-design/cabine-armadio/">Cabine armadio</a></li>
                     <li><a href="/arredo-design/superfici/">Superfici</a></li>
                     <li><a href="/arredo-design/tessuti-tendaggi/">Tessuti e tendaggi</a></li>
+                    <li><a href="/arredo-design/scale/">Scale d'arredo</a></li>
                   </ul>
                 </div>
               </div>
@@ -1934,8 +1939,9 @@ label.cookie__cat { cursor: pointer; }
         <h2>Prodotti</h2>
         <ul>
           <li><a href="/finestre/">Finestre</a></li>
-          <li><a href="/porte/">Porte</a></li>
+          <li><a href="/porte/">Porte interne - blindate</a></li>
           <li><a href="/outdoor/">Outdoor</a></li>
+          <li><a href="/oscuramento/">Sistemi di oscuramento e protezione</a></li>
           <li><a href="/arredo-design/">Arredo e Design</a></li>
         </ul>
       </nav>
@@ -2023,7 +2029,9 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="superfici"><span class="tile__body"><span class="tile__title">Superfici</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Tende</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane e scuri</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="avvolgibili"><span class="tile__body"><span class="tile__title">Avvolgibili di sicurezza</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="scale"><span class="tile__body"><span class="tile__title">Scale d'arredo</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
       </section>
@@ -2040,7 +2048,7 @@ label.cookie__cat { cursor: pointer; }
           </div>
         </fieldset>
 
-        <fieldset class="qd__set" data-if-cat="finestre porte persiane" hidden>
+        <fieldset class="qd__set" data-if-cat="finestre porte persiane avvolgibili" hidden>
           <legend class="form-legend">Serramenti</legend>
           <div class="fields fields--2">
             <div class="field">

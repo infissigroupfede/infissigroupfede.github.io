@@ -18,8 +18,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Arredo e Design a Bologna: cabine armadio, superfici e tessuti</title>
-<meta name="description" content="Cabine armadio su misura Bertolotto, carte da parati e superfici Tecnografica e Cromatica, tessuti e tendaggi Mottura a Bologna. Showroom a Castenaso e Casalecchio di Reno.">
+<title>Arredo e Design a Bologna: cabine armadio, superfici, tessuti e scale</title>
+<meta name="description" content="Cabine armadio su misura Bertolotto, carte da parati e superfici Tecnografica e Cromatica, tessuti e tendaggi Mottura e scale d'arredo a Bologna. Showroom a Castenaso e Casalecchio di Reno.">
 <link rel="canonical" href="https://infissigroup.com/arredo-design/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/arredo-design/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/interior-design/">
@@ -27,8 +27,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="it_IT">
-<meta property="og:title" content="Arredo e Design a Bologna: cabine armadio, superfici e tessuti">
-<meta property="og:description" content="Cabine armadio su misura Bertolotto, carte da parati e superfici Tecnografica e Cromatica, tessuti e tendaggi Mottura a Bologna. Showroom a Castenaso e Casalecchio di Reno.">
+<meta property="og:title" content="Arredo e Design a Bologna: cabine armadio, superfici, tessuti e scale">
+<meta property="og:description" content="Cabine armadio su misura Bertolotto, carte da parati e superfici Tecnografica e Cromatica, tessuti e tendaggi Mottura e scale d'arredo a Bologna. Showroom a Castenaso e Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/arredo-design/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/home/area-cabine-armadio-1536.jpg">
 <meta name="theme-color" content="#FFFFFF">
@@ -62,8 +62,8 @@
       "@type": "WebPage",
       "@id": "https://infissigroup.com/arredo-design/#pagina",
       "url": "https://infissigroup.com/arredo-design/",
-      "name": "Arredo e Design a Bologna: cabine armadio, superfici e tessuti",
-      "description": "Cabine armadio su misura Bertolotto, carte da parati e superfici Tecnografica e Cromatica, tessuti e tendaggi Mottura a Bologna. Showroom a Castenaso e Casalecchio di Reno.",
+      "name": "Arredo e Design a Bologna: cabine armadio, superfici, tessuti e scale",
+      "description": "Cabine armadio su misura Bertolotto, carte da parati e superfici Tecnografica e Cromatica, tessuti e tendaggi Mottura e scale d'arredo a Bologna. Showroom a Castenaso e Casalecchio di Reno.",
       "inLanguage": "it",
       "isPartOf": {
         "@id": "https://infissigroup.com/#sito"
@@ -806,7 +806,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .nav__panel--mega { right: 0; left: 0; padding: 0; border: 0; border-top: 1px solid var(--color-line); box-shadow: var(--shadow-overlay); }
   .mega {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     width: min(100% - 2 * var(--container-pad), var(--container-max));
     margin-inline: auto;
   }
@@ -815,7 +815,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); }
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1472,6 +1472,10 @@ label.cookie__cat { cursor: pointer; }
 .sponsor { display: grid; justify-items: center; gap: var(--space-16); margin-bottom: clamp(40px, 5vw, 64px); text-align: center; }
 .sponsor h3, .partners-block .sponsor h3 { margin-bottom: 0; font-size: var(--fs-h4); line-height: 1.3; }
 .sponsor img { display: block; max-width: 100%; height: auto; }
+/* Logo Bologna FC cliccabile, porta alla pagina dello sport: al passaggio del mouse si ingrandisce appena */
+.sponsor__link { display: block; transition: transform 300ms var(--ease); }
+.sponsor__link:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 6px; }
+@media (hover: hover) { .sponsor__link:hover { transform: scale(1.05); } }
 .partners-block h3 { margin-bottom: var(--space-24); font-size: var(--fs-h4); line-height: 1.3; }
 /* Marchi nella testata di pagina: loghi a colori, accanto all'etichetta */
 .brandline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-24); }
@@ -1658,30 +1662,30 @@ label.cookie__cat { cursor: pointer; }
                   </ul>
                 </div>
                 <div class="mega__col">
-                  <div class="mega__group">
-                    <a class="mega__cat" href="/porte/">Porte</a>
-                    <ul class="mega__links">
-                      <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
-                      <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
-                      <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
-                      <li><a href="/porte/blindati/">Porte blindate</a></li>
-                    </ul>
-                  </div>
+                  <a class="mega__cat" href="/porte/">Porte interne - blindate</a>
+                  <ul class="mega__links">
+                    <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
+                    <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
+                    <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
+                    <li><a href="/porte/blindati-oikos/">Blindati Oikos</a></li>
+                    <li><a href="/porte/blindati-dierre/">Blindati Dierre</a></li>
+                  </ul>
                 </div>
                 <div class="mega__col">
                   <a class="mega__cat" href="/outdoor/">Outdoor</a>
                   <ul class="mega__links">
                     <li><a href="/outdoor/pergole-vetrate/">Pergole e vetrate</a></li>
                     <li><a href="/outdoor/tende-da-sole/">Tende da sole</a></li>
-                    <li>
-                      <a href="/outdoor/oscuramento/">Sistemi di oscuramento e protezione</a>
-                      <ul class="mega__links">
-                        <li><a href="/outdoor/oscuramento/frangisole/">Frangisole</a></li>
-                        <li><a href="/outdoor/oscuramento/schermature/">Schermature solari</a></li>
-                        <li><a href="/outdoor/oscuramento/persiane/">Persiane</a></li>
-                        <li><a href="/outdoor/oscuramento/tende-tecniche/">Tende tecniche</a></li>
-                      </ul>
-                    </li>
+                  </ul>
+                </div>
+                <div class="mega__col">
+                  <a class="mega__cat" href="/oscuramento/">Sistemi di oscuramento e protezione</a>
+                  <ul class="mega__links">
+                    <li><a href="/oscuramento/frangisole/">Frangisole</a></li>
+                    <li><a href="/oscuramento/schermature/">Schermature solari</a></li>
+                    <li><a href="/oscuramento/persiane-scuri/">Persiane e scuri</a></li>
+                    <li><a href="/oscuramento/tende-tecniche/">Tende tecniche</a></li>
+                    <li><a href="/oscuramento/avvolgibili-sicurezza/">Avvolgibili di sicurezza</a></li>
                   </ul>
                 </div>
                 <div class="mega__col">
@@ -1690,6 +1694,7 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/arredo-design/cabine-armadio/">Cabine armadio</a></li>
                     <li><a href="/arredo-design/superfici/">Superfici</a></li>
                     <li><a href="/arredo-design/tessuti-tendaggi/">Tessuti e tendaggi</a></li>
+                    <li><a href="/arredo-design/scale/">Scale d'arredo</a></li>
                   </ul>
                 </div>
               </div>
@@ -1772,7 +1777,7 @@ label.cookie__cat { cursor: pointer; }
     <div class="container grid page-head__grid">
       <h1 id="page-title">Arredo e Design</h1>
       <div class="page-head__lead stack">
-        <p class="lead">Cabine armadio su misura, superfici decorative e tessuti per completare la casa: soluzioni d'arredo che scegliamo e progettiamo insieme a te.</p>
+        <p class="lead">Cabine armadio su misura, superfici decorative, tessuti e scale d'arredo per completare la casa: soluzioni d'arredo che scegliamo e progettiamo insieme a te.</p>
         <p class="brandline"><span class="brandline__label">Marchi</span><img src="/assets/img/partner/bertolotto.png" width="98" height="27" alt="Bertolotto Porte" decoding="async"><img src="/assets/img/partner/tecnografica.png" width="104" height="24" alt="Tecnografica" decoding="async"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="97" height="24" alt="Cromatica Marcegaglia" decoding="async"><img src="/assets/img/partner/mottura.svg" width="112" height="23" alt="Mottura" decoding="async"></p>
       </div>
     </div>
@@ -1784,24 +1789,29 @@ label.cookie__cat { cursor: pointer; }
   <section class="section section--flush" aria-labelledby="proposte-title">
     <div class="container">
       <div class="section-head">
-        <h2 class="attach" id="proposte-title">Tre proposte</h2>
+        <h2 class="attach" id="proposte-title">Quattro proposte</h2>
         <p class="lead">Per vestire gli spazi dentro casa, con lo stesso consulente che ti segue per porte e finestre.</p>
       </div>
-      <ul class="areas areas--wide">
+      <ul class="areas areas--wide areas--two">
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/home/area-cabine-armadio-768.jpg" srcset="/assets/img/home/area-cabine-armadio-300.jpg 300w, /assets/img/home/area-cabine-armadio-768.jpg 768w, /assets/img/home/area-cabine-armadio-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="512" alt="Cabina armadio con pareti in vetro dietro il letto, nella Home Design Gallery di Castenaso" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/home/area-cabine-armadio-768.jpg" srcset="/assets/img/home/area-cabine-armadio-300.jpg 300w, /assets/img/home/area-cabine-armadio-768.jpg 768w, /assets/img/home/area-cabine-armadio-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Cabina armadio con pareti in vetro dietro il letto, nella Home Design Gallery di Castenaso" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/arredo-design/cabine-armadio/">Cabine armadio</a></h3>
           <p class="area__desc">Su misura con Bertolotto, per ogni spazio e ogni stile.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/superfici/tecnografica-carta-scala-768.jpg" srcset="/assets/img/superfici/tecnografica-carta-scala-300.jpg 300w, /assets/img/superfici/tecnografica-carta-scala-768.jpg 768w, /assets/img/superfici/tecnografica-carta-scala-1024.jpg 1024w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="576" alt="Scala in ferro nero davanti a una parete con carta da parati Tecnografica a grandi fiori" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/superfici/tecnografica-carta-scala-768.jpg" srcset="/assets/img/superfici/tecnografica-carta-scala-300.jpg 300w, /assets/img/superfici/tecnografica-carta-scala-768.jpg 768w, /assets/img/superfici/tecnografica-carta-scala-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="576" alt="Scala in ferro nero davanti a una parete con carta da parati Tecnografica a grandi fiori" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/arredo-design/superfici/">Superfici</a></h3>
           <p class="area__desc">Carte da parati e pannelli Tecnografica, acciaio decorato Cromatica.</p>
         </li>
         <li class="area">
-          <div class="area__media"><img class="media" src="/assets/img/tende/mottura-morbide-768.jpg" srcset="/assets/img/tende/mottura-morbide-300.jpg 300w, /assets/img/tende/mottura-morbide-768.jpg 768w, /assets/img/tende/mottura-morbide-1024.jpg 1024w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="512" alt="Camera luminosa con tende arricciate Mottura blu ai lati delle portefinestre" loading="lazy" decoding="async"></div>
+          <div class="area__media"><img class="media" src="/assets/img/tende/mottura-morbide-768.jpg" srcset="/assets/img/tende/mottura-morbide-300.jpg 300w, /assets/img/tende/mottura-morbide-768.jpg 768w, /assets/img/tende/mottura-morbide-1024.jpg 1024w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Camera luminosa con tende arricciate Mottura blu ai lati delle portefinestre" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/arredo-design/tessuti-tendaggi/">Tessuti e tendaggi</a></h3>
           <p class="area__desc">Tende arricciate, a pacchetto e a pannello Mottura, con binari di design.</p>
+        </li>
+        <li class="area">
+          <div class="area__media"><img class="media" src="/assets/img/realizzazioni/inliving-13-768.jpg" srcset="/assets/img/realizzazioni/inliving-13-768.jpg 768w, /assets/img/realizzazioni/inliving-13-1024.jpg 1024w, /assets/img/realizzazioni/inliving-13-1536.jpg 1536w" sizes="(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 110px" width="768" height="512" alt="Ingresso con porta bianca accanto alla scala, realizzazione Infissi Group" loading="lazy" decoding="async"></div>
+          <h3 class="area__name"><a class="area__link" href="/arredo-design/scale/">Scale d'arredo</a></h3>
+          <p class="area__desc">Scale su misura, coordinate con porte e finiture di casa.</p>
         </li>
       </ul>
     </div>
@@ -1813,7 +1823,7 @@ label.cookie__cat { cursor: pointer; }
         <h2 id="perche-title">Perché progettarli con noi</h2>
       </div>
       <ul class="split__b pillars">
-        <li class="pillar"><h3>Su misura</h3><p>Rileviamo gli spazi a casa tua e progettiamo cabine, rivestimenti e tende sulle misure reali.</p></li>
+        <li class="pillar"><h3>Su misura</h3><p>Rileviamo gli spazi a casa tua e progettiamo cabine, rivestimenti, tende e scale sulle misure reali.</p></li>
         <li class="pillar"><h3>Tutto coordinato</h3><p>Finiture e colori si scelgono insieme a porte e finestre, per un risultato armonioso.</p></li>
         <li class="pillar"><h3>Un solo referente</h3><p>Dalla scelta in showroom alla posa ti segue lo stesso consulente.</p></li>
         <li class="pillar"><h3>Da vedere dal vivo</h3><p>Negli showroom trovi soluzioni montate, campioni e cataloghi da sfogliare insieme.</p></li>
@@ -1873,8 +1883,9 @@ label.cookie__cat { cursor: pointer; }
         <h2>Prodotti</h2>
         <ul>
           <li><a href="/finestre/">Finestre</a></li>
-          <li><a href="/porte/">Porte</a></li>
+          <li><a href="/porte/">Porte interne - blindate</a></li>
           <li><a href="/outdoor/">Outdoor</a></li>
+          <li><a href="/oscuramento/">Sistemi di oscuramento e protezione</a></li>
           <li><a href="/arredo-design/">Arredo e Design</a></li>
         </ul>
       </nav>
@@ -1962,7 +1973,9 @@ label.cookie__cat { cursor: pointer; }
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="superfici"><span class="tile__body"><span class="tile__title">Superfici</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="outdoor"><span class="tile__body"><span class="tile__title">Outdoor</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
             <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="tende"><span class="tile__body"><span class="tile__title">Tende</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
-            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="persiane"><span class="tile__body"><span class="tile__title">Persiane e scuri</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="avvolgibili"><span class="tile__body"><span class="tile__title">Avvolgibili di sicurezza</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
+            <label class="tile"><input class="tile__input" type="checkbox" name="categorie[]" value="scale"><span class="tile__body"><span class="tile__title">Scale d'arredo</span></span><svg class="icon tile__check" aria-hidden="true"><use href="#i-check"/></svg></label>
           </div>
         </fieldset>
       </section>
@@ -1979,7 +1992,7 @@ label.cookie__cat { cursor: pointer; }
           </div>
         </fieldset>
 
-        <fieldset class="qd__set" data-if-cat="finestre porte persiane" hidden>
+        <fieldset class="qd__set" data-if-cat="finestre porte persiane avvolgibili" hidden>
           <legend class="form-legend">Serramenti</legend>
           <div class="fields fields--2">
             <div class="field">
