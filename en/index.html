@@ -911,7 +911,7 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
   .mega__group + .mega__group { margin-top: var(--space-32); }
   .mega__cat { display: inline-flex; align-items: center; min-height: 32px; margin-bottom: var(--space-4); font: 600 1.0625rem/1.3 var(--font-display); text-decoration: none; }
   .mega__cats { display: grid; gap: var(--space-4); }
-  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento */
+  .mega__cats .mega__links { margin-bottom: var(--space-8); padding-left: var(--space-16); } /* rientro come le sottovoci di Sistemi di oscuramento e protezione */
   .mega__links a { display: block; padding: 5px 0; font-size: 0.9375rem; line-height: 1.4; text-decoration: none; }
   .mega__links .mega__links { padding-left: var(--space-16); }
   .mega__cat:hover, .mega__links a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1855,10 +1855,12 @@ label.cookie__cat { cursor: pointer; }
                     <li><a href="/en/outdoor/pergolas-glass-enclosures/">Pergolas and glass enclosures</a></li>
                     <li><a href="/en/outdoor/awnings/">Awnings</a></li>
                     <li>
-                      <a href="/en/outdoor/shading/">Shading systems</a>
+                      <a href="/en/outdoor/shading/">Shading and protection systems</a>
                       <ul class="mega__links">
                         <li><a href="/en/outdoor/shading/brise-soleil/">Brise soleil</a></li>
                         <li><a href="/en/outdoor/shading/solar-screens/">Solar screens</a></li>
+                        <li><a href="/en/outdoor/shading/shutters/">Shutters</a></li>
+                        <li><a href="/en/outdoor/shading/technical-blinds/">Technical blinds</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -1866,14 +1868,7 @@ label.cookie__cat { cursor: pointer; }
                 <div class="mega__col">
                   <ul class="mega__cats">
                     <li><a class="mega__cat" href="/en/walk-in-wardrobes/">Walk-in wardrobes</a></li>
-                    <li>
-                      <a class="mega__cat" href="/en/blinds/">Blinds and curtains</a>
-                      <ul class="mega__links">
-                        <li><a href="/en/blinds/technical/">Technical blinds</a></li>
-                        <li><a href="/en/blinds/curtains/">Curtains</a></li>
-                      </ul>
-                    </li>
-                    <li><a class="mega__cat" href="/en/shutters/">Shutters</a></li>
+                    <li><a class="mega__cat" href="/en/blinds/curtains/">Curtains</a></li>
                   </ul>
                 </div>
                 <p class="mega__foot"><a class="link" href="/en/products/">All products</a></p>
@@ -2019,7 +2014,7 @@ label.cookie__cat { cursor: pointer; }
           <li class="partner"><a class="partner__link" href="/en/doors/lualdi/"><img src="/assets/img/partner/lualdi.png" width="104" height="38" alt="Lualdi" loading="lazy" decoding="async"></a></li>
           <li class="partner"><a class="partner__link" href="/en/outdoor/awnings/"><img src="/assets/img/partner/gaviota.svg" width="140" height="31" alt="Gaviota" loading="lazy" decoding="async"></a></li>
           <li class="partner"><a class="partner__link" href="/en/outdoor/shading/"><img src="/assets/img/partner/gradhermetic.svg" width="135" height="30" alt="Gradhermetic" loading="lazy" decoding="async"></a></li>
-          <li class="partner"><a class="partner__link" href="/en/blinds/"><img src="/assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></a></li>
+          <li class="partner"><a class="partner__link" href="/en/blinds/curtains/"><img src="/assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></a></li>
           <li class="partner"><img src="/assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></li>
           <li class="partner"><a class="partner__link" href="/en/security/security-doors/"><img src="/assets/img/partner/oikos.png" width="129" height="25" alt="Oikos" loading="lazy" decoding="async"></a></li>
           <li class="partner"><img src="/assets/img/partner/hormann.svg" width="106" height="46" alt="Hörmann" loading="lazy" decoding="async"></li>
@@ -2075,14 +2070,14 @@ label.cookie__cat { cursor: pointer; }
           <div class="area__media">
             <img class="media" src="/assets/img/home/area-tende-768.jpg" srcset="/assets/img/home/area-tende-300.jpg 300w, /assets/img/home/area-tende-768.jpg 768w, /assets/img/home/area-tende-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Sliding French window opening onto a terrace, with fabric curtains on either side" loading="lazy" decoding="async">
           </div>
-          <h3 class="area__name"><a class="area__link" href="/en/blinds/">Blinds and curtains</a></h3>
-          <p class="area__desc">Fabrics and systems for indoors</p>
+          <h3 class="area__name"><a class="area__link" href="/en/blinds/curtains/">Curtains</a></h3>
+          <p class="area__desc">Fabrics, tracks and made-to-measure curtains</p>
         </li>
         <li class="area">
           <div class="area__media">
             <img class="media" src="/assets/img/home/area-persiane-768.jpg" srcset="/assets/img/home/area-persiane-300.jpg 300w, /assets/img/home/area-persiane-768.jpg 768w, /assets/img/home/area-persiane-1536.jpg 1536w" sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 135px" width="768" height="512" alt="Brick facade with louvred timber shutters and white French windows" loading="lazy" decoding="async">
           </div>
-          <h3 class="area__name"><a class="area__link" href="/en/shutters/">Shutters</a></h3>
+          <h3 class="area__name"><a class="area__link" href="/en/outdoor/shading/shutters/">Shutters</a></h3>
           <p class="area__desc">Shade and fresh air, even with the windows open</p>
         </li>
         <li class="area">
@@ -2396,8 +2391,7 @@ label.cookie__cat { cursor: pointer; }
           <li><a href="/en/doors/">Doors</a></li>
           <li><a href="/en/walk-in-wardrobes/">Walk-in wardrobes</a></li>
           <li><a href="/en/outdoor/">Outdoor</a></li>
-          <li><a href="/en/blinds/">Blinds and curtains</a></li>
-          <li><a href="/en/shutters/">Shutters</a></li>
+          <li><a href="/en/blinds/curtains/">Curtains</a></li>
           <li><a href="/en/security/">Security</a></li>
         </ul>
       </nav>
