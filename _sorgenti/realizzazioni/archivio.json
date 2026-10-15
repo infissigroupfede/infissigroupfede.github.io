@@ -1,0 +1,366 @@
+{
+  "_istruzioni": [
+    "Foto delle raccolte InLiving e Outdoor, nell'ordine in cui compaiono in fondo alle due pagine. La didascalia è anche il testo alternativo."
+  ],
+  "inliving": [
+    {
+      "foto": "inliving-20",
+      "didascalia": {
+        "it": "Sala da pranzo con una parete di portefinestre sul giardino",
+        "en": "Dining room with a wall of French windows onto the garden"
+      }
+    },
+    {
+      "foto": "inliving-00",
+      "didascalia": {
+        "it": "Soggiorno mansardato con travi bianche e grandi finestre sul giardino",
+        "en": "Attic living room with white beams and large windows overlooking the garden"
+      }
+    },
+    {
+      "foto": "inliving-07",
+      "didascalia": {
+        "it": "Sala da pranzo con grande finestra sulla città e soffitto in legno",
+        "en": "Dining room with a large window overlooking the city and a wooden ceiling"
+      }
+    },
+    {
+      "foto": "inliving-12",
+      "didascalia": {
+        "it": "Cucina con isola e finestra affacciata sul giardino",
+        "en": "Kitchen with an island and a window overlooking the garden"
+      }
+    },
+    {
+      "foto": "inliving-10",
+      "didascalia": {
+        "it": "Bagno con vasca freestanding e portafinestra in vetro satinato",
+        "en": "Bathroom with a freestanding bath and a frosted glass French window"
+      }
+    },
+    {
+      "foto": "inliving-26",
+      "didascalia": {
+        "it": "Finestra bianca aperta a ribalta in un soggiorno con travi a vista",
+        "en": "White window tilted open in a living room with exposed beams"
+      }
+    },
+    {
+      "foto": "inliving-46",
+      "didascalia": {
+        "it": "Cucina con portefinestre in legno affacciate sulla campagna",
+        "en": "Kitchen with timber French windows looking out over the countryside"
+      }
+    },
+    {
+      "foto": "inliving-48",
+      "didascalia": {
+        "it": "Soggiorno giallo con grande finestra ad arco sulla campagna",
+        "en": "Yellow living room with a large arched window overlooking the countryside"
+      }
+    },
+    {
+      "foto": "inliving-01",
+      "didascalia": {
+        "it": "Soggiorno con portafinestra scorrevole e una pianta di ficus",
+        "en": "Living room with a sliding French window and a ficus plant"
+      }
+    },
+    {
+      "foto": "inliving-08",
+      "didascalia": {
+        "it": "Soggiorno con divano blu e finestre bianche",
+        "en": "Living room with a blue sofa and white windows"
+      }
+    },
+    {
+      "foto": "inliving-09",
+      "didascalia": {
+        "it": "Soggiorno con libreria in metallo, divano blu e finestra",
+        "en": "Living room with a metal bookcase, a blue sofa and a window"
+      }
+    },
+    {
+      "foto": "inliving-11",
+      "didascalia": {
+        "it": "Soggiorno con portafinestra e tenda da sole esterna",
+        "en": "Living room with a French window and an outdoor awning"
+      }
+    },
+    {
+      "foto": "inliving-21",
+      "didascalia": {
+        "it": "Cucina bianca con finestra e penisola",
+        "en": "White kitchen with a window and a peninsula"
+      }
+    },
+    {
+      "foto": "inliving-22",
+      "didascalia": {
+        "it": "Bagno in marmo con finestra alta e stretta",
+        "en": "Marble bathroom with a tall, narrow window"
+      }
+    },
+    {
+      "foto": "inliving-03",
+      "didascalia": {
+        "it": "Bagno con doccia in muratura e finestra con vetro satinato",
+        "en": "Bathroom with a built-in shower and a frosted glass window"
+      }
+    },
+    {
+      "foto": "inliving-04",
+      "didascalia": {
+        "it": "Doccia con finestra in vetro satinato",
+        "en": "Shower with a frosted glass window"
+      }
+    },
+    {
+      "foto": "inliving-31",
+      "didascalia": {
+        "it": "Camera da letto con due portefinestre e soffitto a travi",
+        "en": "Bedroom with two French windows and a beamed ceiling"
+      }
+    },
+    {
+      "foto": "inliving-33",
+      "didascalia": {
+        "it": "Sala da pranzo con portafinestra e soffitto a travi illuminato",
+        "en": "Dining room with a French window and a lit beamed ceiling"
+      }
+    },
+    {
+      "foto": "inliving-45",
+      "didascalia": {
+        "it": "Soggiorno con camino e finestre in legno scuro",
+        "en": "Living room with a fireplace and dark timber windows"
+      }
+    },
+    {
+      "foto": "inliving-49",
+      "didascalia": {
+        "it": "Corridoio soppalcato con finestre in legno scuro",
+        "en": "Mezzanine landing with dark timber windows"
+      }
+    },
+    {
+      "foto": "inliving-50",
+      "didascalia": {
+        "it": "Soggiorno a doppia altezza con finestre e soppalco in legno",
+        "en": "Double-height living room with timber windows and mezzanine"
+      }
+    },
+    {
+      "foto": "inliving-47",
+      "didascalia": {
+        "it": "Bagno con finestre in legno scuro e specchio",
+        "en": "Bathroom with dark timber windows and a mirror"
+      }
+    },
+    {
+      "foto": "inliving-44",
+      "didascalia": {
+        "it": "Casa in pietra in collina con finestre e scuri in legno",
+        "en": "Stone house in the hills with timber windows and solid shutters"
+      }
+    },
+    {
+      "foto": "inliving-25",
+      "didascalia": {
+        "it": "Facciata in mattoni con persiane in legno e finestre bianche",
+        "en": "Brick facade with timber louvred shutters and white windows"
+      }
+    },
+    {
+      "foto": "inliving-29",
+      "didascalia": {
+        "it": "Portafinestra bianca e persiane in legno sotto un portico",
+        "en": "White French window and timber louvred shutters under a portico"
+      }
+    },
+    {
+      "foto": "inliving-27",
+      "didascalia": {
+        "it": "Porta d'ingresso scura in una facciata di mattoni",
+        "en": "Dark front door in a brick facade"
+      }
+    },
+    {
+      "foto": "inliving-06",
+      "didascalia": {
+        "it": "Ingresso con porta blindata bianca e finestra laterale",
+        "en": "Entrance with a white security door and a side window"
+      }
+    },
+    {
+      "foto": "inliving-13",
+      "didascalia": {
+        "it": "Ingresso con porta bianca accanto alla scala",
+        "en": "Entrance with a white door next to the staircase"
+      }
+    },
+    {
+      "foto": "inliving-28",
+      "didascalia": {
+        "it": "Porta d'ingresso aperta su un corridoio con parquet",
+        "en": "Front door open onto a hallway with parquet flooring"
+      }
+    },
+    {
+      "foto": "inliving-30",
+      "didascalia": {
+        "it": "Porta d'ingresso aperta vista dal corridoio",
+        "en": "Open front door seen from the hallway"
+      }
+    },
+    {
+      "foto": "inliving-02",
+      "didascalia": {
+        "it": "Facciata sul giardino con portefinestre bianche e veranda vetrata al piano terra",
+        "en": "Garden facade with white French windows and a glazed veranda on the ground floor"
+      }
+    },
+    {
+      "foto": "inliving-05",
+      "didascalia": {
+        "it": "Casa a un piano con grandi vetrate affacciate sul prato",
+        "en": "Single-storey house with large glass walls overlooking the lawn"
+      }
+    },
+    {
+      "foto": "inliving-23",
+      "didascalia": {
+        "it": "Portafinestra scorrevole su un terrazzo, con tende in tessuto ai lati",
+        "en": "Sliding French window opening onto a terrace, with fabric curtains on either side"
+      }
+    },
+    {
+      "foto": "inliving-32",
+      "didascalia": {
+        "it": "Portafinestra bianca accanto a una libreria",
+        "en": "White French window next to a bookcase"
+      }
+    },
+    {
+      "foto": "inliving-42",
+      "didascalia": {
+        "it": "Soggiorno con portefinestre scorrevoli verso la veranda",
+        "en": "Living room with sliding French windows leading to the veranda"
+      }
+    },
+    {
+      "foto": "inliving-40",
+      "didascalia": {
+        "it": "Veranda vetrata con tavolo da pranzo affacciata sul giardino",
+        "en": "Glazed veranda with a dining table, overlooking the garden"
+      }
+    },
+    {
+      "foto": "inliving-41",
+      "didascalia": {
+        "it": "Veranda vetrata con tavolo e vista sul giardino",
+        "en": "Glazed veranda with a table and a view of the garden"
+      }
+    },
+    {
+      "foto": "inliving-43",
+      "didascalia": {
+        "it": "Veranda con vetrate scorrevoli e salotto da esterno bianco",
+        "en": "Veranda with sliding glass walls and white outdoor lounge furniture"
+      }
+    },
+    {
+      "foto": "inliving-55",
+      "didascalia": {
+        "it": "Bagno con portafinestra bianca",
+        "en": "Bathroom with a white French window"
+      }
+    },
+    {
+      "foto": "inliving-56",
+      "didascalia": {
+        "it": "Cucina con portafinestra bianca e tavolo scuro",
+        "en": "Kitchen with a white French window and a dark table"
+      }
+    },
+    {
+      "foto": "inliving-57",
+      "didascalia": {
+        "it": "Soggiorno con portafinestra bianca sul balcone",
+        "en": "Living room with a white French window onto the balcony"
+      }
+    },
+    {
+      "foto": "inliving-58",
+      "didascalia": {
+        "it": "Soggiorno con portafinestra bianca aperta sul balcone",
+        "en": "Living room with a white French window open onto the balcony"
+      }
+    },
+    {
+      "foto": "inliving-59",
+      "didascalia": {
+        "it": "Portafinestra bianca a due ante con cassonetto",
+        "en": "White two-leaf French window with a roller shutter box"
+      }
+    }
+  ],
+  "outdoor": [
+    {
+      "foto": "outdoor-14",
+      "didascalia": {
+        "it": "Pergola bioclimatica bianca con vetrate scorrevoli su un giardino",
+        "en": "White bioclimatic pergola with sliding glass walls over a garden"
+      }
+    },
+    {
+      "foto": "outdoor-15",
+      "didascalia": {
+        "it": "Interno di una pergola bioclimatica con vetrate e tavolo da giardino",
+        "en": "Inside a bioclimatic pergola with glass walls and a garden table"
+      }
+    },
+    {
+      "foto": "outdoor-16",
+      "didascalia": {
+        "it": "Lamelle orientabili di una pergola bioclimatica bianca viste dal basso",
+        "en": "Adjustable louvres of a white bioclimatic pergola seen from below"
+      }
+    },
+    {
+      "foto": "outdoor-17",
+      "didascalia": {
+        "it": "Veranda vetrata con struttura scura e luci a LED, di sera",
+        "en": "Glazed veranda with a dark frame and LED lights, in the evening"
+      }
+    },
+    {
+      "foto": "outdoor-18",
+      "didascalia": {
+        "it": "Veranda vetrata illuminata di sera vista dal prato",
+        "en": "Glazed veranda lit up in the evening, seen from the lawn"
+      }
+    },
+    {
+      "foto": "outdoor-34",
+      "didascalia": {
+        "it": "Veranda vetrata illuminata di sera, vista dal giardino",
+        "en": "Glazed veranda lit up in the evening, seen from the garden"
+      }
+    },
+    {
+      "foto": "outdoor-35",
+      "didascalia": {
+        "it": "Veranda vetrata con struttura scura e lampione da giardino, di sera",
+        "en": "Glazed veranda with a dark frame and a garden lamp post, in the evening"
+      }
+    },
+    {
+      "foto": "outdoor-38",
+      "didascalia": {
+        "it": "Veranda vetrata con poltrone e luci a LED",
+        "en": "Glazed veranda with armchairs and LED lights"
+      }
+    }
+  ]
+}

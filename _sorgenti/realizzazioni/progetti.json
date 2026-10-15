@@ -1,0 +1,833 @@
+{
+  "_istruzioni": [
+    "Dati delle realizzazioni: da qui genera.py crea /realizzazioni/ e /en/projects/ con una pagina per progetto.",
+    "Testi in due lingue: {\"it\": \"...\", \"en\": \"...\"}. null = dato mancante: in pagina compare un riquadro 'Da inserire'.",
+    "Foto: nome del file in assets/img/realizzazioni/ senza larghezza e estensione (es. outdoor-17 per outdoor-17-768.jpg).",
+    "tipo: casa, commerciale, ristrutturazione, nuova-costruzione (anche più di uno).",
+    "prodotto: finestre, porte, outdoor, oscuramento, arredo (anche più di uno).",
+    "linea: inliving (interni) oppure outdoor; decide in quale delle due pagine di linea compare il progetto.",
+    "evidenza: true per i 2-3 progetti con la card grande in cima all'elenco.",
+    "quantita e durata: brevi, compaiono anche sulla card (es. '12 elementi', '3 settimane').",
+    "risultato: elenco di {titolo, testo}; testimonianza: {testo, autore}.",
+    "prima_dopo: {prima, dopo} con due foto della stessa inquadratura; null se non ci sono.",
+    "verifica: nota interna, finisce solo nel commento in testa alla pagina.",
+    "esempio: true = dati inventati per l'anteprima. Le pagine escono in noindex e genera.py lo segnala: togliere la riga quando i dati sono veri."
+  ],
+  "progetti": [
+    {
+      "slug": {
+        "it": "veranda-vetrata-struttura-scura",
+        "en": "dark-framed-glass-veranda"
+      },
+      "evidenza": true,
+      "verifica": "ESEMPIO: luogo, anno, dati, testi e testimonianza sono INVENTATI per vedere l'impaginazione. Vanno sostituiti con quelli veri prima della pubblicazione. Anche il raggruppamento delle foto è da confermare.",
+      "titolo": {
+        "it": "Veranda vetrata con struttura scura",
+        "en": "Dark-framed glass veranda"
+      },
+      "luogo": {
+        "it": "Casalecchio di Reno",
+        "en": "Casalecchio di Reno"
+      },
+      "anno": 2024,
+      "tipo": [
+        "casa"
+      ],
+      "prodotto": [
+        "outdoor"
+      ],
+      "intervento": {
+        "it": "Nuova veranda vetrata sul giardino",
+        "en": "New glass veranda onto the garden"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Veranda vetrata",
+            "en": "Glass veranda"
+          },
+          "pagina": {
+            "it": "/outdoor/pergole-vetrate/",
+            "en": "/en/outdoor/pergolas-glass-enclosures/"
+          }
+        }
+      ],
+      "quantita": {
+        "it": "28 m², 7 ante scorrevoli",
+        "en": "28 m², 7 sliding panels"
+      },
+      "durata": {
+        "it": "2 settimane",
+        "en": "2 weeks"
+      },
+      "partner": {
+        "it": "Geometra del cliente, per la pratica edilizia",
+        "en": "The customer's surveyor, for the building permit"
+      },
+      "richiesta": {
+        "it": "I proprietari volevano usare il giardino anche nelle sere fresche e d'inverno, senza rinunciare alla vista sul prato.\n\nLa casa è moderna, con la facciata scura: la nuova struttura doveva sembrare parte dell'edificio, non un'aggiunta.",
+        "en": "The owners wanted to use the garden on cool evenings and in winter too, without losing the view of the lawn.\n\nThe house is modern, with a dark façade: the new structure had to look like part of the building, not an add-on."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "outdoor-19",
+        "didascalia": {
+          "it": "Veranda vetrata con struttura scura, illuminata di sera",
+          "en": "Dark-framed glazed veranda, lit up in the evening"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Abbiamo scelto una struttura in alluminio scuro, nello stesso tono degli infissi di casa, con vetrate scorrevoli a tutta altezza che si raccolgono su un lato. Le luci a LED sono integrate nel profilo del tetto: di sera la veranda si illumina senza lampade in vista.",
+            "en": "We chose a dark aluminium frame, in the same shade as the windows of the house, with full-height sliding glass panels that stack to one side. The LED lights are built into the roof profile, so in the evening the veranda lights up with no visible lamps."
+          },
+          "foto": "outdoor-17",
+          "didascalia": {
+            "it": "Veranda vetrata con struttura scura e luci a LED, di sera",
+            "en": "Glazed veranda with a dark frame and LED lights, in the evening"
+          }
+        },
+        {
+          "testo": {
+            "it": "Dentro abbiamo lasciato lo spazio libero per un salotto da esterno. Con le vetrate aperte la veranda diventa un portico; chiuse, la riparano da vento e pioggia e la rendono vivibile da ottobre ad aprile.",
+            "en": "Inside, we left the space free for outdoor furniture. With the glass open the veranda becomes a porch; closed, it keeps out wind and rain and can be used from October to April."
+          },
+          "foto": "outdoor-38",
+          "didascalia": {
+            "it": "L'interno della veranda con poltrone e luci a LED",
+            "en": "Inside the veranda, with armchairs and LED lights"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "outdoor-18",
+          "didascalia": {
+            "it": "La veranda illuminata di sera, vista dal prato",
+            "en": "The veranda lit up in the evening, seen from the lawn"
+          }
+        },
+        {
+          "foto": "outdoor-34",
+          "didascalia": {
+            "it": "La veranda illuminata, vista dal giardino",
+            "en": "The veranda lit up, seen from the garden"
+          }
+        },
+        {
+          "foto": "outdoor-35",
+          "didascalia": {
+            "it": "Struttura scura e lampione da giardino",
+            "en": "Dark frame and a garden lamp post"
+          }
+        },
+        {
+          "foto": "outdoor-17",
+          "didascalia": {
+            "it": "Vetrate e luci a LED integrate nella struttura",
+            "en": "Glass walls and LED lights built into the frame"
+          }
+        },
+        {
+          "foto": "outdoor-38",
+          "didascalia": {
+            "it": "Lo spazio interno arredato",
+            "en": "The furnished space inside"
+          }
+        },
+        {
+          "foto": "outdoor-19",
+          "didascalia": {
+            "it": "Vista d'insieme della veranda di sera",
+            "en": "Overall view of the veranda in the evening"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Una stanza in più",
+            "en": "An extra room"
+          },
+          "testo": {
+            "it": "Circa 28 m² vivibili tutto l'anno, collegati al soggiorno.",
+            "en": "About 28 m² usable all year round, connected to the living room."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Vista intatta",
+            "en": "An uninterrupted view"
+          },
+          "testo": {
+            "it": "Vetrate a tutta altezza e profili sottili: dal divano si vede tutto il giardino.",
+            "en": "Full-height glass and slim profiles: you can see the whole garden from the sofa."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Luce la sera",
+            "en": "Light in the evening"
+          },
+          "testo": {
+            "it": "Le luci integrate disegnano la struttura e illuminano il prato senza abbagliare.",
+            "en": "The built-in lights outline the structure and light up the lawn without glare."
+          }
+        }
+      ],
+      "testimonianza": {
+        "testo": {
+          "it": "Pensavamo a una semplice copertura, ci siamo ritrovati con il posto più bello della casa. Ci passiamo le serate anche a novembre.",
+          "en": "We were thinking of a simple cover and ended up with the best place in the house. We spend our evenings there even in November."
+        },
+        "autore": "Laura e Matteo, Casalecchio di Reno"
+      },
+      "esempio": true,
+      "linea": "outdoor"
+    },
+    {
+      "slug": {
+        "it": "casa-in-collina-finestre-in-legno",
+        "en": "hillside-house-timber-windows"
+      },
+      "evidenza": true,
+      "verifica": "ESEMPIO: luogo, anno, dati, testi e testimonianza sono INVENTATI per vedere l'impaginazione. Vanno sostituiti con quelli veri prima della pubblicazione. Anche il raggruppamento delle foto è da confermare.",
+      "titolo": {
+        "it": "Casa in collina con finestre in legno",
+        "en": "Hillside house with timber windows"
+      },
+      "luogo": {
+        "it": "Sasso Marconi",
+        "en": "Sasso Marconi"
+      },
+      "anno": 2023,
+      "tipo": [
+        "casa",
+        "ristrutturazione"
+      ],
+      "prodotto": [
+        "finestre",
+        "oscuramento"
+      ],
+      "intervento": {
+        "it": "Sostituzione di finestre e scuri in una casa in pietra",
+        "en": "Replacing windows and solid shutters in a stone house"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Finestre in legno",
+            "en": "Timber windows"
+          },
+          "pagina": {
+            "it": "/finestre/legno/",
+            "en": "/en/windows/timber/"
+          }
+        },
+        {
+          "nome": {
+            "it": "Persiane e scuri",
+            "en": "Louvred and solid shutters"
+          },
+          "pagina": {
+            "it": "/oscuramento/persiane-scuri/",
+            "en": "/en/shading/shutters/"
+          }
+        }
+      ],
+      "quantita": {
+        "it": "18 finestre e portefinestre, 14 scuri",
+        "en": "18 windows and French windows, 14 solid shutters"
+      },
+      "durata": {
+        "it": "4 settimane",
+        "en": "4 weeks"
+      },
+      "partner": {
+        "it": "Architetto del cliente",
+        "en": "The customer's architect"
+      },
+      "richiesta": {
+        "it": "Una casa in pietra degli anni Settanta, con vecchi infissi in legno che lasciavano passare aria e rumore.\n\nI proprietari volevano più comfort d'inverno, ma senza cambiare il carattere della casa: legno scuro, scuri esterni e la grande finestra ad arco del soggiorno.",
+        "en": "A 1970s stone house with old timber windows that let in draughts and noise.\n\nThe owners wanted more comfort in winter without changing the character of the house: dark timber, external solid shutters and the large arched window in the living room."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "inliving-48",
+        "didascalia": {
+          "it": "Soggiorno con grande finestra ad arco sulla campagna",
+          "en": "Living room with a large arched window overlooking the countryside"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Abbiamo rifatto finestre e scuri in legno con la stessa tinta scura degli originali, così la facciata in pietra è rimasta com'era. Gli scuri hanno cerniere e ferramenta nuove e chiudono a filo dell'apertura.",
+            "en": "We remade the timber windows and shutters in the same dark stain as the originals, so the stone façade looks just as it did. The shutters have new hinges and hardware and close flush with the opening."
+          },
+          "foto": "inliving-44",
+          "didascalia": {
+            "it": "La casa in pietra con finestre e scuri in legno",
+            "en": "The stone house with timber windows and solid shutters"
+          }
+        },
+        {
+          "testo": {
+            "it": "Le nuove portefinestre hanno vetri basso emissivi e guarnizioni continue. In cucina abbiamo ampliato la parte vetrata verso il terrazzo, riducendo i montanti; la finestra ad arco è stata fatta su misura, sulla sagoma della muratura.",
+            "en": "The new French windows have low-emissivity glass and continuous seals. In the kitchen we enlarged the glazing towards the terrace by reducing the mullions; the arched window was made to measure, following the shape of the masonry."
+          },
+          "foto": "inliving-46",
+          "didascalia": {
+            "it": "Cucina con portefinestre in legno affacciate sulla campagna",
+            "en": "Kitchen with timber French windows looking out over the countryside"
+          }
+        }
+      ],
+      "prima_dopo": {
+        "prima": null,
+        "dopo": "inliving-48"
+      },
+      "galleria": [
+        {
+          "foto": "inliving-45",
+          "didascalia": {
+            "it": "Soggiorno con camino e finestre in legno scuro",
+            "en": "Living room with a fireplace and dark timber windows"
+          }
+        },
+        {
+          "foto": "inliving-46",
+          "didascalia": {
+            "it": "Portefinestre in legno in cucina",
+            "en": "Timber French windows in the kitchen"
+          }
+        },
+        {
+          "foto": "inliving-47",
+          "didascalia": {
+            "it": "Bagno con finestre in legno scuro",
+            "en": "Bathroom with dark timber windows"
+          }
+        },
+        {
+          "foto": "inliving-49",
+          "didascalia": {
+            "it": "Corridoio soppalcato con finestre in legno scuro",
+            "en": "Mezzanine landing with dark timber windows"
+          }
+        },
+        {
+          "foto": "inliving-44",
+          "didascalia": {
+            "it": "La facciata in pietra con gli scuri in legno",
+            "en": "The stone façade with timber solid shutters"
+          }
+        },
+        {
+          "foto": "inliving-48",
+          "didascalia": {
+            "it": "La finestra ad arco del soggiorno",
+            "en": "The arched window in the living room"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Più caldo d'inverno",
+            "en": "Warmer in winter"
+          },
+          "testo": {
+            "it": "Spifferi eliminati e vetri isolanti: la casa si scalda prima e resta calda più a lungo.",
+            "en": "No more draughts and insulating glass: the house warms up faster and stays warm for longer."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Carattere conservato",
+            "en": "Character preserved"
+          },
+          "testo": {
+            "it": "Stessi materiali e colori di prima: da fuori la casa sembra quella di sempre.",
+            "en": "The same materials and colours as before: from outside the house looks just as it always has."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Detrazioni seguite da noi",
+            "en": "Tax deductions handled"
+          },
+          "testo": {
+            "it": "Il lavoro è rientrato nelle detrazioni fiscali, con le pratiche curate dal nostro ufficio.",
+            "en": "The work qualified for tax deductions, with the paperwork handled by our office."
+          }
+        }
+      ],
+      "testimonianza": {
+        "testo": {
+          "it": "Avevamo paura di perdere l'atmosfera della casa. Invece sembra tutto com'era, solo che d'inverno vicino alle finestre non si sente più freddo.",
+          "en": "We were afraid of losing the feel of the house. Instead everything looks as it was, except that in winter it is no longer cold next to the windows."
+        },
+        "autore": "Roberto e Anna, Sasso Marconi"
+      },
+      "esempio": true,
+      "linea": "inliving"
+    },
+    {
+      "slug": {
+        "it": "pergola-bioclimatica-bianca",
+        "en": "white-bioclimatic-pergola"
+      },
+      "evidenza": false,
+      "verifica": "ESEMPIO: luogo, anno, dati, testi e testimonianza sono INVENTATI per vedere l'impaginazione. Vanno sostituiti con quelli veri prima della pubblicazione. Anche il raggruppamento delle foto è da confermare.",
+      "titolo": {
+        "it": "Pergola bioclimatica bianca con vetrate",
+        "en": "White bioclimatic pergola with glass walls"
+      },
+      "luogo": {
+        "it": "Castenaso",
+        "en": "Castenaso"
+      },
+      "anno": 2025,
+      "tipo": [
+        "casa"
+      ],
+      "prodotto": [
+        "outdoor"
+      ],
+      "intervento": {
+        "it": "Pergola bioclimatica con chiusure vetrate",
+        "en": "Bioclimatic pergola with glass enclosures"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Pergola bioclimatica con vetrate",
+            "en": "Bioclimatic pergola with glass walls"
+          },
+          "pagina": {
+            "it": "/outdoor/pergole-vetrate/",
+            "en": "/en/outdoor/pergolas-glass-enclosures/"
+          }
+        }
+      ],
+      "quantita": {
+        "it": "4 × 5 m, 3 lati vetrati",
+        "en": "4 × 5 m, glazed on 3 sides"
+      },
+      "durata": {
+        "it": "10 giorni",
+        "en": "10 days"
+      },
+      "partner": {
+        "it": "Impresa del cliente, per la pavimentazione",
+        "en": "The customer's builder, for the paving"
+      },
+      "richiesta": {
+        "it": "Un giardino molto esposto al sole, usato poco proprio nei mesi più belli.\n\nIl cliente cercava un'ombra regolabile e uno spazio da chiudere nelle mezze stagioni, senza opere murarie.",
+        "en": "A garden in full sun, hardly used in the best months of the year.\n\nThe customer wanted adjustable shade and a space that could be closed in spring and autumn, without any building work."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "outdoor-14",
+        "didascalia": {
+          "it": "Pergola bioclimatica bianca con vetrate scorrevoli su un giardino",
+          "en": "White bioclimatic pergola with sliding glass walls over a garden"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Le lamelle in alluminio si orientano con un comando: aperte fanno passare aria e luce, chiuse riparano da sole e pioggia e scaricano l'acqua nei pilastri.",
+            "en": "The aluminium louvres are adjusted with a remote: open, they let air and light through; closed, they keep out sun and rain and drain the water through the posts."
+          },
+          "foto": "outdoor-16",
+          "didascalia": {
+            "it": "Le lamelle orientabili viste dal basso",
+            "en": "The adjustable louvres seen from below"
+          }
+        },
+        {
+          "testo": {
+            "it": "Su tre lati abbiamo montato vetrate scorrevoli senza montanti verticali: aperte si raccolgono in un angolo, chiuse trasformano la pergola in una stanza sul giardino.",
+            "en": "On three sides we fitted frameless sliding glass panels: open, they stack in a corner; closed, they turn the pergola into a room on the garden."
+          },
+          "foto": "outdoor-15",
+          "didascalia": {
+            "it": "L'interno della pergola, chiuso dalle vetrate",
+            "en": "Inside the pergola, enclosed by the glass walls"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "outdoor-14",
+          "didascalia": {
+            "it": "La pergola con le vetrate scorrevoli",
+            "en": "The pergola with its sliding glass walls"
+          }
+        },
+        {
+          "foto": "outdoor-15",
+          "didascalia": {
+            "it": "Lo spazio sotto la pergola con il tavolo da giardino",
+            "en": "The space under the pergola with the garden table"
+          }
+        },
+        {
+          "foto": "outdoor-16",
+          "didascalia": {
+            "it": "Dettaglio delle lamelle orientabili",
+            "en": "Detail of the adjustable louvres"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Ombra su misura",
+            "en": "Shade on demand"
+          },
+          "testo": {
+            "it": "Si sceglie quanta luce far entrare, ora per ora.",
+            "en": "You choose how much light to let in, hour by hour."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Usata da marzo a novembre",
+            "en": "Used from March to November"
+          },
+          "testo": {
+            "it": "Con le vetrate chiuse si sta fuori anche nelle mezze stagioni.",
+            "en": "With the glass closed you can sit outside in spring and autumn too."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Nessuna opera muraria",
+            "en": "No building work"
+          },
+          "testo": {
+            "it": "Struttura autoportante, fissata alla pavimentazione esistente.",
+            "en": "A freestanding structure, fixed to the existing paving."
+          }
+        }
+      ],
+      "testimonianza": {
+        "testo": {
+          "it": "Prima d'estate in giardino non si stava. Adesso pranziamo lì quasi tutti i giorni.",
+          "en": "In summer you just couldn't sit in the garden before. Now we have lunch there almost every day."
+        },
+        "autore": "Paolo, Castenaso"
+      },
+      "esempio": true,
+      "linea": "outdoor"
+    },
+    {
+      "slug": {
+        "it": "appartamento-portefinestre-bianche",
+        "en": "apartment-white-french-windows"
+      },
+      "evidenza": false,
+      "verifica": "ESEMPIO: luogo, anno, dati, testi e testimonianza sono INVENTATI per vedere l'impaginazione. Vanno sostituiti con quelli veri prima della pubblicazione. Anche il raggruppamento delle foto è da confermare.",
+      "titolo": {
+        "it": "Appartamento con portefinestre bianche",
+        "en": "Apartment with white French windows"
+      },
+      "luogo": {
+        "it": "Bologna",
+        "en": "Bologna"
+      },
+      "anno": 2024,
+      "tipo": [
+        "casa",
+        "ristrutturazione"
+      ],
+      "prodotto": [
+        "finestre"
+      ],
+      "intervento": {
+        "it": "Sostituzione di finestre e portefinestre in condominio",
+        "en": "Replacing windows and French windows in an apartment building"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Finestre e portefinestre",
+            "en": "Windows and French windows"
+          },
+          "pagina": {
+            "it": "/finestre/",
+            "en": "/en/windows/"
+          }
+        }
+      ],
+      "quantita": {
+        "it": "9 elementi",
+        "en": "9 units"
+      },
+      "durata": {
+        "it": "2 giorni di posa",
+        "en": "2 days of installation"
+      },
+      "partner": {
+        "it": "Nessuno: rilievo e posa seguiti da noi",
+        "en": "None: survey and installation by our team"
+      },
+      "richiesta": {
+        "it": "Un appartamento al terzo piano con serramenti in alluminio degli anni Ottanta, freddi e rumorosi verso la strada.\n\nIl regolamento di condominio chiedeva di mantenere il colore bianco e i cassonetti esistenti.",
+        "en": "A third-floor apartment with 1980s aluminium windows, cold and noisy on the street side.\n\nThe building rules required the white colour and the existing roller shutter boxes to be kept."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "inliving-57",
+        "didascalia": {
+          "it": "Soggiorno con portafinestra bianca sul balcone",
+          "en": "Living room with a white French window onto the balcony"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Abbiamo montato portefinestre bianche a due ante con vetrocamera e isolato il cassonetto delle tapparelle, uno dei punti da cui entrava più freddo.",
+            "en": "We fitted white two-leaf French windows with double glazing and insulated the roller shutter box, one of the main places the cold was getting in."
+          },
+          "foto": "inliving-59",
+          "didascalia": {
+            "it": "Portafinestra bianca a due ante con cassonetto",
+            "en": "White two-leaf French window with a roller shutter box"
+          }
+        },
+        {
+          "testo": {
+            "it": "Il lavoro si è fatto in due giorni, stanza per stanza, senza opere murarie: i nuovi telai sono stati fissati sui controtelai esistenti, con finiture interne nuove.",
+            "en": "The work took two days, room by room, with no building work: the new frames were fixed to the existing subframes, with new interior trims."
+          },
+          "foto": "inliving-56",
+          "didascalia": {
+            "it": "Cucina con portafinestra bianca",
+            "en": "Kitchen with a white French window"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "inliving-55",
+          "didascalia": {
+            "it": "Bagno con portafinestra bianca",
+            "en": "Bathroom with a white French window"
+          }
+        },
+        {
+          "foto": "inliving-56",
+          "didascalia": {
+            "it": "Cucina con portafinestra bianca e tavolo scuro",
+            "en": "Kitchen with a white French window and a dark table"
+          }
+        },
+        {
+          "foto": "inliving-57",
+          "didascalia": {
+            "it": "Soggiorno con portafinestra sul balcone",
+            "en": "Living room with a French window onto the balcony"
+          }
+        },
+        {
+          "foto": "inliving-58",
+          "didascalia": {
+            "it": "La portafinestra del soggiorno aperta sul balcone",
+            "en": "The living room French window open onto the balcony"
+          }
+        },
+        {
+          "foto": "inliving-59",
+          "didascalia": {
+            "it": "Portafinestra a due ante con cassonetto",
+            "en": "Two-leaf French window with a roller shutter box"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Meno rumore",
+            "en": "Less noise"
+          },
+          "testo": {
+            "it": "Il traffico della strada quasi non si sente più, anche in camera.",
+            "en": "The street traffic can barely be heard, even in the bedroom."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Bollette più leggere",
+            "en": "Lower bills"
+          },
+          "testo": {
+            "it": "Nel primo inverno i consumi del riscaldamento sono scesi in modo evidente.",
+            "en": "In the first winter, heating use dropped noticeably."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Casa abitata durante i lavori",
+            "en": "Living at home during the work"
+          },
+          "testo": {
+            "it": "Due giorni di posa, una stanza alla volta, senza dover traslocare.",
+            "en": "Two days of installation, one room at a time, with no need to move out."
+          }
+        }
+      ],
+      "testimonianza": {
+        "testo": {
+          "it": "In due giorni avevano finito, lasciando tutto pulito. La differenza con il rumore della strada si è sentita subito.",
+          "en": "They were done in two days and left everything clean. We noticed the difference in street noise straight away."
+        },
+        "autore": "Chiara, Bologna"
+      },
+      "esempio": true,
+      "linea": "inliving"
+    },
+    {
+      "slug": {
+        "it": "mansarda-con-grandi-finestre",
+        "en": "attic-with-large-windows"
+      },
+      "evidenza": false,
+      "verifica": "ESEMPIO: luogo, anno, dati, testi e testimonianza sono INVENTATI per vedere l'impaginazione. Vanno sostituiti con quelli veri prima della pubblicazione. Anche il raggruppamento delle foto è da confermare.",
+      "titolo": {
+        "it": "Mansarda con grandi finestre sul giardino",
+        "en": "Attic with large windows onto the garden"
+      },
+      "luogo": {
+        "it": "San Lazzaro di Savena",
+        "en": "San Lazzaro di Savena"
+      },
+      "anno": 2023,
+      "tipo": [
+        "casa",
+        "ristrutturazione"
+      ],
+      "prodotto": [
+        "finestre"
+      ],
+      "intervento": {
+        "it": "Nuove finestre per un sottotetto reso abitabile",
+        "en": "New windows for a converted loft"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Finestre e portefinestre",
+            "en": "Windows and French windows"
+          },
+          "pagina": {
+            "it": "/finestre/",
+            "en": "/en/windows/"
+          }
+        }
+      ],
+      "quantita": {
+        "it": "6 finestre e 1 portafinestra scorrevole",
+        "en": "6 windows and 1 sliding French window"
+      },
+      "durata": {
+        "it": "1 settimana",
+        "en": "1 week"
+      },
+      "partner": {
+        "it": "Impresa edile del cliente",
+        "en": "The customer's builder"
+      },
+      "richiesta": {
+        "it": "Un sottotetto da trasformare in soggiorno, con aperture verso il giardino da allargare.\n\nServivano finestre grandi ma ben isolate: sotto il tetto d'estate fa caldo e d'inverno si disperde calore.",
+        "en": "A loft to be turned into a living room, with openings towards the garden to be enlarged.\n\nIt needed large but well-insulated windows: under the roof it gets hot in summer and loses heat in winter."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "inliving-00",
+        "didascalia": {
+          "it": "Soggiorno mansardato con travi bianche e grandi finestre sul giardino",
+          "en": "Attic living room with white beams and large windows overlooking the garden"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Abbiamo scelto finestre con vetri ad alto isolamento e una portafinestra scorrevole alzante, che apre il soggiorno sul terrazzo senza l'ingombro delle ante.",
+            "en": "We chose windows with high-insulation glass and a lift-and-slide French window that opens the living room onto the terrace without door leaves getting in the way."
+          },
+          "foto": "inliving-01",
+          "didascalia": {
+            "it": "Soggiorno con portafinestra scorrevole",
+            "en": "Living room with a sliding French window"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "inliving-00",
+          "didascalia": {
+            "it": "Il soggiorno mansardato con le grandi finestre",
+            "en": "The attic living room with its large windows"
+          }
+        },
+        {
+          "foto": "inliving-01",
+          "didascalia": {
+            "it": "La portafinestra scorrevole del soggiorno",
+            "en": "The sliding French window in the living room"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Luce tutto il giorno",
+            "en": "Light all day"
+          },
+          "testo": {
+            "it": "Le grandi finestre portano luce naturale fino in fondo alla stanza.",
+            "en": "The large windows bring daylight right to the back of the room."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Comfort anche d'estate",
+            "en": "Comfortable in summer too"
+          },
+          "testo": {
+            "it": "I vetri isolanti limitano il calore che entra dal sole.",
+            "en": "The insulating glass limits the heat coming in from the sun."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Spazio libero",
+            "en": "Space kept free"
+          },
+          "testo": {
+            "it": "La portafinestra scorrevole non occupa spazio quando è aperta.",
+            "en": "The sliding French window takes up no room when open."
+          }
+        }
+      ],
+      "testimonianza": {
+        "testo": {
+          "it": "Era una soffitta buia, ora è la stanza dove passiamo più tempo.",
+          "en": "It was a dark attic; now it's the room where we spend most of our time."
+        },
+        "autore": "Elena e Stefano, San Lazzaro di Savena"
+      },
+      "esempio": true,
+      "linea": "inliving"
+    }
+  ]
+}
