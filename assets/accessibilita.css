@@ -1,0 +1,254 @@
+/* =====================================================================
+   WIDGET ACCESSIBILITÀ
+   Stile del pulsante, del pannello e delle regolazioni. Lo script è in /assets/accessibilita.js.
+   Ogni regolazione è una classe su <html> (a11y-...), salvata in localStorage ("ig-a11y")
+   e rimessa da uno script in <head> prima che la pagina compaia, così non c'è sfarfallio.
+   Le misure del pannello sono in px, perché non cambino con la dimensione del testo.
+   ===================================================================== */
+
+/* ---------- Regolazioni ---------- */
+
+/* Dimensione del testo: tutta la scala tipografica del sito è in rem */
+html.a11y-testo-1 { font-size: 115%; }
+html.a11y-testo-2 { font-size: 130%; }
+html.a11y-testo-3 { font-size: 150%; }
+
+/* Contrasto elevato: si scuriscono i token di colore del sito */
+html.a11y-contrasto {
+  --color-brand: #1F4A4A;
+  --color-brand-dark: #112E2E;
+  --color-ardesia: #112E2E;
+  --color-line: #849292;
+  --color-line-strong: #112E2E;
+  --color-on-ink-muted: #FFFFFF;
+  --color-line-on-ink: #849292;
+}
+html.a11y-contrasto ::placeholder { color: #3D4A4A; opacity: 1; }
+
+/* Evidenzia i link */
+html.a11y-link a:not(.a11y-ui a) {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+}
+html.a11y-link a:not(.a11y-ui a):hover { background-color: var(--color-acqua-velata, #E6EFEF); color: var(--color-ink, #112E2E) !important; }
+
+/* Carattere leggibile: Verdana è disegnato per lo schermo, ampio e senza ambiguità tra I, l e 1 */
+html.a11y-carattere {
+  --font-text: Verdana, Tahoma, "Segoe UI", sans-serif;
+  --font-display: Verdana, Tahoma, "Segoe UI", sans-serif;
+}
+html.a11y-carattere body :is(h1, h2, h3, h4, h5, h6) { letter-spacing: 0 !important; }
+
+/* Spaziatura del testo: i valori del criterio WCAG 1.4.12 */
+html.a11y-spazi body *:not(.a11y-ui, .a11y-ui *) { letter-spacing: 0.12em !important; word-spacing: 0.16em !important; }
+html.a11y-spazi body :is(p, li, dd, dt, blockquote, figcaption, td, th, label, legend):not(.a11y-ui *) { line-height: 1.8 !important; }
+html.a11y-spazi body p:not(.a11y-ui *) { margin-bottom: 1.5em; }
+
+/* Ferma le animazioni (il carosello dell'hero legge la classe e si ferma) */
+html.a11y-fermo { scroll-behavior: auto !important; }
+html.a11y-fermo *, html.a11y-fermo *::before, html.a11y-fermo *::after {
+  animation: none !important;
+  transition: none !important;
+}
+html.a11y-fermo::view-transition-old(root),
+html.a11y-fermo::view-transition-new(root) { animation: none !important; }
+
+/* Scala di grigi: il filtro sull'elemento radice non sposta gli elementi fissi */
+html.a11y-grigi { filter: grayscale(1); }
+
+/* Cursore grande */
+html.a11y-cursore, html.a11y-cursore * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M8 4l30 18-13 3-7 13z' fill='%23112E2E' stroke='%23fff' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E") 8 4, auto !important;
+}
+html.a11y-cursore :is(a, button, label, summary, select, [role="button"], input[type="checkbox"], input[type="radio"], input[type="range"]),
+html.a11y-cursore :is(a, button, label, summary, [role="button"]) * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M17 22V8a4 4 0 0 1 8 0v11l9 2a5 5 0 0 1 4 6l-2 10a5 5 0 0 1-5 4H20a5 5 0 0 1-4-2l-8-10a3.5 3.5 0 0 1 5-5z' fill='%23112E2E' stroke='%23fff' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E") 21 4, pointer !important;
+}
+
+/* Guida di lettura: una fascia libera che segue il puntatore, il resto della pagina si attenua */
+.a11y-fascia {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2147483000;
+  height: 96px;
+  box-shadow: 0 0 0 100vmax rgba(17, 46, 46, 0.45);
+  border-block: 2px solid var(--color-brand, #3A7676);
+  pointer-events: none;
+  opacity: 0;
+}
+.a11y-fascia.is-visible { opacity: 1; }
+
+/* ---------- Pulsante ---------- */
+
+.a11y-fab {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 44; /* sotto il banner cookie (45) e sopra la barra mobile (30) */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius, 2px);
+  background: var(--color-brand, #3A7676);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(17, 46, 46, 0.18);
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.2, 0, 0, 1), bottom 200ms cubic-bezier(0.2, 0, 0, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+.a11y-fab:hover { background: var(--color-brand-dark, #2C5E5E); }
+.a11y-fab:focus-visible { outline: 2px solid var(--color-ink, #112E2E); outline-offset: 3px; }
+.a11y-fab svg { width: 30px; height: 30px; }
+/* Puntino quando c'è almeno una regolazione attiva */
+.a11y-fab[data-active]::after {
+  content: "";
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 12px; height: 12px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background: var(--color-bronzo, #A8875E);
+}
+html.menu-open .a11y-fab { display: none; }
+/* Pagine dei progetti: si alza quando compare la barra delle sezioni */
+@media (min-width: 768px) {
+  body:has(.pnav.is-visible) .a11y-fab { bottom: calc(52px + 24px); }
+}
+/* Telefono: sopra la barra dei contatti */
+@media (max-width: 767.98px) {
+  .a11y-fab {
+    left: 12px;
+    bottom: calc(var(--mbar-h, 60px) + env(safe-area-inset-bottom) + 12px);
+    width: 48px;
+    height: 48px;
+  }
+  .a11y-fab svg { width: 28px; height: 28px; }
+}
+@media (prefers-reduced-motion: reduce) { .a11y-fab { transition: none; } }
+@media (forced-colors: active) { .a11y-fab { border: 2px solid ButtonText; } }
+@media print { .a11y-ui { display: none !important; } }
+
+/* ---------- Pannello ---------- */
+
+.a11y-panel {
+  position: fixed;
+  inset: auto auto 88px 24px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 120px);
+  max-height: calc(100dvh - 120px);
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--color-line, #E3E6E6);
+  border-radius: var(--radius, 2px);
+  background: var(--color-bg, #FFFFFF);
+  color: var(--color-ink, #112E2E);
+  box-shadow: 0 12px 32px rgba(17, 46, 46, 0.16);
+  font: 400 15px/1.4 var(--font-text, Arial, sans-serif);
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+.a11y-panel::backdrop { background: rgba(17, 46, 46, 0.12); }
+@media (min-width: 768px) {
+  body:has(.pnav.is-visible) .a11y-panel { bottom: calc(88px + 52px); }
+}
+@media (max-width: 767.98px) {
+  .a11y-panel {
+    inset: auto 0 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 88vh;
+    max-height: 88dvh;
+    border-width: 1px 0 0;
+  }
+  .a11y-panel::backdrop { background: rgba(17, 46, 46, 0.35); }
+}
+.a11y-panel__inner { display: grid; gap: 20px; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); }
+.a11y-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: -8px -10px -8px 0; }
+.a11y-panel__title { margin: 0; font: 600 19px/1.25 var(--font-display, Arial, sans-serif); letter-spacing: -0.01em; }
+.a11y-panel button { font: inherit; color: inherit; cursor: pointer; }
+.a11y-panel :focus-visible { outline: 2px solid var(--color-brand, #3A7676); outline-offset: 2px; }
+.a11y-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius, 2px);
+  background: none;
+}
+.a11y-icon-btn:hover { background: var(--color-calce, #F5F4F0); }
+.a11y-panel svg { flex: none; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Dimensione del testo */
+.a11y-size { display: grid; gap: 8px; }
+.a11y-label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-ardesia, #5A6868); }
+.a11y-size__row { display: grid; grid-template-columns: 56px 1fr 56px; align-items: center; border: 1px solid var(--color-line-strong, #849292); border-radius: var(--radius, 2px); }
+.a11y-size__btn { height: 48px; padding: 0; border: 0; background: none; font-weight: 600 !important; }
+.a11y-size__btn:first-child { border-right: 1px solid var(--color-line, #E3E6E6); font-size: 15px !important; }
+.a11y-size__btn:last-child { border-left: 1px solid var(--color-line, #E3E6E6); font-size: 21px !important; }
+.a11y-size__btn:hover:not(:disabled) { background: var(--color-calce, #F5F4F0); }
+.a11y-size__btn:disabled { color: var(--color-line-strong, #849292); cursor: default; }
+.a11y-size__value { text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Interruttori */
+.a11y-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.a11y-grid li { display: flex; }
+.a11y-toggle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 92px;
+  padding: 14px 12px 12px;
+  border: 1px solid var(--color-line-strong, #849292);
+  border-radius: var(--radius, 2px);
+  background: var(--color-bg, #FFFFFF);
+  text-align: left;
+  line-height: 1.25;
+}
+.a11y-toggle:hover { border-color: var(--color-ink, #112E2E); }
+.a11y-toggle[aria-pressed="true"] {
+  border-color: var(--color-brand, #3A7676);
+  background: var(--color-acqua-velata, #E6EFEF);
+  box-shadow: inset 0 0 0 1px var(--color-brand, #3A7676);
+  color: var(--color-brand-dark, #2C5E5E);
+  font-weight: 600;
+}
+.a11y-toggle__icon { display: inline-flex; align-items: center; height: 24px; font: 600 19px/1 Verdana, Tahoma, sans-serif; }
+/* Spunta sugli interruttori attivi */
+.a11y-toggle[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--color-brand, #3A7676) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.5 2.5L13 6.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
+}
+
+/* Piede */
+.a11y-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-top: 16px; border-top: 1px solid var(--color-line, #E3E6E6); }
+.a11y-note { margin: 0; color: var(--color-ardesia, #5A6868); font-size: 13px; line-height: 1.45; flex: 1 1 180px; }
+.a11y-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--color-ink, #112E2E);
+  border-radius: var(--radius, 2px);
+  background: none;
+  font-weight: 500 !important;
+}
+.a11y-reset:hover { background: var(--color-ink, #112E2E); color: #FFFFFF !important; }
+.a11y-reset svg { width: 18px; height: 18px; }

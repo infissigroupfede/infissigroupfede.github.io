@@ -1765,6 +1765,9 @@ label.cookie__cat { cursor: pointer; }
 .lightbox__btn:hover { border-color: #FFFFFF; }
 .lightbox__btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
 </style>
+<link rel="stylesheet" href="/assets/accessibilita.css">
+<script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
+<script src="/assets/accessibilita.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -2958,7 +2961,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
     };
     const schedule = () => {
       clearTimeout(timer);
-      if (!document.hidden) timer = setTimeout(() => { go(cur + 1); schedule(); }, DELAY);
+      if (!document.hidden && !document.documentElement.classList.contains("a11y-fermo")) timer = setTimeout(() => { go(cur + 1); schedule(); }, DELAY);
     };
     document.addEventListener("visibilitychange", schedule);
     go(0);
