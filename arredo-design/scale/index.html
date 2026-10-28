@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   INFISSI GROUP, SCALE D'ARREDO A BOLOGNA (/arredo-design/scale/)
-  Pagina generata dal modello index.html: stile, header, footer, barra mobile, dialog, banner cookie
+  Pagina generata dal modello index.html: stile, header, footer, dialog, banner cookie
   e script sono identici. Se cambiano nel modello, vanno aggiornati anche qui.
   Percorsi assoluti (/assets/...): la pagina va vista tramite un server, non aprendo il file.
   Pagina nuova del 2026-10-12, testi generici: sul sito attuale non ci sono contenuti sulle scale.
@@ -204,11 +204,10 @@
   --dur-ui: 200ms;
   --dur-slow: 250ms;
 
-  /* Header e barra mobile */
+  /* Header */
   --header-h: 72px;       /* altezza iniziale, riservata in cima alla pagina */
   --bar-h: 72px;          /* riga principale dell'header */
   --bar-h-compact: 64px;  /* riga principale dopo lo scroll */
-  --mbar-h: 60px;
 }
 @media (min-width: 768px) {
   :root { --cols: 8; --gutter: 24px; }
@@ -1180,41 +1179,45 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 }
 
 /* =====================================================================
-   9. BARRA INFERIORE MOBILE (sotto 768px)
+   9. PULSANTE PREFERENZE COOKIE
+   Sempre visibile sopra il pulsante dell'accessibilità, stesso formato ma bianco:
+   è un comando secondario. Riapre il banner; sparisce mentre il banner è aperto.
    ===================================================================== */
-.mbar {
+.cookie-fab {
   position: fixed;
-  right: 0; bottom: 0; left: 0;
-  z-index: 30;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  background: var(--color-bg);
-  box-shadow: 0 -8px 24px rgba(17, 46, 46, 0.06);
-}
-.mbar__item {
-  display: flex;
-  flex-direction: column;
+  left: 24px;
+  bottom: calc(24px + 52px + 12px);
+  z-index: 44;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
-  height: calc(var(--mbar-h) + env(safe-area-inset-bottom));
-  padding-bottom: env(safe-area-inset-bottom);
-  color: var(--color-ink);
-  font: 500 0.8125rem/1 var(--font-text);
-  text-decoration: none;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid var(--color-line-calce);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-brand);
+  box-shadow: 0 8px 24px rgba(17, 46, 46, 0.12);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), bottom var(--dur-ui) var(--ease);
   -webkit-tap-highlight-color: transparent;
-  transition: background-color var(--dur-fast) var(--ease);
 }
-.mbar__item .icon { width: 22px; height: 22px; }
-.mbar__item + .mbar__item { border-left: 1px solid var(--color-line); }
-.mbar__item:active { background: var(--color-calce); }
-.mbar__item--primary { border-left-color: var(--color-brand); background: var(--color-brand); color: #FFFFFF; }
-.mbar__item--primary:active { background: var(--color-brand-dark); }
-.mbar__item:focus-visible { outline-offset: -5px; }
-.mbar__item--primary:focus-visible { outline-color: #FFFFFF; }
-.menu-open .mbar { display: none; }
-@media (max-width: 767.98px) { body { padding-bottom: calc(var(--mbar-h) + env(safe-area-inset-bottom)); } }
-@media (min-width: 768px) { .mbar { display: none; } }
+.cookie-fab[hidden] { display: none; }
+.cookie-fab:hover { background: var(--color-calce); color: var(--color-brand-dark); }
+.cookie-fab:focus-visible { outline-offset: 3px; }
+.cookie-fab .icon { width: 26px; height: 26px; }
+.menu-open .cookie-fab, body:has(.cookie:not([hidden])) .cookie-fab { display: none; }
+/* Pagine dei progetti: si alza col pulsante dell'accessibilità quando compare la barra delle sezioni */
+@media (min-width: 768px) {
+  body:has(.pnav.is-visible) .cookie-fab { bottom: calc(52px + 24px + 52px + 12px); }
+}
+@media (max-width: 767.98px) {
+  .cookie-fab { left: 12px; bottom: calc(12px + 48px + 8px + env(safe-area-inset-bottom)); width: 48px; height: 48px; }
+  .cookie-fab .icon { width: 24px; height: 24px; }
+}
+@media (forced-colors: active) { .cookie-fab { border: 2px solid ButtonText; } }
+@media print { .cookie-fab { display: none !important; } }
 
 /* =====================================================================
    10. DIALOG DEL PREVENTIVATORE
@@ -1351,7 +1354,6 @@ label.cookie__cat { cursor: pointer; }
 }
 /* Telefono: Rifiuta e Accetta affiancati e uguali, Personalizza come link sotto */
 @media (max-width: 767.98px) {
-  .cookie { bottom: calc(var(--mbar-h) + env(safe-area-inset-bottom)); }
   .cookie__inner { gap: var(--space-12); padding-top: var(--space-16); }
   .cookie h2 { padding-top: 10px; }
   .cookie__close { top: var(--space-8); }
@@ -1359,13 +1361,6 @@ label.cookie__cat { cursor: pointer; }
   .cookie__actions .btn { min-height: 48px; padding-inline: var(--space-12); }
   .cookie__save, .cookie__more { grid-column: 1 / -1; }
   .cookie__more { justify-self: center; }
-}
-/* Finché il banner è aperto la barra dei contatti si nasconde e il banner scende in fondo allo schermo */
-@supports selector(:has(*)) {
-  @media (max-width: 767.98px) {
-    body:has(.cookie:not([hidden])) .mbar { display: none; }
-    .cookie { bottom: 0; }
-  }
 }
 
 /* =====================================================================
@@ -1780,6 +1775,7 @@ label.cookie__cat { cursor: pointer; }
   <symbol id="logo" viewBox="0 0 1484 530"><path d="M0 0L225 56L225 474L0 530ZM250 56L475 0L475 530L250 474ZM618.2 449C606.9 446.4 596.3 441.1 589 434.4C585.7 431.3 583 428.2 583 427.5C583 426.5 595.6 420 597.5 420C597.7 420 600.1 422.2 602.7 424.8C611.9 434 623.9 438 642 438C665.7 438 680.9 430.7 685.5 417.1C687.2 412.1 687.7 379 686.1 379C685.6 379 684.2 380.5 683.1 382.4C678 390.6 664.5 398.8 652.5 401.1C642.8 402.9 624 401.7 615.1 398.6C597.4 392.4 585.4 381 579.2 364.2C575.8 355 575 338.5 577.4 327.6C582.5 304.8 599.7 287.7 622.7 282.6C637.2 279.4 655.2 281 666.2 286.6C672 289.5 681 297.6 684.1 302.7C685.2 304.5 686.6 305.8 687.1 305.4C687.6 305.1 688 299.7 688 293.4L688 282L697 282L706.1 282L705.8 349.2L705.5 416.5L703.2 422.2C697.5 436.3 682.6 446.2 661.6 449.9C651.8 451.7 627.8 451.1 618.2 449ZM1354 365.5L1354 282L1363 282L1372 282L1372 294C1372 300.6 1372.4 306 1372.9 306C1373.4 306 1374.8 304.5 1375.9 302.7C1379 297.7 1388 289.5 1393.7 286.7C1401.3 282.8 1409.7 281 1420.4 281C1451.3 281 1474.2 297.5 1481.6 325C1484 333.8 1484 352.2 1481.7 361C1477.2 378.2 1466.6 391.7 1451.7 399C1440.4 404.6 1431.3 406.3 1417.5 405.7C1399.5 404.8 1388.6 399.7 1378.9 387.6C1376 384 1373.3 381.3 1372.8 381.6C1372.4 381.9 1372 397.2 1372 415.6L1372 449L1363 449L1354 449L1354 365.5ZM980.8 405C954.1 400.2 933.8 381.1 929 356.2C927.2 347.4 928.2 331.1 930.8 323.3C938.2 302 955.8 287 978.9 282.4C991 280 1008.6 280.8 1019.5 284.4C1046.3 293 1063 315.7 1063 343.5C1063 372.2 1044.6 395.9 1016.5 403.5C1009.6 405.4 987.9 406.3 980.8 405ZM1186 404.4C1180.9 403.4 1172.4 400.8 1168.3 398.9C1161.6 395.8 1152.7 386.9 1149.6 380.1C1145.6 371 1144.9 362.1 1145.2 320.5L1145.5 282.5L1154.5 282.5L1163.5 282.5L1164.1 325C1164.4 348.4 1165 368.6 1165.5 370C1171.9 388.7 1199 397.1 1223.5 387.9C1230.3 385.4 1239 377.7 1242.1 371.3L1244.5 366.5L1245 324.5L1245.5 282.5L1254.5 282.5L1263.5 282.5L1263.5 343L1263.5 403.5L1254.8 403.8L1246 404.1L1246 393.5C1246 387.7 1245.6 383 1245.1 383C1244.7 383 1243.1 384.8 1241.6 387C1237.3 393.5 1229.2 398.7 1217 402.7C1212.5 404.1 1190.9 405.3 1186 404.4ZM796.5 402.8C796.2 402.1 796.1 374.7 796.2 342L796.5 282.5L805.2 282.2L814 281.9L814 291.5C814 296.7 814.4 301 814.9 301C815.3 301 817 299.2 818.5 297.1C820 294.9 823.5 291.5 826.3 289.6C834.6 283.9 841.8 281.8 855.3 281.3L867.1 280.8L866.8 288L866.5 295.3L858.9 295.1C840.1 294.5 825.2 301.1 818.2 312.8L815.5 317.5L815 360.5L814.5 403.5L805.7 403.8C799.3 404 796.8 403.7 796.5 402.8ZM1005 391.9C1023.3 389 1037.8 375.8 1042.6 357.5C1043.4 354.8 1044 348.4 1044 343.5C1044 327.9 1040.1 317.9 1030.1 308C1020.3 298.3 1009.7 294 995.5 294C975.9 294 959.2 304 951.7 320.4C948.2 327.8 946.9 334.2 946.9 343.4C946.9 353.5 948.2 359.7 952.1 367.6C961.3 386.2 981.8 395.6 1005 391.9ZM1427.9 391.9C1454.4 387.6 1470 360.4 1463.5 329.7C1458 303.7 1433.5 289.1 1406.2 295.5C1398 297.5 1392.8 300.2 1386.9 305.7C1377.1 314.9 1372.7 326.1 1372.7 342.5C1372.6 368.9 1385.1 386.7 1407.3 391.5C1415 393.2 1419.7 393.3 1427.9 391.9ZM654.3 387.5C670.3 384.1 681.4 373.5 685.6 357.5C687.4 350.9 687.3 333.9 685.5 327.1C682.3 314.8 674.2 304.2 664.2 299.1C646.2 289.9 621.2 293.5 607.9 307.1C590.7 324.8 590.5 359.4 607.5 376.3C618.3 387.1 636.1 391.4 654.3 387.5ZM1137 250.9C1126.1 249.9 1112.2 245.8 1104.4 241.5C1096.6 237.1 1087.8 227.7 1085.6 221.4C1084.7 218.8 1084.1 216.5 1084.3 216.4C1084.4 216.2 1091.5 215.2 1100 214C1108.5 212.9 1116.9 211.7 1118.6 211.5L1121.8 211L1124.5 215.6C1129.7 224.4 1142.1 229 1157 227.6C1166.5 226.7 1170.5 225.3 1174.5 221.6C1179.1 217.3 1179.1 213.9 1174.7 209.5C1170.7 205.5 1168.2 204.8 1146 201C1115.2 195.7 1105.6 192.4 1096.8 184.2C1085.2 173.4 1085.2 154.9 1096.6 143.7C1108 132.4 1126.3 127 1152.7 127C1184.7 127 1206 136.4 1213.9 154.1C1215 156.5 1215.8 158.6 1215.6 158.7C1215.5 158.8 1207.3 160.1 1197.5 161.5C1184.7 163.3 1179.4 163.7 1179.1 162.9C1178.3 160.3 1172.6 155 1168.4 153C1162 149.9 1149.9 149.2 1141.5 151.5C1129.3 154.8 1125.5 161.8 1132.2 168.4C1136.2 172.3 1141.5 173.8 1165 177.5C1193.2 181.9 1205.7 186.4 1213.1 194.8C1226.8 210.4 1218.9 232.2 1195.7 243C1185.8 247.6 1177.8 249.6 1164.1 251C1152.7 252.1 1149.4 252.1 1137 250.9ZM1312 250.9C1287.1 248.3 1268.2 237.8 1261.6 223C1260.1 219.6 1259 216.7 1259.2 216.5C1259.4 216.3 1266.5 215.2 1275 214C1283.5 212.9 1291.9 211.7 1293.6 211.5L1296.7 211L1299.7 215.9C1302.2 219.8 1304 221.4 1309.6 224.1L1316.5 227.5L1327 227.5C1332.8 227.4 1339.5 226.8 1341.9 226.1C1347.5 224.5 1353 219.2 1353 215.5C1353 207.5 1346.7 204.9 1316.4 200.1C1290.5 196 1279.9 192 1271.3 183.5C1265.7 177.9 1263 171.3 1263 163.5C1263 146.2 1280.8 132 1307.7 128.1C1316.8 126.7 1338.5 126.7 1347 128C1362.3 130.5 1377.2 137.6 1384 145.8C1387.2 149.6 1391.5 157.8 1390.8 158.5C1390.6 158.7 1382.3 160.1 1372.5 161.5C1359.7 163.3 1354.4 163.7 1354.1 162.9C1353.2 160.1 1347.1 154.5 1343.1 152.7C1331.2 147.4 1309.4 150.5 1305.5 158.1C1303.2 162.4 1303.7 164.9 1307.2 168.4C1311.2 172.3 1316.5 173.8 1340 177.5C1372.8 182.6 1385.9 188.4 1392.3 200.4C1395.3 206 1395.3 217.6 1392.4 224C1389.2 231 1381.7 237.6 1371.5 242.5C1361 247.5 1353.4 249.5 1339.1 251C1327.5 252.1 1324.2 252.1 1312 250.9ZM578 188.5L578 128L598.5 128L619 128L619 188.5L619 249L598.5 249L578 249L578 188.5ZM672 188.5L672 128L691.5 128L710.9 128L711.2 140.2L711.5 152.4L714.2 148.4C720.2 139.5 728.1 133.3 737.9 129.8C745.2 127.2 762.9 126.3 772.7 128C788.3 130.6 801.2 139.8 807.3 152.8L810.5 159.5L810.8 204.2L811.1 249L790.5 249L770 249L770 210.5C770 168.5 769.9 167.7 764.2 161.7C758.8 156 754.5 154.6 743 154.5L732.5 154.5L726.7 157.3C723.6 158.9 719.8 161.7 718.4 163.6C713.3 170.3 713.1 171.7 713 211.8L713 249L692.5 249L672 249L672 188.5ZM877 201L877 153L863.5 153L850 153L850 140.5L850 128L863.4 128L876.8 128L877.2 118.2C877.5 111.2 878.2 107.2 879.7 103.8C884.3 93.7 894.5 86 908.3 82.3C918.9 79.4 955.9 81 955.4 84.3C955.3 84.7 953.8 90.3 951.9 96.6L948.6 108.1L944.6 107.4C937.8 106.3 928.7 106.7 924.8 108.3C920 110.3 918 114.3 918 121.9L918 127.9L933.8 128.2L949.5 128.5L949.5 140.5L949.5 152.5L933.8 152.8L918 153.1L918 201L918 249L897.5 249L877 249L877 201ZM997 188.5L997 128L1017.2 128.2L1037.5 128.5L1037.8 188.8L1038 249L1017.5 249L997 249L997 188.5ZM1441 188.5L1441 128L1461.5 128L1482 128L1482 188.5L1482 249L1461.5 249L1441 249L1441 188.5ZM586.3 109.5C575.2 103.9 572.7 93.4 580.7 85.6C589.8 76.7 606.5 76.7 615.6 85.5C622.3 91.9 622.7 98.8 616.8 104.9C611.9 109.9 608.3 111.3 599.5 111.8C592.4 112.1 590.9 111.9 586.3 109.5ZM1004.9 109.2C991.7 102.5 991.5 88.7 1004.5 82.1C1011.2 78.6 1023.4 78.4 1029.5 81.7C1047.8 91.4 1039.3 111.9 1016.9 112C1011.7 112 1009.2 111.4 1004.9 109.2ZM1449.2 109.4C1440.2 104.9 1436.9 97.3 1440.5 89.6C1445.7 78.7 1465.9 75.4 1476.8 83.7C1486 90.6 1486.2 99.2 1477.6 106.8C1470.8 112.7 1458.2 113.9 1449.2 109.4Z"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-cookie" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></symbol>
 </svg>
 
 <!-- ===================================================================
@@ -2065,13 +2061,9 @@ label.cookie__cat { cursor: pointer; }
 </footer>
 
 <!-- ===================================================================
-     BARRA INFERIORE MOBILE (sotto 768px)
+     PULSANTE PREFERENZE COOKIE: lo mostra lo script del banner (data-cookie-open)
      =================================================================== -->
-<nav class="mbar" aria-label="Contatti rapidi">
-  <a class="mbar__item" href="tel:+39051781570"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Chiama</span></a>
-  <a class="mbar__item" href="https://wa.me/39051781570"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg><span>WhatsApp</span></a>
-  <a class="mbar__item mbar__item--primary" href="/preventivo/" data-quote aria-label="Richiedi preventivo"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span>Preventivo</span></a>
-</nav>
+<button class="cookie-fab" type="button" data-cookie-open hidden aria-label="Preferenze cookie" title="Preferenze cookie"><svg class="icon" aria-hidden="true"><use href="#i-cookie"/></svg></button>
 
 <!-- ===================================================================
      DIALOG DEL PREVENTIVATORE
@@ -2322,7 +2314,7 @@ label.cookie__cat { cursor: pointer; }
 <section class="cookie" id="cookie" aria-labelledby="cookie-title" hidden>
   <div class="container cookie__inner">
     <h2 id="cookie-title" tabindex="-1">Cookie e statistiche</h2>
-    <p>Usiamo cookie tecnici, necessari al funzionamento del sito. Solo con il tuo consenso usiamo anche Google Analytics per misurare le visite in forma aggregata. Puoi cambiare scelta quando vuoi da «Preferenze cookie», in fondo alla pagina. <a class="text-link" href="/cookie/">Informativa cookie</a></p>
+    <p>Usiamo cookie tecnici, necessari al funzionamento del sito. Solo con il tuo consenso usiamo anche Google Analytics per misurare le visite in forma aggregata. Puoi cambiare scelta quando vuoi dall'icona dei cookie in basso a sinistra. <a class="text-link" href="/cookie/">Informativa cookie</a></p>
     <fieldset class="cookie__prefs" id="cookie-prefs" hidden>
       <legend class="sr-only">Categorie di cookie</legend>
       <div class="cookie__cat">
@@ -2496,7 +2488,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
   nav.insertAdjacentHTML("afterbegin",
     `<div class="nav__top"><span class="logo" aria-hidden="true"><svg class="logo__svg" width="112" height="40"><use href="#logo"/></svg></span><button type="button" class="nav__close"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span><span>Chiudi</span></button></div>`);
   const closeBtn = $(".nav__close", nav);
-  const outside = () => [$(".skip-link"), $(".header__tools"), $(".header__bar > .logo"), $(".header__cta"), toggle, $("#main"), $(".footer"), $(".mbar")];
+  const outside = () => [$(".skip-link"), $(".header__tools"), $(".header__bar > .logo"), $(".header__cta"), toggle, $("#main"), $(".footer"), $(".cookie-fab")];
 
   function openMenu() {
     root.classList.add("menu-open");
