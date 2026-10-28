@@ -236,7 +236,8 @@ def pagina(percorso, p):
     s = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', s, count=1)
     s = re.sub(r'<script type="application/ld\+json">.*?</script>\n', "", s, count=1, flags=re.S)
     s = s.replace("\n</style>", CSS + "</style>", 1)
-    s = s.replace('<script src="/assets/accessibilita.js" defer></script>', '<script src="/assets/accessibilita.js" defer></script>\n<script src="/assets/area-riservata.js" defer></script>', 1)
+    s, n = re.subn(r'(<script src="/assets/accessibilita\.js[^"]*" defer></script>)', r'\1\n<script src="/assets/area-riservata.js" defer></script>', s, count=1)
+    assert n == 1, (percorso, "script accessibilità non trovato")
     main = f'<main id="main" tabindex="-1">\n  <section class="section--calce riservata" aria-labelledby="page-title">\n    <div class="container">\n{p["main"]}\n    </div>\n  </section>\n</main>'
     s = re.sub(r'<main id="main" tabindex="-1">.*?</main>', lambda m: main, s, count=1, flags=re.S)
     s = s.replace('href="/privacy/" aria-current="page"', 'href="/privacy/"')
