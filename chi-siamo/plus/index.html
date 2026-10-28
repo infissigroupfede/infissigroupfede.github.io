@@ -1764,6 +1764,32 @@ label.cookie__cat { cursor: pointer; }
 .cert .badges { min-height: 80px; margin-bottom: var(--space-16); }
 .cert h3 { font-size: var(--fs-h4); line-height: 1.3; }
 .cert p { color: var(--color-ardesia); }
+/* Attestato CRIBIS: al clic si apre in una finestra, cinque volte la miniatura, per poterlo leggere */
+a.zoomable { display: inline-block; cursor: zoom-in; transition: opacity var(--dur-fast) var(--ease); }
+a.zoomable:hover { opacity: 0.85; }
+a.zoomable img { box-shadow: 0 0 0 1px var(--color-line); }
+.link-btn { padding: 0; border: 0; background: none; font: inherit; text-decoration: underline; cursor: pointer; }
+/* Galleria in versione finestra: fondo bianco al centro dello schermo, la pagina resta visibile dietro */
+.lightbox.lightbox--doc { width: fit-content; height: fit-content; max-width: calc(100% - 32px); max-height: calc(100% - 32px); margin: auto; border-radius: var(--radius); background: var(--color-bg); color: var(--color-ink); box-shadow: 0 24px 64px rgba(17, 46, 46, 0.24); }
+/* Apertura e chiusura morbide: dissolvenza e leggero ingrandimento, anche per lo sfondo scurito.
+   Dove il browser non sa animare la chiusura di un <dialog>, si chiude e basta. */
+.lightbox.lightbox--doc { opacity: 0; transform: translateY(12px) scale(0.96); transition: opacity 260ms var(--ease), transform 260ms var(--ease), overlay 260ms allow-discrete, display 260ms allow-discrete; }
+.lightbox.lightbox--doc[open] { opacity: 1; transform: none; }
+.lightbox--doc::backdrop { background: rgba(17, 46, 46, 0); transition: background-color 260ms var(--ease), overlay 260ms allow-discrete, display 260ms allow-discrete; }
+.lightbox--doc[open]::backdrop { background: rgba(17, 46, 46, 0.6); }
+@starting-style {
+  .lightbox.lightbox--doc[open] { opacity: 0; transform: translateY(12px) scale(0.96); }
+  .lightbox--doc[open]::backdrop { background: rgba(17, 46, 46, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox.lightbox--doc, .lightbox--doc::backdrop { transition: none; }
+}
+.lightbox--doc .lightbox__bar { justify-content: flex-end; padding-bottom: 0; }
+.lightbox--doc .lightbox__btn { border-color: var(--color-line-strong); color: var(--color-ink); }
+.lightbox--doc .lightbox__btn:hover { border-color: var(--color-ink); }
+.lightbox--doc .lightbox__btn:focus-visible { outline-color: var(--color-ink); }
+.lightbox--doc .lightbox__img { width: min(585px, calc(100vw - 64px)); height: auto; }
+.lightbox--doc .lightbox__caption { color: var(--color-ardesia); }
 </style>
 <link rel="stylesheet" href="/assets/accessibilita.css?v=3">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
@@ -1952,9 +1978,6 @@ label.cookie__cat { cursor: pointer; }
       <h1 id="page-title">I nostri plus</h1>
       <p class="lead page-head__lead">Tre cose che fanno la differenza in cantiere: date certe, solo personale interno, posa certificata.</p>
     </div>
-    <div class="container page-head__media">
-      <img class="media" src="/assets/img/chi-siamo/plus-casa-1536.jpg" srcset="/assets/img/chi-siamo/plus-casa-768.jpg 768w, /assets/img/chi-siamo/plus-casa-1024.jpg 1024w, /assets/img/chi-siamo/plus-casa-1536.jpg 1536w" sizes="(min-width: 1440px) 91vw, 92vw" width="1536" height="1024" alt="Villetta con grandi portefinestre scorrevoli affacciate sul prato, realizzazione Infissi Group" loading="eager" fetchpriority="high" decoding="async">
-    </div>
   </section>
 
   <section class="section section--flush" aria-labelledby="tempi-title">
@@ -1986,34 +2009,6 @@ label.cookie__cat { cursor: pointer; }
     </div>
   </section>
 
-  <section class="section" aria-labelledby="posa-title">
-    <div class="container grid split">
-      <div class="split__a stack">
-        <h2 id="posa-title">Posa certificata IFT</h2>
-      </div>
-      <div class="split__b prose">
-        <p class="lead">La nostra posa è certificata dall'istituto IFT Rosenheim secondo la norma UNI 11673-2:2019.</p>
-        <p>La norma definisce come installare un serramento perché il giunto con il muro resti isolato e a tenuta nel tempo: è lì che passano spifferi, rumore e umidità.</p>
-        <p><a class="link" href="/bonus-servizi/posa-certificata/">Scopri la posa certificata</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--calce" aria-labelledby="perche-title">
-    <div class="container grid split">
-      <div class="split__a stack">
-        <h2 id="perche-title">Perché conta il personale interno</h2>
-        <p>Molte aziende del settore si affidano ad artigiani esterni, scelti di volta in volta in base alla disponibilità. Con personale dipendente hai quattro garanzie in più.</p>
-      </div>
-      <ul class="split__b pillars">
-        <li class="pillar"><h3>Sicurezza</h3><p>Sai chi entra in casa tua.</p></li>
-        <li class="pillar"><h3>Responsabilità</h3><p>Sai chi risponde di eventuali danni.</p></li>
-        <li class="pillar"><h3>Tempistiche</h3><p>Conosci il piano di lavoro, a partire dalla data di montaggio.</p></li>
-        <li class="pillar"><h3>Competenza</h3><p>Sai che chi lavora è qualificato e formato.</p></li>
-      </ul>
-    </div>
-  </section>
-
   <section class="section" aria-labelledby="cert-title">
     <div class="container">
       <div class="section-head">
@@ -2037,9 +2032,9 @@ label.cookie__cat { cursor: pointer; }
           <p>Posa dei serramenti certificata secondo la norma UNI 11673-2:2019.</p>
         </li>
         <li class="cert">
-          <ul class="badges"><li><img src="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg" srcset="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg 1x, /assets/img/certificazioni/cribis-prime-company-attestato-240.jpg 2x" width="175" height="120" alt="Attestato CRIBIS Prime Company di Infissi Group Bologna, 21 marzo 2024" loading="lazy" decoding="async"></li></ul>
+          <ul class="badges"><li><a class="zoomable" href="/assets/img/certificazioni/cribis-prime-company-attestato-694.jpg" data-lightbox data-caption="Attestato CRIBIS Prime Company di Infissi Group Bologna, 21 marzo 2024"><img src="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg" srcset="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg 1x, /assets/img/certificazioni/cribis-prime-company-attestato-240.jpg 2x" width="175" height="120" alt="Attestato CRIBIS Prime Company di Infissi Group Bologna, 21 marzo 2024" loading="lazy" decoding="async"></a></li></ul>
           <h3>CRIBIS Prime Company</h3>
-          <p>Il riconoscimento di massima affidabilità commerciale di CRIBIS (gruppo CRIF), ottenuto a marzo 2024.</p>
+          <p>Il riconoscimento di massima affidabilità commerciale di CRIBIS (gruppo CRIF), ottenuto a marzo 2024. <button class="text-link link-btn" type="button" data-lightbox-open>Leggi l'attestato</button></p>
         </li>
         <li class="cert">
           <ul class="badges"><li><img src="/assets/img/certificazioni/attestazione-soa-120.png" srcset="/assets/img/certificazioni/attestazione-soa-120.png 1x, /assets/img/certificazioni/attestazione-soa-240.png 2x" width="94" height="120" alt="Attestazione SOA" loading="lazy" decoding="async"></li></ul>
@@ -2059,6 +2054,11 @@ label.cookie__cat { cursor: pointer; }
       </div>
     </div>
   </section>
+  <dialog class="lightbox lightbox--doc" id="lightbox" aria-label="Attestato CRIBIS Prime Company">
+    <div class="lightbox__bar"><span class="lightbox__count" hidden></span><button class="lightbox__btn" type="button" data-lb-close aria-label="Chiudi"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <figure class="lightbox__figure"><img class="lightbox__img" alt=""></figure>
+    <div class="lightbox__foot"><button class="lightbox__btn" type="button" data-lb-prev aria-label="Precedente" hidden><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><p class="lightbox__caption"></p><button class="lightbox__btn" type="button" data-lb-next aria-label="Successivo" hidden><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button></div>
+  </dialog>
 </main>
 
 <!-- ===================================================================
