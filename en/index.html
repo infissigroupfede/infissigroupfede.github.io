@@ -1003,6 +1003,25 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
 .hero__slide { position: absolute; inset: 0; height: 100%; opacity: 0; transition: opacity 900ms var(--ease); }
 .hero__slide.is-active { opacity: 1; }
 html:not(.js) .hero__slide:not(:first-child) { display: none; }
+/* Titolo sulla foto: Inter 300, interlinea stretta e tracking negativo come nei titoli editoriali di architettura.
+   Sfumatura scura dal basso per tenere il bianco sopra 4.5:1 su qualsiasi foto del carosello. */
+.hero__frame::after {
+  content: "";
+  position: absolute;
+  right: 0; bottom: 0; left: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(17, 46, 46, 0.72), rgba(17, 46, 46, 0.4) 45%, rgba(17, 46, 46, 0));
+  pointer-events: none;
+}
+.hero__over { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; padding-bottom: clamp(32px, 5vw, 88px); }
+.hero__claim {
+  grid-column: 1 / -1;
+  max-width: 14ch;
+  color: #FFFFFF;
+  font: 300 clamp(2.75rem, 1.5rem + 5.2vw, 7rem)/0.98 var(--font-text);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
 
 /* 7.2 Selezione europea: composizione 5/7 senza card */
 .split { row-gap: var(--space-48); }
@@ -2111,9 +2130,14 @@ label.cookie__cat { cursor: pointer; }
         <img class="media media--left hero__slide" src="/assets/img/home/hero-oikos-bilico-1536.jpg" srcset="/assets/img/home/hero-oikos-bilico-768.jpg 768w, /assets/img/home/hero-oikos-bilico-1024.jpg 1024w, /assets/img/home/hero-oikos-bilico-1536.jpg 1536w, /assets/img/home/hero-oikos-bilico-2000.jpg 2000w" sizes="(min-width: 768px) 100vw, 130vw" width="2000" height="1000" alt="Oikos pivot front door in a bronze finish, open onto an entrance hall with a timber-slatted wall" loading="lazy" decoding="async">
         <img class="media media--left hero__slide" src="/assets/img/home/hero-finstral-villa-1536.jpg" srcset="/assets/img/home/hero-finstral-villa-768.jpg 768w, /assets/img/home/hero-finstral-villa-1024.jpg 1024w, /assets/img/home/hero-finstral-villa-1536.jpg 1536w, /assets/img/home/hero-finstral-villa-2048.jpg 2048w" sizes="(min-width: 768px) 100vw, 130vw" width="2048" height="1152" alt="Contemporary villa at sunset with large lit-up Finstral windows and sliding doors, mountains in the background" loading="lazy" decoding="async">
       </div>
+      <div class="hero__over">
+        <div class="container grid">
+          <h1 class="hero__claim" id="hero-title">design meets your home</h1>
+        </div>
+      </div>
     </div>
     <div class="container grid hero__grid">
-      <h1 class="hero__title" id="hero-title"><span>Infissi Group</span> <span>the best windows and doors for your home<span class="hero__dot">.</span></span></h1>
+      <h2 class="hero__title"><span>Infissi Group</span> <span>the best windows and doors for your home<span class="hero__dot">.</span></span></h2>
       <div class="hero__aside">
         <p class="lead">Windows, doors, outdoor and security systems for your home in Bologna. We help you choose in the showroom, take the measurements at your home and carry out certified installation.</p>
         <div class="actions">
@@ -2143,8 +2167,8 @@ label.cookie__cat { cursor: pointer; }
         </li>
         <li class="pillar">
           <h3>Proof you can check</h3>
-          <!-- Valutazione Google rilevata sul sito attuale il 2026-10-02: aggiornarla periodicamente -->
-          <p>ISO 9001:2015 certification, installation certified by IFT Rosenheim to the UNI 11673-2:2019 standard and a rating of 4.7 out of 5 on Google from 301 <a class="text-link" href="#recensioni">reviews</a>.</p>
+          <!-- Valutazione Google al 2026-10-28: aggiornarla periodicamente -->
+          <p>ISO 9001:2015 certification, installation certified by IFT Rosenheim to the UNI 11673-2:2019 standard and a rating of 4.9 out of 5 on Google from 293 <a class="text-link" href="#recensioni">reviews</a>.</p>
           <div class="cert-badges"><img class="cert-badge" src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"><img class="cert-badge cert-badge--ift" src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></div>
         </li>
         <li class="pillar">
@@ -2329,31 +2353,38 @@ label.cookie__cat { cursor: pointer; }
   </section>
 
   <!-- 6B. RECENSIONI GOOGLE
-       Dati della scheda Google Maps letti il 2026-10-07: 4,7 su 5 da 301 recensioni. Da aggiornare a mano.
+       Dati della scheda Google Maps al 2026-10-28: 4,9 su 5 da 293 recensioni. Da aggiornare a mano.
        Testi riportati alla lettera ([...] = parte omessa), nomi abbreviati. -->
   <section class="section section--calce" id="recensioni" aria-labelledby="recensioni-title">
     <div class="container">
       <div class="section-head reviews-head">
         <div class="stack">
           <h2 class="attach" id="recensioni-title">What our customers say</h2>
-          <p class="lead">On Google we have an average rating of 4.7 out of 5. Here are some of the reviews, in their authors' own words, translated from Italian.</p>
+          <p class="lead">On Google we have an average rating of 4.9 out of 5. Here are some of the reviews, in their authors' own words, translated from Italian.</p>
         </div>
         <div class="rating">
-          <p class="rating__score"><span class="rating__num">4.7</span><span class="rating__of">out of 5</span></p>
+          <p class="rating__score"><span class="rating__num">4.9</span><span class="rating__of">out of 5</span></p>
           <div class="rating__meta">
-            <span class="stars stars--partial" role="img" aria-label="Average rating 4.7 out of 5"><span class="stars__fill" style="width: 94%"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span>
-            <p class="rating__count"><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg>301 reviews on Google</p>
+            <span class="stars stars--partial" role="img" aria-label="Average rating 4.9 out of 5"><span class="stars__fill" style="width: 98%"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span>
+            <p class="rating__count"><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg>293 reviews on Google</p>
           </div>
-          <ul class="rating__bars" aria-label="Rating breakdown">
-          <li><span class="rating__lab" aria-hidden="true">5</span><span class="rating__bar" aria-hidden="true"><span style="width: 85.4%"></span></span><span class="rating__n"><span class="sr-only">5 stars: </span>257</span></li>
-          <li><span class="rating__lab" aria-hidden="true">4</span><span class="rating__bar" aria-hidden="true"><span style="width: 9.6%"></span></span><span class="rating__n"><span class="sr-only">4 stars: </span>29</span></li>
-          <li><span class="rating__lab" aria-hidden="true">3</span><span class="rating__bar" aria-hidden="true"><span style="width: 0.7%"></span></span><span class="rating__n"><span class="sr-only">3 stars: </span>2</span></li>
-          <li><span class="rating__lab" aria-hidden="true">2</span><span class="rating__bar" aria-hidden="true"><span style="width: 0.7%"></span></span><span class="rating__n"><span class="sr-only">2 stars: </span>2</span></li>
-          <li><span class="rating__lab" aria-hidden="true">1</span><span class="rating__bar" aria-hidden="true"><span style="width: 3.7%"></span></span><span class="rating__n"><span class="sr-only">1 star: </span>11</span></li>
-          </ul>
         </div>
       </div>
       <ul class="reviews" id="reviews-list" tabindex="0" aria-label="Customer reviews, scroll to see them all">
+        <li class="review">
+          <figure>
+            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Glazing</span></div>
+            <blockquote><p>“We chose Infissi Group to install a Vepa system, and Chiara was extremely attentive and helpful from the sale right through to installation, explaining everything to us in great detail. The team who fitted the glazing were also really skilled and spotlessly tidy. I am 100% satisfied and highly recommend this company.”</p></blockquote>
+            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Grazia V.</span><span class="review__src">5 stars on Google</span></figcaption>
+          </figure>
+        </li>
+        <li class="review">
+          <figure>
+            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Awnings</span></div>
+            <blockquote><p>“I contacted Infissi Group in Villanova by filling in an online form and they called me back straight away; by the afternoon I was already in the showroom. [...] I am absolutely happy with my awning and with how they handled the paperwork for the 2026 tax relief! They took care of everything!”</p></blockquote>
+            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Morena D.</span><span class="review__src">5 stars on Google</span></figcaption>
+          </figure>
+        </li>
         <li class="review">
           <figure>
             <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Doors</span></div>
@@ -2377,16 +2408,23 @@ label.cookie__cat { cursor: pointer; }
         </li>
         <li class="review">
           <figure>
-            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Awnings</span></div>
-            <blockquote><p>“I contacted Infissi Group in Villanova by filling in an online form and they called me back straight away; by the afternoon I was already in the showroom. [...] I am absolutely happy with my awning and with how they handled the paperwork for the 2026 tax relief! They took care of everything!”</p></blockquote>
-            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Morena D.</span><span class="review__src">5 stars on Google</span></figcaption>
+            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Windows and doors</span></div>
+            <blockquote><p>“We are very pleased with the work Infissi Group Bologna Srl carried out at our architecture studio. It involved 3 windows, 1 French window, 1 bathroom window and 3 doors, one of them a special design. Excellent customer service and meticulous installers, precise and careful about cleanliness, as well as courteous. The measuring, the meetings and the installation were a great opportunity to get to know the company's quality.”</p></blockquote>
+            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Francesco D.</span><span class="review__src">5 stars on Google</span></figcaption>
           </figure>
         </li>
         <li class="review">
           <figure>
-            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Windows</span></div>
-            <blockquote><p>“A highly qualified company that I recommend. Knowledgeable, precise and professional staff, both in the office and among the installation technicians. 100% recommended”</p></blockquote>
-            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Andrea S.</span><span class="review__src">5 stars on Google</span></figcaption>
+            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Windows and doors</span></div>
+            <blockquote><p>“We needed to replace our doors and windows and turned to IG. It was an excellent choice, both for the excellent product and because we found professionalism and expertise at every stage: [...] from the installers, very precise and meticulous about details, to the office staff and the after-sales service, which was very quick to sort out a small problem.”</p></blockquote>
+            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Sara M.</span><span class="review__src">5 stars on Google</span></figcaption>
+          </figure>
+        </li>
+        <li class="review">
+          <figure>
+            <div class="review__top"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="tag">Pergolas</span></div>
+            <blockquote><p>“We chose Infissi Group for a bioclimatic pergola. We found a warm welcome, professionalism and expertise, from Fabio, who guided us through the choice, all the way to the team who installed it. We were amazed by the super-fast delivery and the excellent result. I highly recommend them, for the price too.”</p></blockquote>
+            <figcaption><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span class="review__name">Giovanni D.</span><span class="review__src">5 stars on Google</span></figcaption>
           </figure>
         </li>
       </ul>
@@ -3403,7 +3441,11 @@ const FORM_ENDPOINT = "/api/preventivo.php";
   }
 
   /* -------------------------------------------------------------------
-     5b. Recensioni: frecce per lo scorrimento orizzontale, spente agli estremi
+     5b. Recensioni: frecce per lo scorrimento orizzontale, spente agli estremi.
+         Scorrimento automatico di una scheda ogni 8 secondi, dall'ultima torna alla prima.
+         Parte solo con la sezione in vista; si ferma al passaggio del mouse, con il focus
+         dentro la lista, con scheda nascosta, con movimento ridotto o "Ferma animazioni"
+         del widget. Dopo che l'utente scorre o usa le frecce non riparte più.
      ------------------------------------------------------------------- */
   const revList = $("#reviews-list");
   const revNav = $(".reviews-nav");
@@ -3416,11 +3458,35 @@ const FORM_ENDPOINT = "/api/preventivo.php";
       btns[1].disabled = revList.scrollLeft >= max;
       revNav.hidden = max <= 0;
     };
-    btns.forEach((b) => b.addEventListener("click", () => {
+    const step = () => {
       const card = $(".review", revList);
-      const step = card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(revList).columnGap || 0) : revList.clientWidth;
-      revList.scrollBy({ left: step * Number(b.dataset.dir), behavior: smooth });
+      return card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(revList).columnGap || 0) : revList.clientWidth;
+    };
+    const DELAY = 8000;
+    let timer = 0, inView = false, hover = false, stopped = smooth === "auto";
+    const schedule = () => {
+      clearTimeout(timer);
+      if (stopped || !inView || hover || revList.contains(document.activeElement) || document.hidden || document.documentElement.classList.contains("a11y-fermo")) return;
+      timer = setTimeout(() => {
+        const atEnd = revList.scrollLeft >= revList.scrollWidth - revList.clientWidth - 2;
+        revList.scrollTo({ left: atEnd ? 0 : revList.scrollLeft + step(), behavior: "smooth" });
+        schedule();
+      }, DELAY);
+    };
+    const stop = () => { stopped = true; clearTimeout(timer); };
+    btns.forEach((b) => b.addEventListener("click", () => {
+      stop();
+      revList.scrollBy({ left: step() * Number(b.dataset.dir), behavior: smooth });
     }));
+    ["pointerdown", "wheel", "keydown"].forEach((t) => revList.addEventListener(t, stop, { passive: true }));
+    revList.addEventListener("mouseenter", () => { hover = true; schedule(); });
+    revList.addEventListener("mouseleave", () => { hover = false; schedule(); });
+    revList.addEventListener("focusin", schedule);
+    revList.addEventListener("focusout", () => setTimeout(schedule));
+    document.addEventListener("visibilitychange", schedule);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => { inView = e.isIntersecting; schedule(); }, { threshold: 0.5 }).observe(revList);
+    }
     revList.addEventListener("scroll", update, { passive: true });
     addEventListener("resize", update);
     update();

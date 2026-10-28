@@ -1,0 +1,5 @@
+# AREA RISERVATA: dal web si raggiungono solo gli endpoint, non configurazione, funzioni comuni e schema
+<FilesMatch "^(_lib\.php|config(\.example)?\.php|schema\.sql)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
