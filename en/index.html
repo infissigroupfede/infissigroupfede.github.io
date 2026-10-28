@@ -1935,6 +1935,14 @@ label.cookie__cat { cursor: pointer; }
 .lightbox__btn { display: inline-grid; flex: none; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: var(--radius); background: transparent; color: #FFFFFF; cursor: pointer; }
 .lightbox__btn:hover { border-color: #FFFFFF; }
 .lightbox__btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+/* Certificazioni e riconoscimenti: loghi a colori alla stessa altezza, l'attestato CRIBIS intero */
+.badges { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-24) var(--space-32); }
+.badges img { display: block; width: auto; height: 64px; }
+@media (min-width: 1024px) {
+  .badges img { height: 80px; }
+}
+.hero__badges { display: grid; gap: var(--space-16); margin-top: clamp(40px, 5vw, 72px); padding-top: var(--space-24); border-top: 1px solid var(--color-line); }
+.hero__badges h2 { color: var(--color-ardesia); font: 500 var(--fs-small)/1.4 var(--font-text); letter-spacing: 0; }
 </style>
 <link rel="stylesheet" href="/assets/accessibilita.css?v=3">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
@@ -2142,6 +2150,18 @@ label.cookie__cat { cursor: pointer; }
         </div>
       </div>
     </div>
+    <div class="container hero__badges">
+      <h2>Certifications and awards</h2>
+      <ul class="badges">
+        <li><img src="/assets/img/certificazioni/campione-crescita-2026-120.png" srcset="/assets/img/certificazioni/campione-crescita-2026-120.png 1x, /assets/img/certificazioni/campione-crescita-2026-240.png 2x" width="79" height="120" alt="Campione della Crescita 2026 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/img/certificazioni/campione-crescita-2025-120.png" srcset="/assets/img/certificazioni/campione-crescita-2025-120.png 1x, /assets/img/certificazioni/campione-crescita-2025-240.png 2x" width="79" height="120" alt="Campione della Crescita 2025 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/img/certificazioni/campione-crescita-2024-120.png" srcset="/assets/img/certificazioni/campione-crescita-2024-120.png 1x, /assets/img/certificazioni/campione-crescita-2024-240.png 2x" width="79" height="120" alt="Campione della Crescita 2024 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg" srcset="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg 1x, /assets/img/certificazioni/cribis-prime-company-attestato-240.jpg 2x" width="175" height="120" alt="CRIBIS Prime Company certificate awarded to Infissi Group Bologna, 21 March 2024" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/img/certificazioni/attestazione-soa-120.png" srcset="/assets/img/certificazioni/attestazione-soa-120.png 1x, /assets/img/certificazioni/attestazione-soa-240.png 2x" width="94" height="120" alt="SOA certification" loading="lazy" decoding="async"></li>
+      </ul>
+    </div>
   </section>
 
   <!-- 2. SELEZIONE EUROPEA -->
@@ -2165,7 +2185,6 @@ label.cookie__cat { cursor: pointer; }
           <h3>Proof you can check</h3>
           <!-- Valutazione Google al 2026-10-28: aggiornarla periodicamente -->
           <p>ISO 9001:2015 certification, installation certified by IFT Rosenheim to the UNI 11673-2:2019 standard and a rating of 4.9 out of 5 on Google from 293 <a class="text-link" href="#recensioni">reviews</a>.</p>
-          <div class="cert-badges"><img class="cert-badge" src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"><img class="cert-badge cert-badge--ift" src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></div>
         </li>
         <li class="pillar">
           <h3>A single point of contact</h3>
