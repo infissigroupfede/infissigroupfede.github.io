@@ -1950,10 +1950,10 @@ label.cookie__cat { cursor: pointer; }
   .cert-strip__inner { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); column-gap: var(--gutter); align-items: center; }
   .cert-strip .badges { justify-content: space-between; }
 }
-/* Attestato CRIBIS: al clic si apre in una finestra, cinque volte la miniatura, per poterlo leggere */
+/* Loghi di certificazioni e riconoscimenti: al clic si aprono in una finestra, circa cinque volte la miniatura */
 a.zoomable { display: inline-block; cursor: zoom-in; transition: opacity var(--dur-fast) var(--ease); }
 a.zoomable:hover { opacity: 0.85; }
-a.zoomable img { box-shadow: 0 0 0 1px var(--color-line); }
+a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* filetto solo sull'attestato, che ha il fondo bianco */
 /* Galleria in versione finestra: fondo bianco al centro dello schermo, la pagina resta visibile dietro */
 .lightbox.lightbox--doc { width: fit-content; height: fit-content; max-width: calc(100% - 32px); max-height: calc(100% - 32px); margin: auto; border-radius: var(--radius); background: var(--color-bg); color: var(--color-ink); box-shadow: 0 24px 64px rgba(17, 46, 46, 0.24); }
 /* Apertura e chiusura morbide: dissolvenza e leggero ingrandimento, anche per lo sfondo scurito.
@@ -1973,7 +1973,8 @@ a.zoomable img { box-shadow: 0 0 0 1px var(--color-line); }
 .lightbox--doc .lightbox__btn { border-color: var(--color-line-strong); color: var(--color-ink); }
 .lightbox--doc .lightbox__btn:hover { border-color: var(--color-ink); }
 .lightbox--doc .lightbox__btn:focus-visible { outline-color: var(--color-ink); }
-.lightbox--doc .lightbox__img { width: min(585px, calc(100vw - 64px)); height: auto; }
+.lightbox--doc .lightbox__img { width: auto; height: auto; max-width: calc(100vw - 64px); max-height: min(400px, calc(100dvh - 160px)); }
+.lightbox--doc .lightbox__img[src$=".svg"] { height: min(400px, calc(100dvh - 160px)); } /* il vettoriale non ha una misura propria: lo porta alla stessa altezza */
 .lightbox--doc .lightbox__caption { color: var(--color-ardesia); }
 </style>
 <link rel="stylesheet" href="/assets/accessibilita.css?v=3">
@@ -2350,13 +2351,13 @@ a.zoomable img { box-shadow: 0 0 0 1px var(--color-line); }
     <div class="container cert-strip__inner">
       <h2 id="cert-strip-title"><a href="/en/about/why-us/#cert-title">Certifications and awards</a></h2>
       <ul class="badges">
-        <li><img src="/assets/img/certificazioni/campione-crescita-2026-120.png" srcset="/assets/img/certificazioni/campione-crescita-2026-120.png 1x, /assets/img/certificazioni/campione-crescita-2026-240.png 2x" width="79" height="120" alt="Campione della Crescita 2026 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></li>
-        <li><img src="/assets/img/certificazioni/campione-crescita-2025-120.png" srcset="/assets/img/certificazioni/campione-crescita-2025-120.png 1x, /assets/img/certificazioni/campione-crescita-2025-240.png 2x" width="79" height="120" alt="Campione della Crescita 2025 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></li>
-        <li><img src="/assets/img/certificazioni/campione-crescita-2024-120.png" srcset="/assets/img/certificazioni/campione-crescita-2024-120.png 1x, /assets/img/certificazioni/campione-crescita-2024-240.png 2x" width="79" height="120" alt="Campione della Crescita 2024 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></li>
+        <li><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2026-zoom.png" data-lightbox data-caption="Campione della Crescita 2026 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img src="/assets/img/certificazioni/campione-crescita-2026-120.png" srcset="/assets/img/certificazioni/campione-crescita-2026-120.png 1x, /assets/img/certificazioni/campione-crescita-2026-240.png 2x" width="79" height="120" alt="Campione della Crescita 2026 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a></li>
+        <li><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2025-zoom.png" data-lightbox data-caption="Campione della Crescita 2025 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img src="/assets/img/certificazioni/campione-crescita-2025-120.png" srcset="/assets/img/certificazioni/campione-crescita-2025-120.png 1x, /assets/img/certificazioni/campione-crescita-2025-240.png 2x" width="79" height="120" alt="Campione della Crescita 2025 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a></li>
+        <li><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2024-zoom.png" data-lightbox data-caption="Campione della Crescita 2024 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img src="/assets/img/certificazioni/campione-crescita-2024-120.png" srcset="/assets/img/certificazioni/campione-crescita-2024-120.png 1x, /assets/img/certificazioni/campione-crescita-2024-240.png 2x" width="79" height="120" alt="Campione della Crescita 2024 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a></li>
         <li><a class="zoomable" href="/assets/img/certificazioni/cribis-prime-company-attestato-694.jpg" data-lightbox data-caption="CRIBIS Prime Company certificate of Infissi Group Bologna, 21 March 2024"><img src="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg" srcset="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg 1x, /assets/img/certificazioni/cribis-prime-company-attestato-240.jpg 2x" width="175" height="120" alt="CRIBIS Prime Company certificate awarded to Infissi Group Bologna, 21 March 2024" loading="lazy" decoding="async"></a></li>
-        <li><img src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"></li>
-        <li><img src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></li>
-        <li><img src="/assets/img/certificazioni/attestazione-soa-120.png" srcset="/assets/img/certificazioni/attestazione-soa-120.png 1x, /assets/img/certificazioni/attestazione-soa-240.png 2x" width="94" height="120" alt="SOA certification" loading="lazy" decoding="async"></li>
+        <li><a class="zoomable" href="/assets/img/certificazioni/iso-9001-2015-zoom.png" data-lightbox data-caption="ISO 9001:2015 certification"><img src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"></a></li>
+        <li><a class="zoomable" href="/assets/img/partner/ift-rosenheim.svg" data-lightbox data-caption="Installation certified by IFT Rosenheim to UNI 11673-2:2019"><img src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></a></li>
+        <li><a class="zoomable" href="/assets/img/certificazioni/attestazione-soa-zoom.jpg" data-lightbox data-caption="SOA certification"><img src="/assets/img/certificazioni/attestazione-soa-120.png" srcset="/assets/img/certificazioni/attestazione-soa-120.png 1x, /assets/img/certificazioni/attestazione-soa-240.png 2x" width="94" height="120" alt="SOA certification" loading="lazy" decoding="async"></a></li>
       </ul>
     </div>
   </section>
@@ -2601,7 +2602,7 @@ a.zoomable img { box-shadow: 0 0 0 1px var(--color-line); }
       </div>
     </div>
   </section>
-  <dialog class="lightbox lightbox--doc" id="lightbox" aria-label="CRIBIS Prime Company certificate">
+  <dialog class="lightbox lightbox--doc" id="lightbox" aria-label="Certifications and awards">
     <div class="lightbox__bar"><span class="lightbox__count" hidden></span><button class="lightbox__btn" type="button" data-lb-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
     <figure class="lightbox__figure"><img class="lightbox__img" alt=""></figure>
     <div class="lightbox__foot"><button class="lightbox__btn" type="button" data-lb-prev aria-label="Previous" hidden><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><p class="lightbox__caption"></p><button class="lightbox__btn" type="button" data-lb-next aria-label="Next" hidden><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button></div>
