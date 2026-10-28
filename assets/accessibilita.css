@@ -83,7 +83,7 @@ html.a11y-cursore :is(a, button, label, summary, [role="button"]) * {
 
 .a11y-fab {
   position: fixed;
-  left: 24px;
+  right: 24px;
   bottom: 24px;
   z-index: 44; /* sotto il banner cookie (45), come il pulsante delle preferenze cookie che gli sta sopra */
   display: inline-flex;
@@ -122,7 +122,7 @@ html.menu-open .a11y-fab { display: none; }
 /* Telefono: più piccolo e più vicino al bordo */
 @media (max-width: 767.98px) {
   .a11y-fab {
-    left: 12px;
+    right: 12px;
     bottom: calc(12px + env(safe-area-inset-bottom));
     width: 48px;
     height: 48px;
@@ -137,7 +137,7 @@ html.menu-open .a11y-fab { display: none; }
 
 .a11y-panel {
   position: fixed;
-  inset: auto auto 88px 24px;
+  inset: auto 24px 88px auto;
   width: 380px;
   max-width: calc(100vw - 32px);
   max-height: calc(100vh - 120px);

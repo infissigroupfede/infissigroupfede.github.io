@@ -1194,7 +1194,7 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
    ===================================================================== */
 .cookie-fab {
   position: fixed;
-  left: 24px;
+  right: 24px;
   bottom: calc(24px + 52px + 12px);
   z-index: 44;
   display: inline-flex;
@@ -1222,7 +1222,7 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   body:has(.pnav.is-visible) .cookie-fab { bottom: calc(52px + 24px + 52px + 12px); }
 }
 @media (max-width: 767.98px) {
-  .cookie-fab { left: 12px; bottom: calc(12px + 48px + 8px + env(safe-area-inset-bottom)); width: 48px; height: 48px; }
+  .cookie-fab { right: 12px; bottom: calc(12px + 48px + 8px + env(safe-area-inset-bottom)); width: 48px; height: 48px; }
   .cookie-fab .icon { width: 24px; height: 24px; }
 }
 @media (forced-colors: active) { .cookie-fab { border: 2px solid ButtonText; } }
@@ -2324,7 +2324,7 @@ label.cookie__cat { cursor: pointer; }
 <section class="cookie" id="cookie" aria-labelledby="cookie-title" hidden>
   <div class="container cookie__inner">
     <h2 id="cookie-title" tabindex="-1">Cookie e statistiche</h2>
-    <p>Usiamo cookie tecnici, necessari al funzionamento del sito. Solo con il tuo consenso usiamo anche Google Analytics per misurare le visite in forma aggregata. Puoi cambiare scelta quando vuoi dall'icona dei cookie in basso a sinistra. <a class="text-link" href="/cookie/">Informativa cookie</a></p>
+    <p>Usiamo cookie tecnici, necessari al funzionamento del sito. Solo con il tuo consenso usiamo anche Google Analytics per misurare le visite in forma aggregata. Puoi cambiare scelta quando vuoi dall'icona dei cookie in basso a destra. <a class="text-link" href="/cookie/">Informativa cookie</a></p>
     <fieldset class="cookie__prefs" id="cookie-prefs" hidden>
       <legend class="sr-only">Categorie di cookie</legend>
       <div class="cookie__cat">
