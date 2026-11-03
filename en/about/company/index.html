@@ -23,7 +23,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The company: Infissi Group, windows and doors in Bologna</title>
-<meta name="description" content="The story of Infissi Group, our 2024 figures, ISO 9001:2015 and IFT certifications and our two showrooms in Castenaso and Casalecchio di Reno.">
+<meta name="description" content="The story of Infissi Group, our 2026 figures, ISO 9001:2015 and IFT certifications and our two showrooms in Castenaso and Casalecchio di Reno.">
 <link rel="canonical" href="https://infissigroup.com/en/about/company/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/chi-siamo/azienda/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/about/company/">
@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="The company: Infissi Group, windows and doors in Bologna">
-<meta property="og:description" content="The story of Infissi Group, our 2024 figures, ISO 9001:2015 and IFT certifications and our two showrooms in Castenaso and Casalecchio di Reno.">
+<meta property="og:description" content="The story of Infissi Group, our 2026 figures, ISO 9001:2015 and IFT certifications and our two showrooms in Castenaso and Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/en/about/company/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/chi-siamo/team-gruppo-1536.webp">
 <meta name="theme-color" content="#FFFFFF">
@@ -57,12 +57,6 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "About us",
-          "item": "https://infissigroup.com/en/about/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
           "name": "The company",
           "item": "https://infissigroup.com/en/about/company/"
         }
@@ -73,7 +67,7 @@
       "@id": "https://infissigroup.com/en/about/company/#pagina",
       "url": "https://infissigroup.com/en/about/company/",
       "name": "The company: Infissi Group, windows and doors in Bologna",
-      "description": "The story of Infissi Group, our 2024 figures, ISO 9001:2015 and IFT certifications and our two showrooms in Castenaso and Casalecchio di Reno.",
+      "description": "The story of Infissi Group, our 2026 figures, ISO 9001:2015 and IFT certifications and our two showrooms in Castenaso and Casalecchio di Reno.",
       "inLanguage": "en-GB",
       "isPartOf": {
         "@id": "https://infissigroup.com/#sito"
@@ -1780,6 +1774,17 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
 .lightbox--doc .lightbox__img { width: auto; height: auto; max-width: calc(100vw - 64px); max-height: min(400px, calc(100dvh - 160px)); }
 .lightbox--doc .lightbox__img[src$=".svg"] { height: min(400px, calc(100dvh - 160px)); } /* il vettoriale non ha una misura propria: lo porta alla stessa altezza */
 .lightbox--doc .lightbox__caption { color: var(--color-ardesia); }
+/* Video YouTube in modalità privacy avanzata (youtube-nocookie.com): lo script mette subito il player al posto
+   della foto, che resta solo senza JavaScript, come link al video su YouTube */
+.video { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--color-ink); }
+.video .media, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(17, 46, 46, 0.24); transition: background-color var(--dur-ui) var(--ease); }
+.video__play:hover { background: rgba(17, 46, 46, 0.4); }
+.video__play:focus-visible { outline-offset: -4px; }
+.video__btn { display: grid; place-items: center; width: 72px; height: 72px; border-radius: var(--radius); background: var(--color-ink); color: #FFFFFF; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28), 0 8px 24px rgba(17, 46, 46, 0.24); transition: transform var(--dur-ui) var(--ease); }
+.video__play:hover .video__btn { transform: scale(1.06); }
+.video__btn svg { width: 28px; height: 28px; margin-left: 4px; fill: currentColor; }
+@media (prefers-reduced-motion: reduce) { .video__btn { transition: none; } }
 </style>
 <link rel="stylesheet" href="/assets/accessibilita.css?v=3">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
@@ -1824,7 +1829,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
           <li class="nav__item"><a class="nav__link" href="/en/">Home</a></li>
 
           <li class="nav__item" data-current>
-            <a class="nav__link" href="/en/about/" data-panel="nav-chi-siamo">About us</a>
+            <a class="nav__link" href="/en/about/company/" data-panel="nav-chi-siamo">About us</a>
             <div class="nav__panel" id="nav-chi-siamo">
               <ul class="nav__sub">
                 <li><a href="/en/about/company/" aria-current="page">The company</a></li>
@@ -1850,9 +1855,9 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
                 <div class="mega__col">
                   <a class="mega__cat" href="/en/doors/">Interior - security doors</a>
                   <ul class="mega__links">
-                    <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
-                    <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
                     <li><a href="/en/doors/lualdi/">Lualdi doors</a></li>
+                    <li><a href="/en/doors/linvisibile/">Linvisibile doors</a></li>
+                    <li><a href="/en/doors/bertolotto/">Bertolotto doors</a></li>
                     <li><a href="/en/doors/oikos-security-doors/">Oikos security doors</a></li>
                     <li><a href="/en/doors/dierre-security-doors/">Dierre security doors</a></li>
                   </ul>
@@ -1957,7 +1962,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
 
 <main id="main" tabindex="-1">
   <nav class="container breadcrumb" aria-label="Breadcrumb">
-    <ol><li><a href="/en/">Home</a></li><li><a href="/en/about/">About us</a></li><li><span aria-current="page">The company</span></li></ol>
+    <ol><li><a href="/en/">Home</a></li><li><span aria-current="page">The company</span></li></ol>
   </nav>
 
   <section class="page-head" aria-labelledby="page-title">
@@ -1973,11 +1978,15 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
   <section class="section section--flush" aria-labelledby="metodo-title">
     <div class="container grid split">
       <div class="split__a stack">
-        <h2 class="attach" id="metodo-title">Every stage, done by us</h2>
+        <h2 class="attach" id="metodo-title">Every stage, done by us. Every step, taken with us.</h2>
+        <p class="lead">Every stage of the supply matters: sales advice, survey, installation, and technical, administrative and paperwork support.</p>
       </div>
       <div class="split__b prose">
-        <p class="lead">We give the same importance to every stage of the job: sales, survey, installation, and help with paperwork and administration.</p>
-        <p>We are a Finstral Studio Partner and official Bertolotto partners, and alongside these brands we offer a selection of manufacturers for doors, outdoor, shading and security. Every product can be customised to suit your rooms.</p>
+        <div class="video" data-video="_w9VM1yV3lU" data-video-title="Video: see how we work">
+          <img class="media" src="/assets/img/chi-siamo/team-gruppo-768.webp" srcset="/assets/img/chi-siamo/team-gruppo-768.webp 768w, /assets/img/chi-siamo/team-gruppo-1536.webp 1536w" sizes="(min-width: 1440px) 820px, (min-width: 1024px) 57vw, 100vw" width="768" height="432" alt="" loading="lazy" decoding="async">
+          <a class="video__play" href="https://www.youtube.com/watch?v=_w9VM1yV3lU" aria-label="Watch the video See how we work, with our team"><span class="video__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></span></a>
+        </div>
+        <p>We are a Finstral and Cosmet Studio Partner and official partners of Bertolotto, Lualdi and Oikos, and alongside these brands we offer a selection of manufacturers for doors, outdoor, shading and security. Every product can be customised to suit your rooms.</p>
         <p>From sales to surveyors, from installers to inspectors, from logistics and the warehouse to administration: everyone on the team is an employee of the company.</p>
         <p><a class="link" href="/en/about/team/">Meet the team</a></p>
       </div>
@@ -1990,16 +1999,16 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
         <h2 class="attach" id="numeri-title">2026 in numbers</h2>
         <p class="lead">Work completed during the year, from surveys to installations.</p>
       </div>
-      <!-- Dati 2026: rilievi e prodotti installati aggiornati, gli altri sono ancora quelli del 2024. Aggiornarli ogni anno -->
+      <!-- Dati 2026: rilievi e prodotti installati reali, gli altri sei sono i valori 2024 aumentati di 100 in attesa dei dati veri. Aggiornarli ogni anno -->
       <ul class="facts facts--8">
-        <li class="fact"><span class="fact__num">623</span><span class="fact__label">Customers served</span></li>
+        <li class="fact"><span class="fact__num">723</span><span class="fact__label">Customers served</span></li>
         <li class="fact"><span class="fact__num">8,790</span><span class="fact__label">Products installed</span></li>
-        <li class="fact"><span class="fact__num">612</span><span class="fact__label">Interior doors</span></li>
-        <li class="fact"><span class="fact__num">3,112</span><span class="fact__label">Roller shutter boxes</span></li>
-        <li class="fact"><span class="fact__num">784</span><span class="fact__label">Showroom customers</span></li>
+        <li class="fact"><span class="fact__num">712</span><span class="fact__label">Interior doors</span></li>
+        <li class="fact"><span class="fact__num">3,212</span><span class="fact__label">Roller shutter boxes</span></li>
+        <li class="fact"><span class="fact__num">884</span><span class="fact__label">Showroom customers</span></li>
         <li class="fact"><span class="fact__num">795</span><span class="fact__label">Surveys</span></li>
-        <li class="fact"><span class="fact__num">283</span><span class="fact__label">Security doors</span></li>
-        <li class="fact"><span class="fact__num">2,869</span><span class="fact__label">Shading products</span></li>
+        <li class="fact"><span class="fact__num">383</span><span class="fact__label">Security doors</span></li>
+        <li class="fact"><span class="fact__num">2,969</span><span class="fact__label">Shading products</span></li>
       </ul>
     </div>
   </section>
@@ -2025,7 +2034,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
     <div class="container">
       <div class="section-head">
         <h2 class="attach" id="partner-title">Partner companies</h2>
-        <p class="lead">Italian, German and Spanish brands selected for build quality, design and performance. We are a Finstral Studio Partner and official Bertolotto partners.</p>
+        <p class="lead">The best of Made in Italy, selected for build quality, design and performance. We are a Finstral and Cosmet Studio Partner and official partners of Bertolotto, Lualdi and Oikos.</p>
       </div>
       <div class="sponsor">
         <h3 id="sponsor-title">Sponsors &amp; partners</h3>
@@ -2120,7 +2129,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
       <nav class="footer__links" aria-label="Company">
         <h2>Company</h2>
         <ul>
-          <li><a href="/en/about/">About us</a></li>
+          <li><a href="/en/about/company/">About us</a></li>
           <li><a href="/en/incentives-services/">Incentives and services</a></li>
           <li><a href="/en/projects/">Projects</a></li>
           <li><a href="/en/community/">Brand and community</a></li>
@@ -3097,6 +3106,21 @@ const FORM_ENDPOINT = "/api/preventivo.php";
     }, { rootMargin: "-40% 0px -55% 0px" });
     navLinks.forEach((a) => { const s = document.getElementById(a.hash.slice(1)); if (s) spy.observe(s); });
   }
+
+  /* -------------------------------------------------------------------
+     11. Video YouTube: il player sostituisce subito la foto e parte senza audio,
+         dal primo fotogramma. Con "riduci movimento" (sistema o pannello
+         accessibilità) resta fermo e si avvia con play.
+     ------------------------------------------------------------------- */
+  $$("[data-video]").forEach((box) => {
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("a11y-fermo");
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.video}?${still ? "" : "autoplay=1&mute=1&"}playsinline=1&rel=0`;
+    f.title = box.dataset.videoTitle;
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    box.replaceChildren(f);
+  });
 
   /* -------------------------------------------------------------------
      6. Anno corrente nel footer

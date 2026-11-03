@@ -22,7 +22,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>L'azienda: Infissi Group, serramenti a Bologna</title>
-<meta name="description" content="La storia di Infissi Group, i numeri del 2024, le certificazioni ISO 9001:2015 e IFT e i due showroom a Castenaso e Casalecchio di Reno.">
+<meta name="description" content="La storia di Infissi Group, i numeri del 2026, le certificazioni ISO 9001:2015 e IFT e i due showroom a Castenaso e Casalecchio di Reno.">
 <link rel="canonical" href="https://infissigroup.com/chi-siamo/azienda/">
 <link rel="alternate" hreflang="it" href="https://infissigroup.com/chi-siamo/azienda/">
 <link rel="alternate" hreflang="en" href="https://infissigroup.com/en/about/company/">
@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="Infissi Group">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="L'azienda: Infissi Group, serramenti a Bologna">
-<meta property="og:description" content="La storia di Infissi Group, i numeri del 2024, le certificazioni ISO 9001:2015 e IFT e i due showroom a Castenaso e Casalecchio di Reno.">
+<meta property="og:description" content="La storia di Infissi Group, i numeri del 2026, le certificazioni ISO 9001:2015 e IFT e i due showroom a Castenaso e Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/chi-siamo/azienda/">
 <meta property="og:image" content="https://infissigroup.com/assets/img/chi-siamo/team-gruppo-1536.webp">
 <meta name="theme-color" content="#FFFFFF">
@@ -56,12 +56,6 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Chi siamo",
-          "item": "https://infissigroup.com/chi-siamo/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
           "name": "L'azienda",
           "item": "https://infissigroup.com/chi-siamo/azienda/"
         }
@@ -72,7 +66,7 @@
       "@id": "https://infissigroup.com/chi-siamo/azienda/#pagina",
       "url": "https://infissigroup.com/chi-siamo/azienda/",
       "name": "L'azienda: Infissi Group, serramenti a Bologna",
-      "description": "La storia di Infissi Group, i numeri del 2024, le certificazioni ISO 9001:2015 e IFT e i due showroom a Castenaso e Casalecchio di Reno.",
+      "description": "La storia di Infissi Group, i numeri del 2026, le certificazioni ISO 9001:2015 e IFT e i due showroom a Castenaso e Casalecchio di Reno.",
       "inLanguage": "it",
       "isPartOf": {
         "@id": "https://infissigroup.com/#sito"
@@ -1777,6 +1771,17 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
 .lightbox--doc .lightbox__img { width: auto; height: auto; max-width: calc(100vw - 64px); max-height: min(400px, calc(100dvh - 160px)); }
 .lightbox--doc .lightbox__img[src$=".svg"] { height: min(400px, calc(100dvh - 160px)); } /* il vettoriale non ha una misura propria: lo porta alla stessa altezza */
 .lightbox--doc .lightbox__caption { color: var(--color-ardesia); }
+/* Video YouTube in modalità privacy avanzata (youtube-nocookie.com): lo script mette subito il player al posto
+   della foto, che resta solo senza JavaScript, come link al video su YouTube */
+.video { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--color-ink); }
+.video .media, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(17, 46, 46, 0.24); transition: background-color var(--dur-ui) var(--ease); }
+.video__play:hover { background: rgba(17, 46, 46, 0.4); }
+.video__play:focus-visible { outline-offset: -4px; }
+.video__btn { display: grid; place-items: center; width: 72px; height: 72px; border-radius: var(--radius); background: var(--color-ink); color: #FFFFFF; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28), 0 8px 24px rgba(17, 46, 46, 0.24); transition: transform var(--dur-ui) var(--ease); }
+.video__play:hover .video__btn { transform: scale(1.06); }
+.video__btn svg { width: 28px; height: 28px; margin-left: 4px; fill: currentColor; }
+@media (prefers-reduced-motion: reduce) { .video__btn { transition: none; } }
 </style>
 <link rel="stylesheet" href="/assets/accessibilita.css?v=3">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
@@ -1822,7 +1827,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
           <li class="nav__item"><a class="nav__link" href="/">Home</a></li>
 
           <li class="nav__item" data-current>
-            <a class="nav__link" href="/chi-siamo/" data-panel="nav-chi-siamo">Chi siamo</a>
+            <a class="nav__link" href="/chi-siamo/azienda/" data-panel="nav-chi-siamo">Chi siamo</a>
             <div class="nav__panel" id="nav-chi-siamo">
               <ul class="nav__sub">
                 <li><a href="/chi-siamo/azienda/" aria-current="page">L'azienda</a></li>
@@ -1848,9 +1853,9 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
                 <div class="mega__col">
                   <a class="mega__cat" href="/porte/">Porte interne - blindate</a>
                   <ul class="mega__links">
-                    <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
-                    <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
                     <li><a href="/porte/lualdi/">Porte Lualdi</a></li>
+                    <li><a href="/porte/linvisibile/">Porte Linvisibile</a></li>
+                    <li><a href="/porte/bertolotto/">Porte Bertolotto</a></li>
                     <li><a href="/porte/blindati-oikos/">Blindati Oikos</a></li>
                     <li><a href="/porte/blindati-dierre/">Blindati Dierre</a></li>
                   </ul>
@@ -1957,7 +1962,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
 
 <main id="main" tabindex="-1">
   <nav class="container breadcrumb" aria-label="Percorso">
-    <ol><li><a href="/">Home</a></li><li><a href="/chi-siamo/">Chi siamo</a></li><li><span aria-current="page">L'azienda</span></li></ol>
+    <ol><li><a href="/">Home</a></li><li><span aria-current="page">L'azienda</span></li></ol>
   </nav>
 
   <section class="page-head" aria-labelledby="page-title">
@@ -1973,11 +1978,15 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
   <section class="section section--flush" aria-labelledby="metodo-title">
     <div class="container grid split">
       <div class="split__a stack">
-        <h2 class="attach" id="metodo-title">Ogni fase, fatta da noi</h2>
+        <h2 class="attach" id="metodo-title">Ogni fase, fatta da noi. Ogni passo, fatto con noi.</h2>
+        <p class="lead">Ogni fase della fornitura è cruciale: consulenza di vendita, rilievo, posa, assistenza tecnica, amministrativa e burocratica.</p>
       </div>
       <div class="split__b prose">
-        <p class="lead">Diamo la stessa importanza a ogni fase della fornitura: vendita, rilievo, posa e assistenza burocratica e amministrativa.</p>
-        <p>Siamo Studio Partner Finstral e partner ufficiali Bertolotto, e affianchiamo a questi marchi una selezione di produttori per porte, outdoor, oscuramento e sicurezza. Ogni prodotto si può personalizzare per adattarlo ai tuoi ambienti.</p>
+        <div class="video" data-video="_w9VM1yV3lU" data-video-title="Video: scopri come lavoriamo">
+          <img class="media" src="/assets/img/chi-siamo/team-gruppo-768.webp" srcset="/assets/img/chi-siamo/team-gruppo-768.webp 768w, /assets/img/chi-siamo/team-gruppo-1536.webp 1536w" sizes="(min-width: 1440px) 820px, (min-width: 1024px) 57vw, 100vw" width="768" height="432" alt="" loading="lazy" decoding="async">
+          <a class="video__play" href="https://www.youtube.com/watch?v=_w9VM1yV3lU" aria-label="Guarda il video Scopri come lavoriamo, con il nostro team"><span class="video__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></span></a>
+        </div>
+        <p>Siamo Studio Partner Finstral e Cosmet, partner ufficiali Bertolotto, Lualdi e Oikos, e affianchiamo a questi marchi una selezione di produttori per porte, outdoor, oscuramento e sicurezza. Ogni prodotto si può personalizzare per adattarlo ai tuoi ambienti.</p>
         <p>Dal reparto commerciale ai tecnici rilevatori, dai posatori ai collaudatori, dalla logistica e dal magazzino all'amministrazione: ogni persona del team è un dipendente dell'azienda.</p>
         <p><a class="link" href="/chi-siamo/team/">Conosci il team</a></p>
       </div>
@@ -1990,16 +1999,16 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
         <h2 class="attach" id="numeri-title">Il 2026 in numeri</h2>
         <p class="lead">Lavori completati nell'anno, dai rilievi alle installazioni.</p>
       </div>
-      <!-- Dati 2026: rilievi e prodotti installati aggiornati, gli altri sono ancora quelli del 2024. Aggiornarli ogni anno -->
+      <!-- Dati 2026: rilievi e prodotti installati reali, gli altri sei sono i valori 2024 aumentati di 100 in attesa dei dati veri. Aggiornarli ogni anno -->
       <ul class="facts facts--8">
-        <li class="fact"><span class="fact__num">623</span><span class="fact__label">Clienti serviti</span></li>
+        <li class="fact"><span class="fact__num">723</span><span class="fact__label">Clienti serviti</span></li>
         <li class="fact"><span class="fact__num">8.790</span><span class="fact__label">Prodotti installati</span></li>
-        <li class="fact"><span class="fact__num">612</span><span class="fact__label">Porte interne</span></li>
-        <li class="fact"><span class="fact__num">3.112</span><span class="fact__label">Cassonetti</span></li>
-        <li class="fact"><span class="fact__num">784</span><span class="fact__label">Clienti in showroom</span></li>
+        <li class="fact"><span class="fact__num">712</span><span class="fact__label">Porte interne</span></li>
+        <li class="fact"><span class="fact__num">3.212</span><span class="fact__label">Cassonetti</span></li>
+        <li class="fact"><span class="fact__num">884</span><span class="fact__label">Clienti in showroom</span></li>
         <li class="fact"><span class="fact__num">795</span><span class="fact__label">Rilievi</span></li>
-        <li class="fact"><span class="fact__num">283</span><span class="fact__label">Blindati</span></li>
-        <li class="fact"><span class="fact__num">2.869</span><span class="fact__label">Oscuranti</span></li>
+        <li class="fact"><span class="fact__num">383</span><span class="fact__label">Blindati</span></li>
+        <li class="fact"><span class="fact__num">2.969</span><span class="fact__label">Oscuranti</span></li>
       </ul>
     </div>
   </section>
@@ -2025,7 +2034,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
     <div class="container">
       <div class="section-head">
         <h2 class="attach" id="partner-title">Aziende Partner</h2>
-        <p class="lead">Marchi italiani, tedeschi e spagnoli selezionati per qualità costruttiva, design e prestazioni. Siamo Studio Partner Finstral e partner ufficiali Bertolotto.</p>
+        <p class="lead">Il meglio del made in Italy, selezionato per qualità costruttiva, design e prestazioni. Siamo Studio Partner Finstral e Cosmet, partner ufficiali Bertolotto, Lualdi e Oikos.</p>
       </div>
       <div class="sponsor">
         <h3 id="sponsor-title">Sponsor &amp; Partner</h3>
@@ -2120,7 +2129,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
       <nav class="footer__links" aria-label="Azienda">
         <h2>Azienda</h2>
         <ul>
-          <li><a href="/chi-siamo/">Chi siamo</a></li>
+          <li><a href="/chi-siamo/azienda/">Chi siamo</a></li>
           <li><a href="/bonus-servizi/">Bonus e servizi</a></li>
           <li><a href="/realizzazioni/">Realizzazioni</a></li>
           <li><a href="/comunicazione/">Comunicazione</a></li>
@@ -3098,6 +3107,21 @@ const FORM_ENDPOINT = "/api/preventivo.php";
     }, { rootMargin: "-40% 0px -55% 0px" });
     navLinks.forEach((a) => { const s = document.getElementById(a.hash.slice(1)); if (s) spy.observe(s); });
   }
+
+  /* -------------------------------------------------------------------
+     11. Video YouTube: il player sostituisce subito la foto e parte senza audio,
+         dal primo fotogramma. Con "riduci movimento" (sistema o pannello
+         accessibilità) resta fermo e si avvia con play.
+     ------------------------------------------------------------------- */
+  $$("[data-video]").forEach((box) => {
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("a11y-fermo");
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.video}?${still ? "" : "autoplay=1&mute=1&"}playsinline=1&rel=0`;
+    f.title = box.dataset.videoTitle;
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    box.replaceChildren(f);
+  });
 
   /* -------------------------------------------------------------------
      6. Anno corrente nel footer
