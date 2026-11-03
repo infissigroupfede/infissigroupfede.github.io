@@ -15,6 +15,176 @@
   "progetti": [
     {
       "slug": {
+        "it": "appartamento-anni-70-porte-tutta-altezza",
+        "en": "1970s-apartment-full-height-doors"
+      },
+      "evidenza": true,
+      "verifica": "Progetto vero, testi e dati dal cliente; progetto della casa dell'arch. Domenico Celadine.",
+      "titolo": {
+        "it": "Appartamento anni '70 con porte a tutta altezza",
+        "en": "1970s apartment with full-height doors"
+      },
+      "luogo": {
+        "it": "Bologna",
+        "en": "Bologna"
+      },
+      "anno": 2026,
+      "tipo": [
+        "casa",
+        "ristrutturazione"
+      ],
+      "prodotto": [
+        "porte"
+      ],
+      "intervento": {
+        "it": "Ristrutturazione con nuova pianta e porte interne Bertolotto a tutta altezza",
+        "en": "Renovation with a new layout and full-height Bertolotto interior doors"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Bertolotto",
+            "en": "Bertolotto"
+          },
+          "pagina": {
+            "it": "/porte/bertolotto/",
+            "en": "/en/doors/bertolotto/"
+          }
+        }
+      ],
+      "partner": {
+        "it": "Arch. Domenico Celadine, progetto della casa",
+        "en": "Architect Domenico Celadine, home design"
+      },
+      "richiesta": {
+        "it": "Un appartamento degli anni '70 a Bologna, ripensato dall'arch. Domenico Celadine attorno alla luce e alla pulizia delle linee.\n\nLa casa di partenza era il classico appartamento bolognese di quegli anni: un ampio ingresso, un salone, un corridoio di 12 m², cucina, bagno, ripostiglio e due camere. Molto spazio restava inutilizzato e le finestre davano su un solo lato, verso il parco.",
+        "en": "A 1970s apartment in Bologna, redesigned by architect Domenico Celadine around light and clean lines.\n\nThe starting point was the classic Bologna apartment of those years: a large entrance hall, a living room, a 12 m² corridor, kitchen, bathroom, storeroom and two bedrooms. A lot of space went unused, and the windows faced one side only, towards the park."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "appartamento-porte-tutta-altezza/01",
+        "didascalia": {
+          "it": "La zona pranzo con lo scorrevole in vetro satinato aperto sulla cucina, il gradino e la porta a tutta altezza",
+          "en": "The dining area with the frosted glass sliding door open onto the kitchen, the step and the full-height door"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "I clienti avevano in mente una loro soluzione. Accanto a quella, l'architetto ha proposto una pianta completamente diversa, che hanno accettato dopo una settimana di riflessione.\n\nIl corridoio scende da 12 a 4 m² e si sposta più in basso, i bagni prendono il suo posto e il vecchio bagno diventa una cucina più ampia. La vecchia cucina, unita al soggiorno, crea una zona pranzo che prima non esisteva: oggi dall'ingresso si entra al centro di un unico spazio aperto verso le finestre, con il pranzo a sinistra e il divano a destra.",
+            "en": "The owners had their own solution in mind. Alongside it, the architect proposed a completely different layout, which they accepted after a week of thinking it over.\n\nThe corridor shrinks from 12 to 4 m² and moves further down, the bathrooms take its place and the old bathroom becomes a larger kitchen. The old kitchen, joined to the living room, creates a dining area that did not exist before: today the entrance leads into the middle of a single open space facing the windows, with dining on the left and the sofa on the right."
+          },
+          "foto": "appartamento-porte-tutta-altezza/02",
+          "didascalia": {
+            "it": "La nuova zona pranzo, ricavata dalla vecchia cucina, con la finestra sul parco",
+            "en": "The new dining area, created from the old kitchen, with the window onto the park"
+          }
+        },
+        {
+          "testo": {
+            "it": "Spostare i bagni ha richiesto un gradino, e il progetto lo ha trasformato in un elemento di qualità: insieme a un controsoffitto più basso, segna il passaggio tra la zona giorno e la zona notte. Lo stesso controsoffitto, necessario per gli impianti di condizionamento, prosegue nella zona pranzo e nell'ingresso, così le altezze risultano allineate.\n\nLe porte a tutta altezza, alte 240 cm, eliminano le linee orizzontali e lasciano solo tagli verticali, rendendo lo spazio più armonico. La porta scorrevole in vetro satinato della cucina lascia passare la luce del grande cavedio interno e dà profondità alla vista dal soggiorno.",
+            "en": "Moving the bathrooms meant adding a step, and the design turned it into a feature: together with a lower ceiling, it marks the passage from the living area to the sleeping area. The same lowered ceiling, needed for the air conditioning, continues over the dining area and the entrance, so the heights line up.\n\nThe full-height doors, 240 cm tall, remove horizontal lines and leave only vertical cuts, making the space more harmonious. The kitchen's frosted glass sliding door lets through light from the large internal light well and adds depth to the view from the living room."
+          },
+          "foto": "appartamento-porte-tutta-altezza/03",
+          "didascalia": {
+            "it": "Lo scorrevole chiuso lascia passare la luce del cavedio; accanto, la porta alta 240 cm sotto il controsoffitto",
+            "en": "Even when closed, the sliding door lets in light from the light well; beside it, the 240 cm door below the lowered ceiling"
+          }
+        },
+        {
+          "testo": {
+            "it": "Porte, pareti e arredi fissi condividono lo stesso bianco caldo, con telai e maniglie coordinati, l'acciaio ammorbidito dal colore e il pavimento in rovere: il risultato è un ambiente continuo, avvolgente e luminoso.\n\nResta volutamente aperto l'ingresso, dove l'architetto ha previsto un guardaroba e un piccolo studio: una scelta che i proprietari faranno vivendo la casa.",
+            "en": "Doors, walls and fitted furniture share the same warm white, with matching frames and handles, steel softened by the colour and oak flooring: the result is a continuous, enveloping and bright space.\n\nThe entrance has been deliberately left open: the architect planned a wardrobe and a small study there, a choice the owners will make as they live in the house."
+          },
+          "foto": "appartamento-porte-tutta-altezza/04",
+          "didascalia": {
+            "it": "Il corridoio ridotto a 4 m², con le porte a tutta altezza nello stesso bianco caldo delle pareti",
+            "en": "The corridor, cut down to 4 m², with full-height doors in the same warm white as the walls"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "appartamento-porte-tutta-altezza/01",
+          "didascalia": {
+            "it": "La zona pranzo con lo scorrevole in vetro satinato aperto sulla cucina, il gradino e la porta a tutta altezza",
+            "en": "The dining area with the frosted glass sliding door open onto the kitchen, the step and the full-height door"
+          }
+        },
+        {
+          "foto": "appartamento-porte-tutta-altezza/02",
+          "didascalia": {
+            "it": "La nuova zona pranzo, ricavata dalla vecchia cucina, con la finestra sul parco",
+            "en": "The new dining area, created from the old kitchen, with the window onto the park"
+          }
+        },
+        {
+          "foto": "appartamento-porte-tutta-altezza/03",
+          "didascalia": {
+            "it": "Lo scorrevole chiuso lascia passare la luce del cavedio; accanto, la porta alta 240 cm sotto il controsoffitto",
+            "en": "Even when closed, the sliding door lets in light from the light well; beside it, the 240 cm door below the lowered ceiling"
+          }
+        },
+        {
+          "foto": "appartamento-porte-tutta-altezza/04",
+          "didascalia": {
+            "it": "Il corridoio ridotto a 4 m², con le porte a tutta altezza nello stesso bianco caldo delle pareti",
+            "en": "The corridor, cut down to 4 m², with full-height doors in the same warm white as the walls"
+          }
+        },
+        {
+          "foto": "appartamento-porte-tutta-altezza/05",
+          "didascalia": {
+            "it": "La cerniera a scomparsa, invisibile a porta chiusa",
+            "en": "The concealed hinge, invisible when the door is closed"
+          }
+        },
+        {
+          "foto": "appartamento-porte-tutta-altezza/06",
+          "didascalia": {
+            "it": "Il profilo nero dello scorrevole, a filo con il soffitto",
+            "en": "The black frame of the sliding door, flush with the ceiling"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Un unico spazio aperto",
+            "en": "One open space"
+          },
+          "testo": {
+            "it": "Dall'ingresso si entra al centro della casa, con il pranzo a sinistra e il divano a destra.",
+            "en": "The entrance leads into the middle of the home, with dining on the left and the sofa on the right."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Solo linee verticali",
+            "en": "Only vertical lines"
+          },
+          "testo": {
+            "it": "Le porte alte 240 cm arrivano al controsoffitto e cancellano le linee orizzontali.",
+            "en": "The 240 cm doors reach the lowered ceiling and remove the horizontal lines."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Luce anche dal cavedio",
+            "en": "Light from the light well too"
+          },
+          "testo": {
+            "it": "Lo scorrevole in vetro satinato porta in casa la luce del cavedio interno.",
+            "en": "The frosted glass sliding door brings in light from the internal light well."
+          }
+        }
+      ],
+      "testimonianza": false,
+      "linea": "inliving"
+    },
+    {
+      "slug": {
         "it": "soggiorno-scorrevole-alluminio-bicolore",
         "en": "living-room-two-tone-aluminium-sliding-door"
       },
@@ -325,7 +495,7 @@
         "it": "casa-in-collina-finestre-in-legno",
         "en": "hillside-house-timber-windows"
       },
-      "evidenza": true,
+      "evidenza": false,
       "verifica": "ESEMPIO: luogo, anno, dati, testi e testimonianza sono INVENTATI per vedere l'impaginazione. Vanno sostituiti con quelli veri prima della pubblicazione. Anche il raggruppamento delle foto è da confermare.",
       "titolo": {
         "it": "Casa in collina con finestre in legno",
