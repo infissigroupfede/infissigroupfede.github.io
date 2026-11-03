@@ -6,7 +6,7 @@
     "tipo: casa, commerciale, ristrutturazione, nuova-costruzione (anche più di uno).",
     "prodotto: finestre, porte, outdoor, oscuramento, arredo (anche più di uno).",
     "linea: inliving (interni) oppure outdoor; decide in quale delle due pagine di linea compare il progetto.",
-    "evidenza: true per i 2-3 progetti con la card grande in cima all'elenco.",
+    "Ordine: i progetti compaiono dal più recente (anno) al più vecchio. evidenza: true per farlo passare davanti agli altri dello stesso anno.",
     "risultato: elenco di {titolo, testo}; testimonianza: {testo, autore}, oppure false se non c'è (il riquadro non compare). partner: false se non ce ne sono (la riga non compare).",
     "prima_dopo: {prima, dopo} con due foto della stessa inquadratura; null se non ci sono.",
     "verifica: nota interna, finisce solo nel commento in testa alla pagina.",

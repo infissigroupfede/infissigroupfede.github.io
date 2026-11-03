@@ -233,9 +233,9 @@ def chips(lang, key, options, projects):
     return out
 
 def projects_section(lang, projects, cls="section section--flush"):
-    """Barra dei filtri tra due filetti e griglia regolare a 3 colonne; i progetti in evidenza vengono per primi."""
+    """Barra dei filtri tra due filetti e griglia regolare a 3 colonne; progetti dal più recente, a parità di anno prima quelli in evidenza."""
     t = L[lang]
-    ordered = [p for p in projects if p.get("evidenza")] + [p for p in projects if not p.get("evidenza")]
+    ordered = sorted(projects, key=lambda p: (-(p["anno"] or 0), not p.get("evidenza")))
     return (f'  <section class="{cls}" aria-labelledby="progetti-title">\n    <div class="container" data-projects data-page="9">\n'
             f'      <h2 class="sr-only" id="progetti-title">{t["projects_title"]}</h2>\n'
             '      <div class="filters" data-filters hidden>\n'
