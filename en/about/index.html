@@ -1738,6 +1738,17 @@ label.cookie__cat { cursor: pointer; }
 .lightbox__btn { display: inline-grid; flex: none; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: var(--radius); background: transparent; color: #FFFFFF; cursor: pointer; }
 .lightbox__btn:hover { border-color: #FFFFFF; }
 .lightbox__btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+/* Video YouTube in modalità privacy avanzata (youtube-nocookie.com): lo script mette subito il player al posto
+   della foto, che resta solo senza JavaScript, come link al video su YouTube */
+.video { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--color-ink); }
+.video .media, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(17, 46, 46, 0.24); transition: background-color var(--dur-ui) var(--ease); }
+.video__play:hover { background: rgba(17, 46, 46, 0.4); }
+.video__play:focus-visible { outline-offset: -4px; }
+.video__btn { display: grid; place-items: center; width: 72px; height: 72px; border-radius: var(--radius); background: var(--color-ink); color: #FFFFFF; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28), 0 8px 24px rgba(17, 46, 46, 0.24); transition: transform var(--dur-ui) var(--ease); }
+.video__play:hover .video__btn { transform: scale(1.06); }
+.video__btn svg { width: 28px; height: 28px; margin-left: 4px; fill: currentColor; }
+@media (prefers-reduced-motion: reduce) { .video__btn { transition: none; } }
 </style>
 <link rel="stylesheet" href="/assets/accessibilita.css?v=3">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
@@ -1925,7 +1936,22 @@ label.cookie__cat { cursor: pointer; }
     </div>
   </section>
 
-  <section class="section section--flush" aria-labelledby="sezioni-title">
+  <section class="section section--flush" aria-labelledby="video-title">
+    <div class="container grid split">
+      <div class="split__a stack">
+        <h2 class="attach" id="video-title">Every stage, done by us. Every step, taken with us.</h2>
+        <p class="lead">Every stage of the supply matters: sales advice, survey, installation, and technical, administrative and paperwork support.</p>
+      </div>
+      <div class="split__b">
+        <div class="video" data-video="_w9VM1yV3lU" data-video-title="Video: see how we work">
+          <img class="media" src="/assets/img/chi-siamo/team-gruppo-768.webp" srcset="/assets/img/chi-siamo/team-gruppo-768.webp 768w, /assets/img/chi-siamo/team-gruppo-1536.webp 1536w" sizes="(min-width: 1440px) 820px, (min-width: 1024px) 57vw, 100vw" width="768" height="432" alt="" loading="lazy" decoding="async">
+          <a class="video__play" href="https://www.youtube.com/watch?v=_w9VM1yV3lU" aria-label="Watch the video See how we work, with our team"><span class="video__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sezioni-title">
     <div class="container">
       <div class="section-head">
         <h2 class="attach" id="sezioni-title">Get to know us</h2>
@@ -1934,7 +1960,7 @@ label.cookie__cat { cursor: pointer; }
         <li class="area">
           <div class="area__media"><img class="media" src="/assets/img/chi-siamo/showroom-castenaso-768.jpg" srcset="/assets/img/chi-siamo/showroom-castenaso-300.jpg 300w, /assets/img/chi-siamo/showroom-castenaso-768.jpg 768w, /assets/img/chi-siamo/showroom-castenaso-1024.jpg 1024w, /assets/img/chi-siamo/showroom-castenaso-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="512" alt="Display area of the Home Design Gallery in Castenaso with products on show" loading="lazy" decoding="async"></div>
           <h3 class="area__name"><a class="area__link" href="/en/about/company/">The company</a></h3>
-          <p class="area__desc">How we work, our 2024 figures, certifications and awards.</p>
+          <p class="area__desc">How we work, our 2026 figures, certifications and awards.</p>
         </li>
         <li class="area">
           <div class="area__media"><img class="media" src="/assets/img/chi-siamo/team-gruppo-768.webp" srcset="/assets/img/chi-siamo/team-gruppo-300.webp 300w, /assets/img/chi-siamo/team-gruppo-768.webp 768w, /assets/img/chi-siamo/team-gruppo-1536.webp 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 768px) 30vw, 110px" width="768" height="432" alt="Group photo of the Infissi Group team in front of the company vans" loading="lazy" decoding="async"></div>
@@ -1954,13 +1980,13 @@ label.cookie__cat { cursor: pointer; }
     <div class="container grid split">
       <div class="split__a stack">
         <h2 id="breve-title">At a glance</h2>
-        <p class="lead">Finstral Studio Partner and official Bertolotto partners, with two showrooms in Castenaso and Casalecchio di Reno.</p>
+        <p class="lead">Finstral and Cosmet Studio Partner, official partners of Bertolotto, Lualdi and Oikos, with two showrooms in Castenaso and Casalecchio di Reno.</p>
       </div>
       <ul class="split__b pillars">
         <li class="pillar"><h3>In-house staff</h3><p>Sales staff, surveyors, installers, inspectors, logistics and administration are all employees of the company.</p></li>
         <li class="pillar"><h3>Firm timescales</h3><p>We give you the installation date and the installers' names in advance, so you can plan 2-3 months ahead.</p></li>
         <li class="pillar"><h3>Certified installation</h3><p>Certified by IFT Rosenheim to the UNI 11673-2:2019 standard.</p></li>
-        <li class="pillar"><h3>Quality you can check</h3><p>ISO 9001:2015 certification, Campione della Crescita (Growth Champion) 2024 and 2025, CRIBIS Rating 1.</p></li>
+        <li class="pillar"><h3>Quality you can check</h3><p>ISO 9001:2015 certification, Campione della Crescita (Growth Champion) 2024, 2025 and 2026, CRIBIS Rating 1.</p></li>
       </ul>
     </div>
   </section>
@@ -2990,6 +3016,21 @@ const FORM_ENDPOINT = "/api/preventivo.php";
     }, { rootMargin: "-40% 0px -55% 0px" });
     navLinks.forEach((a) => { const s = document.getElementById(a.hash.slice(1)); if (s) spy.observe(s); });
   }
+
+  /* -------------------------------------------------------------------
+     11. Video YouTube: il player sostituisce subito la foto e parte senza audio,
+         dal primo fotogramma. Con "riduci movimento" (sistema o pannello
+         accessibilità) resta fermo e si avvia con play.
+     ------------------------------------------------------------------- */
+  $$("[data-video]").forEach((box) => {
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("a11y-fermo");
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.video}?${still ? "" : "autoplay=1&mute=1&"}playsinline=1&rel=0`;
+    f.title = box.dataset.videoTitle;
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    box.replaceChildren(f);
+  });
 
   /* -------------------------------------------------------------------
      6. Anno corrente nel footer
