@@ -198,6 +198,7 @@
   --dur-fast: 150ms;
   --dur-ui: 200ms;
   --dur-slow: 250ms;
+  --dur-zoom: 500ms; /* zoom delle foto al passaggio del mouse */
 
   /* Header */
   --header-h: 72px;       /* altezza iniziale, riservata in cima alla pagina */
@@ -934,7 +935,7 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   background: var(--color-bg);
 }
 .area__media { grid-row: 1 / span 2; overflow: hidden; }
-.area__media > * { aspect-ratio: 4 / 5; transition: transform var(--dur-slow) var(--ease); }
+.area__media > * { aspect-ratio: 4 / 5; transition: transform var(--dur-zoom) var(--ease); }
 .area__name { align-self: end; font-size: var(--fs-h4); line-height: 1.3; }
 .area__desc { align-self: start; color: var(--color-ardesia); font-size: var(--fs-small); }
 .area__link, .work__link, .news__link {
@@ -950,7 +951,7 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .area:hover .area__link, .work:hover .work__link, .news__item:hover .news__link { color: var(--color-brand-dark); text-decoration-line: underline; }
 }
 @media (hover: hover) {
-  .area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.02); }
+  .area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.035); }
 }
 @supports selector(:has(a)) {
   .area__link:focus-visible, .work__link:focus-visible, .news__link:focus-visible { outline: none; }
@@ -1026,7 +1027,7 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .works { display: grid; gap: var(--space-48) var(--gutter); }
 .work { position: relative; display: grid; align-content: start; gap: var(--space-16); }
 .work__media { overflow: hidden; }
-.work__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-slow) var(--ease); }
+.work__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-zoom) var(--ease); }
 .work__body { display: grid; justify-items: start; gap: var(--space-8); }
 .work__title { font-size: var(--fs-h3); }
 .work__place { color: var(--color-ardesia); font-size: var(--fs-small); }
@@ -1084,9 +1085,9 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .news__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-16); color: var(--color-ardesia); font-size: var(--fs-small); }
 .news__title { font-size: 1.25rem; line-height: 1.3; }
 .news__media { overflow: hidden; margin-bottom: var(--space-4); }
-.news__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-slow) var(--ease); }
+.news__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-zoom) var(--ease); }
 @media (hover: hover) {
-  .news__item:hover .news__media > * { transform: scale(1.02); }
+  .news__item:hover .news__media > * { transform: scale(1.035); }
 }
 
 /* 7.10 Fascia finale su inchiostro, composizione speculare all'hero */
@@ -1620,9 +1621,9 @@ label.cookie__cat { cursor: pointer; }
 .pcard { display: grid; align-content: start; }
 .pcard[hidden] { display: none; }
 .pcard__media { display: block; overflow: hidden; margin-bottom: var(--space-16); background: var(--color-calce); }
-.pcard__media .media { aspect-ratio: 4 / 3; transition: transform var(--dur-slow) var(--ease); }
+.pcard__media .media { aspect-ratio: 4 / 3; transition: transform var(--dur-zoom) var(--ease); }
 .pgrid--two .pcard__media .media { aspect-ratio: 3 / 2; }
-@media (hover: hover) { .pcard__media:hover .media, .pcard:has(.pcard__title a:hover) .media { transform: scale(1.03); } }
+@media (hover: hover) { .pcard__media:hover .media, .pcard:has(.pcard__title a:hover) .media { transform: scale(1.045); } }
 .pcard__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-12); padding-bottom: var(--space-12); border-bottom: 1px solid var(--color-ink); }
 .pcard__title { font: 600 1.0625rem/1.3 var(--font-display); }
 .pcard__title a { color: var(--color-ink); text-decoration: none; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1676,8 +1677,8 @@ label.cookie__cat { cursor: pointer; }
 .seq figure, .pgallery figure { display: grid; gap: var(--space-8); margin: 0; }
 .seq a, .pgallery a { display: block; overflow: hidden; cursor: zoom-in; }
 .seq a:focus-visible, .pgallery a:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
-.seq .media, .pgallery .media { transition: transform var(--dur-slow) var(--ease); }
-@media (hover: hover) { .seq a:hover .media, .pgallery a:hover .media { transform: scale(1.015); } }
+.seq .media, .pgallery .media { transition: transform var(--dur-zoom) var(--ease); }
+@media (hover: hover) { .seq a:hover .media, .pgallery a:hover .media { transform: scale(1.03); } }
 .seq--full .media { aspect-ratio: 16 / 9; }
 .seq--pair, .seq--half { display: grid; gap: var(--gutter); }
 .seq--pair .media, .seq--half .media { aspect-ratio: 4 / 3; }
