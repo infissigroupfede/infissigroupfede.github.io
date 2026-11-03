@@ -34,7 +34,7 @@ L = {
                cta_p="La consulenza è senza impegno. Ti rispondiamo entro un giorno lavorativo con le prime indicazioni e, se serve, fissiamo il rilievo a domicilio.",
                quote_txt="Richiedi preventivo",
                p_title="{t}: una realizzazione Infissi Group", p_desc="{t}: le foto, i prodotti usati e i dettagli del lavoro di Infissi Group{where}.",
-               sheet_title="Scheda rapida", details="Dettagli", s_place="Luogo", s_year="Anno", s_cat="Categoria", s_int="Tipo di intervento", s_prod="Prodotti", s_qty="Quantità e dimensioni", s_dur="Durata del cantiere", s_part="Partner",
+               sheet_title="Scheda rapida", details="Dettagli", s_place="Luogo", s_year="Anno", s_cat="Categoria", s_int="Tipo di intervento", s_prod="Prodotti", s_part="Partner",
                h_req="La richiesta", h_sol="La soluzione", h_cmp="Prima e dopo", h_gal="Galleria", h_res="Il risultato",
                cmp_label="Trascina per confrontare prima e dopo", before="Prima", after="Dopo", before_todo="Foto del prima da inserire",
                gal_lead="Clicca una foto per vederla a schermo intero.",
@@ -44,7 +44,7 @@ L = {
                list_leads=["Lavori reali, clienti reali: guarda cosa abbiamo realizzato a Bologna e dintorni.",
                            "Ogni progetto ha la sua scheda tecnica, con i prodotti usati e le foto: utile anche ad architetti e progettisti che cercano soluzioni già messe alla prova."],
                lb_label="Foto a schermo intero", lb_close="Chiudi", lb_prev="Foto precedente", lb_next="Foto successiva",
-               t_place="luogo e anno", t_data="quantità e durata", t_req="il punto di partenza: cosa voleva il cliente, problemi e vincoli (2-3 righe)", t_sol="le scelte fatte e perché, riferite alla foto accanto", t_result="risultati concreti (comfort, risparmio, estetica)", t_quote="testimonianza del cliente"),
+               t_place="luogo e anno", t_req="il punto di partenza: cosa voleva il cliente, problemi e vincoli (2-3 righe)", t_sol="le scelte fatte e perché, riferite alla foto accanto", t_result="risultati concreti (comfort, risparmio, estetica)", t_quote="testimonianza del cliente"),
     "en": dict(base="/en/projects/", home="/en/", section="Projects", crumb_label="Breadcrumb",
                quote="/en/quote/", todo="To be added",
                list_title="Projects: our work in Bologna",
@@ -58,7 +58,7 @@ L = {
                cta_p="Advice comes with no obligation. We reply within one working day with some first suggestions and, if needed, we book an on-site survey.",
                quote_txt="Request a quote",
                p_title="{t}: an Infissi Group project", p_desc="{t}: photos, products used and details of this Infissi Group project{where}.",
-               sheet_title="At a glance", details="Details", s_place="Place", s_year="Year", s_cat="Category", s_int="Type of work", s_prod="Products", s_qty="Quantity and size", s_dur="Time on site", s_part="Partners",
+               sheet_title="At a glance", details="Details", s_place="Place", s_year="Year", s_cat="Category", s_int="Type of work", s_prod="Products", s_part="Partners",
                h_req="The brief", h_sol="The solution", h_cmp="Before and after", h_gal="Gallery", h_res="The result",
                cmp_label="Drag to compare before and after", before="Before", after="After", before_todo="Before photo to be added",
                gal_lead="Click a photo to see it full screen.",
@@ -68,7 +68,7 @@ L = {
                list_leads=["Real work for real customers: see what we have done in and around Bologna.",
                            "Each project has its own technical sheet, with the products used and the photos: useful for architects and designers too, looking for solutions already put to the test."],
                lb_label="Full-screen photo", lb_close="Close", lb_prev="Previous photo", lb_next="Next photo",
-               t_place="place and year", t_data="quantity and time on site", t_req="the starting point: what the customer wanted, problems and constraints (2-3 lines)", t_sol="the choices made and why, relating to the photo alongside", t_result="concrete benefits (comfort, savings, looks)", t_quote="customer testimonial"),
+               t_place="place and year", t_req="the starting point: what the customer wanted, problems and constraints (2-3 lines)", t_sol="the choices made and why, relating to the photo alongside", t_result="concrete benefits (comfort, savings, looks)", t_quote="customer testimonial"),
 }
 TIPI = {"casa": ("Casa", "Residential"), "commerciale": ("Commerciale", "Commercial"),
         "ristrutturazione": ("Ristrutturazione", "Renovation"), "nuova-costruzione": ("Nuova costruzione", "New build")}
@@ -76,7 +76,7 @@ PRODOTTI = {"finestre": ("Finestre", "Windows"), "porte": ("Porte", "Doors"), "o
             "oscuramento": ("Oscuramento", "Shading"), "arredo": ("Arredo", "Interiors")}
 QUOTE_CAT = {"finestre": "finestre", "porte": "porte", "outdoor": "outdoor", "oscuramento": "persiane"}
 TEMPLATE_LINES = [
-    "Pagina generata dal modello index.html: stile, header, footer, barra mobile, dialog, banner cookie",
+    "Pagina generata dal modello index.html: stile, header, footer, dialog, banner cookie",
     "e script sono identici. Se cambiano nel modello, vanno aggiornati anche qui.",
     "Percorsi assoluti (/assets/...): la pagina va vista tramite un server, non aprendo il file.",
     "NON MODIFICARE A MANO <main>, titolo e dati strutturati: li genera _sorgenti/realizzazioni/genera.py",
@@ -91,8 +91,19 @@ def label(lang, key):
     return (TIPI.get(key) or PRODOTTI[key])[0 if lang == "it" else 1]
 
 # ------------------------------------------------------------------ foto
-def jpeg_size(p):
-    b = p.read_bytes(); i = 2
+# JPEG nella cartella principale (es. outdoor-17) oppure WebP in una sottocartella per progetto
+# (es. soggiorno-scorrevole-alluminio/01): l'estensione si ricava dai file presenti.
+def image_size(p):
+    b = p.read_bytes()
+    if b[:4] == b"RIFF" and b[8:12] == b"WEBP":
+        chunk = b[12:16]
+        if chunk == b"VP8X": return int.from_bytes(b[24:27], "little") + 1, int.from_bytes(b[27:30], "little") + 1
+        if chunk == b"VP8 ":
+            w, h = struct.unpack("<HH", b[26:30]); return w & 0x3FFF, h & 0x3FFF
+        if chunk == b"VP8L":
+            bits = int.from_bytes(b[21:25], "little"); return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+        raise ValueError(p)
+    i = 2
     while i < len(b):
         if b[i] != 0xFF: i += 1; continue
         marker, length = b[i + 1], struct.unpack(">H", b[i + 2:i + 4])[0]
@@ -101,18 +112,20 @@ def jpeg_size(p):
         i += 2 + length
     raise ValueError(p)
 
+def ext(name): return "webp" if any(IMG_DIR.glob(f"{name}-*.webp")) else "jpg"
+
 def widths(name):
-    ws = sorted(int(p.stem.rsplit("-", 1)[1]) for p in IMG_DIR.glob(f"{name}-*.jpg") if p.stem.rsplit("-", 1)[1].isdigit())
+    ws = sorted(int(p.stem.rsplit("-", 1)[1]) for p in IMG_DIR.glob(f"{name}-*.{ext(name)}") if p.stem.rsplit("-", 1)[1].isdigit())
     if not ws: raise SystemExit(f"foto non trovata: {name}")
     return ws
 
-def src(name, w): return f"/assets/img/realizzazioni/{name}-{w}.jpg"
+def src(name, w): return f"/assets/img/realizzazioni/{name}-{w}.{ext(name)}"
 def largest(name): return src(name, widths(name)[-1])
 
 def img(name, alt, sizes, min_w=768, eager=False, cls="media"):
     ws = [w for w in widths(name) if w >= min_w] or widths(name)
     base = 1536 if eager and 1536 in ws else 768 if 768 in ws else ws[0]
-    w, h = jpeg_size(IMG_DIR / f"{name}-{ws[0]}.jpg")
+    w, h = image_size(IMG_DIR / f"{name}-{ws[0]}.{ext(name)}")
     srcset = ", ".join(f"{src(name, x)} {x}w" for x in ws)
     load = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
     return f'<img class="{cls}" src="{src(name, base)}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{esc(alt)}" {load} decoding="async">'
@@ -149,8 +162,7 @@ def card(p, lang):
     """Card come nella reference: foto, titolo con l'etichetta della categoria, "Dettagli" apribile con la scheda tecnica."""
     t, c, u = L[lang], p["copertina"], url(p, lang)
     rows = [(t["s_place"], val(p, "luogo", lang, t["s_place"].lower())), (t["s_year"], val(p, "anno", lang, t["s_year"].lower())),
-            (t["s_int"], val(p, "intervento", lang, t["s_int"].lower())), (t["s_prod"], products(p, lang, links=False)),
-            (t["s_qty"], val(p, "quantita", lang, t["s_qty"].lower())), (t["s_dur"], val(p, "durata", lang, t["s_dur"].lower()))]
+            (t["s_int"], val(p, "intervento", lang, t["s_int"].lower())), (t["s_prod"], products(p, lang, links=False))]
     return (f'        <li class="pcard" data-tipo="{" ".join(p["tipo"])}" data-prodotto="{" ".join(p["prodotto"])}">\n'
             f'          <a class="pcard__media" href="{u}" tabindex="-1" aria-hidden="true">{img(c["foto"], tr(c["didascalia"], lang), CARD)}</a>\n'
             f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{u}">{esc(tr(p["titolo"], lang))}</a></h3>{ptag(lang, p["prodotto"][0])}</div>\n'
@@ -176,7 +188,7 @@ LINES = {
                    title="Infissi Group InLiving: lavori negli interni",
                    desc="I lavori Infissi Group negli interni a Bologna e dintorni: finestre, portefinestre, porte e oscuranti, con i progetti e tutte le foto.",
                    lead="Finestre, portefinestre, porte e oscuranti negli interni delle case dove abbiamo lavorato.",
-                   lead2="Ogni progetto ha la sua scheda: luogo, prodotti, quantità e tempi di cantiere, con le foto dei lavori finiti.",
+                   lead2="Ogni progetto ha la sua scheda: luogo, anno e prodotti, con le foto dei lavori finiti.",
                    card="Finestre, portefinestre, porte e oscuranti negli interni.",
                    photos_h2="Tutte le foto", photos_lead="{n} foto da soggiorni, cucine, bagni, camere e ingressi. Clicca per vederle a schermo intero.",
                    cta="Raccontaci la tua casa, ti diciamo cosa serve"),
@@ -184,7 +196,7 @@ LINES = {
                    title="Infissi Group InLiving: interior projects",
                    desc="Infissi Group interior projects in and around Bologna: windows, French windows, doors and shutters, with the projects and all the photos.",
                    lead="Windows, French windows, doors and shutters inside the homes where we have worked.",
-                   lead2="Each project has its own sheet: place, products, quantities and time on site, with photos of the finished work.",
+                   lead2="Each project has its own sheet: place, year and products, with photos of the finished work.",
                    card="Windows, French windows, doors and shutters in interiors.",
                    photos_h2="All the photos", photos_lead="{n} photos of living rooms, kitchens, bathrooms, bedrooms and entrances. Click to see them full screen.",
                    cta="Tell us about your home and we will tell you what it needs"),
@@ -194,7 +206,7 @@ LINES = {
                    title="Infissi Group Outdoor: pergole e verande",
                    desc="I lavori Infissi Group all'esterno a Bologna e dintorni: pergole bioclimatiche e verande vetrate, con i progetti e tutte le foto.",
                    lead="Pergole bioclimatiche e verande vetrate: gli spazi esterni che abbiamo progettato e installato.",
-                   lead2="Ogni progetto ha la sua scheda: luogo, prodotti, quantità e tempi di cantiere, con le foto dei lavori finiti.",
+                   lead2="Ogni progetto ha la sua scheda: luogo, anno e prodotti, con le foto dei lavori finiti.",
                    card="Pergole bioclimatiche e verande vetrate.",
                    photos_h2="Tutte le foto", photos_lead="{n} foto, di giorno e di sera, con le vetrate aperte o chiuse. Clicca per vederle a schermo intero.",
                    cta="Progettiamo insieme il tuo spazio esterno"),
@@ -202,7 +214,7 @@ LINES = {
                    title="Infissi Group Outdoor: pergolas and verandas",
                    desc="Infissi Group outdoor projects in and around Bologna: bioclimatic pergolas and glazed verandas, with the projects and all the photos.",
                    lead="Bioclimatic pergolas and glazed verandas: the outdoor spaces we have designed and installed.",
-                   lead2="Each project has its own sheet: place, products, quantities and time on site, with photos of the finished work.",
+                   lead2="Each project has its own sheet: place, year and products, with photos of the finished work.",
                    card="Bioclimatic pergolas and glazed verandas.",
                    photos_h2="All the photos", photos_lead="{n} photos, by day and in the evening, with the glass walls open or closed. Click to see them full screen.",
                    cta="Let's design your outdoor space together"),
@@ -261,15 +273,28 @@ def photo_grid(lang, items, h2, lead, cls, sid="galleria-title"):
             f'        <h2 class="attach" id="{sid}">{h2}</h2>\n        <p class="lead">{lead}</p>\n      </div>\n'
             f'      <ul class="pgallery">\n{lis}      </ul>\n    </div>\n  </section>\n')
 
+# Nessuna foto ripetuta nella stessa pagina: la raccolta di una linea salta le copertine dei progetti
+# già mostrati nelle card, e la card della linea non usa la copertina di un progetto.
+COVERS = {p["copertina"]["foto"] for p in PROJECTS}
+
+def line_photos(key):
+    covers = {p["copertina"]["foto"] for p in PROJECTS if p["linea"] == key}
+    return [g for g in ARCHIVIO[key] if g["foto"] not in covers]
+
+def line_cover(key):
+    c = LINES[key]["it"]["cover"]
+    return c if c not in COVERS else next(g["foto"] for g in ARCHIVIO[key] if g["foto"] not in COVERS)
+
 def list_page(lang):
     t = L[lang]
     lines = ""
     for key in LINES:
         c = LINES[key][lang]
-        alt = next(g["didascalia"][lang] for g in ARCHIVIO[key] if g["foto"] == c["cover"])
+        cover = line_cover(key)
+        alt = next(g["didascalia"][lang] for g in ARCHIVIO[key] if g["foto"] == cover)
         n = sum(1 for p in PROJECTS if p["linea"] == key)
-        lines += (f'        <li class="pcard">\n          <a class="pcard__media" href="{c["path"]}" tabindex="-1" aria-hidden="true">{img(c["cover"], alt, CARD_HALF)}</a>\n'
-                  f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{c["path"]}">{c["name"]}</a></h3><span class="ptag">{t["line_count"].format(p=n, f=len(ARCHIVIO[key]))}</span></div>\n'
+        lines += (f'        <li class="pcard">\n          <a class="pcard__media" href="{c["path"]}" tabindex="-1" aria-hidden="true">{img(cover, alt, CARD_HALF)}</a>\n'
+                  f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{c["path"]}">{c["name"]}</a></h3><span class="ptag">{t["line_count"].format(p=n, f=len(line_photos(key)))}</span></div>\n'
                   f'          <p class="pcard__text">{c["card"]}</p>\n        </li>\n')
     arch = (f'  <section class="section section--calce" aria-labelledby="linee-title">\n    <div class="container">\n      <div class="section-head">\n'
             f'        <h2 class="attach" id="linee-title">{t["lines_h2"]}</h2>\n        <p class="lead">{t["lines_lead"]}</p>\n      </div>\n'
@@ -280,7 +305,7 @@ def list_page(lang):
 def line_page(lang, key):
     t, c = L[lang], LINES[key][lang]
     projects = [p for p in PROJECTS if p["linea"] == key]
-    photos = ARCHIVIO[key]
+    photos = line_photos(key)
     return main(crumbs(lang, [(t["home"], "Home"), (t["base"], t["section"]), (c["path"], c["crumb"])]) + page_head(c["name"], [c["lead"], c["lead2"]]),
                 projects_section(lang, projects) if projects else "",
                 photo_grid(lang, photos, c["photos_h2"], c["photos_lead"].format(n=len(photos)), "section section--calce"),
@@ -293,7 +318,7 @@ def related(p, lang):
     return others[:3]
 
 def is_wide(name):
-    w, h = jpeg_size(IMG_DIR / f"{name}-{widths(name)[0]}.jpg")
+    w, h = image_size(IMG_DIR / f"{name}-{widths(name)[0]}.{ext(name)}")
     return w / h >= 1.3
 
 def sequence(items, lang):
@@ -323,15 +348,22 @@ def project_page(p, lang):
             f'      <h1 id="page-title">{esc(title)}</h1>\n      <div class="project-head__tags">{"".join(ptag(lang, k) for k in p["tipo"] + p["prodotto"])}</div>\n    </div>\n'
             f'    <div class="container page-head__media page-head__media--16x9">\n      {img(c["foto"], tr(c["didascalia"], lang), HERO, eager=True)}\n    </div>\n  </section>\n')
 
+    # La sequenza di foto salta quelle già in pagina (copertina, foto della storia, prima e dopo): nessuna foto ripetuta
+    pd = p.get("prima_dopo")
+    if pd and not pd["prima"]: pd = None  # senza la foto del prima il confronto mostrerebbe solo la copertina ripetuta
+    used ={c["foto"], p["soluzione"][0]["foto"]} | ({p["foto_prima"]["foto"]} if p.get("foto_prima") else set()) | ({pd["prima"], pd["dopo"]} if pd else set())
+    gallery = [g for g in p["galleria"] if g["foto"] not in used][:10]
+    sections = [("dettagli", t["n_det"]), ("progetto", t["n_prog"])] + ([("foto", t["n_foto"])] if gallery else []) + [("correlati", t["n_rel"])]
+
     nav = (f'  <nav class="pnav" aria-label="{t["pnav_label"]}">\n    <div class="container pnav__inner">\n      <ul class="pnav__links">'
-           + "".join(f'<li><a href="#{a}">{b}</a></li>' for a, b in (("dettagli", t["n_det"]), ("progetto", t["n_prog"]), ("foto", t["n_foto"]), ("correlati", t["n_rel"])))
+           + "".join(f'<li><a href="#{a}">{b}</a></li>' for a, b in sections)
            + f'</ul>\n      {ptag(lang, main_cat)}\n    </div>\n  </nav>\n')
 
     rows = [(t["s_place"], val(p, "luogo", lang, t["s_place"].lower())), (t["s_year"], val(p, "anno", lang, t["s_year"].lower())),
             (t["s_cat"], " · ".join(label(lang, k) for k in p["tipo"] + p["prodotto"])),
             (t["s_int"], val(p, "intervento", lang, t["s_int"].lower())), (t["s_prod"], products(p, lang)),
-            (t["s_qty"], val(p, "quantita", lang, t["s_qty"].lower())), (t["s_dur"], val(p, "durata", lang, t["s_dur"].lower())),
             (t["s_part"], val(p, "partner", lang, t["s_part"].lower()))]
+    if p["partner"] is False: rows.pop()  # false = nessun partner, la riga non compare
     credits = (f'  <section class="section section--flush" id="dettagli" aria-labelledby="dettagli-title">\n    <div class="container grid credits">\n'
                f'      <h2 class="credits__title" id="dettagli-title">{t["n_det"]}</h2>\n      {specs(rows, "specs specs--credits")}\n    </div>\n  </section>\n')
 
@@ -345,18 +377,18 @@ def project_page(p, lang):
     story = (f'  <section class="section" id="progetto" aria-labelledby="progetto-title">\n    <div class="container grid story-intro">\n'
              f'      <div class="story-intro__text prose">\n        <h2 id="progetto-title">{t["n_prog"]}</h2>\n'
              f'        <h3>{t["h_req"]}</h3>{text(p["richiesta"], t["t_req"])}{prima_html}\n        <h3>{t["h_sol"]}</h3>{sol}\n'
-             f'        <p><button class="btn btn--secondary" type="button" data-lightbox-open>{t["see_gallery"]}</button></p>\n      </div>\n'
+             + (f'        <p><button class="btn btn--secondary" type="button" data-lightbox-open>{t["see_gallery"]}</button></p>\n' if gallery else "")
+             + '      </div>\n'
              f'      <figure class="story-intro__media">{img(lead_photo["foto"], tr(lead_photo["didascalia"], lang), STORY)}<figcaption>{esc(tr(lead_photo["didascalia"], lang))}</figcaption></figure>\n'
              '    </div>\n  </section>\n')
 
     seq = (f'  <section class="section section--flush" id="foto" aria-labelledby="foto-title">\n    <div class="container">\n'
-           f'      <h2 class="sr-only" id="foto-title">{t["n_foto"]}</h2>\n      <div class="sequence">\n{sequence(p["galleria"][:10], lang)}      </div>\n    </div>\n  </section>\n')
+           f'      <h2 class="sr-only" id="foto-title">{t["n_foto"]}</h2>\n      <div class="sequence">\n{sequence(gallery, lang)}      </div>\n    </div>\n  </section>\n') if gallery else ""
 
     cmp_html = ""
-    pd = p.get("prima_dopo")
     if pd:
         dopo = img(pd["dopo"], f'{t["after"]}: {tr(c["didascalia"], lang)}', HERO)
-        before = (img(pd["prima"], t["before"], HERO) if pd["prima"] else f'<span class="todo">{t["before_todo"]}</span>')
+        before = img(pd["prima"], t["before"], HERO)
         cmp_html = (f'  <section class="section" aria-labelledby="confronto-title">\n    <div class="container">\n      <div class="section-head">\n'
                     f'        <h2 class="attach" id="confronto-title">{t["h_cmp"]}</h2>\n      </div>\n'
                     f'      <div class="compare">\n        {dopo}\n        <div class="compare__before">{before}</div>\n'
@@ -371,6 +403,7 @@ def project_page(p, lang):
         res = f"<p>{todo(lang, t['t_result'], block=True)}</p>"
     q = p.get("testimonianza")
     quote = (f'<blockquote class="quote result__quote"><p>«{esc(tr(q["testo"], lang))}»</p><footer>{esc(q["autore"])}</footer></blockquote>' if q
+             else "" if q is False  # false = nessuna testimonianza, il riquadro non compare
              else f'<p class="result__quote">{todo(lang, t["t_quote"], block=True)}</p>')
     result = (f'  <section class="section section--calce" aria-labelledby="risultato-title">\n    <div class="container">\n      <div class="section-head">\n'
               f'        <h2 class="attach" id="risultato-title">{t["h_res"]}</h2>\n      </div>\n      {res}\n      {quote}\n    </div>\n  </section>\n')

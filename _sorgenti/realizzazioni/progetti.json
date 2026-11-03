@@ -2,18 +2,159 @@
   "_istruzioni": [
     "Dati delle realizzazioni: da qui genera.py crea /realizzazioni/ e /en/projects/ con una pagina per progetto.",
     "Testi in due lingue: {\"it\": \"...\", \"en\": \"...\"}. null = dato mancante: in pagina compare un riquadro 'Da inserire'.",
-    "Foto: nome del file in assets/img/realizzazioni/ senza larghezza e estensione (es. outdoor-17 per outdoor-17-768.jpg).",
+    "Foto: nome del file in assets/img/realizzazioni/ senza larghezza e estensione (es. outdoor-17 per outdoor-17-768.jpg). Le foto nuove vanno in WebP in una sottocartella per progetto (es. soggiorno-scorrevole-alluminio/01 per soggiorno-scorrevole-alluminio/01-768.webp).",
     "tipo: casa, commerciale, ristrutturazione, nuova-costruzione (anche più di uno).",
     "prodotto: finestre, porte, outdoor, oscuramento, arredo (anche più di uno).",
     "linea: inliving (interni) oppure outdoor; decide in quale delle due pagine di linea compare il progetto.",
     "evidenza: true per i 2-3 progetti con la card grande in cima all'elenco.",
-    "quantita e durata: brevi, compaiono anche sulla card (es. '12 elementi', '3 settimane').",
-    "risultato: elenco di {titolo, testo}; testimonianza: {testo, autore}.",
+    "risultato: elenco di {titolo, testo}; testimonianza: {testo, autore}, oppure false se non c'è (il riquadro non compare). partner: false se non ce ne sono (la riga non compare).",
     "prima_dopo: {prima, dopo} con due foto della stessa inquadratura; null se non ci sono.",
     "verifica: nota interna, finisce solo nel commento in testa alla pagina.",
     "esempio: true = dati inventati per l'anteprima. Le pagine escono in noindex e genera.py lo segnala: togliere la riga quando i dati sono veri."
   ],
   "progetti": [
+    {
+      "slug": {
+        "it": "soggiorno-scorrevole-alluminio-bicolore",
+        "en": "living-room-two-tone-aluminium-sliding-door"
+      },
+      "evidenza": true,
+      "verifica": "Progetto vero, testi e dati dal cliente.",
+      "titolo": {
+        "it": "Soggiorno con scorrevole in alluminio bicolore",
+        "en": "Living room with a two-tone aluminium sliding door"
+      },
+      "luogo": {
+        "it": "Ozzano, Bologna",
+        "en": "Ozzano, Bologna"
+      },
+      "anno": 2026,
+      "tipo": [
+        "casa",
+        "ristrutturazione"
+      ],
+      "prodotto": [
+        "finestre"
+      ],
+      "intervento": {
+        "it": "Sostituzione degli infissi del soggiorno",
+        "en": "Replacement of the living room windows and doors"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Finstral",
+            "en": "Finstral"
+          },
+          "pagina": {
+            "it": "/finestre/finstral/",
+            "en": "/en/windows/finstral/"
+          }
+        }
+      ],
+      "partner": false,
+      "richiesta": {
+        "it": "Il cliente aveva appena finito di ristrutturare casa e voleva rinnovare gli infissi del soggiorno, perché fossero coerenti con il nuovo stile.\n\nI vecchi serramenti in legno-alluminio erano molto pesanti, tanto da graffiare il parquet, e difficili da aprire, soprattutto la portafinestra a tre ante.",
+        "en": "The customer had just finished renovating the house and wanted new windows and doors in the living room, in keeping with the new style.\n\nThe old timber-aluminium frames were very heavy, so much so that they scratched the parquet, and hard to open, especially the three-panel French window."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "soggiorno-scorrevole-alluminio/01",
+        "didascalia": {
+          "it": "Il soggiorno con il nuovo scorrevole a due ante, aperto sul terrazzo e sulle colline",
+          "en": "The living room with the new two-panel sliding door, open onto the terrace and the hills"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Li abbiamo sostituiti con infissi tutti in alluminio a taglio termico, bicolori: all'interno riprendono il grigio ardesia del piano e del rivestimento della cucina, all'esterno il colore della facciata del condominio.\n\nLa portafinestra a tre ante battenti è diventata uno scorrevole a due ante. Il passaggio verso il terrazzo è più comodo e le ante non ingombrano più verso la casa, dove c'è il tavolo in cristallo della penisola.",
+            "en": "We replaced them with all-aluminium, thermally broken, two-tone frames: inside they pick up the slate grey of the kitchen worktop and splashback, outside they match the colour of the building's façade.\n\nThe three-panel hinged French window became a two-panel sliding door. Getting out onto the terrace is easier, and the panels no longer swing into the room, where the glass table of the kitchen peninsula stands."
+          },
+          "foto": "soggiorno-scorrevole-alluminio/02",
+          "didascalia": {
+            "it": "Lo scorrevole in alluminio grigio ardesia, coordinato con il piano e il rivestimento della cucina",
+            "en": "The slate grey aluminium sliding door, matched to the kitchen worktop and splashback"
+          }
+        },
+        {
+          "testo": {
+            "it": "Poi il vetro. Abbiamo mantenuto un doppio vetro con l'isolamento richiesto dalla normativa e consigliato un vetro a controllo solare: il soggiorno è esposto a sud e così resta riparato dal caldo più forte, senza perdere luminosità.",
+            "en": "Then the glass. We kept double glazing with the insulation the regulations require and recommended solar control glass: the living room faces south, and this way it is shielded from the strongest heat without losing any light."
+          },
+          "foto": "soggiorno-scorrevole-alluminio/03",
+          "didascalia": {
+            "it": "Dalla cucina, la portafinestra sul terrazzo con il vetro a controllo solare",
+            "en": "From the kitchen, the French window onto the terrace with solar control glass"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "soggiorno-scorrevole-alluminio/01",
+          "didascalia": {
+            "it": "Il soggiorno con il nuovo scorrevole a due ante, aperto sul terrazzo e sulle colline",
+            "en": "The living room with the new two-panel sliding door, open onto the terrace and the hills"
+          }
+        },
+        {
+          "foto": "soggiorno-scorrevole-alluminio/02",
+          "didascalia": {
+            "it": "Lo scorrevole in alluminio grigio ardesia, coordinato con il piano e il rivestimento della cucina",
+            "en": "The slate grey aluminium sliding door, matched to the kitchen worktop and splashback"
+          }
+        },
+        {
+          "foto": "soggiorno-scorrevole-alluminio/03",
+          "didascalia": {
+            "it": "Dalla cucina, la portafinestra sul terrazzo con il vetro a controllo solare",
+            "en": "From the kitchen, the French window onto the terrace with solar control glass"
+          }
+        },
+        {
+          "foto": "soggiorno-scorrevole-alluminio/04",
+          "didascalia": {
+            "it": "All'esterno i profili riprendono il colore chiaro della facciata del condominio",
+            "en": "Outside, the frames match the light colour of the building's façade"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Apertura leggera",
+            "en": "Easy to open"
+          },
+          "testo": {
+            "it": "Le due ante scorrono senza sforzo e non toccano più il parquet.",
+            "en": "The two panels slide effortlessly and no longer touch the parquet."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Colori coordinati",
+            "en": "Matching colours"
+          },
+          "testo": {
+            "it": "Grigio ardesia dentro, come la cucina; fuori il colore del condominio.",
+            "en": "Slate grey inside, like the kitchen; outside, the colour of the building."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Luce senza caldo",
+            "en": "Light without the heat"
+          },
+          "testo": {
+            "it": "Il vetro a controllo solare scherma il sole da sud e lascia entrare la luce.",
+            "en": "Solar control glass screens the southern sun and still lets the light in."
+          }
+        }
+      ],
+      "testimonianza": false,
+      "linea": "inliving"
+    },
     {
       "slug": {
         "it": "veranda-vetrata-struttura-scura",
@@ -52,14 +193,6 @@
           }
         }
       ],
-      "quantita": {
-        "it": "28 m², 7 ante scorrevoli",
-        "en": "28 m², 7 sliding panels"
-      },
-      "durata": {
-        "it": "2 settimane",
-        "en": "2 weeks"
-      },
       "partner": {
         "it": "Geometra del cliente, per la pratica edilizia",
         "en": "The customer's surveyor, for the building permit"
@@ -237,14 +370,6 @@
           }
         }
       ],
-      "quantita": {
-        "it": "18 finestre e portefinestre, 14 scuri",
-        "en": "18 windows and French windows, 14 solid shutters"
-      },
-      "durata": {
-        "it": "4 settimane",
-        "en": "4 weeks"
-      },
       "partner": {
         "it": "Architetto del cliente",
         "en": "The customer's architect"
@@ -413,14 +538,6 @@
           }
         }
       ],
-      "quantita": {
-        "it": "4 × 5 m, 3 lati vetrati",
-        "en": "4 × 5 m, glazed on 3 sides"
-      },
-      "durata": {
-        "it": "10 giorni",
-        "en": "10 days"
-      },
       "partner": {
         "it": "Impresa del cliente, per la pavimentazione",
         "en": "The customer's builder, for the paving"
@@ -566,14 +683,6 @@
           }
         }
       ],
-      "quantita": {
-        "it": "9 elementi",
-        "en": "9 units"
-      },
-      "durata": {
-        "it": "2 giorni di posa",
-        "en": "2 days of installation"
-      },
       "partner": {
         "it": "Nessuno: rilievo e posa seguiti da noi",
         "en": "None: survey and installation by our team"
@@ -733,14 +842,6 @@
           }
         }
       ],
-      "quantita": {
-        "it": "6 finestre e 1 portafinestra scorrevole",
-        "en": "6 windows and 1 sliding French window"
-      },
-      "durata": {
-        "it": "1 settimana",
-        "en": "1 week"
-      },
       "partner": {
         "it": "Impresa edile del cliente",
         "en": "The customer's builder"
