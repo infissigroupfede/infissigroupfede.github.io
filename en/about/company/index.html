@@ -1457,27 +1457,17 @@ label.cookie__cat { cursor: pointer; }
 .person .media { aspect-ratio: 4 / 5; margin-bottom: var(--space-8); }
 .person__name { font-size: var(--fs-h4); line-height: 1.3; }
 .person__role { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
-/* Loghi dei partner: griglia a partizioni, loghi in scala di grigi a pari peso visivo
+/* Loghi dei partner: griglia a partizioni, loghi a colori a pari peso visivo
    (larghezza e altezza di ogni logo nel markup, calcolate su forma e densità del disegno).
    18 marchi: righe complete a 2, 3 e 6 colonne. */
 .partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
 .partner { display: grid; place-items: center; min-height: 88px; padding: var(--space-16); border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-align: center; }
-.partner img { max-width: 100%; height: auto; filter: grayscale(1); opacity: 0.72; }
-/* Loghi cliccabili: tutta la cella porta alla famiglia di prodotto del marchio.
-   Con il mouse (o il focus da tastiera) il logo torna ai suoi colori. */
+.partner img { max-width: 100%; height: auto; }
+/* Loghi cliccabili: tutta la cella porta alla famiglia di prodotto del marchio */
 .partner { position: relative; }
-.partner img { transition: filter var(--dur-ui) var(--ease), opacity var(--dur-ui) var(--ease); }
 .partner__link::after { content: ""; position: absolute; inset: 0; }
 .partner__link:focus-visible { outline: none; }
 .partner:has(.partner__link:focus-visible) { z-index: 1; outline: 2px solid var(--color-brand); outline-offset: -2px; }
-.partner:focus-within img { filter: none; opacity: 1; }
-@media (hover: hover) {
-  .partner:hover img { filter: none; opacity: 1; }
-}
-/* Su telefoni e tablet, dove il passaggio del mouse non esiste, i loghi sono sempre a colori */
-@media (hover: none), (max-width: 767.98px) {
-  .partner img { filter: none; opacity: 1; }
-}
 .section--calce .partners, .section--calce .partner { border-color: var(--color-line-calce); }
 @media (min-width: 480px) { .partners { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .partners { grid-template-columns: repeat(6, minmax(0, 1fr)); } .partner { min-height: 120px; } }
@@ -1997,17 +1987,17 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
   <section class="section section--calce" aria-labelledby="numeri-title">
     <div class="container">
       <div class="section-head">
-        <h2 class="attach" id="numeri-title">2024 in numbers</h2>
+        <h2 class="attach" id="numeri-title">2026 in numbers</h2>
         <p class="lead">Work completed during the year, from surveys to installations.</p>
       </div>
-      <!-- Dati 2024 pubblicati sul sito attuale: aggiornarli ogni anno -->
+      <!-- Dati 2026: rilievi e prodotti installati aggiornati, gli altri sono ancora quelli del 2024. Aggiornarli ogni anno -->
       <ul class="facts facts--8">
         <li class="fact"><span class="fact__num">623</span><span class="fact__label">Customers served</span></li>
-        <li class="fact"><span class="fact__num">3,822</span><span class="fact__label">Windows and doors installed</span></li>
+        <li class="fact"><span class="fact__num">8,790</span><span class="fact__label">Products installed</span></li>
         <li class="fact"><span class="fact__num">612</span><span class="fact__label">Interior doors</span></li>
         <li class="fact"><span class="fact__num">3,112</span><span class="fact__label">Roller shutter boxes</span></li>
         <li class="fact"><span class="fact__num">784</span><span class="fact__label">Showroom customers</span></li>
-        <li class="fact"><span class="fact__num">689</span><span class="fact__label">Surveys</span></li>
+        <li class="fact"><span class="fact__num">795</span><span class="fact__label">Surveys</span></li>
         <li class="fact"><span class="fact__num">283</span><span class="fact__label">Security doors</span></li>
         <li class="fact"><span class="fact__num">2,869</span><span class="fact__label">Shading products</span></li>
       </ul>
@@ -2634,7 +2624,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
   if (dlg && form && typeof dlg.showModal === "function") {
     const KEY = "ig-preventivo";
     const NBSP = " ";
-    const TITLES = { quote: "Request a quote", visit: "Book a visit" };
+    const TITLES = { quote: "Request a quote", visit: "Book an appointment" };
     const title = $("#qd-title");
     const count = $("#qd-count");
     const progress = $(".qd__progress", dlg);
@@ -2885,7 +2875,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
       if (opener && opener.isConnected) opener.focus();
     });
 
-    // Tutti i "Richiedi preventivo" e "Prenota una visita" aprono il dialog (senza JS sono link)
+    // Tutti i "Richiedi preventivo" e "Fissa un appuntamento" aprono il dialog (senza JS sono link)
     $$("[data-quote], [data-visit]").forEach((el) => {
       el.setAttribute("aria-haspopup", "dialog");
       if (el.tagName === "A") {

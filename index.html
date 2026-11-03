@@ -47,7 +47,7 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:title" content="Infissi Group: finestre, porte e outdoor a Bologna">
-<meta property="og:description" content="I migliori infissi per la tua casa. Finestre, porte, outdoor e sicurezza a Bologna, con showroom a Castenaso e Casalecchio di Reno.">
+<meta property="og:description" content="L'arte dell'abitare. Finestre, porte, outdoor e sicurezza a Bologna, con showroom a Castenaso e Casalecchio di Reno.">
 <meta property="og:url" content="https://infissigroup.com/">
 <!-- Open Graph: meglio un ritaglio dedicato 1200x630 della stessa foto -->
 <!-- Anteprima per WhatsApp e social. Indirizzo assoluto sul sito di anteprima (GitHub Pages):
@@ -56,7 +56,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
-<meta property="og:image:alt" content="Infissi Group, i migliori infissi per la tua casa: showroom con vetrate scorrevoli e salotto">
+<meta property="og:image:alt" content="Infissi Group, l'arte dell'abitare: showroom con vetrate scorrevoli e salotto">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#FFFFFF">
 <!-- Favicon ricavate dal simbolo del logo: favicon.ico (16 e 32 px), favicon.svg, apple-touch-icon.png (180 px) -->
@@ -1615,27 +1615,17 @@ label.cookie__cat { cursor: pointer; }
 .person .media { aspect-ratio: 4 / 5; margin-bottom: var(--space-8); }
 .person__name { font-size: var(--fs-h4); line-height: 1.3; }
 .person__role { color: var(--color-ardesia); font-size: var(--fs-small); line-height: 1.4; }
-/* Loghi dei partner: griglia a partizioni, loghi in scala di grigi a pari peso visivo
+/* Loghi dei partner: griglia a partizioni, loghi a colori a pari peso visivo
    (larghezza e altezza di ogni logo nel markup, calcolate su forma e densità del disegno).
    18 marchi: righe complete a 2, 3 e 6 colonne. */
 .partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
 .partner { display: grid; place-items: center; min-height: 88px; padding: var(--space-16); border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-align: center; }
-.partner img { max-width: 100%; height: auto; filter: grayscale(1); opacity: 0.72; }
-/* Loghi cliccabili: tutta la cella porta alla famiglia di prodotto del marchio.
-   Con il mouse (o il focus da tastiera) il logo torna ai suoi colori. */
+.partner img { max-width: 100%; height: auto; }
+/* Loghi cliccabili: tutta la cella porta alla famiglia di prodotto del marchio */
 .partner { position: relative; }
-.partner img { transition: filter var(--dur-ui) var(--ease), opacity var(--dur-ui) var(--ease); }
 .partner__link::after { content: ""; position: absolute; inset: 0; }
 .partner__link:focus-visible { outline: none; }
 .partner:has(.partner__link:focus-visible) { z-index: 1; outline: 2px solid var(--color-brand); outline-offset: -2px; }
-.partner:focus-within img { filter: none; opacity: 1; }
-@media (hover: hover) {
-  .partner:hover img { filter: none; opacity: 1; }
-}
-/* Su telefoni e tablet, dove il passaggio del mouse non esiste, i loghi sono sempre a colori */
-@media (hover: none), (max-width: 767.98px) {
-  .partner img { filter: none; opacity: 1; }
-}
 .section--calce .partners, .section--calce .partner { border-color: var(--color-line-calce); }
 @media (min-width: 480px) { .partners { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .partners { grid-template-columns: repeat(6, minmax(0, 1fr)); } .partner { min-height: 120px; } }
@@ -2162,7 +2152,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
       </div>
     </div>
     <div class="container grid hero__grid">
-      <h2 class="hero__title"><span>Infissi Group</span> <span>i migliori infissi per la tua casa<span class="hero__dot">.</span></span></h2>
+      <h2 class="hero__title"><span>Infissi Group</span> <span>l'arte dell'abitare<span class="hero__dot">.</span></span></h2>
       <div class="hero__aside">
         <p class="lead">Finestre, porte, sistemi outdoor e di sicurezza per la tua casa a Bologna. Ti aiutiamo a scegliere in showroom, prendiamo le misure a casa tua e installiamo con posa certificata.</p>
         <div class="actions">
@@ -2178,8 +2168,8 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
     <div class="container grid split">
       <div class="split__a stack">
         <h2 class="attach" id="selezione-title">Più produttori, un solo referente</h2>
-        <p class="lead">Non produciamo serramenti: li scegliamo. Lavoriamo con marchi italiani, tedeschi e spagnoli selezionati per qualità costruttiva, design e prestazioni, così il prodotto si adatta alla casa, al clima e al budget, e non il contrario.</p>
-        <p>Siamo Studio Partner Finstral per le finestre in PVC e alluminio e partner ufficiali Bertolotto per le porte, che affianchiamo a Linvisibile e Lualdi. Per tende da sole, pergole e oscuramento lavoriamo con gli spagnoli Gaviota e Gradhermetic, per le tende tecniche e le tende morbide con Mottura.</p>
+        <p class="lead">Non produciamo infissi e sistemi di arredo: li scegliamo. Lavoriamo con brand del made in Italy selezionati e accreditati per qualità costruttiva, design e prestazioni. Sono i nostri prodotti ad adattarsi al progetto, allo stile e al budget del cliente, e non viceversa.</p>
+        <p>Siamo Studio Partner Finstral per gli infissi in PVC e partner Cosmet per gli infissi in legno, in alluminio e per il sistema misto legno-alluminio. Copriamo la gamma delle porte d'arredo con Bertolotto e Lualdi, i portoni di design e sicurezza con Oikos e Dierre. Per i sistemi outdoor, le tende da sole e l'oscuramento lavoriamo con Gaviota, per le tende tecniche e le tende morbide con Mottura. Con molti altri brand copriamo tutte le esigenze del foro muro, per costruzioni residenziali, commerciali e industriali.</p>
       </div>
       <ul class="split__b pillars">
         <li class="pillar">
@@ -2303,20 +2293,20 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
     <div class="container">
       <div class="section-head">
         <h2 class="attach" id="metodo-title">Come lavoriamo</h2>
-        <p class="lead">Sei passaggi, tutti seguiti da personale interno. Nel 2024 abbiamo fatto 689 rilievi e installato 3.822 infissi.</p>
+        <p class="lead">Sei passaggi, tutti seguiti da personale interno. Nel 2026 abbiamo fatto 795 rilievi e installato 8.790 prodotti.</p>
       </div>
       <ol class="steps">
         <li class="step">
           <h3>Consulenza in showroom</h3>
-          <p>Vedi e confronti i prodotti dal vivo con un consulente. Porta foto, piante o misure di massima: partiamo da lì.</p>
-        </li>
-        <li class="step">
-          <h3>Rilievo misure a domicilio</h3>
-          <p>Un nostro tecnico rilevatore misura i vani, controlla muri e controtelai e ti segnala eventuali criticità prima del preventivo.</p>
+          <p>Prenota un appuntamento con un nostro consulente. Porta con te foto, planimetrie e misure indicative: partiamo da lì per trovare la soluzione progettuale più adatta alle tue necessità.</p>
         </li>
         <li class="step">
           <h3>Preventivo dettagliato</h3>
-          <p>Ricevi un'offerta voce per voce: prodotti, accessori, posa e tempi indicativi.</p>
+          <p>Ricevi un'offerta chiara voce per voce: prodotti, accessori, servizi e posa.</p>
+        </li>
+        <li class="step">
+          <h3>Rilievo misure a domicilio</h3>
+          <p>Un nostro tecnico rileva le misure esecutive presso la tua abitazione.</p>
         </li>
         <li class="step">
           <h3>Pratiche per le detrazioni</h3>
@@ -2483,7 +2473,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
     <div class="container grid sedi">
       <div class="sedi__head stack">
         <h2 class="attach" id="sedi-title">Due showroom per vedere e toccare i prodotti</h2>
-        <p>Clienti, architetti, progettisti e imprese trovano i prodotti montati e un consulente che li aiuta a confrontarli. Puoi passare negli orari di apertura oppure prenotare una visita dedicata.</p>
+        <p>Clienti, architetti, progettisti e imprese trovano i prodotti montati e un consulente che li aiuta a confrontarli. Puoi passare negli orari di apertura oppure fissare un appuntamento dedicato.</p>
       </div>
 
       <article class="sede">
@@ -2499,7 +2489,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
           <div><dt>Telefono</dt><dd><a class="text-link" href="tel:+39051781570">051&nbsp;781570</a></dd></div>
         </dl>
         <div class="actions">
-          <a class="btn btn--secondary" href="/contatti/castenaso/" data-visit="castenaso">Prenota una visita</a>
+          <a class="btn btn--secondary" href="/contatti/castenaso/" data-visit="castenaso">Fissa un appuntamento</a>
           <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Infissi+Group+Via+Bruno+Tosarelli+342G+Villanova+di+Castenaso" target="_blank" rel="noopener">Apri in Google Maps</a>
         </div>
       </article>
@@ -2517,7 +2507,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
           <div><dt>Telefono</dt><dd><a class="text-link" href="tel:+39051781570">051&nbsp;781570</a></dd></div>
         </dl>
         <div class="actions">
-          <a class="btn btn--secondary" href="/contatti/casalecchio/" data-visit="casalecchio">Prenota una visita</a>
+          <a class="btn btn--secondary" href="/contatti/casalecchio/" data-visit="casalecchio">Fissa un appuntamento</a>
           <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Infissi+Group+Via+del+Lavoro+53%2F4+Casalecchio+di+Reno" target="_blank" rel="noopener">Apri in Google Maps</a>
         </div>
       </article>
@@ -3139,7 +3129,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
   if (dlg && form && typeof dlg.showModal === "function") {
     const KEY = "ig-preventivo";
     const NBSP = " ";
-    const TITLES = { quote: "Richiedi preventivo", visit: "Prenota una visita" };
+    const TITLES = { quote: "Richiedi preventivo", visit: "Fissa un appuntamento" };
     const title = $("#qd-title");
     const count = $("#qd-count");
     const progress = $(".qd__progress", dlg);
@@ -3390,7 +3380,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
       if (opener && opener.isConnected) opener.focus();
     });
 
-    // Tutti i "Richiedi preventivo" e "Prenota una visita" aprono il dialog (senza JS sono link)
+    // Tutti i "Richiedi preventivo" e "Fissa un appuntamento" aprono il dialog (senza JS sono link)
     $$("[data-quote], [data-visit]").forEach((el) => {
       el.setAttribute("aria-haspopup", "dialog");
       if (el.tagName === "A") {
