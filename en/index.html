@@ -999,8 +999,16 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
     max-height: 75vw;
   }
 }
-.hero__slide { position: absolute; inset: 0; height: 100%; opacity: 0; transition: opacity 900ms var(--ease); }
-.hero__slide.is-active { opacity: 1; }
+.hero__slide { position: absolute; inset: 0; height: 100%; opacity: 0; transform: scale(1); transition: opacity 900ms var(--ease), transform 0s linear 900ms; will-change: transform; }
+.hero__slide.is-active { opacity: 1; transform: scale(1.08) translate(var(--kb-x, 0), var(--kb-y, 0)); transition: opacity 900ms var(--ease), transform 7.5s linear; }
+/* Movimento lento sulla foto visibile: leggero ingrandimento con una piccola traslazione, diversa per ogni foto.
+   Dura più dei 6 secondi del cambio, così la foto si muove ancora mentre sfuma; tornata invisibile si rimette ferma. */
+.hero__slide:nth-child(2) { --kb-x: -1.5%; }
+.hero__slide:nth-child(3) { --kb-x: 1.5%; --kb-y: -1%; }
+.hero__slide:nth-child(4) { --kb-y: 1.5%; }
+.hero__slide:nth-child(5) { --kb-x: -1%; --kb-y: -1%; }
+@starting-style { .hero__slide.is-active { transform: scale(1); } }
+html.a11y-fermo .hero__slide { transform: none; }
 html:not(.js) .hero__slide:not(:first-child) { display: none; }
 /* Titolo sulla foto: Inter 300, interlinea stretta e tracking negativo come nei titoli editoriali di architettura.
    Sfumatura scura dal basso per tenere il bianco sopra 4.5:1 su qualsiasi foto del carosello. */
@@ -1560,6 +1568,7 @@ label.cookie__cat { cursor: pointer; }
     transition-duration: 1ms !important;
   }
   .area:hover .area__media > *, .work:hover .work__media > *, .news__item:hover .news__media > * { transform: none; }
+  .hero__slide { transform: none !important; }
 }
 /* =====================================================================
    13. PAGINE INTERNE
