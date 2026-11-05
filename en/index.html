@@ -1011,6 +1011,11 @@ html.menu-open .menu-toggle .burger > span:nth-child(3) { transform: rotate(-45d
 @starting-style { .hero__slide.is-active { transform: scale(1); } }
 html.a11y-fermo .hero__slide { transform: none; }
 html:not(.js) .hero__slide:not(:first-child) { display: none; }
+/* Sul telefono le foto dopo la prima (showroom) scorrono un po' a sinistra nel riquadro 4:5: si vede più la parte destra */
+@media (max-width: 767px) {
+  .hero__slide:nth-child(2), .hero__slide:nth-child(3) { object-position: 65% 50%; }
+  .hero__slide:nth-child(4), .hero__slide:nth-child(5) { object-position: 45% 50%; }
+}
 /* Titolo sulla foto: Inter 300, interlinea stretta e tracking negativo come nei titoli editoriali di architettura.
    Sfumatura scura dal basso per tenere il bianco sopra 4.5:1 su qualsiasi foto del carosello. */
 .hero__frame::after {
