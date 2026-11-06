@@ -1,6 +1,6 @@
 """Genera la sezione Realizzazioni dai dati di progetti.json:
   /realizzazioni/              elenco con numeri, barra dei filtri, griglia di card con "Dettagli" e "Carica altre"
-  /realizzazioni/inliving/ e /outdoor/   le due linee: i loro progetti e tutte le foto della raccolta
+  /realizzazioni/inliving/ e /outdoor/   le due linee: i loro progetti
 Impaginazione ispirata alle pagine progetti di Viabizzuno (2026-10-15): griglia regolare, scheda tecnica,
 foto grandi in sequenza editoriale, barra delle sezioni in basso.
   /realizzazioni/<slug>/       pagina di ogni progetto
@@ -29,7 +29,7 @@ L = {
                projects_title="I progetti",
                f_tipo="Tipo", f_prodotto="Prodotto", f_all="Tutti", f_group_tipo="Filtra per tipo", f_group_prodotto="Filtra per prodotto",
                one="1 realizzazione", many="{n} realizzazioni", empty="Nessuna realizzazione con questi filtri.", reset="Mostra tutte", more="Carica altre",
-               lines_h2="Le due linee", lines_lead="Le realizzazioni divise tra interni ed esterni, con tutte le foto dei lavori finiti.", line_count="{p} progetti e {f} foto",
+               lines_h2="Le due linee", lines_lead="Le realizzazioni divise tra interni ed esterni.", line_count="{p} progetti", line_one="1 progetto",
                list_cta="Il prossimo lavoro può essere a casa tua",
                cta_p="La consulenza è senza impegno. Ti rispondiamo entro un giorno lavorativo con le prime indicazioni e, se serve, fissiamo il rilievo a domicilio.",
                quote_txt="Richiedi preventivo",
@@ -53,7 +53,7 @@ L = {
                projects_title="Projects",
                f_tipo="Type", f_prodotto="Product", f_all="All", f_group_tipo="Filter by type", f_group_prodotto="Filter by product",
                one="1 project", many="{n} projects", empty="No projects match these filters.", reset="Show all", more="Load more",
-               lines_h2="Two lines", lines_lead="Our projects split between interiors and exteriors, with all the photos of the finished work.", line_count="{p} projects and {f} photos",
+               lines_h2="Two lines", lines_lead="Our projects split between interiors and exteriors.", line_count="{p} projects", line_one="1 project",
                list_cta="Your home could be our next project",
                cta_p="Advice comes with no obligation. We reply within one working day with some first suggestions and, if needed, we book an on-site survey.",
                quote_txt="Request a quote",
@@ -134,7 +134,6 @@ HERO = "(min-width: 1440px) 91vw, 92vw"
 CARD = "(min-width: 1440px) 29vw, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 92vw"
 CARD_BIG = "(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 92vw"
 HALF = "(min-width: 1440px) 44vw, (min-width: 1024px) 46vw, 92vw"
-THUMB = "(min-width: 1024px) 30vw, 46vw"
 CARD_HALF = "(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 92vw"
 SEQ_HALF = "(min-width: 1440px) 44vw, (min-width: 768px) 46vw, 92vw"
 STORY = "(min-width: 1440px) 52vw, (min-width: 1024px) 55vw, 92vw"
@@ -186,37 +185,33 @@ LINES = {
     "inliving": {
         "it": dict(path="/realizzazioni/inliving/", crumb="InLiving", name="Infissi Group InLiving", cover="inliving-07",
                    title="Infissi Group InLiving: lavori negli interni",
-                   desc="I lavori Infissi Group negli interni a Bologna e dintorni: finestre, portefinestre, porte e oscuranti, con i progetti e tutte le foto.",
+                   desc="I lavori Infissi Group negli interni a Bologna e dintorni: finestre, portefinestre, porte e oscuranti, con le schede dei progetti.",
                    lead="Finestre, portefinestre, porte e oscuranti negli interni delle case dove abbiamo lavorato.",
                    lead2="Ogni progetto ha la sua scheda: luogo, anno e prodotti, con le foto dei lavori finiti.",
                    card="Finestre, portefinestre, porte e oscuranti negli interni.",
-                   photos_h2="Tutte le foto", photos_lead="{n} foto da soggiorni, cucine, bagni, camere e ingressi. Clicca per vederle a schermo intero.",
                    cta="Raccontaci la tua casa, ti diciamo cosa serve"),
         "en": dict(path="/en/projects/inliving/", crumb="InLiving", name="Infissi Group InLiving", cover="inliving-07",
                    title="Infissi Group InLiving: interior projects",
-                   desc="Infissi Group interior projects in and around Bologna: windows, French windows, doors and shutters, with the projects and all the photos.",
+                   desc="Infissi Group interior projects in and around Bologna: windows, French windows, doors and shutters, with a sheet for each project.",
                    lead="Windows, French windows, doors and shutters inside the homes where we have worked.",
                    lead2="Each project has its own sheet: place, year and products, with photos of the finished work.",
                    card="Windows, French windows, doors and shutters in interiors.",
-                   photos_h2="All the photos", photos_lead="{n} photos of living rooms, kitchens, bathrooms, bedrooms and entrances. Click to see them full screen.",
                    cta="Tell us about your home and we will tell you what it needs"),
     },
     "outdoor": {
         "it": dict(path="/realizzazioni/outdoor/", crumb="Outdoor", name="Infissi Group Outdoor", cover="outdoor-14",
                    title="Infissi Group Outdoor: pergole e verande",
-                   desc="I lavori Infissi Group all'esterno a Bologna e dintorni: pergole bioclimatiche e verande vetrate, con i progetti e tutte le foto.",
+                   desc="I lavori Infissi Group all'esterno a Bologna e dintorni: pergole bioclimatiche e verande vetrate, con le schede dei progetti.",
                    lead="Pergole bioclimatiche e verande vetrate: gli spazi esterni che abbiamo progettato e installato.",
                    lead2="Ogni progetto ha la sua scheda: luogo, anno e prodotti, con le foto dei lavori finiti.",
                    card="Pergole bioclimatiche e verande vetrate.",
-                   photos_h2="Tutte le foto", photos_lead="{n} foto, di giorno e di sera, con le vetrate aperte o chiuse. Clicca per vederle a schermo intero.",
                    cta="Progettiamo insieme il tuo spazio esterno"),
         "en": dict(path="/en/projects/outdoor/", crumb="Outdoor", name="Infissi Group Outdoor", cover="outdoor-14",
                    title="Infissi Group Outdoor: pergolas and verandas",
-                   desc="Infissi Group outdoor projects in and around Bologna: bioclimatic pergolas and glazed verandas, with the projects and all the photos.",
+                   desc="Infissi Group outdoor projects in and around Bologna: bioclimatic pergolas and glazed verandas, with a sheet for each project.",
                    lead="Bioclimatic pergolas and glazed verandas: the outdoor spaces we have designed and installed.",
                    lead2="Each project has its own sheet: place, year and products, with photos of the finished work.",
                    card="Bioclimatic pergolas and glazed verandas.",
-                   photos_h2="All the photos", photos_lead="{n} photos, by day and in the evening, with the glass walls open or closed. Click to see them full screen.",
                    cta="Let's design your outdoor space together"),
     },
 }
@@ -267,19 +262,8 @@ def photo(g, lang, sizes, cls=""):
     return (f'<figure class="{cls}"><a href="{largest(g["foto"])}" data-lightbox data-caption="{cap}">{img(g["foto"], tr(g["didascalia"], lang), sizes)}</a>'
             f"<figcaption>{cap}</figcaption></figure>")
 
-def photo_grid(lang, items, h2, lead, cls, sid="galleria-title"):
-    lis = "".join(f'        <li>{photo(g, lang, THUMB)}</li>\n' for g in items)
-    return (f'  <section class="{cls}" aria-labelledby="{sid}">\n    <div class="container">\n      <div class="section-head">\n'
-            f'        <h2 class="attach" id="{sid}">{h2}</h2>\n        <p class="lead">{lead}</p>\n      </div>\n'
-            f'      <ul class="pgallery">\n{lis}      </ul>\n    </div>\n  </section>\n')
-
-# Nessuna foto ripetuta nella stessa pagina: la raccolta di una linea salta le copertine dei progetti
-# già mostrati nelle card, e la card della linea non usa la copertina di un progetto.
+# Nessuna foto ripetuta nella stessa pagina: la card della linea non usa la copertina di un progetto.
 COVERS = {p["copertina"]["foto"] for p in PROJECTS}
-
-def line_photos(key):
-    covers = {p["copertina"]["foto"] for p in PROJECTS if p["linea"] == key}
-    return [g for g in ARCHIVIO[key] if g["foto"] not in covers]
 
 def line_cover(key):
     c = LINES[key]["it"]["cover"]
@@ -294,7 +278,7 @@ def list_page(lang):
         alt = next(g["didascalia"][lang] for g in ARCHIVIO[key] if g["foto"] == cover)
         n = sum(1 for p in PROJECTS if p["linea"] == key)
         lines += (f'        <li class="pcard">\n          <a class="pcard__media" href="{c["path"]}" tabindex="-1" aria-hidden="true">{img(cover, alt, CARD_HALF)}</a>\n'
-                  f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{c["path"]}">{c["name"]}</a></h3><span class="ptag">{t["line_count"].format(p=n, f=len(line_photos(key)))}</span></div>\n'
+                  f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{c["path"]}">{c["name"]}</a></h3><span class="ptag">{t["line_one"] if n == 1 else t["line_count"].format(p=n)}</span></div>\n'
                   f'          <p class="pcard__text">{c["card"]}</p>\n        </li>\n')
     arch = (f'  <section class="section section--calce" aria-labelledby="linee-title">\n    <div class="container">\n      <div class="section-head">\n'
             f'        <h2 class="attach" id="linee-title">{t["lines_h2"]}</h2>\n        <p class="lead">{t["lines_lead"]}</p>\n      </div>\n'
@@ -305,11 +289,9 @@ def list_page(lang):
 def line_page(lang, key):
     t, c = L[lang], LINES[key][lang]
     projects = [p for p in PROJECTS if p["linea"] == key]
-    photos = line_photos(key)
     return main(crumbs(lang, [(t["home"], "Home"), (t["base"], t["section"]), (c["path"], c["crumb"])]) + page_head(c["name"], [c["lead"], c["lead2"]]),
                 projects_section(lang, projects) if projects else "",
-                photo_grid(lang, photos, c["photos_h2"], c["photos_lead"].format(n=len(photos)), "section section--calce"),
-                cta_band(lang, c["cta"], t["cta_p"], t["quote_txt"]), lightbox(lang))
+                cta_band(lang, c["cta"], t["cta_p"], t["quote_txt"]))
 
 # ------------------------------------------------------------------ pagina progetto
 def related(p, lang):
@@ -482,7 +464,7 @@ def run():
             s = page(shell, lang, path=c["path"], it=other["it"], en=other["en"], title=c["title"], desc=c["desc"],
                      og=src(c["cover"], 1024), kind="CollectionPage", nav_current=False, noindex=has_demo,
                      comment=[f"INFISSI GROUP, {LINES[key]['it']['name'].upper()} ({other['it']})", *TEMPLATE_LINES,
-                              "Le foto della raccolta sono in archivio.json, i progetti della linea in progetti.json (campo linea).",
+                              "I progetti della linea sono in progetti.json (campo linea); la foto della card in archivio.json.",
                               *([DEMO_LINE] if has_demo else [])],
                      crumbs_ld=[(t["home"], "Home"), (t["base"], t["section"]), (c["path"], c["crumb"])], main_html=line_page(lang, key))
             write(c["path"], s)
