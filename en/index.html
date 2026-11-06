@@ -1164,11 +1164,10 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
   .works { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .work--main { grid-column: 1 / -1; }
 }
+/* Tre realizzazioni affiancate, tutte in formato orizzontale 3:2 */
 @media (min-width: 1024px) {
-  .works { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .work--main { grid-column: 1 / span 7; grid-row: 1 / span 2; }
-  .work--main .work__media > * { aspect-ratio: 4 / 5; }
-  .work:not(.work--main) { grid-column: 8 / -1; }
+  .works { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .work--main { grid-column: auto; }
 }
 
 /* 7.7 Le due sedi: introduzione su 4 colonne, sedi su 4 + 4 */
@@ -1277,6 +1276,10 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .review__src { color: var(--color-ardesia); font-size: var(--fs-small); }
 .g-logo { flex: none; width: 20px; height: 20px; }
 .rating__count { display: inline-flex; align-items: center; gap: var(--space-8); }
+/* Il conteggio porta alle recensioni della scheda Google: link sottolineato, logo compreso nell'area cliccabile */
+.rating__link { display: inline-flex; align-items: center; gap: var(--space-8); color: inherit; text-decoration: none; }
+.rating__link span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.rating__link:hover { color: var(--color-brand-dark); }
 .review figcaption { grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--space-12); align-items: center; }
 .review figcaption .g-logo { grid-column: 2; grid-row: 1 / span 2; width: 24px; height: 24px; }
 .reviews-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-16); margin-top: var(--space-24); }
@@ -2392,32 +2395,32 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
       <div class="works">
         <article class="work work--main">
           <div class="work__media">
-            <img class="media" src="/assets/img/home/progetto-1-1536.jpg" srcset="/assets/img/home/progetto-1-1024.jpg 1024w, /assets/img/home/progetto-1-1536.jpg 1536w, /assets/img/home/progetto-1-2048.jpg 2048w" sizes="(min-width: 1440px) 98vw, (min-width: 1024px) 100vw, 92vw" width="1536" height="1024" alt="Attic living room with exposed beams, new windows and French windows" loading="lazy" decoding="async">
+            <img class="media" src="/assets/img/realizzazioni/appartamento-porte-tutta-altezza/01-768.webp" srcset="/assets/img/realizzazioni/appartamento-porte-tutta-altezza/01-768.webp 768w, /assets/img/realizzazioni/appartamento-porte-tutta-altezza/01-1024.webp 1024w, /assets/img/realizzazioni/appartamento-porte-tutta-altezza/01-1536.webp 1536w, /assets/img/realizzazioni/appartamento-porte-tutta-altezza/01-2000.webp 2000w" sizes="(min-width: 1440px) 29vw, (min-width: 1024px) 30vw, 92vw" width="768" height="512" alt="The dining area with the frosted glass sliding door open onto the kitchen, the step and the full-height door" loading="lazy" decoding="async">
           </div>
           <div class="work__body">
             <span class="tag">InLiving</span>
-            <h3 class="work__title"><a class="work__link" href="/en/projects/inliving/">Attic with new windows and French windows</a></h3>
-            <p class="work__place">Province of Bologna</p>
+            <h3 class="work__title"><a class="work__link" href="/en/projects/1970s-apartment-full-height-doors/">1970s apartment with full-height doors</a></h3>
+            <p class="work__place">Bologna</p>
           </div>
         </article>
         <article class="work">
           <div class="work__media">
-            <img class="media" src="/assets/img/home/progetto-2-1024.jpg" srcset="/assets/img/home/progetto-2-768.jpg 768w, /assets/img/home/progetto-2-1024.jpg 1024w, /assets/img/home/progetto-2-1536.jpg 1536w" sizes="(min-width: 1440px) 37vw, (min-width: 1024px) 40vw, (min-width: 768px) 46vw, 92vw" width="1024" height="683" alt="White bioclimatic pergola with glass side walls in a garden" loading="lazy" decoding="async">
+            <img class="media" src="/assets/img/realizzazioni/soggiorno-scorrevole-alluminio/01-768.webp" srcset="/assets/img/realizzazioni/soggiorno-scorrevole-alluminio/01-768.webp 768w, /assets/img/realizzazioni/soggiorno-scorrevole-alluminio/01-1024.webp 1024w, /assets/img/realizzazioni/soggiorno-scorrevole-alluminio/01-1536.webp 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 92vw" width="768" height="576" alt="The living room with the new two-panel sliding door, open onto the terrace and the hills" loading="lazy" decoding="async">
+          </div>
+          <div class="work__body">
+            <span class="tag">InLiving</span>
+            <h3 class="work__title"><a class="work__link" href="/en/projects/living-room-two-tone-aluminium-sliding-door/">Living room with a two-tone aluminium sliding door</a></h3>
+            <p class="work__place">Ozzano, Bologna</p>
+          </div>
+        </article>
+        <article class="work">
+          <div class="work__media">
+            <img class="media" src="/assets/img/realizzazioni/outdoor-14-768.jpg" srcset="/assets/img/realizzazioni/outdoor-14-768.jpg 768w, /assets/img/realizzazioni/outdoor-14-1024.jpg 1024w, /assets/img/realizzazioni/outdoor-14-1536.jpg 1536w" sizes="(min-width: 1440px) 29vw, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 92vw" width="768" height="512" alt="White bioclimatic pergola with sliding glass walls over a garden" loading="lazy" decoding="async">
           </div>
           <div class="work__body">
             <span class="tag">Outdoor</span>
-            <h3 class="work__title"><a class="work__link" href="/en/projects/outdoor/">Bioclimatic pergola with glass walls</a></h3>
-            <p class="work__place">Province of Bologna</p>
-          </div>
-        </article>
-        <article class="work">
-          <div class="work__media">
-            <img class="media" src="/assets/img/home/progetto-3-1024.jpg" srcset="/assets/img/home/progetto-3-768.jpg 768w, /assets/img/home/progetto-3-1024.jpg 1024w, /assets/img/home/progetto-3-1536.jpg 1536w" sizes="(min-width: 1440px) 37vw, (min-width: 1024px) 40vw, (min-width: 768px) 46vw, 92vw" width="1024" height="683" alt="Entrance with a white door next to the staircase, in a renovated home" loading="lazy" decoding="async">
-          </div>
-          <div class="work__body">
-            <span class="tag">InLiving</span>
-            <h3 class="work__title"><a class="work__link" href="/en/projects/inliving/">Entrance and front door in a renovated house</a></h3>
-            <p class="work__place">Province of Bologna</p>
+            <h3 class="work__title"><a class="work__link" href="/en/projects/white-bioclimatic-pergola/">White bioclimatic pergola with glass walls</a></h3>
+            <p class="work__place">Castenaso, Bologna</p>
           </div>
         </article>
       </div>
@@ -2426,6 +2429,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
 
   <!-- 6B. RECENSIONI GOOGLE
        Dati della scheda Google Maps al 2026-10-28: 4,9 su 5 da 293 recensioni. Da aggiornare a mano.
+       Il conteggio porta alle recensioni della scheda Google di Castenaso.
        Testi riportati alla lettera ([...] = parte omessa), nomi abbreviati. -->
   <section class="section section--calce" id="recensioni" aria-labelledby="recensioni-title">
     <div class="container">
@@ -2438,7 +2442,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
           <p class="rating__score"><span class="rating__num">4.9</span><span class="rating__of">out of 5</span></p>
           <div class="rating__meta">
             <span class="stars stars--partial" role="img" aria-label="Average rating 4.9 out of 5"><span class="stars__fill" style="width: 98%"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span>
-            <p class="rating__count"><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg>293 reviews on Google</p>
+            <p class="rating__count"><a class="rating__link" href="https://www.google.com/maps/place/Infissi+Group+Bologna+Srl+-+Castenaso/@44.498041,11.4277873,17z/data=!4m8!3m7!1s0x477fd39078deecaf:0x6d68d811d249be5a!8m2!3d44.498041!4d11.4277873!9m1!1b1!16s%2Fg%2F1q6j20c7_" target="_blank" rel="noopener"><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span>293 reviews on Google</span></a></p>
           </div>
         </div>
       </div>
