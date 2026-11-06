@@ -318,6 +318,8 @@ legend { padding: 0; }
 }
 .section-head h2 { max-width: 22ch; }
 .section-head p { max-width: 46ch; }
+/* Variante con il testo sotto il titolo invece che a destra */
+.section-head--stack { flex-direction: column; align-items: flex-start; }
 .lead { font-size: var(--fs-lead); line-height: 1.55; color: var(--color-ardesia); }
 .stack { display: grid; gap: var(--space-24); align-content: start; }
 /* Motivo telaio: attacco dei titoli delle sezioni principali (40x2px) */
@@ -1565,6 +1567,18 @@ label.cookie__cat { cursor: pointer; }
 .model__brand { justify-self: start; }
 .model__media { overflow: hidden; }
 .model__media > * { aspect-ratio: 4 / 3; }
+/* Schede con la foto sotto il titolo: da 1024px tag, titolo e foto diventano righe della griglia,
+   così il testo a destra si centra sull'altezza della foto e non parte più dal tag */
+@media (min-width: 1024px) {
+  .split:has(> .split__a > .model__media:last-child) { row-gap: var(--space-24); }
+  .split__a:has(> .model__media:last-child) { display: contents; }
+  .split__a:has(> .model__media:last-child) > * { grid-column: 1 / span 5; margin-right: var(--space-32); }
+  .split__a:has(> .model__media:last-child) > :nth-child(2) { grid-row: 2; }
+  .split__a:has(> .model__media:last-child) > :nth-child(3) { grid-row: 3; }
+  .split__a > .model__media:last-child { align-self: center; }
+  .split:has(> .split__a > .model__media:last-child:nth-child(2)) > .split__b { grid-row: 2; align-self: center; }
+  .split:has(> .split__a > .model__media:last-child:nth-child(3)) > .split__b { grid-row: 3; align-self: center; }
+}
 .model__media:has(.media--product) { background: var(--color-calce); }
 .section--calce .model__media:has(.media--product) { background: var(--color-bg); }
 .section--calce .model__media .media--product { mix-blend-mode: normal; }
