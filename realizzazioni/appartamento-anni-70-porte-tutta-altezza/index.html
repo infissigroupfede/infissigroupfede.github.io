@@ -200,6 +200,7 @@
 
   /* Movimento */
   --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* frenata lunga, per la comparsa allo scroll */
   --dur-fast: 150ms;
   --dur-ui: 200ms;
   --dur-slow: 250ms;
@@ -1387,6 +1388,12 @@ label.cookie__cat { cursor: pointer; }
   }
   .area:hover .area__media > *, .work:hover .work__media > *, .news__item:hover .news__media > * { transform: none; }
 }
+/* Comparsa allo scroll (script 12): i blocchi sotto lo schermo entrano con una breve dissolvenza dal basso,
+   una volta sola. Solo opacità e transform, che il browser anima senza ricalcolare la pagina. */
+.rv { opacity: 0; transform: translate3d(0, 24px, 0); }
+.rv--in { opacity: 1; transform: none; transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
+html.a11y-fermo .rv { opacity: 1; transform: none; }
+@media print { .rv { opacity: 1; transform: none; } }
 /* =====================================================================
    13. PAGINE INTERNE
    Percorso, testata di pagina, dati, elenchi a righe, persone.
@@ -3054,6 +3061,47 @@ const FORM_ENDPOINT = "/api/preventivo.php";
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
     navLinks.forEach((a) => { const s = document.getElementById(a.hash.slice(1)); if (s) spy.observe(s); });
+  }
+
+  /* -------------------------------------------------------------------
+     12. Comparsa allo scroll: titoli di sezione, blocchi di testo e card che all'apertura
+         sono sotto lo schermo compaiono quando entrano nella vista, con un leggero
+         sfasamento se arrivano insieme. Quello che si vede subito non si anima.
+         Niente animazione se il sistema chiede meno movimento o con "Ferma le animazioni";
+         senza JavaScript o IntersectionObserver la pagina resta com'è.
+     ------------------------------------------------------------------- */
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches && !root.classList.contains("a11y-fermo")) {
+    const REVEAL = [
+      ".section-head", ".split__a", ".split__b", ".cta-band .container > *", ".story-intro__text", ".story-intro__media", ".credits",
+      ".work", ".pcard", ".news__item", ".area", ".step", ".fact", ".pillar", ".person", ".cert", ".sede", ".seq", ".quote", ".sponsor",
+      ".rows > li", ".masonry > li", ".gallery > li", ".pgallery > li", ".badges > li", ".partners > li",
+    ].join(", ");
+    // Un elemento con display: contents non ha un riquadro da animare: si animano i suoi figli
+    const found = $$(REVEAL, $("main") || document).flatMap((el) => (getComputedStyle(el).display === "contents" ? Array.from(el.children) : [el]));
+    const targets = found.filter((el) => !el.closest(".hero, .page-head, .reviews, dialog") && !found.some((o) => o !== el && o.contains(el)));
+    // Prima tutte le letture, poi le scritture: si nascondono solo i blocchi sotto lo schermo e senza un transform loro
+    const hidden = targets.filter((el) => el.getBoundingClientRect().top > innerHeight && getComputedStyle(el).transform === "none");
+    const show = (el) => {
+      el.classList.add("rv--in");
+      // a comparsa finita si tolgono le classi: l'elemento torna alle sue transizioni (hover, ecc.)
+      setTimeout(() => { el.classList.remove("rv", "rv--in"); el.style.transitionDelay = ""; }, 1200 + (parseFloat(el.style.transitionDelay) || 0));
+    };
+    // Margine enorme in alto: conta come "entrato" anche un blocco superato con un salto (tasto Fine, ancore),
+    // che compare subito senza animazione; lo sfasamento si conta solo tra i blocchi davvero nella vista
+    const io = new IntersectionObserver((entries) => {
+      const seen = entries.filter((e) => e.isIntersecting);
+      seen.forEach((e) => io.unobserve(e.target));
+      seen.filter((e) => e.boundingClientRect.bottom <= 0).forEach((e) => e.target.classList.remove("rv"));
+      seen.filter((e) => e.boundingClientRect.bottom > 0)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left)
+        .forEach((e, i) => { e.target.style.transitionDelay = `${Math.min(i, 4) * 90}ms`; show(e.target); });
+    }, { rootMargin: "9999px 0px -8% 0px" });
+    hidden.forEach((el) => { el.classList.add("rv"); io.observe(el); });
+    // Con la tastiera un blocco ancora nascosto compare subito al primo focus
+    document.addEventListener("focusin", (e) => {
+      const el = e.target.closest && e.target.closest(".rv:not(.rv--in)");
+      if (el) { io.unobserve(el); show(el); }
+    });
   }
 
   /* -------------------------------------------------------------------
