@@ -1384,34 +1384,16 @@ label.cookie__cat { cursor: pointer; }
     transition-duration: 1ms !important;
   }
 }
-/* Foto al passaggio del mouse (solo dove c'è un mouse): la foto si avvicina lentamente dentro il riquadro e in
-   basso a destra sale un quadratino scuro, con la freccia nelle card che portano a una pagina e con le frecce
-   di ingrandimento nelle foto che si aprono a tutto schermo. All'uscita tutto torna indietro più in fretta.
-   Con la tastiera il quadratino compare al focus. Solo opacità e transform. */
-.area__media, .work__media, .news__media, .pcard__media, .seq a, .pgallery a { position: relative; }
-.area__media::after, .work__media::after, .news__media::after, .pcard__media::after, .seq a::after, .pgallery a::after {
-  content: ""; position: absolute; right: var(--space-12); bottom: var(--space-12); width: 44px; height: 44px;
-  border-radius: var(--radius);
-  background: var(--color-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
-  opacity: 0; transform: translate3d(0, 8px, 0); pointer-events: none;
-  transition: opacity var(--dur-ui) var(--ease), transform var(--dur-ui) var(--ease);
-}
-.seq a::after, .pgallery a::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7'/%3E%3C/svg%3E"); }
-@media (hover: hover) {
-  .area:hover .area__media::after, .work:hover .work__media::after, .news__item:hover .news__media::after,
-  .pcard__media:hover::after, .seq a:hover::after, .pgallery a:hover::after { opacity: 1; transform: none; transition: opacity 300ms var(--ease), transform 500ms var(--ease-out); }
-}
+/* Foto al passaggio del mouse (solo dove c'è un mouse): la foto si avvicina lentamente dentro il riquadro e
+   all'uscita torna indietro più in fretta. Solo transform, niente con movimento ridotto o "Ferma le animazioni". */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   html:not(.a11y-fermo) .area:hover .area__media > *, html:not(.a11y-fermo) .work:hover .work__media > *,
   html:not(.a11y-fermo) .news__item:hover .news__media > *, html:not(.a11y-fermo) .pcard__media:hover .media { transform: scale(1.06); transition: transform 1100ms var(--ease-out); }
   html:not(.a11y-fermo) .seq a:hover .media, html:not(.a11y-fermo) .pgallery a:hover .media { transform: scale(1.04); transition: transform 1100ms var(--ease-out); }
 }
 @supports selector(:has(a)) {
-  .area:has(:focus-visible) .area__media::after, .work:has(:focus-visible) .work__media::after, .news__item:has(:focus-visible) .news__media::after,
-  .pcard:has(.pcard__title a:focus-visible) .pcard__media::after, .seq a:focus-visible::after, .pgallery a:focus-visible::after { opacity: 1; transform: none; }
   /* Card dei progetti: foto e titolo reagiscono insieme, da qualunque dei due si passi */
   @media (hover: hover) {
-    .pcard:has(.pcard__title a:hover) .pcard__media::after { opacity: 1; transform: none; transition: opacity 300ms var(--ease), transform 500ms var(--ease-out); }
     .pcard:has(.pcard__media:hover) .pcard__title a { text-decoration-line: underline; }
   }
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
