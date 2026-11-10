@@ -971,9 +971,6 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 @media (hover: hover) {
   .area:hover .area__link, .work:hover .work__link, .news__item:hover .news__link { color: var(--color-brand-dark); text-decoration-line: underline; }
 }
-@media (hover: hover) {
-  .area:hover .area__media > *, .work:hover .work__media > * { transform: scale(1.035); }
-}
 @supports selector(:has(a)) {
   .area__link:focus-visible, .work__link:focus-visible, .news__link:focus-visible { outline: none; }
   .area:has(:focus-visible), .work:has(:focus-visible), .news__item:has(:focus-visible) {
@@ -1106,9 +1103,6 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .news__title { font-size: 1.25rem; line-height: 1.3; }
 .news__media { overflow: hidden; margin-bottom: var(--space-4); }
 .news__media > * { aspect-ratio: 3 / 2; transition: transform var(--dur-zoom) var(--ease); }
-@media (hover: hover) {
-  .news__item:hover .news__media > * { transform: scale(1.035); }
-}
 
 /* 7.10 Fascia finale su inchiostro, composizione speculare all'hero */
 .cta-band { padding-block: var(--section-space); background: var(--color-brand-dark); color: #FFFFFF; }
@@ -1396,7 +1390,40 @@ label.cookie__cat { cursor: pointer; }
     animation-delay: 0s !important;
     transition-duration: 1ms !important;
   }
-  .area:hover .area__media > *, .work:hover .work__media > *, .news__item:hover .news__media > * { transform: none; }
+}
+/* Foto al passaggio del mouse (solo dove c'è un mouse): la foto si avvicina lentamente dentro il riquadro e in
+   basso a destra sale un quadratino scuro, con la freccia nelle card che portano a una pagina e con le frecce
+   di ingrandimento nelle foto che si aprono a tutto schermo. All'uscita tutto torna indietro più in fretta.
+   Con la tastiera il quadratino compare al focus. Solo opacità e transform. */
+.area__media, .work__media, .news__media, .pcard__media, .seq a, .pgallery a { position: relative; }
+.area__media::after, .work__media::after, .news__media::after, .pcard__media::after, .seq a::after, .pgallery a::after {
+  content: ""; position: absolute; right: var(--space-12); bottom: var(--space-12); width: 44px; height: 44px;
+  border-radius: var(--radius);
+  background: var(--color-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 20px 20px no-repeat;
+  opacity: 0; transform: translate3d(0, 8px, 0); pointer-events: none;
+  transition: opacity var(--dur-ui) var(--ease), transform var(--dur-ui) var(--ease);
+}
+.seq a::after, .pgallery a::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7'/%3E%3C/svg%3E"); }
+@media (hover: hover) {
+  .area:hover .area__media::after, .work:hover .work__media::after, .news__item:hover .news__media::after,
+  .pcard__media:hover::after, .seq a:hover::after, .pgallery a:hover::after { opacity: 1; transform: none; transition: opacity 300ms var(--ease), transform 500ms var(--ease-out); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  html:not(.a11y-fermo) .area:hover .area__media > *, html:not(.a11y-fermo) .work:hover .work__media > *,
+  html:not(.a11y-fermo) .news__item:hover .news__media > *, html:not(.a11y-fermo) .pcard__media:hover .media { transform: scale(1.06); transition: transform 1100ms var(--ease-out); }
+  html:not(.a11y-fermo) .seq a:hover .media, html:not(.a11y-fermo) .pgallery a:hover .media { transform: scale(1.04); transition: transform 1100ms var(--ease-out); }
+}
+@supports selector(:has(a)) {
+  .area:has(:focus-visible) .area__media::after, .work:has(:focus-visible) .work__media::after, .news__item:has(:focus-visible) .news__media::after,
+  .pcard:has(.pcard__title a:focus-visible) .pcard__media::after, .seq a:focus-visible::after, .pgallery a:focus-visible::after { opacity: 1; transform: none; }
+  /* Card dei progetti: foto e titolo reagiscono insieme, da qualunque dei due si passi */
+  @media (hover: hover) {
+    .pcard:has(.pcard__title a:hover) .pcard__media::after { opacity: 1; transform: none; transition: opacity 300ms var(--ease), transform 500ms var(--ease-out); }
+    .pcard:has(.pcard__media:hover) .pcard__title a { text-decoration-line: underline; }
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    html:not(.a11y-fermo) .pcard:has(.pcard__title a:hover) .media { transform: scale(1.06); transition: transform 1100ms var(--ease-out); }
+  }
 }
 /* Comparsa allo scroll (script 12): gli elementi sotto lo schermo entrano una volta sola, con una dissolvenza
    dal basso; le foto nei riquadri partono appena ingrandite e si assestano. Solo opacità e transform, che il
@@ -1667,7 +1694,6 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .pcard__media { display: block; overflow: hidden; margin-bottom: var(--space-16); background: var(--color-calce); }
 .pcard__media .media { aspect-ratio: 4 / 3; transition: transform var(--dur-zoom) var(--ease); }
 .pgrid--two .pcard__media .media { aspect-ratio: 3 / 2; }
-@media (hover: hover) { .pcard__media:hover .media, .pcard:has(.pcard__title a:hover) .media { transform: scale(1.045); } }
 .pcard__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-12); padding-bottom: var(--space-12); border-bottom: 1px solid var(--color-ink); }
 .pcard__title { font: 600 1.0625rem/1.3 var(--font-display); }
 .pcard__title a { color: var(--color-ink); text-decoration: none; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -1722,7 +1748,6 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .seq a, .pgallery a { display: block; overflow: hidden; cursor: zoom-in; }
 .seq a:focus-visible, .pgallery a:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; }
 .seq .media, .pgallery .media { transition: transform var(--dur-zoom) var(--ease); }
-@media (hover: hover) { .seq a:hover .media, .pgallery a:hover .media { transform: scale(1.03); } }
 .seq--full .media { aspect-ratio: 16 / 9; }
 .seq--pair, .seq--half { display: grid; gap: var(--gutter); }
 .seq--pair .media, .seq--half .media { aspect-ratio: 4 / 3; }
