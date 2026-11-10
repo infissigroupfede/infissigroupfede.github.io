@@ -183,5 +183,24 @@
   panel.addEventListener("click", (e) => { if (e.target === panel) panel.close(); });
   panel.addEventListener("close", () => fab.focus());
 
+  /* ---------- Discrezione: i pulsanti fissi (questo e quello dei cookie) si ritirano mentre si scende
+     nella pagina e tornano appena si risale o ci si arriva con la tastiera ---------- */
+  let lastY = window.scrollY;
+  let waiting = false;
+  window.addEventListener("scroll", () => {
+    if (waiting) return;
+    waiting = true;
+    requestAnimationFrame(() => {
+      waiting = false;
+      const y = Math.max(window.scrollY, 0);
+      if (Math.abs(y - lastY) < 6) return;
+      root.classList.toggle("fab-giu", y > lastY && y > 160 && !panel.open);
+      lastY = y;
+    });
+  }, { passive: true });
+  document.addEventListener("focusin", (e) => {
+    if (e.target.closest && e.target.closest(".a11y-fab, .cookie-fab")) root.classList.remove("fab-giu");
+  });
+
   apply();
 })();

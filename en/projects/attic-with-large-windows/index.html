@@ -1183,41 +1183,42 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 
 /* =====================================================================
    9. PULSANTE PREFERENZE COOKIE
-   Sempre visibile sopra il pulsante dell'accessibilità, stesso formato ma bianco:
-   è un comando secondario. Riapre il banner; sparisce mentre il banner è aperto.
+   Piccolo e chiaro, poco sopra il pulsante dell'accessibilità (assets/accessibilita.css), con lo stesso
+   aspetto. Riapre il banner; sparisce mentre il banner è aperto e, come l'altro, si ritira
+   mentre si scende nella pagina (classe fab-giu su <html>, messa da assets/accessibilita.js).
    ===================================================================== */
 .cookie-fab {
   position: fixed;
-  right: 24px;
-  bottom: calc(24px + 52px + 12px);
+  right: 16px;
+  bottom: calc(16px + 40px + 6px);
   z-index: 44;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 1px solid var(--color-line-calce);
   border-radius: var(--radius);
   background: var(--color-bg);
-  color: var(--color-brand);
-  box-shadow: 0 8px 24px rgba(17, 46, 46, 0.12);
+  color: var(--color-ink);
+  box-shadow: 0 4px 12px rgba(17, 46, 46, 0.08);
   cursor: pointer;
-  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), bottom var(--dur-ui) var(--ease);
+  transition: background-color var(--dur-fast) var(--ease), bottom var(--dur-ui) var(--ease), opacity var(--dur-ui) var(--ease), transform var(--dur-ui) var(--ease);
   -webkit-tap-highlight-color: transparent;
 }
 .cookie-fab[hidden] { display: none; }
-.cookie-fab:hover { background: var(--color-calce); color: var(--color-brand-dark); }
+.cookie-fab:hover { background: var(--color-calce); }
 .cookie-fab:focus-visible { outline-offset: 3px; }
-.cookie-fab .icon { width: 26px; height: 26px; }
+.cookie-fab .icon { width: 20px; height: 20px; }
 .menu-open .cookie-fab, body:has(.cookie:not([hidden])) .cookie-fab { display: none; }
+html.fab-giu .cookie-fab:not(:focus-visible) { opacity: 0; transform: translate3d(0, 8px, 0); pointer-events: none; }
 /* Pagine dei progetti: si alza col pulsante dell'accessibilità quando compare la barra delle sezioni */
 @media (min-width: 768px) {
-  body:has(.pnav.is-visible) .cookie-fab { bottom: calc(52px + 24px + 52px + 12px); }
+  body:has(.pnav.is-visible) .cookie-fab { bottom: calc(52px + 16px + 40px + 6px); }
 }
 @media (max-width: 767.98px) {
-  .cookie-fab { right: 12px; bottom: calc(12px + 48px + 8px + env(safe-area-inset-bottom)); width: 48px; height: 48px; }
-  .cookie-fab .icon { width: 24px; height: 24px; }
+  .cookie-fab { right: 8px; bottom: calc(8px + 40px + 6px + env(safe-area-inset-bottom)); }
 }
 @media (forced-colors: active) { .cookie-fab { border: 2px solid ButtonText; } }
 @media print { .cookie-fab { display: none !important; } }
@@ -1786,9 +1787,9 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .lightbox__btn:hover { border-color: #FFFFFF; }
 .lightbox__btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
 </style>
-<link rel="stylesheet" href="/assets/accessibilita.css?v=3">
+<link rel="stylesheet" href="/assets/accessibilita.css?v=4">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
-<script src="/assets/accessibilita.js?v=3" defer></script>
+<script src="/assets/accessibilita.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
