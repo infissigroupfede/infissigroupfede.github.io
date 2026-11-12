@@ -1,0 +1,170 @@
+/* =====================================================================
+   INVITO ALLA NEWSLETTER
+   Finestra che compare una volta sola alla prima visita (script in /assets/newsletter.js, che carica
+   questo file solo quando serve). Usa pulsanti, campi e motivo telaio delle pagine (.btn, .input,
+   .check-field, .attach). Su computer: carta con foto a sinistra e testo a destra, al centro dello
+   schermo. Sul telefono: pannello che sale dal basso, con la foto come fascia in alto.
+   Animazione in entrata: il fondo si scurisce, la carta sale e si assesta, la foto si avvicina
+   lentamente e i testi entrano uno dopo l'altro. Solo opacità e transform.
+   ===================================================================== */
+
+.nl {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink, #112E2E);
+}
+.nl[open] { display: grid; place-items: center; }
+.nl::backdrop { background: transparent; }
+html.nl-open { overflow: hidden; }
+
+/* Fondo: velo verde petrolio, chiude al clic */
+.nl__scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 46, 46, 0.42);
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.nl__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  width: min(880px, 100%);
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: var(--radius, 2px);
+  background: var(--color-bg, #FFFFFF);
+  box-shadow: 0 24px 64px rgba(17, 46, 46, 0.22);
+  opacity: 0;
+  transform: translate3d(0, 40px, 0) scale(0.98);
+  transition: opacity 600ms cubic-bezier(0.33, 1, 0.68, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nl__media { position: relative; overflow: hidden; background: var(--color-calce, #F5F4F0); }
+.nl__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%;
+  transform: scale(1.14);
+  transition: transform 1800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nl__body {
+  display: grid;
+  align-content: center;
+  gap: 20px;
+  padding: 56px 56px 44px;
+}
+.nl__body > * {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 600ms cubic-bezier(0.33, 1, 0.68, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nl__body > :nth-child(1) { transition-delay: 220ms; }
+.nl__body > :nth-child(2) { transition-delay: 290ms; }
+.nl__body > :nth-child(3) { transition-delay: 360ms; }
+.nl__body > :nth-child(4) { transition-delay: 430ms; }
+.nl__body > :nth-child(5) { transition-delay: 500ms; }
+
+.nl__title {
+  margin: 0;
+  font: 500 clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem)/1.12 var(--font-display, Arial, sans-serif);
+  letter-spacing: -0.02em;
+  outline: none;
+}
+.nl__title.attach::before { margin-bottom: 20px; }
+.nl__text { margin: 0; color: var(--color-ardesia, #5A6868); line-height: 1.55; }
+
+.nl__form { display: grid; gap: 14px; }
+.nl__label { font: 500 0.9375rem/1.4 var(--font-text, Arial, sans-serif); }
+.nl__row { display: flex; gap: 8px; }
+.nl__row .input { flex: 1 1 auto; min-width: 0; }
+.nl__row .btn { flex: none; }
+.nl__form .check-field label a { color: var(--color-brand, #3A7676); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.nl__hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.nl__alert:empty { display: none; }
+.nl__later { justify-self: start; min-height: 40px; color: var(--color-ardesia, #5A6868); font-weight: 400; }
+.nl__later:hover { color: var(--color-ink, #112E2E); }
+
+.nl__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius, 2px);
+  background: transparent;
+  color: var(--color-ink, #112E2E);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 400ms cubic-bezier(0.2, 0, 0, 1) 500ms, background-color 150ms cubic-bezier(0.2, 0, 0, 1);
+}
+.nl__close:hover { background: var(--color-calce, #F5F4F0); }
+.nl__close svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+.nl :focus-visible { outline: 2px solid var(--color-brand, #3A7676); outline-offset: 2px; }
+
+/* Entrata */
+.nl.is-in .nl__scrim { opacity: 1; }
+.nl.is-in .nl__card { opacity: 1; transform: none; }
+.nl.is-in .nl__media img { transform: none; }
+.nl.is-in .nl__body > * { opacity: 1; transform: none; }
+.nl.is-in .nl__close { opacity: 1; }
+/* Uscita: più breve, tutto insieme */
+.nl.is-out .nl__scrim { opacity: 0; transition-duration: 280ms; }
+.nl.is-out .nl__card { opacity: 0; transform: translate3d(0, 16px, 0); transition: opacity 240ms cubic-bezier(0.2, 0, 0, 1), transform 280ms cubic-bezier(0.2, 0, 0, 1); }
+.nl.is-out .nl__body > *, .nl.is-out .nl__close { transition-delay: 0ms; }
+
+/* Iscrizione fatta: il modulo lascia il posto al ringraziamento */
+.nl__done { display: grid; gap: 20px; justify-items: start; }
+.nl__done[hidden] { display: none; }
+
+/* Telefono e tablet stretto: pannello che sale dal basso */
+@media (max-width: 767.98px) {
+  .nl { padding: 0; }
+  .nl[open] { place-items: end stretch; }
+  .nl__card {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-height: 0;
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    box-shadow: 0 -12px 40px rgba(17, 46, 46, 0.18);
+    transform: translate3d(0, 100%, 0);
+    transition: opacity 300ms cubic-bezier(0.33, 1, 0.68, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nl__media { height: 148px; flex: none; }
+  .nl__body { gap: 16px; padding: 28px 20px calc(16px + env(safe-area-inset-bottom)); }
+  .nl__title { font-size: 1.625rem; }
+  .nl__title.attach::before { margin-bottom: 16px; }
+  .nl__row { flex-direction: column; }
+  .nl__row .btn { width: 100%; }
+  .nl__close { top: 8px; right: 8px; background: rgba(255, 255, 255, 0.92); }
+  .nl__close:hover { background: #FFFFFF; }
+  .nl.is-out .nl__card { transform: translate3d(0, 40%, 0); }
+}
+
+/* Movimento ridotto o "Ferma le animazioni": compare e sparisce senza movimento */
+@media (prefers-reduced-motion: reduce) {
+  .nl__card, .nl__media img, .nl__body > *, .nl__close { transform: none !important; }
+}
+html.a11y-fermo .nl__card, html.a11y-fermo .nl__media img, html.a11y-fermo .nl__body > *, html.a11y-fermo .nl__close { transform: none !important; }
+@media (forced-colors: active) { .nl__card { border: 2px solid CanvasText; } }
+@media print { .nl { display: none !important; } }
