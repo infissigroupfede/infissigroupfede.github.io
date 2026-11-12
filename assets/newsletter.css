@@ -120,6 +120,8 @@ html.nl-open { overflow: hidden; }
 .nl__close:hover { background: var(--color-calce, #F5F4F0); }
 .nl__close svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
 .nl :focus-visible { outline: 2px solid var(--color-brand, #3A7676); outline-offset: 2px; }
+/* Il titolo riceve il focus solo perché il lettore di schermo lo legga all'apertura: non è un comando, niente riquadro */
+.nl .nl__title:focus, .nl .nl__title:focus-visible { outline: none; }
 
 /* Entrata */
 .nl.is-in .nl__scrim { opacity: 1; }
@@ -156,7 +158,8 @@ html.nl-open { overflow: hidden; }
   .nl__title.attach::before { margin-bottom: 16px; }
   .nl__row { flex-direction: column; }
   .nl__row .btn { width: 100%; }
-  .nl__close { top: 8px; right: 8px; background: rgba(255, 255, 255, 0.92); }
+  /* la X sta nell'angolo della scheda, attaccata al bordo */
+  .nl__close { top: 0; right: 0; border-radius: 0; background: rgba(255, 255, 255, 0.94); }
   .nl__close:hover { background: #FFFFFF; }
   .nl.is-out .nl__card { transform: translate3d(0, 40%, 0); }
 }

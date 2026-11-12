@@ -22,7 +22,7 @@
   const DELAY = 12000;             // tempo sulla pagina prima di comparire
   const MIN_DELAY = 4000;          // minimo, anche se si scorre subito
   const SCROLL_SHARE = 0.4;        // quota di pagina letta che la fa comparire prima
-  const CSS = "/assets/newsletter.css?v=1";
+  const CSS = "/assets/newsletter.css?v=3";
 
   const root = document.documentElement;
   const force = /[?&]newsletter\b/.test(location.search);
