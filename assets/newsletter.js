@@ -22,7 +22,15 @@
   const DELAY = 12000;             // tempo sulla pagina prima di comparire
   const MIN_DELAY = 4000;          // minimo, anche se si scorre subito
   const SCROLL_SHARE = 0.4;        // quota di pagina letta che la fa comparire prima
-  const CSS = "/assets/newsletter.css?v=3";
+  const CSS = "/assets/newsletter.css?v=4";
+  /* Foto a rotazione nella finestra (decorative, alt vuoto): Finstral, Lualdi, Cromatica, una ogni 2 secondi.
+     sizes tiene conto che sul computer la fascia è alta 480px: le foto orizzontali servono più larghe. */
+  const SLIDES = [
+    { src: "/assets/img/finestre/finstral-soggiorno-1024.jpg", srcset: "/assets/img/finestre/finstral-soggiorno-768.jpg 768w, /assets/img/finestre/finstral-soggiorno-1024.jpg 1024w, /assets/img/finestre/finstral-soggiorno-1536.jpg 1536w", sizes: "(min-width: 768px) 860px, 100vw", w: 1024, h: 576 },
+    { src: "/assets/img/porte/lualdi-shoin-gallery-768.jpg", srcset: "/assets/img/porte/lualdi-shoin-gallery-768.jpg 768w", sizes: "(min-width: 768px) 700px, 100vw", w: 768, h: 531 },
+    { src: "/assets/img/superfici/cromatica-living-830.jpg", srcset: "/assets/img/superfici/cromatica-living-830.jpg 830w", sizes: "(min-width: 768px) 370px, 100vw", w: 830, h: 1173 },
+  ];
+  const SLIDE_EVERY = 2000;
 
   const root = document.documentElement;
   const force = /[?&]newsletter\b/.test(location.search);
@@ -69,7 +77,22 @@
     dialog: "Newsletter",
   };
 
-  let dlg, cssReady, opened = false, closing = false, lastFocus = null;
+  let dlg, cssReady, opened = false, closing = false, lastFocus = null, slideTimer = 0;
+
+  /* ---------- Carosello delle foto: dissolvenza ogni 2 secondi, fermo con "Ferma le animazioni" o movimento ridotto ---------- */
+  const still = () => root.classList.contains("a11y-fermo") || matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function startSlides() {
+    const imgs = dlg.querySelectorAll(".nl__media img");
+    let i = 0;
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => {
+      if (still() || document.hidden) return;
+      imgs[i].classList.remove("is-on");
+      i = (i + 1) % imgs.length;
+      imgs[i].classList.add("is-on");
+    }, SLIDE_EVERY);
+  }
+  const stopSlides = () => clearInterval(slideTimer);
 
   /* ---------- Costruzione (quando la pagina è pronta: foto e stile arrivano prima di mostrarla) ---------- */
   function build() {
@@ -88,7 +111,7 @@
     dlg.innerHTML = `
       <div class="nl__scrim" data-nl-close></div>
       <div class="nl__card">
-        <div class="nl__media"><img src="/assets/img/home/hero-linvisibile-atrio-768.jpg" srcset="/assets/img/home/hero-linvisibile-atrio-768.jpg 768w, /assets/img/home/hero-linvisibile-atrio-1024.jpg 1024w" sizes="(min-width: 768px) 370px, 100vw" width="768" height="512" alt="" decoding="async"></div>
+        <div class="nl__media">${SLIDES.map((s, i) => `<img${i ? "" : ' class="is-on"'} src="${s.src}" srcset="${s.srcset}" sizes="${s.sizes}" width="${s.w}" height="${s.h}" alt="" decoding="async">`).join("")}</div>
         <div class="nl__body">
           <h2 class="nl__title attach" id="nl-title" tabindex="-1">${T.title}</h2>
           <p class="nl__text" id="nl-text">${T.text}</p>
@@ -191,6 +214,7 @@
     // che con la scheda in secondo piano può restare fermo e lasciare la finestra invisibile)
     dlg.getBoundingClientRect();
     setTimeout(() => dlg.classList.add("is-in"), 30);
+    startSlides();
   }
 
   function hide() {
@@ -199,6 +223,7 @@
     if ((read() || {}).stato !== "iscritto") save("chiuso");
     dlg.classList.remove("is-in");
     dlg.classList.add("is-out");
+    stopSlides();
     setTimeout(() => {
       dlg.close();
       dlg.classList.remove("is-out");
