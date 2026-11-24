@@ -1682,6 +1682,8 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
 .partner { display: grid; place-items: center; min-height: 88px; padding: var(--space-16); border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-align: center; }
 .partner img { max-width: 100%; height: auto; }
+/* Loghi partner a colori ma desaturati del 25% (home, telefono e computer) */
+.partners .partner img { filter: saturate(0.75); }
 /* Loghi cliccabili: tutta la cella porta alla famiglia di prodotto del marchio */
 .partner { position: relative; }
 .partner__link::after { content: ""; position: absolute; inset: 0; }
@@ -2254,8 +2256,8 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
         </li>
         <li class="pillar">
           <h3>Proof you can check</h3>
-          <!-- Valutazione Google al 2026-10-28: aggiornarla periodicamente -->
-          <p>ISO 9001:2015 certification, installation certified by IFT Rosenheim to the UNI 11673-2:2019 standard and a rating of 4.9 out of 5 on Google from 293 <a class="text-link" href="#recensioni">reviews</a>.</p>
+          <!-- Valutazione Google al 2026-11-24: aggiornarla periodicamente -->
+          <p>ISO 9001:2015 certification, installation certified by IFT Rosenheim to the UNI 11673-2:2019 standard and a rating of 4.9 out of 5 on Google from more than 300 <a class="text-link" href="#recensioni">reviews</a>.</p>
         </li>
         <li class="pillar">
           <h3>A single point of contact</h3>
@@ -2456,7 +2458,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
   </section>
 
   <!-- 6B. RECENSIONI GOOGLE
-       Dati della scheda Google Maps al 2026-10-28: 4,9 su 5 da 293 recensioni. Da aggiornare a mano.
+       Dati della scheda Google Maps al 2026-11-24: 4,9 su 5 da oltre 300 recensioni. Da aggiornare a mano.
        Il conteggio porta alle recensioni della scheda Google di Castenaso.
        Testi riportati alla lettera ([...] = parte omessa), nomi abbreviati. -->
   <section class="section section--calce" id="recensioni" aria-labelledby="recensioni-title">
@@ -2470,7 +2472,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
           <p class="rating__score"><span class="rating__num">4.9</span><span class="rating__of">out of 5</span></p>
           <div class="rating__meta">
             <span class="stars stars--partial" role="img" aria-label="Average rating 4.9 out of 5"><span class="stars__fill" style="width: 98%"><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span><span class="stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span></span>
-            <p class="rating__count"><a class="rating__link" href="https://www.google.com/maps/place/Infissi+Group+Bologna+Srl+-+Castenaso/@44.498041,11.4277873,17z/data=!4m8!3m7!1s0x477fd39078deecaf:0x6d68d811d249be5a!8m2!3d44.498041!4d11.4277873!9m1!1b1!16s%2Fg%2F1q6j20c7_" target="_blank" rel="noopener"><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span>293 reviews on Google</span></a></p>
+            <p class="rating__count"><a class="rating__link" href="https://www.google.com/maps/place/Infissi+Group+Bologna+Srl+-+Castenaso/@44.498041,11.4277873,17z/data=!4m8!3m7!1s0x477fd39078deecaf:0x6d68d811d249be5a!8m2!3d44.498041!4d11.4277873!9m1!1b1!16s%2Fg%2F1q6j20c7_" target="_blank" rel="noopener"><svg class="g-logo" aria-hidden="true"><use href="#logo-google"/></svg><span>300+ reviews on Google</span></a></p>
           </div>
         </div>
       </div>
