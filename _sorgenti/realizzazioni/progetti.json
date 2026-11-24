@@ -15,6 +15,240 @@
   "progetti": [
     {
       "slug": {
+        "it": "appartamento-fornitura-completa",
+        "en": "apartment-complete-fit-out"
+      },
+      "evidenza": true,
+      "verifica": "Progetto vero, testi e dati dal cliente (2026-11-24). Marchi di infissi, blindato, porte e cabina armadio non indicati: aggiungerli se si vuole. Nelle foto 02 e 04 c'è un festone di Halloween; targa dell'auto sfocata nella foto 11.",
+      "titolo": {
+        "it": "Appartamento ristrutturato con fornitura completa",
+        "en": "Renovated apartment with a complete fit-out"
+      },
+      "luogo": {
+        "it": "Bologna",
+        "en": "Bologna"
+      },
+      "anno": 2026,
+      "tipo": [
+        "casa",
+        "ristrutturazione"
+      ],
+      "prodotto": [
+        "finestre",
+        "porte",
+        "arredo"
+      ],
+      "intervento": {
+        "it": "Ristrutturazione con infissi, porta blindata motorizzata, porte interne e cabina armadio",
+        "en": "Renovation with windows, a motorised security door, interior doors and a walk-in wardrobe"
+      },
+      "prodotti_usati": [
+        {
+          "nome": {
+            "it": "Infissi in alluminio",
+            "en": "Aluminium windows"
+          },
+          "pagina": {
+            "it": "/finestre/alluminio/",
+            "en": "/en/windows/aluminium/"
+          }
+        },
+        {
+          "nome": {
+            "it": "Porta blindata motorizzata",
+            "en": "Motorised security door"
+          },
+          "pagina": {
+            "it": "/porte/blindati/",
+            "en": "/en/doors/security-doors/"
+          }
+        },
+        {
+          "nome": {
+            "it": "Porte interne",
+            "en": "Interior doors"
+          },
+          "pagina": {
+            "it": "/porte/",
+            "en": "/en/doors/"
+          }
+        },
+        {
+          "nome": {
+            "it": "Cabina armadio",
+            "en": "Walk-in wardrobe"
+          },
+          "pagina": {
+            "it": "/arredo-design/cabine-armadio/",
+            "en": "/en/interior-design/walk-in-wardrobes/"
+          }
+        }
+      ],
+      "partner": false,
+      "richiesta": {
+        "it": "Una ristrutturazione importante a Bologna: un appartamento al primo piano, con il tetto in legno a vista e un ampio terrazzo, da rinnovare negli infissi, nell'ingresso, nelle porte interne e nella cabina armadio.\n\nQuattro forniture che di solito passano per altrettanti fornitori. Qui la richiesta era averne uno solo, con le scelte già definite prima di aprire il cantiere.",
+        "en": "A major renovation in Bologna: a first-floor apartment, with an exposed timber roof and a large terrace, needing new windows, a new front door, interior doors and a walk-in wardrobe.\n\nFour supplies that usually involve as many suppliers. Here the brief was to have just one, with every choice settled before work on site began."
+      },
+      "foto_prima": null,
+      "copertina": {
+        "foto": "appartamento-fornitura-completa/01",
+        "didascalia": {
+          "it": "Le portefinestre sul terrazzo: alluminio nero all'esterno, in linea con la facciata del condominio",
+          "en": "The French windows onto the terrace: black aluminium outside, in keeping with the building's façade"
+        }
+      },
+      "soluzione": [
+        {
+          "testo": {
+            "it": "Abbiamo seguito l'intera fornitura, dagli infissi alla cabina armadio, come unico interlocutore per il cliente e per l'impresa. Scelte, misure e dettagli sono stati definiti prima del cantiere: tempi chiari e lavorazioni coordinate, senza attese tra una fase e l'altra.\n\nOgni scelta estetica parte dall'ambiente. La porta della cucina ha vetro fumé e profilo nero, come la cucina nera e il pavimento effetto cemento, nei toni più freddi della zona giorno. La porta della cabina armadio ha invece il profilo marrone, in accordo con la cabina e con i toni caldi del parquet delle camere.",
+            "en": "We handled the entire supply, from the windows to the walk-in wardrobe, as the single point of contact for both the client and the builder. Choices, measurements and details were settled before work on site began: clear timings and coordinated work, with no waiting between one stage and the next.\n\nEvery design choice starts from the room. The kitchen door has smoked glass and a black frame, like the black kitchen and the concrete-effect floor, in the cooler tones of the living area. The walk-in wardrobe door, by contrast, has a brown frame, in tune with the wardrobe and the warm tones of the bedroom parquet."
+          },
+          "foto": "appartamento-fornitura-completa/02",
+          "didascalia": {
+            "it": "La zona giorno sotto il tetto in legno: la portafinestra sul terrazzo e, a destra, la porta della cucina con profilo nero",
+            "en": "The living area under the timber roof: the French window onto the terrace and, on the right, the kitchen door with a black frame"
+          }
+        },
+        {
+          "testo": {
+            "it": "Tutti gli infissi sono in alluminio nero all'esterno, in linea con il condominio, e bianchi all'interno, per riflettere e massimizzare la luce naturale.\n\nLa posa è stata progettata in anticipo: così abbiamo predisposto l'incasso per zanzariere a scomparsa. Se un giorno i clienti vorranno installarle, non toglieranno luce alle aperture.",
+            "en": "All the windows are black aluminium on the outside, in keeping with the building, and white on the inside, to reflect and make the most of natural light.\n\nThe installation was planned in advance, which allowed us to prepare recesses for concealed insect screens. If the owners ever want to fit them, they will not take any light away from the openings."
+          },
+          "foto": "appartamento-fornitura-completa/04",
+          "didascalia": {
+            "it": "La portafinestra della cucina vista dall'interno: bianca, per portare in casa più luce",
+            "en": "The kitchen French window from inside: white, to bring more light into the home"
+          }
+        },
+        {
+          "testo": {
+            "it": "La porta blindata è motorizzata: si gestisce anche da remoto e si mette in sicurezza ogni volta che ci si chiude la porta alle spalle. Con l'appartamento al primo piano, risparmia molte salite e discese per le scale.",
+            "en": "The security door is motorised: it can be operated remotely and locks itself securely every time it closes behind you. With the apartment on the first floor, it saves a great many trips up and down the stairs."
+          },
+          "foto": "appartamento-fornitura-completa/06",
+          "didascalia": {
+            "it": "La porta blindata motorizzata vista dall'esterno, nera con maniglione verticale in acciaio",
+            "en": "The motorised security door from outside, black with a vertical steel pull handle"
+          }
+        }
+      ],
+      "prima_dopo": null,
+      "galleria": [
+        {
+          "foto": "appartamento-fornitura-completa/01",
+          "didascalia": {
+            "it": "Le portefinestre sul terrazzo: alluminio nero all'esterno, in linea con la facciata del condominio",
+            "en": "The French windows onto the terrace: black aluminium outside, in keeping with the building's façade"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/02",
+          "didascalia": {
+            "it": "La zona giorno sotto il tetto in legno: la portafinestra sul terrazzo e, a destra, la porta della cucina con profilo nero",
+            "en": "The living area under the timber roof: the French window onto the terrace and, on the right, the kitchen door with a black frame"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/03",
+          "didascalia": {
+            "it": "Lo scorrevole in alluminio nero tra intonaco e mattone a vista",
+            "en": "The black aluminium sliding door between render and exposed brick"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/04",
+          "didascalia": {
+            "it": "La portafinestra della cucina vista dall'interno: bianca, per portare in casa più luce",
+            "en": "The kitchen French window from inside: white, to bring more light into the home"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/05",
+          "didascalia": {
+            "it": "Due porte affiancate: lo scorrevole della cucina con profilo nero e la portafinestra bianca, ciascuno con la sua maniglia",
+            "en": "Two doors side by side: the kitchen sliding door with a black frame and the white French window, each with its own handle"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/06",
+          "didascalia": {
+            "it": "La porta blindata motorizzata vista dall'esterno, nera con maniglione verticale in acciaio",
+            "en": "The motorised security door from outside, black with a vertical steel pull handle"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/07",
+          "didascalia": {
+            "it": "L'ingresso, con la porta interna grigia a incisioni ondulate accanto al videocitofono",
+            "en": "The entrance hall, with the grey interior door with wavy grooves next to the video intercom"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/08",
+          "didascalia": {
+            "it": "La porta della cabina armadio in vetro, con profilo marrone come la cabina e il parquet della camera",
+            "en": "The glass walk-in wardrobe door, with a brown frame to match the wardrobe and the bedroom parquet"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/09",
+          "didascalia": {
+            "it": "Il corridoio con le porte interne in finitura legno chiaro, una a battente e una scorrevole a scomparsa",
+            "en": "The corridor with light wood-finish interior doors, one hinged and one pocket sliding door"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/10",
+          "didascalia": {
+            "it": "Il bagno dietro la porta scorrevole a scomparsa, con la finestra bianca e il vetro satinato",
+            "en": "The bathroom behind the pocket sliding door, with the white window and frosted glass"
+          }
+        },
+        {
+          "foto": "appartamento-fornitura-completa/11",
+          "didascalia": {
+            "it": "Una finestra bianca all'interno, con il cassonetto coordinato sotto le travi a vista",
+            "en": "A window that is white on the inside, with a matching roller-shutter box below the exposed beams"
+          }
+        }
+      ],
+      "risultato": [
+        {
+          "titolo": {
+            "it": "Un solo interlocutore",
+            "en": "A single point of contact"
+          },
+          "testo": {
+            "it": "Infissi, blindato, porte interne e cabina armadio da un'unica regia, con tempi chiari e coordinati.",
+            "en": "Windows, security door, interior doors and walk-in wardrobe under one direction, with clear, coordinated timings."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Ogni stanza il suo tono",
+            "en": "Each room its own tone"
+          },
+          "testo": {
+            "it": "Profili e vetri scelti sui materiali: nero e fumé in cucina, marrone verso il parquet delle camere.",
+            "en": "Frames and glass chosen to suit the materials: black and smoked in the kitchen, brown towards the bedroom parquet."
+          }
+        },
+        {
+          "titolo": {
+            "it": "Pronto per domani",
+            "en": "Ready for the future"
+          },
+          "testo": {
+            "it": "L'incasso già predisposto accoglierà zanzariere a scomparsa senza togliere luce.",
+            "en": "The recesses already in place will take concealed insect screens without losing any light."
+          }
+        }
+      ],
+      "testimonianza": false,
+      "linea": "inliving"
+    },
+    {
+      "slug": {
         "it": "appartamento-anni-70-porte-tutta-altezza",
         "en": "1970s-apartment-full-height-doors"
       },

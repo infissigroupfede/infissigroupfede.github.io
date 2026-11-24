@@ -158,13 +158,14 @@ def specs(rows, cls="specs"):
     return f'<dl class="{cls}">' + "".join(f"<div><dt>{a}</dt><dd>{b}</dd></div>" for a, b in rows) + "</dl>"
 
 def card(p, lang):
-    """Card come nella reference: foto, titolo con l'etichetta della categoria, "Dettagli" apribile con la scheda tecnica."""
+    """Card: foto, titolo e "Dettagli" apribile con la scheda tecnica.
+    Niente etichette di tipo o prodotto: le sole distinzioni sono le due linee, InLiving e Outdoor."""
     t, c, u = L[lang], p["copertina"], url(p, lang)
     rows = [(t["s_place"], val(p, "luogo", lang, t["s_place"].lower())), (t["s_year"], val(p, "anno", lang, t["s_year"].lower())),
             (t["s_int"], val(p, "intervento", lang, t["s_int"].lower())), (t["s_prod"], products(p, lang, links=False))]
-    return (f'        <li class="pcard" data-tipo="{" ".join(p["tipo"])}" data-prodotto="{" ".join(p["prodotto"])}">\n'
+    return ('        <li class="pcard">\n'
             f'          <a class="pcard__media" href="{u}" tabindex="-1" aria-hidden="true">{img(c["foto"], tr(c["didascalia"], lang), CARD)}</a>\n'
-            f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{u}">{esc(tr(p["titolo"], lang))}</a></h3>{ptag(lang, p["prodotto"][0])}</div>\n'
+            f'          <div class="pcard__head"><h3 class="pcard__title"><a href="{u}">{esc(tr(p["titolo"], lang))}</a></h3></div>\n'
             f'          <details class="pcard__details"><summary>{t["details"]}{icon("chevron-down")}</summary>{specs(rows)}</details>\n'
             '        </li>\n')
 
@@ -228,15 +229,14 @@ def chips(lang, key, options, projects):
     return out
 
 def projects_section(lang, projects, cls="section section--flush"):
-    """Barra dei filtri tra due filetti e griglia regolare a 3 colonne; progetti dal più recente, a parità di anno prima quelli in evidenza."""
+    """Conteggio tra due filetti e griglia regolare a 3 colonne; progetti dal più recente, a parità di anno prima quelli in evidenza.
+    Nessun filtro per tipo o prodotto: le sole distinzioni sono le due linee, InLiving e Outdoor (chips() resta per un eventuale ritorno)."""
     t = L[lang]
     ordered = sorted(projects, key=lambda p: (-(p["anno"] or 0), not p.get("evidenza")))
     return (f'  <section class="{cls}" aria-labelledby="progetti-title">\n    <div class="container" data-projects data-page="9">\n'
             f'      <h2 class="sr-only" id="progetti-title">{t["projects_title"]}</h2>\n'
             '      <div class="filters" data-filters hidden>\n'
-            + "".join(f'        <div class="filters__group" role="group" aria-label="{t["f_group_" + key]}"><span class="filters__label" aria-hidden="true">{t["f_" + key]}</span>{c}</div>\n'
-                      for key, opts in (("tipo", TIPI), ("prodotto", PRODOTTI)) if (c := chips(lang, key, opts, projects)))
-            + f'        <p class="filters__status" data-status data-one="{t["one"]}" data-many="{t["many"]}" aria-live="polite"></p>\n'
+            f'        <p class="filters__status" data-status data-one="{t["one"]}" data-many="{t["many"]}" aria-live="polite"></p>\n'
             '      </div>\n'
             f'      <ul class="pgrid{" pgrid--two" if len(ordered) <= 2 else ""}" data-grid>\n{"".join(card(p, lang) for p in ordered)}      </ul>\n'
             f'      <div class="projects__empty" data-empty hidden><p>{t["empty"]}</p><button class="btn btn--secondary" type="button" data-reset>{t["reset"]}</button></div>\n'
@@ -324,10 +324,10 @@ def project_page(p, lang):
     t = L[lang]
     title = tr(p["titolo"], lang)
     c = p["copertina"]
-    main_cat = p["prodotto"][0]
 
+    # niente etichette di tipo o prodotto (testata, barra delle sezioni, scheda): le sole distinzioni sono InLiving e Outdoor
     head = ('  <section class="page-head project-head" aria-labelledby="page-title">\n    <div class="container grid project-head__row">\n'
-            f'      <h1 id="page-title">{esc(title)}</h1>\n      <div class="project-head__tags">{"".join(ptag(lang, k) for k in p["tipo"] + p["prodotto"])}</div>\n    </div>\n'
+            f'      <h1 id="page-title">{esc(title)}</h1>\n    </div>\n'
             f'    <div class="container page-head__media page-head__media--16x9">\n      {img(c["foto"], tr(c["didascalia"], lang), HERO, eager=True)}\n    </div>\n  </section>\n')
 
     # La sequenza di foto salta quelle già in pagina (copertina, foto della storia, prima e dopo): nessuna foto ripetuta
@@ -339,10 +339,9 @@ def project_page(p, lang):
 
     nav = (f'  <nav class="pnav" aria-label="{t["pnav_label"]}">\n    <div class="container pnav__inner">\n      <ul class="pnav__links">'
            + "".join(f'<li><a href="#{a}">{b}</a></li>' for a, b in sections)
-           + f'</ul>\n      {ptag(lang, main_cat)}\n    </div>\n  </nav>\n')
+           + '</ul>\n    </div>\n  </nav>\n')
 
     rows = [(t["s_place"], val(p, "luogo", lang, t["s_place"].lower())), (t["s_year"], val(p, "anno", lang, t["s_year"].lower())),
-            (t["s_cat"], " · ".join(label(lang, k) for k in p["tipo"] + p["prodotto"])),
             (t["s_int"], val(p, "intervento", lang, t["s_int"].lower())), (t["s_prod"], products(p, lang)),
             (t["s_part"], val(p, "partner", lang, t["s_part"].lower()))]
     if p["partner"] is False: rows.pop()  # false = nessun partner, la riga non compare
