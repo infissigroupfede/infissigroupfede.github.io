@@ -112,7 +112,7 @@ html.a11y-cursore :is(a, button, label, summary, [role="button"]) * {
   top: 5px; right: 5px;
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--color-bronzo, #A8875E);
+  background: var(--color-brand, #3A7676);
 }
 /* Mentre si scende nella pagina i pulsanti fissi si ritirano (classe messa dallo script); tornano
    appena si risale, e con la tastiera compaiono al focus */

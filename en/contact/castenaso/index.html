@@ -216,7 +216,6 @@
   --color-brand-dark: #2C5E5E;     /* hover, stati attivi, testo su acqua velata */
   --color-ink: #112E2E;            /* testo, pulsante primario, footer, fasce CTA */
   --color-ardesia: #5A6868;        /* testo secondario, didascalie */
-  --color-bronzo: #A8875E;         /* solo dettagli decorativi, mai testo sotto i 24px */
   --color-line: #E3E6E6;           /* linee sottili e divisori */
   --color-line-strong: #849292;    /* bordi di campi e controlli */
   --color-on-ink-muted: #B7C4C4;   /* testo secondario su inchiostro */
@@ -1076,7 +1075,7 @@ html:not(.js) .hero__slide:not(:first-child) { display: none; }
 .step::before {
   content: counter(fase, decimal-leading-zero);
   margin-bottom: var(--space-12);
-  color: var(--color-bronzo);
+  color: var(--color-brand);
   font: 500 2rem/1 var(--font-display);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
@@ -1363,7 +1362,7 @@ html.fab-giu .cookie-fab:not(:focus-visible) { opacity: 0; transform: translate3
 .qd__alert:empty { padding: 0; border: 0; }
 .qd__next { display: grid; gap: var(--space-12); counter-reset: dopo; }
 .qd__next li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); align-items: baseline; counter-increment: dopo; }
-.qd__next li::before { content: counter(dopo); color: var(--color-bronzo); font: 500 1.5rem/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.qd__next li::before { content: counter(dopo); color: var(--color-brand); font: 500 1.5rem/1 var(--font-display); font-variant-numeric: tabular-nums; }
 
 /* =====================================================================
    11. BANNER COOKIE (attivo, COOKIE_BANNER_ENABLED = true)
@@ -1648,7 +1647,7 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
   .table-wrap--stack td + td { border-top: 1px solid var(--color-line); }
   .table-wrap--stack td::before { content: attr(data-label); color: var(--color-ardesia); font-weight: 500; }
 }
-.article__notice { padding: var(--space-16) var(--space-24); border-left: 2px solid var(--color-bronzo); background: var(--color-calce); }
+.article__notice { padding: var(--space-16) var(--space-24); border-left: 2px solid var(--color-brand); background: var(--color-calce); }
 .article__foot { display: flex; flex-wrap: wrap; gap: var(--space-16) var(--space-32); padding-bottom: clamp(40px, 6vw, 80px); }
 /* Moduli nelle pagine: contatti e candidature */
 .contact-form { max-width: 560px; }
@@ -1850,7 +1849,7 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .lightbox__btn:hover { border-color: #FFFFFF; }
 .lightbox__btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
 </style>
-<link rel="stylesheet" href="/assets/accessibilita.css?v=4">
+<link rel="stylesheet" href="/assets/accessibilita.css?v=5">
 <script>try{var a=localStorage.getItem("ig-a11y");if(a)document.documentElement.className+=" "+a}catch(e){}</script>
 <script src="/assets/accessibilita.js?v=4" defer></script>
 <script src="/assets/newsletter.js?v=4" defer></script>
