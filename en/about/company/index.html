@@ -1467,9 +1467,10 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .rows h3 { font-size: var(--fs-h4); line-height: 1.3; }
 .rows p { color: var(--color-ardesia); }
 /* Logo di certificazione accanto al testo (ISO 9001:2015) */
-.cert-badge { display: block; width: auto; height: 72px; }
+/* Loghi delle certificazioni con la stessa area visiva del logo ISO: --k sull'immagine corregge l'altezza in base alla forma */
+.cert-badge { display: block; width: auto; height: calc(72px * var(--k, 1)); }
 .cert-badges { display: flex; align-items: center; gap: var(--space-24); margin-top: var(--space-16); }
-.rows .cert-badge { height: 88px; margin-top: var(--space-8); }
+.rows .cert-badge { height: calc(88px * var(--k, 1)); margin-top: var(--space-8); }
 .rows .cert-badges .cert-badge { margin-top: 0; }
 @media (min-width: 768px) { .rows > li { grid-template-columns: 5fr 7fr; align-items: baseline; column-gap: var(--gutter); } }
 .prose { display: grid; gap: var(--space-16); align-content: start; }
@@ -1487,6 +1488,8 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 .partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-line); border-left: 1px solid var(--color-line); }
 .partner { display: grid; place-items: center; min-height: 88px; padding: var(--space-16); border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-align: center; }
 .partner img { max-width: 100%; height: auto; }
+/* Loghi partner a colori ma desaturati del 25%, come in home (telefono e computer) */
+.partners .partner img { filter: saturate(0.75); }
 /* Loghi cliccabili: tutta la cella porta alla famiglia di prodotto del marchio */
 .partner { position: relative; }
 .partner__link::after { content: ""; position: absolute; inset: 0; }
@@ -1793,28 +1796,28 @@ html.a11y-fermo .rv :is(.area__media, .work__media, .news__media, .pcard__media)
 a.zoomable { display: inline-block; cursor: zoom-in; transition: opacity var(--dur-fast) var(--ease); }
 a.zoomable:hover { opacity: 0.85; }
 a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* filetto solo sull'attestato, che ha il fondo bianco */
-/* Galleria in versione finestra: fondo bianco al centro dello schermo, la pagina resta visibile dietro */
-.lightbox.lightbox--doc { width: fit-content; height: fit-content; max-width: calc(100% - 32px); max-height: calc(100% - 32px); margin: auto; border-radius: var(--radius); background: var(--color-bg); color: var(--color-ink); box-shadow: 0 24px 64px rgba(17, 46, 46, 0.24); }
-/* Apertura e chiusura morbide: dissolvenza e leggero ingrandimento, anche per lo sfondo scurito.
+/* Certificazioni ingrandite: solo il logo (PNG trasparente) su un velo chiaro, senza riquadro, pulsanti né didascalia.
+   Si chiude con Esc o con un clic o un tocco in qualsiasi punto. */
+.lightbox.lightbox--doc { width: fit-content; height: fit-content; max-width: calc(100% - 32px); max-height: calc(100% - 32px); margin: auto; overflow: visible; background: transparent; color: var(--color-ink); cursor: zoom-out; }
+/* Apertura e chiusura morbide: dissolvenza e leggero ingrandimento, anche per il velo.
    Dove il browser non sa animare la chiusura di un <dialog>, si chiude e basta. */
-.lightbox.lightbox--doc { opacity: 0; transform: translateY(12px) scale(0.96); transition: opacity 260ms var(--ease), transform 260ms var(--ease), overlay 260ms allow-discrete, display 260ms allow-discrete; }
+.lightbox.lightbox--doc { opacity: 0; transform: scale(0.92); transition: opacity 260ms var(--ease), transform 260ms var(--ease), overlay 260ms allow-discrete, display 260ms allow-discrete; }
 .lightbox.lightbox--doc[open] { opacity: 1; transform: none; }
-.lightbox--doc::backdrop { background: rgba(17, 46, 46, 0); transition: background-color 260ms var(--ease), overlay 260ms allow-discrete, display 260ms allow-discrete; }
-.lightbox--doc[open]::backdrop { background: rgba(17, 46, 46, 0.6); }
+.lightbox--doc::backdrop { background: rgba(245, 244, 240, 0); cursor: zoom-out; transition: background-color 260ms var(--ease), overlay 260ms allow-discrete, display 260ms allow-discrete; }
+.lightbox--doc[open]::backdrop { background: rgba(245, 244, 240, 0.96); }
 @starting-style {
-  .lightbox.lightbox--doc[open] { opacity: 0; transform: translateY(12px) scale(0.96); }
-  .lightbox--doc[open]::backdrop { background: rgba(17, 46, 46, 0); }
+  .lightbox.lightbox--doc[open] { opacity: 0; transform: scale(0.92); }
+  .lightbox--doc[open]::backdrop { background: rgba(245, 244, 240, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .lightbox.lightbox--doc, .lightbox--doc::backdrop { transition: none; }
 }
-.lightbox--doc .lightbox__bar { justify-content: flex-end; padding-bottom: 0; }
-.lightbox--doc .lightbox__btn { border-color: var(--color-line-strong); color: var(--color-ink); }
-.lightbox--doc .lightbox__btn:hover { border-color: var(--color-ink); }
-.lightbox--doc .lightbox__btn:focus-visible { outline-color: var(--color-ink); }
-.lightbox--doc .lightbox__img { width: auto; height: auto; max-width: calc(100vw - 64px); max-height: min(400px, calc(100dvh - 160px)); }
-.lightbox--doc .lightbox__img[src$=".svg"] { height: min(400px, calc(100dvh - 160px)); } /* il vettoriale non ha una misura propria: lo porta alla stessa altezza */
-.lightbox--doc .lightbox__caption { color: var(--color-ardesia); }
+.lightbox--doc .lightbox__bar, .lightbox--doc .lightbox__foot { display: none; }
+.lightbox.lightbox--doc:focus, .lightbox.lightbox--doc:focus-visible { outline: none; } /* niente bordo di focus attorno al logo */
+.lightbox--doc .lightbox__figure { padding: 0; overflow: visible; }
+.lightbox--doc .lightbox__img { width: auto; height: auto; max-width: calc(100vw - 48px); max-height: min(560px, calc(100dvh - 96px)); }
+.lightbox--doc .lightbox__img[src$=".svg"] { height: min(560px, calc(100dvh - 96px)); } /* il vettoriale non ha una misura propria: lo porta alla stessa altezza */
+.lightbox--doc .lightbox__img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line), 0 16px 48px rgba(17, 46, 46, 0.12); } /* l'attestato è un foglio bianco: un filetto lo stacca dal velo */
 /* Video YouTube in modalità privacy avanzata (youtube-nocookie.com): lo script mette subito il player al posto
    della foto, che resta solo senza JavaScript, come link al video su YouTube */
 .video { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius); background: var(--color-ink); }
@@ -1977,6 +1980,7 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
               <ul class="nav__sub">
                 <li><a href="/en/contact/castenaso/">Home Design Gallery Castenaso</a></li>
                 <li><a href="/en/contact/casalecchio/">Atelier Casalecchio</a></li>
+                <li><a href="/en/contact/professionals/">For professionals</a></li>
                 <li><a href="/en/contact/careers/">Careers</a></li>
                 <li class="nav__all nav__divided"><a href="/en/contact/">All contact details</a></li>
               </ul>
@@ -2062,12 +2066,11 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
         <p>Certificates issued by independent bodies, which you can check.</p>
       </div>
       <ul class="rows bonus__list">
-        <li><h3>ISO 9001:2015 certification</h3><p>Certifies the quality of the company's management.</p><a class="zoomable" href="/assets/img/certificazioni/iso-9001-2015-zoom.png" data-lightbox data-caption="ISO 9001:2015 certification"><img class="cert-badge" src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"></a></li>
-        <li><h3>Installation certified by IFT Rosenheim</h3><p>Window and door installation certified to the UNI 11673-2:2019 standard.</p><a class="zoomable" href="/assets/img/partner/ift-rosenheim.svg" data-lightbox data-caption="Installation certified by IFT Rosenheim to UNI 11673-2:2019"><img class="cert-badge cert-badge--ift" src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></a></li>
-        <li><h3>Campione della Crescita 2024, 2025, 2026 and 2027</h3><p>The Growth Champion award from La Repubblica Affari&amp;Finanza and the German institute ITQF, recognising economic growth.</p><div class="cert-badges"><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2027-zoom.png" data-lightbox data-caption="Campione della Crescita 2027 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img class="cert-badge" src="/assets/img/certificazioni/campione-crescita-2027-120.png" srcset="/assets/img/certificazioni/campione-crescita-2027-120.png 1x, /assets/img/certificazioni/campione-crescita-2027-240.png 2x" width="79" height="120" alt="Campione della Crescita 2027 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2026-zoom.png" data-lightbox data-caption="Campione della Crescita 2026 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img class="cert-badge" src="/assets/img/certificazioni/campione-crescita-2026-120.png" srcset="/assets/img/certificazioni/campione-crescita-2026-120.png 1x, /assets/img/certificazioni/campione-crescita-2026-240.png 2x" width="79" height="120" alt="Campione della Crescita 2026 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2025-v2-zoom.png" data-lightbox data-caption="Campione della Crescita 2025 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img class="cert-badge" src="/assets/img/certificazioni/campione-crescita-2025-v2-120.png" srcset="/assets/img/certificazioni/campione-crescita-2025-v2-120.png 1x, /assets/img/certificazioni/campione-crescita-2025-v2-240.png 2x" width="79" height="120" alt="Campione della Crescita 2025 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2024-zoom.png" data-lightbox data-caption="Campione della Crescita 2024 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img class="cert-badge" src="/assets/img/certificazioni/campione-crescita-2024-120.png" srcset="/assets/img/certificazioni/campione-crescita-2024-120.png 1x, /assets/img/certificazioni/campione-crescita-2024-240.png 2x" width="79" height="120" alt="Campione della Crescita 2024 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a></div></li>
-        <li><h3>CRIBIS Rating 1</h3><p>An assessment of the company's financial soundness.</p></li>
-        <li><h3>CRIBIS Prime Company</h3><p>A certificate of commercial reliability.</p><a class="zoomable" href="/assets/img/certificazioni/cribis-prime-company-attestato-694.jpg" data-lightbox data-caption="CRIBIS Prime Company certificate of Infissi Group Bologna, 21 March 2024"><img class="cert-badge" src="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg" srcset="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg 1x, /assets/img/certificazioni/cribis-prime-company-attestato-240.jpg 2x" width="175" height="120" alt="CRIBIS Prime Company certificate awarded to Infissi Group Bologna, 21 March 2024" loading="lazy" decoding="async"></a></li>
-        <li><h3>SOA certification</h3><p>The Italian qualification for taking part in public works contracts.</p><a class="zoomable" href="/assets/img/certificazioni/attestazione-soa-zoom.jpg" data-lightbox data-caption="SOA certification"><img class="cert-badge" src="/assets/img/certificazioni/attestazione-soa-120.png" srcset="/assets/img/certificazioni/attestazione-soa-120.png 1x, /assets/img/certificazioni/attestazione-soa-240.png 2x" width="94" height="120" alt="SOA certification" loading="lazy" decoding="async"></a></li>
+        <li><h3>ISO 9001:2015 certification</h3><p>Certification of the company's quality management system.</p><a class="zoomable" href="/assets/img/certificazioni/iso-9001-2015-zoom-v2.png" data-lightbox data-caption="ISO 9001:2015 certification"><img class="cert-badge" src="/assets/img/partner/iso-9001-2015-120.png" srcset="/assets/img/partner/iso-9001-2015-120.png 1x, /assets/img/partner/iso-9001-2015-240.png 2x" width="120" height="120" alt="ISO 9001:2015 logo" loading="lazy" decoding="async"></a></li>
+        <li><h3>Installation certified by IFT Rosenheim</h3><p>Window and door installation certified to the UNI 11673-2:2019 standard.</p><a class="zoomable" href="/assets/img/partner/ift-rosenheim.svg" data-lightbox data-caption="Installation certified by IFT Rosenheim to UNI 11673-2:2019"><img style="--k: 1.1" class="cert-badge cert-badge--ift" src="/assets/img/partner/ift-rosenheim.svg" width="94" height="114" alt="ift Rosenheim logo" loading="lazy" decoding="async"></a></li>
+        <li><h3>Campione della Crescita 2024, 2025, 2026 and 2027</h3><p>Award<br>La Repubblica Affari&amp;Finanza and the German institute ITQF, recognising economic growth.</p><div class="cert-badges"><a class="zoomable" href="/assets/img/certificazioni/campione-crescita-2027-zoom.png" data-lightbox data-caption="Campione della Crescita 2027 (Growth Champion), La Repubblica Affari&amp;Finanza and ITQF"><img style="--k: 1.24" class="cert-badge" src="/assets/img/certificazioni/campione-crescita-2027-120.png" srcset="/assets/img/certificazioni/campione-crescita-2027-120.png 1x, /assets/img/certificazioni/campione-crescita-2027-240.png 2x" width="79" height="120" alt="Campione della Crescita 2027 (Growth Champion), La Repubblica Affari&amp;Finanza and the German quality institute ITQF" loading="lazy" decoding="async"></a></div></li>
+        <li><h3>CRIBIS Rating 1 and CRIBIS Prime Company</h3><p>Financial soundness and the highest commercial reliability (CRIF group, certificate March 2024).</p><a class="zoomable" href="/assets/img/certificazioni/cribis-prime-company-attestato-694.jpg" data-lightbox data-caption="CRIBIS Prime Company certificate of Infissi Group Bologna, 21 March 2024"><img style="--k: 0.83" class="cert-badge" src="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg" srcset="/assets/img/certificazioni/cribis-prime-company-attestato-120.jpg 1x, /assets/img/certificazioni/cribis-prime-company-attestato-240.jpg 2x" width="175" height="120" alt="CRIBIS Prime Company certificate awarded to Infissi Group Bologna, 21 March 2024" loading="lazy" decoding="async"></a></li>
+        <li><h3>SOA certification</h3><p>Certificate of qualification to carry out public works, issued by SOA IC S.p.A.</p><a class="zoomable" href="/assets/img/certificazioni/soa-ic-zoom-v2.png" data-lightbox data-caption="SOA certification"><img style="--k: 1.14" class="cert-badge" src="/assets/img/certificazioni/soa-ic-120.png" srcset="/assets/img/certificazioni/soa-ic-120.png 1x, /assets/img/certificazioni/soa-ic-240.png 2x" width="93" height="120" alt="SOA certification, SOA IC spa logo" loading="lazy" decoding="async"></a></li>
       </ul>
     </div>
   </section>
@@ -2085,22 +2088,22 @@ a.zoomable img[src*="cribis"] { box-shadow: 0 0 0 1px var(--color-line); } /* fi
       <ul class="partners" aria-labelledby="partner-title">
           <li class="partner"><img src="/assets/img/partner/finstral.svg" width="136" height="22" alt="Finstral" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/cosmet.svg" width="133" height="24" alt="Cosmet Group" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/bertolotto.png" width="130" height="35" alt="Bertolotto Porte" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/linvisibile.png" width="150" height="22" alt="Linvisibile" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/lualdi.png" width="104" height="38" alt="Lualdi" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/gaviota.svg" width="140" height="31" alt="Gaviota" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/gradhermetic.svg" width="135" height="30" alt="Gradhermetic" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/oikos.png" width="129" height="25" alt="Oikos" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/hormann-v2.svg" width="140" height="21" alt="Hörmann" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/ballan.png" width="112" height="36" alt="Ballan" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/mobirolo.png" width="136" height="26" alt="Mobirolo" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/cromatica-marcegaglia.png" width="140" height="32" alt="Cromatica Marcegaglia" loading="lazy" decoding="async"></li>
-          <li class="partner"><img src="/assets/img/partner/tecnografica.png" width="137" height="31" alt="Tecnografica" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/lualdi.png" width="104" height="38" alt="Lualdi" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/linvisibile.png" width="150" height="22" alt="Linvisibile" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/bertolotto.png" width="130" height="35" alt="Bertolotto Porte" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/oikos.png" width="129" height="25" alt="Oikos" loading="lazy" decoding="async"></li>
           <li class="partner"><img src="/assets/img/partner/dierre.svg" width="102" height="46" alt="Dierre" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/gaviota.svg" width="140" height="31" alt="Gaviota" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/mottura.svg" width="141" height="29" alt="Mottura" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/hormann-v2.svg" width="140" height="21" alt="Hörmann" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/tecnografica.png" width="137" height="31" alt="Tecnografica" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/mobirolo.png" width="136" height="26" alt="Mobirolo" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/gradhermetic.svg" width="135" height="30" alt="Gradhermetic" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/ballan.png" width="112" height="36" alt="Ballan" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/donelli.png" width="132" height="35" alt="Donelli Avvolgibili" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/tekline.png" width="133" height="38" alt="Tekline" loading="lazy" decoding="async"></li>
+          <li class="partner"><img src="/assets/img/partner/zanzar-sistem.png" width="104" height="43" alt="Zanzar Sistem" loading="lazy" decoding="async"></li>
         </ul>
     </div>
   </section>
@@ -3124,7 +3127,7 @@ const FORM_ENDPOINT = "/api/preventivo.php";
       if (e.key === "ArrowLeft") show(current - 1);
       if (e.key === "ArrowRight") show(current + 1);
     });
-    lightbox.addEventListener("click", (e) => { if (e.target === lightbox || e.target.classList.contains("lightbox__figure")) lightbox.close(); });
+    lightbox.addEventListener("click", (e) => { if (lightbox.classList.contains("lightbox--doc") || e.target === lightbox || e.target.classList.contains("lightbox__figure")) lightbox.close(); }); // certificazioni: si chiude con un clic ovunque
   }
 
   /* -------------------------------------------------------------------
